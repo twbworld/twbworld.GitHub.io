@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{{- $language_code := site.LanguageCode | default "en-us" -}}
+<html lang="{{$language_code}}" {{ if in site.Data.i18n.rtl.rtl $language_code }}dir="rtl"{{end}}>
+
+{{ partial "site_head" . }}
+<body id="top" data-spy="scroll" data-offset="70" data-target="{{ if or .IsHome (eq .Type "widget_page") }}#navbar-main{{else}}#TableOfContents{{end}}" {{ if not (.Scratch.Get "light") }}class="dark"{{end}}>
+
+  {{ partial "search" . }}
+
+  {{ partial "navbar" . }}
+
+  {{ block "main" . }}{{ end }}
+
+  {{ partial "site_js" . }}
+
+  {{/* Docs and Updates layouts include the site footer in a different location. */}}
+  {{ if not (in (slice "docs" "updates") .Type) }}
+
+
+  <!-- 此处有修改 -->
+  {{ $homefloorbg := site.Params.home_floor }}
+  {{ $style := "" }}
+
+  {{ if $homefloorbg.image }}
+
+    {{ $darken := "" }}
+    {{ if $homefloorbg.image_darken }}
+      {{ $darken = printf "linear-gradient(rgba(0, 0, 0, %s), rgba(0, 0, 0, %s))," (string $homefloorbg.image_darken) (string $homefloorbg.image_darken) }}
+    {{ end }}
+
+    {{ $style = printf "%sbackground-image: %s url('%s');" $style $darken (printf "img/%s" $homefloorbg.image | absURL) }}
+
+    {{ with $homefloorbg.image_size }}
+      {{/* Allow sizes: actual, cover, and contain. */}}
+      {{ $style = printf "%sbackground-size: %s;" $style (replace . "actual" "auto") }}
+    {{ end }}
+
+    {{ with $homefloorbg.image_position }}
+      {{/* Allow valid CSS positions including left, center, and right. */}}
+      {{ $style = printf "%sbackground-position: %s;" $style . }}
+    {{ end }}
+
+  {{ end }}
+  <div class="
+    home-section bg-image parallax
+    {{if $homefloorbg.text_color_light}} dark{{end}}
+    {{if $homefloorbg.image}} bg-image{{if ($homefloorbg.image_parallax | default true) }} parallax{{end}}{{end}}
+    "
+  {{with $style}} style="{{. | safeCSS}}"{{end}}
+  >
+    {{ partial "site_footer" . }}
+  </div>
+  {{ end }}
+
+  {{ partial "citation" . }}
+
+</body>
+</html>

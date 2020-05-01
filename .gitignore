@@ -1,0 +1,11 @@
+!.gitignore
+
+# IDEs
+.idea/
+.vs/
+
+# Hugo
+resources/
+
+# hugo 写作时的临时目录,,,相对的是public正式目录
+dev/
