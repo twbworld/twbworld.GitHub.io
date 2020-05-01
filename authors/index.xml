@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors | 忐忑的博客 | blog</title>
+    <link>https://twbworld.github.io/authors/</link>
+      <atom:link href="https://twbworld.github.io/authors/index.xml" rel="self" type="application/rss+xml" />
+    <description>Authors</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><copyright>© 2020 [twbworld](https://github.com/twbworld)</copyright><lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://twbworld.github.io/img/avatar.jpg</url>
+      <title>Authors</title>
+      <link>https://twbworld.github.io/authors/</link>
+    </image>
+    
+  </channel>
+</rss>
