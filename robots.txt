@@ -1,0 +1,13 @@
+User-agent: *
+
+Disallow: .png$
+Disallow: .jpg$
+Disallow: .jpeg$
+Disallow: .gif$
+
+Disallow: /publication/
+Disallow: /slides/
+Disallow: /talk/
+
+Allow: /post/
+Allow: /project/
