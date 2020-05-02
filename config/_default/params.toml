@@ -217,14 +217,14 @@ plugins_js  = []
   #   0: Disabled
   #   1: Disqus (https://disqus.com)
   #   2: Commento (https://commento.io)
-  engine = 0
+  engine = 1
 
   # Which page types are commentable?
   commentable = {page = true, post = true, docs = true, project = true, publication = true, talk = true}
 
   # Configuration of Disqus.
   [comments.disqus]
-    shortname = "忐忑"  # Paste the shortname from your Disqus dashboard.
+    shortname = "twbworld"  # Paste the shortname from your Disqus dashboard.
     show_count = true  # Show comment count in page header? (true/false)
 
   # Configuration of Commento.
@@ -275,9 +275,10 @@ plugins_js  = []
 ############################
 ## Marketing
 ############################
+# 填写了google_tag_manager就没必要填写google_analytics,因为GTM可以使用GA
 [marketing]
-  google_analytics = "UA-165300316-1"
   google_tag_manager = "GTM-P8WL7G3"
+  google_analytics = "UA-165300316-1"
 
 ############################
 ## Content Management System
