@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Courses | 忐忑的博客 | blog</title>
+    <title>Courses | 忐忑の博客</title>
     <link>https://twbworld.github.io/courses/</link>
       <atom:link href="https://twbworld.github.io/courses/index.xml" rel="self" type="application/rss+xml" />
     <description>Courses</description>
