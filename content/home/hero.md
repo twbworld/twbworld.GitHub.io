@@ -24,7 +24,7 @@ title = ""
   gradient_end = "#2b94c3"
   
   # Background image.
-  image = "hong-kong-apartment-buildings-looking-up-dense-by-steven-wei.jpg"  # Name of image in `static/img/`.
+  image = "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200505231535.jpg"  # Name of image in `static/img/`.
   image_darken = 0.4  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
   image_size = "cover"  #  Options are `cover` (default), `contain`, or `actual` size.
   image_position = "center"  # Options include `left`, `center` (default), or `right`.

@@ -15,5 +15,9 @@ hugo-blog - 基于[academic-kickstart](https://github.com/sourcethemes/academic-
 例:`hugo`
 > 运行`hugo`前,先删除public下的文件`rm -rfv public/*`
 
+## 新建博客文章
+例:`hugo new --kind post post/使用linux时遇到的一个坑`
+> `使用linux时遇到的一个坑`是一个文件夹名,也默认了是文章标题,里面含有自动生成的`index.md`
+
 ## PS
 - robots.txt等文件位于static下

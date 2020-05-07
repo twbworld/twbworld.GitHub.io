@@ -10,5 +10,5 @@ view: 2
 # Optional header image (relative to `static/img/` folder).
 header:
   caption: ""
-  image: "projects_rocket.jpg"
+  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200506002156.jpg"
 ---

@@ -1,4 +1,7 @@
+
 <footer class="site-footer">
+
+<!-- ===========================允许读取cookie=========begin -->
   {{ if site.Params.privacy_pack }}<!-- 此处有修改 -->
   <p class="powered-by">
     {{ with site.GetPage "privacy.md" }}
@@ -10,14 +13,50 @@
     {{ end }}
   </p>
   {{ end }}
+<!-- ===========================允许读取cookie=========end -->
 
+
+<!-- ====================社交方式=================begin -->
+  <!-- 此处有修改 begin-->
+  <ul class="network-icon powered-by" style="text-align: center;display: block;" aria-hidden="true">
+
+    {{ $data := site.Params }}
+    {{ range $data.contact_links }}
+
+    {{ $pack := or .icon_pack "fas" }}
+    {{ $pack_prefix := $pack }}
+    {{ if in (slice "fab" "fas" "far" "fal") $pack }}
+      {{ $pack_prefix = "fa" }}
+    {{ end }}
+    {{ $link := .link }}
+    {{ $scheme := (urls.Parse $link).Scheme }}
+    {{ $target := "" }}
+    {{ if not $scheme }}
+      {{ $link = .link | relLangURL }}
+    {{ else if in (slice "http" "https") $scheme }}
+      {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+    {{ end }}
+    <li style="display: inline-block;">
+      <a href="{{ $link | safeURL }}" title="{{ .icon }}" {{ $target | safeHTMLAttr }}>
+        <i class="{{ $pack }} {{ $pack_prefix }}-{{ .icon }} big-icon"></i>
+      </a>
+    </li>
+    {{ end }}
+  </ul>
+  <!-- 此处有修改 end-->
+<!-- ====================社交方式=================end -->
+
+
+
+
+<!-- ===========版权=========begin -->
   <p class="powered-by">
     {{ with site.Copyright }}{{ replace . "{year}" now.Year | markdownify}} &middot; {{ end }}
-
     Powered by the
-    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
-
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme </a>
+    for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
+    .
     {{ if not (in (slice "docs" "updates") .Type) }}
     <span class="float-right" aria-hidden="true">
       <a href="#" class="back-to-top">
@@ -28,4 +67,9 @@
     </span>
     {{ end }}
   </p>
+<!-- ===========版权=========end -->
+
+
+
+
 </footer>

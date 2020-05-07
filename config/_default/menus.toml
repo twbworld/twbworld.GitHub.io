@@ -10,7 +10,7 @@
 
 [[main]]
   name = "博客"
-  url = "post/"
+  url = "post"
   weight = 21
 #  parent= '博客'
 

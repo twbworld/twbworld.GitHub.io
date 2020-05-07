@@ -21,14 +21,18 @@
   {{ $homefloorbg := site.Params.home_floor }}
   {{ $style := "" }}
 
-  {{ if $homefloorbg.image }}
+  {{ if and $homefloorbg.image (eq .RelPermalink "/") }}<!-- 在首页,底部才设置背景图 -->
 
     {{ $darken := "" }}
     {{ if $homefloorbg.image_darken }}
       {{ $darken = printf "linear-gradient(rgba(0, 0, 0, %s), rgba(0, 0, 0, %s))," (string $homefloorbg.image_darken) (string $homefloorbg.image_darken) }}
     {{ end }}
 
-    {{ $style = printf "%sbackground-image: %s url('%s');" $style $darken (printf "img/%s" $homefloorbg.image | absURL) }}
+    {{if hasPrefix $homefloorbg.image "http" }}<!-- 判断是否以http开头,否则本地文件 -->
+      {{ $style = printf "%sbackground-image: %s url('%s');" $style $darken $homefloorbg.image }}
+    {{ else }}
+      {{ $style = printf "%sbackground-image: %s url('%s');" $style $darken (printf "img/%s" $homefloorbg.image | absURL) }}
+    {{ end }}
 
     {{ with $homefloorbg.image_size }}
       {{/* Allow sizes: actual, cover, and contain. */}}

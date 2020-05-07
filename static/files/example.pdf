@@ -1,0 +1,4 @@
+在页面使用:
+{{% staticref "files/cv.pdf" %}}Download my CV{{% /staticref %}}
+就可以链接这个pdf文件
+文档:https://sourcethemes.com/academic/zh/docs/managing-content/#example-creating-a-curriculum-vitae-page

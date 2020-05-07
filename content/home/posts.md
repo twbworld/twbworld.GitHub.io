@@ -2,12 +2,12 @@
 # A Recent Blog Posts section created with the Pages widget.
 # This section displays recent blog posts from `content/post/`.
 
-widget = "pages"  # See https://sourcethemes.com/academic/docs/page-builder/
+widget = "portfolio"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
-active = false  # Activate this widget? true/false
+active = true  # Activate this widget? true/false
 weight = 60  # Order that this section will appear.
 
-title = "博客文章"
+title = ""
 subtitle = ""
 
 [content]
@@ -30,14 +30,32 @@ subtitle = ""
     publication_type = ""
     author = ""
     exclude_featured = false
+
+  # Default filter index (e.g. 0 corresponds to the first `[[filter_button]]` instance below).
+  filter_default = 0
+  
+  [[content.filter_button]]
+    name = "All"
+    tag = "*"
+  
+  [[content.filter_button]]
+    name = "Hugo"
+    tag = "hugo"
+  
+  [[content.filter_button]]
+    name = "Other"
+    tag = "这是文章的tag"
   
 [design]
+  # Choose how many columns the section has. Valid values: 1 or 2.
+  columns = "1"
+
   # Toggle between the various page layout types.
   #   1 = List
   #   2 = Compact
   #   3 = Card
   #   4 = Citation (publication only)
-  view = 2
+  view = 3
   
 [design.background]
   # Apply a background color, gradient, or image.
@@ -53,11 +71,14 @@ subtitle = ""
   # gradient_end = "SkyBlue"
   
   # Background image.
-  # image = "background.jpg"  # Name of image in `static/img/`.
-  # image_darken = 0.6  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
-
+  image = "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200505231535.jpg"  # Name of image in `static/img/`.
+  image_darken = 0.4  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
+  image_size = "cover"  #  Options are `cover` (default), `contain`, or `actual` size.
+  image_position = "center"  # Options include `left`, `center` (default), or `right`.
+  image_parallax = true  # Use a fun parallax-like fixed background effect? true/false
+  
   # Text color (true=light or false=dark).
-    text_color_light = true  
+  text_color_light = false
   
 [advanced]
  # Custom CSS. 

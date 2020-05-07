@@ -148,7 +148,7 @@ address_format = "zh"
 ############################
 
 # Main menu alignment (l = left, c = center, r = right) and logo options.
-main_menu = {align = "l", show_logo = true}
+main_menu = {align = "c", show_logo = true}
 
 # 显示帖子大概阅读时间)Show estimated reading time for posts? (true/false)
 reading_time = true
@@ -225,7 +225,7 @@ plugins_js  = []
   # Configuration of Disqus.
   [comments.disqus]
     shortname = "twbworld"  # Paste the shortname from your Disqus dashboard.
-    show_count = true  # Show comment count in page header? (true/false)
+    show_count = false  # 这个会加载被墙的js资源,为加快速度改false)Show comment count in page header? (true/false)
 
   # Configuration of Commento.
   [comments.commento]
@@ -240,7 +240,10 @@ plugins_js  = []
   #   0: No search engine
   #   1: Academic (built-in)
   #   2: Algolia (https://www.algolia.com)
-  engine = 0
+  engine = 1
+
+  # 在什么页面显示搜索icon
+  show_in = ["/post/"]
 
   # Configuration of Algolia search engine.
   # Paste the values from your Algolia dashboard.
@@ -289,7 +292,7 @@ plugins_js  = []
 
 
 # <!-- 此处有修改 -->
-# <!-- 此处自行添加的 -->
+# <!-- 底部背景,此处自行添加的 -->
 [home_floor]
   # Apply a background color, gradient, or image.
   #   Uncomment (by removing `#`) an option to apply it.
@@ -304,7 +307,7 @@ plugins_js  = []
   # gradient_end = "SkyBlue"
   
   # Background image.
-  image = "hong-kong-apartment-buildings-looking-up-dense-by-steven-wei.jpg"  # Name of image in `static/img/`.
+  image = "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200505231535.jpg"  # Name of image in `static/img/`.
   image_darken = 0.4  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
   image_size = "cover"  #  Options are `cover` (default), `contain`, or `actual` size.
   image_position = "center"  # Options include `left`, `center` (default), or `right`.

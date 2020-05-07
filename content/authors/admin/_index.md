@@ -27,10 +27,11 @@ organizations:
 bio: My research interests include distributed robotics, mobile computing and programmable matter.
 
 interests:
-- 码
-- 书
-- 球
-- 游
+
+#- 码
+#- 书
+#- 球
+#- 游
 
 <!-- education:
   courses:
@@ -66,7 +67,7 @@ user_groups:
 - Visitors
 ---
 
-PHP小白
-码农
-韭菜
-社畜
+* PHP小白
+* 码农
+* 韭菜
+* 社畜

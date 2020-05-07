@@ -7,12 +7,13 @@
 {{ if $has_logo }}
   {{ $logo = (partial "functions/get_logo" (dict "constraint" "max_height" "size" 70)) }}
 {{ end }}
+{{ $align_menu := site.Params.main_menu.align | default "l" }}
 
 <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
   <div class="container">
 
     {{if $show_logo}}
-    <div class="d-none d-lg-inline-flex">
+    <div class="d-none d-lg-inline-flex" {{ if eq $align_menu "c" }}style="width: 35%"{{ end }}>
       <a class="navbar-brand" href="{{ "/" | relLangURL }}">
         {{- if $has_logo -}}
           <img src="{{ $logo.RelPermalink }}" alt="{{ site.Title }}">
@@ -123,17 +124,30 @@
       </ul>
     </div><!-- /.navbar-collapse -->
 
-    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
-      {{ if site.Params.search.engine }}
-      <li class="nav-item">
+
+
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2" {{ if eq $align_menu "c" }}style="display: block !important;text-align: right;width: 35%"{{ end }}>
+
+
+
+<!-- ============搜索框============begin -->
+      {{ if and site.Params.search.engine (in site.Params.search.show_in $current_page.RelPermalink ) }}
+      <li class="nav-item" style="display:inline-block;">
         <a class="nav-link js-search" title="Search" href="#"><i class="fas fa-search big-icon" aria-hidden="true"></i></a><!-- 此处有修改 -->
       </li>
       {{ end }}
+<!-- ============搜索框============end -->
 
+
+
+
+
+<!-- =========模式切换===========begin -->
       {{ if site.Params.day_night }}
-      <li class="nav-item dropdown theme-dropdown">
+      <li class="nav-item dropdown theme-dropdown" style="display:inline-block;">
         <a href="#" class="nav-link js-theme-selector" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-palette" aria-hidden="true"></i>
+          <i class="fas fa-palette big-icon" aria-hidden="true"></i>
         </a>
         <div class="dropdown-menu">
           <a href="#" class="dropdown-item js-set-theme-light">
@@ -148,10 +162,11 @@
         </div>
       </li>
       {{ end }}
+<!-- =========模式切换===========end -->
 
 
 
-
+<!-- ===========GitHub图标============begin -->
       <!-- 此处有修改 -->
       {{ if site.Params.contact_links }}
       {{ range site.Params.contact_links }}
@@ -169,19 +184,20 @@
         {{ else if in (slice "http" "https") $scheme }}
           {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
         {{ end }}
-        <li class="nav-item">
+        <li class="nav-item" style="display:inline-block;">
           <a class="nav-link" title="@twbworld on {{ .icon }}" href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }}><i class="{{ $pack }} {{ $pack_prefix }}-{{ .icon }} big-icon" aria-hidden="true"></i></a>
         </li>
       {{ end }}
       {{ end }}
       {{ end }}
+<!-- ===========github图标============end -->
 
 
 
 
-
+<!-- =========多语言=============begin -->
       {{ if .IsTranslated }}
-      <li class="nav-item dropdown i18n-dropdown">
+      <li class="nav-item dropdown i18n-dropdown" style="display:inline-block;">
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
           <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">{{ index site.Data.i18n.languages .Lang }}</span>
         </a>
@@ -197,8 +213,18 @@
         </div>
       </li>
       {{ end }}
+<!-- =========多语言=============end -->
+
+
+
+
 
     </ul>
+
+
+
+
+
 
   </div><!-- /.container -->
 </nav>
