@@ -640,7 +640,14 @@
     // Filter projects.
     $('.projects-container').each(function (index, container) {
       let $container = $(container);
-      let $section = $container.closest('section');
+      /*===============此处有修改=====================begin*/
+      // let $section = $container.closest('section');
+      let $section;
+      $section = $container.closest('section');
+      if ($section.length <= 0) {
+        $section = $container.closest('body');
+      }
+      /*===============此处有修改=====================end*/
       let layout;
       if ($section.find('.isotope').hasClass('js-layout-row')) {
         layout = 'fitRows';

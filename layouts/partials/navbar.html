@@ -127,12 +127,12 @@
 
 
 
-    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2" {{ if eq $align_menu "c" }}style="display: block !important;text-align: right;width: 35%"{{ end }}>
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2" style="{{ if eq $align_menu "c" }}display: block !important;text-align: right;width: 35%;{{ end }} height:100%">
 
 
 
 <!-- ============搜索框============begin -->
-      {{ if and site.Params.search.engine (in site.Params.search.show_in $current_page.RelPermalink ) }}
+      {{ if and site.Params.search.engine (not (in site.Params.search.unable_type .Type)) }}
       <li class="nav-item" style="display:inline-block;">
         <a class="nav-link js-search" title="Search" href="#"><i class="fas fa-search big-icon" aria-hidden="true"></i></a><!-- 此处有修改 -->
       </li>

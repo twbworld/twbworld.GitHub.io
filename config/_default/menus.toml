@@ -4,13 +4,15 @@
 #   weight就是排序)The weight parameter defines the order that the links will appear in.
 
 [[main]]
-  name = "首页"
+  name = " "
   url = "#hero"
+  pre = "<i class='fa fa-home big-icon' title='首页'></i>"
   weight = 10
 
 [[main]]
-  name = "博客"
+  name = ""
   url = "post"
+  pre = "<i class='fa fa-list-ul big-icon' title='博客'></i>"
   weight = 21
 #  parent= '博客'
 

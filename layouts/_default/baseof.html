@@ -2,8 +2,48 @@
 {{- $language_code := site.LanguageCode | default "en-us" -}}
 <html lang="{{$language_code}}" {{ if in site.Data.i18n.rtl.rtl $language_code }}dir="rtl"{{end}}>
 
+<!-- 此处有修改 -->
+{{ $hbg := site.Params.home_background }}
+{{ $style := "" }}
+
+{{ if and $hbg.image .IsHome }}<!-- 在首页,body才设置背景图 -->
+
+  {{ $darken := "" }}
+  {{ if $hbg.image_darken }}
+    {{ $darken = printf "linear-gradient(rgba(0, 0, 0, %s), rgba(0, 0, 0, %s))," (string $hbg.image_darken) (string $hbg.image_darken) }}
+  {{ end }}
+
+  {{if hasPrefix $hbg.image "http" }}<!-- 判断是否以http开头,否则本地文件 -->
+    {{ $style = printf "%sbackground-image: %s url('%s');" $style $darken $hbg.image }}
+  {{ else }}
+    {{ $style = printf "%sbackground-image: %s url('%s');" $style $darken (printf "img/%s" $hbg.image | absURL) }}
+  {{ end }}
+
+  {{ with $hbg.image_size }}
+    {{/* Allow sizes: actual, cover, and contain. */}}
+    {{ $style = printf "%sbackground-size: %s;" $style (replace . "actual" "auto") }}
+  {{ end }}
+
+  {{ with $hbg.image_position }}
+    {{/* Allow valid CSS positions including left, center, and right. */}}
+    {{ $style = printf "%sbackground-position: %s;" $style . }}
+  {{ end }}
+
+{{ end }}
+
 {{ partial "site_head" . }}
-<body id="top" data-spy="scroll" data-offset="70" data-target="{{ if or .IsHome (eq .Type "widget_page") }}#navbar-main{{else}}#TableOfContents{{end}}" {{ if not (.Scratch.Get "light") }}class="dark"{{end}}>
+<body id="top" data-spy="scroll" data-offset="70" 
+  data-target="{{ if or .IsHome (eq .Type "widget_page") }}#navbar-main{{else}}#TableOfContents{{end}}" 
+  class="
+    {{ if not (.Scratch.Get "light") }}dark{{end}} 
+    {{if $hbg.image}} bg-image{{if ($hbg.image_parallax | default true) }} parallax{{end}}{{end}}
+    {{if and site.Params.live2d_config.enable site.Params.live2d_config.position }} waifu-{{ string site.Params.live2d_config.position }}{{end}}
+  "
+  style="
+    {{with $style}}{{. | safeCSS}}{{end}}
+    {{if and $hbg.image ($hbg.image_parallax | default true) }}background-attachment: fixed;{{end}} /* 这个属性本来属于parallax,但它的权重不够body.dark的高 */
+  "
+>
 
   {{ partial "search" . }}
 
@@ -17,40 +57,12 @@
   {{ if not (in (slice "docs" "updates") .Type) }}
 
 
-  <!-- 此处有修改 -->
-  {{ $homefloorbg := site.Params.home_floor }}
-  {{ $style := "" }}
 
-  {{ if and $homefloorbg.image (eq .RelPermalink "/") }}<!-- 在首页,底部才设置背景图 -->
-
-    {{ $darken := "" }}
-    {{ if $homefloorbg.image_darken }}
-      {{ $darken = printf "linear-gradient(rgba(0, 0, 0, %s), rgba(0, 0, 0, %s))," (string $homefloorbg.image_darken) (string $homefloorbg.image_darken) }}
-    {{ end }}
-
-    {{if hasPrefix $homefloorbg.image "http" }}<!-- 判断是否以http开头,否则本地文件 -->
-      {{ $style = printf "%sbackground-image: %s url('%s');" $style $darken $homefloorbg.image }}
-    {{ else }}
-      {{ $style = printf "%sbackground-image: %s url('%s');" $style $darken (printf "img/%s" $homefloorbg.image | absURL) }}
-    {{ end }}
-
-    {{ with $homefloorbg.image_size }}
-      {{/* Allow sizes: actual, cover, and contain. */}}
-      {{ $style = printf "%sbackground-size: %s;" $style (replace . "actual" "auto") }}
-    {{ end }}
-
-    {{ with $homefloorbg.image_position }}
-      {{/* Allow valid CSS positions including left, center, and right. */}}
-      {{ $style = printf "%sbackground-position: %s;" $style . }}
-    {{ end }}
-
-  {{ end }}
   <div class="
     home-section bg-image parallax
-    {{if $homefloorbg.text_color_light}} dark{{end}}
-    {{if $homefloorbg.image}} bg-image{{if ($homefloorbg.image_parallax | default true) }} parallax{{end}}{{end}}
+    {{if $hbg.text_color_light}} dark{{end}}
     "
-  {{with $style}} style="{{. | safeCSS}}"{{end}}
+    style="background-color:transparent;"
   >
     {{ partial "site_footer" . }}
   </div>

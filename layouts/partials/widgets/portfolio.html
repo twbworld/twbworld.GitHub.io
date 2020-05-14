@@ -3,8 +3,62 @@
 {{/* Initialise */}}
 {{ $ := .root }}
 {{ $st := .page }}
-{{ $items_type := $st.Params.content.page_type | default "project" }}
+{{ $items_type := $st.Params.content.page_type | default "post" }}
 {{ $columns := $st.Params.design.columns | default "2" }}
+
+
+
+<!-- ==================此处有修改==================begin -->
+{{ $items_count := $st.Params.content.count | default 65535 }}
+{{ $items_sort := $st.Params.content.order| default "desc" }}
+
+{{/* Query */}}
+{{ $query := where (where site.RegularPages "Type" $items_type) "Params.featured" true }}
+{{ $archive_page := site.GetPage "Section" $items_type }}
+
+{{/* Filters */}}
+{{ if $st.Params.content.filters.tag }}
+  {{ $archive_page := site.GetPage (printf "tags/%s" (urlize $st.Params.content.filters.tag)) }}
+  {{ $query = $query | intersect $archive_page.Pages }}
+{{ end }}
+{{ if $st.Params.content.filters.category }}
+  {{ $archive_page := site.GetPage (printf "categories/%s" (urlize $st.Params.content.filters.category)) }}
+  {{ $query = $query | intersect $archive_page.Pages }}
+{{ end }}
+{{ if $st.Params.content.filters.publication_type }}
+  {{ $archive_page := site.GetPage (printf "publication_types/%s" $st.Params.content.filters.publication_type) }}
+  {{ $query = $query | intersect $archive_page.Pages }}
+{{ end }}
+{{ if $st.Params.content.filters.author }}
+  {{ $archive_page = site.GetPage (printf "authors/%s" (urlize $st.Params.content.filters.author)) }}
+  {{ $query = $query | intersect $archive_page.Pages }}
+{{ end }}
+
+{{/* Sort */}}
+{{ $sort_by := "Date" }}
+{{ $query = sort $query $sort_by $items_sort }}
+
+{{/* Limit */}}
+{{ $query = first $items_count $query }}
+
+{{/* Localisation */}}
+{{ $i18n := "" }}
+{{ if eq $items_type "post" }}
+  {{ $i18n = "more_posts" }}
+{{ else if eq $items_type "talk" }}
+  {{ $i18n = "more_talks" }}
+{{ else if eq $items_type "publication" }}
+  {{ $i18n = "more_publications" }}
+{{ else }}
+  {{ $i18n = "more_pages" }}
+{{ end }}
+
+
+
+
+<!-- ==================此处有修改==================end -->
+
+
 
 {{ if ne $columns "1" }}
 {{/* Standard dual-column layout. */}}
@@ -32,7 +86,7 @@
 
     {{ with $st.Content }}{{ . }}{{ end }}
 
-    {{ if $st.Params.content.filter_button }}
+    {{ if and $st.Params.content.show_filter_button $st.Params.content.filter_button }}<!-- 此处有修改 -->
 
       {{ $filter_default := default (int $st.Params.content.filter_default) 0 }}
 
@@ -44,6 +98,11 @@
       {{ end }}
 
       <span class="d-none default-project-filter">{{ $default_filter_tag }}</span>
+
+
+
+
+
 
       {{/* Only show filter buttons if there are multiple filters. */}}
       {{ if gt (len $st.Params.content.filter_button) 1 }}
@@ -66,8 +125,25 @@
       {{ end }}
     {{ end }}
 
+
+
+
+
+    {{ if $st.Params.content.link_to_archive }}
+      <div class="see-all">
+        <a href="{{ $archive_page.RelPermalink }}">
+          {{ i18n $i18n | default "See all" }}
+          <i class="fas fa-angle-right"></i>
+        </a>
+      </div>
+    {{ end }}
+
+
+
+
+
     <div class="{{ if or $st.Params.content.filter_button (eq $st.Params.design.view 3) }}isotope projects-container{{end}} {{if eq $st.Params.design.view 3}}js-layout-masonry{{else}}row js-layout-row{{end}} {{ if eq $st.Params.design.view 5 }}project-showcase mt-5{{end}}">
-      {{ range $idx, $item := where site.RegularPages "Type" $items_type }}
+      {{ range $idx, $item := $query }}<!-- 此处有修改 -->
 
         {{ $link := $item.RelPermalink }}
         {{ $target := "" }}
@@ -88,6 +164,11 @@
 
       {{ end }}
     </div>
+
+
+
+
+
 
   </div>
 </div>

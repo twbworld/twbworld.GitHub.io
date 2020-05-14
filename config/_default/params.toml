@@ -242,8 +242,8 @@ plugins_js  = []
   #   2: Algolia (https://www.algolia.com)
   engine = 1
 
-  # 在什么页面显示搜索icon
-  show_in = ["/post/"]
+  # 在什么页面关闭搜索icon,判断type
+  unable_type = ["page"]
 
   # Configuration of Algolia search engine.
   # Paste the values from your Algolia dashboard.
@@ -292,8 +292,8 @@ plugins_js  = []
 
 
 # <!-- 此处有修改 -->
-# <!-- 底部背景,此处自行添加的 -->
-[home_floor]
+# <!-- 首页背景,此处自行添加的 -->
+[home_background]
   # Apply a background color, gradient, or image.
   #   Uncomment (by removing `#`) an option to apply it.
   #   Choose a light or dark text color by setting `text_color_light`.
@@ -315,3 +315,10 @@ plugins_js  = []
 
   # Text color (true=light or false=dark).
    text_color_light = false
+
+# <!-- 此处有修改 -->
+# <!-- 看板娘配置 -->
+[live2d_config]
+  enable = true
+  position = "right"
+  unable_type = ["page"]

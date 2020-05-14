@@ -152,6 +152,8 @@
 
   <link rel="canonical" href="{{ .Permalink }}">
 
+  <link rel="stylesheet" type="text/css" href="/css/my.css"><!-- 此处有修改 -->
+
   {{/* Get page image for sharing. */}}
   {{ $featured_image := (.Resources.ByType "image").GetMatch "*featured*" }}
   {{ $avatar_image := (.Resources.ByType "image").GetMatch "avatar*" }}
@@ -207,5 +209,10 @@
   {{ partial "custom_head" . }}
 
   <title>{{ if (and (not .IsHome) .Title) }}{{ .Title }} | {{ end }}{{ site.Title }}</title><!-- 此处有修改 -->
+
+  {{/* if not .IsHome */}} <!-- 首页不显示"看板娘" -->
+  {{ if and site.Params.live2d_config.enable (not (in site.Params.live2d_config.unable_type .Type)) }}
+  <script src="/js/vendor/live2d-widget/autoload.js"></script>
+  {{ end }}
 
 </head>

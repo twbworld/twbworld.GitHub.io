@@ -30,7 +30,11 @@
   {{ $summary = $item.Summary }}
 {{ end }}
 
-<div class="media stream-item">
+<!-- =========================此处有修改==================begin -->
+{{ $js_tag_classes := delimit (apply (apply $item.Params.tags "replace" "." " " "-") "printf" "js-id-%s" ".") " " }}
+
+<div class="media stream-item project-item isotope-item {{ $js_tag_classes | safeHTMLAttr }}">
+<!-- =========================此处有修改==================end -->
   <div class="media-body">
 
     <h3 class="article-title mb-0 mt-0">
@@ -75,13 +79,24 @@
 
   </div>
   <div class="ml-3">
+<!-- =========================此处有修改==================begin -->
     {{ $resource := ($item.Resources.ByType "image").GetMatch "*featured*" }}
-    {{ with $resource }}
-    {{ $image := .Resize "150x" }}
-    <!-- 此处有修改 -->
-    <a href="{{$link}}" target="_blank" {{ $target | safeHTMLAttr }}>
-      <img src="{{ $image.RelPermalink }}" alt="">
+    {{ $imageSrc := ""}}
+
+    {{ if $item.Params.image.image }}
+      {{ $imageSrc = $item.Params.image.image}}
+    {{ else if $item.Params.header.image }}
+      {{ $imageSrc = $item.Params.header.image}}
+    {{ else if $resource }}
+      {{ $image := $resource.Resize "150x" }}
+      {{ $imageSrc = $image.RelPermalink}}
+    {{ end }}
+
+    {{ if $imageSrc }}
+    <a href="{{$link}}" {{ $target | safeHTMLAttr }}>
+      <img src="{{ $imageSrc }}" alt="">
     </a>
     {{end}}
+<!-- =========================此处有修改==================end -->
   </div>
 </div>

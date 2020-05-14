@@ -34,7 +34,7 @@ enableGitInfo = true
 
 # Default language to use (if you setup multilingual support)
 defaultContentLanguage = "zh"
-hasCJKLanguage = true  # Set `true` for Chinese/Japanese/Korean languages.
+hasCJKLanguage = true  # 关系到summaryLength)Set `true` for Chinese/Japanese/Korean languages.
 defaultContentLanguageInSubdir = false
 removePathAccents = true  # Workaround for https://github.com/gohugoio/hugo/issues/5687
 
@@ -45,12 +45,14 @@ footnotereturnlinkcontents = "<sup>^</sup>"
 ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 # Workaround Hugo publishing taxonomy URLs as plurals - consistently use singular across Academic.
+# 如果index.md没有设置slug,那么默认slug等于title,由于title是文章标题可能是中文,中文不利于 用在url 以及 SEO;其次文章标题可能多变,而目录名不多变以及url和目录名恰好要求是唯一的;所以这里干脆用filename,即目录名(程序员一般不会起中文名的目录)
+# 也可以在index.md设置"url"参数,自定义url
 [permalinks]
-  authors = "/author/:slug/"
-  tags = "/tag/:slug/"
-  categories = "/category/:slug/"
-  publication_types = "/publication-type/:slug/"
-  post = "/post/:year/:month/:day/:slug"
+  authors = "/author/:filename/"
+  tags = "/tag/:filename/"
+  categories = "/category/:filename/"
+  publication_types = "/publication-type/:filename/"
+  post = "/post/:year/:month/:day/:filename"
 
 [outputs]
   home = [ "HTML", "RSS", "JSON", "WebAppManifest" ]
@@ -69,10 +71,11 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
     [markup.goldmark.renderer]
       unsafe = true  # Enable user to embed HTML snippets in Markdown content.
   [markup.highlight]
-    codeFences = false  # Disable Hugo's code highlighter as it conflicts with Academic's highligher.
+    codeFences = true  # Disable Hugo's code highlighter as it conflicts with Academic's highligher.
   [markup.tableOfContents]
     startLevel = 2
     endLevel = 3
+    ordered = false # 有序列表
 
 [imaging]
   resampleFilter = "lanczos"
@@ -82,6 +85,23 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
 # Taxonomies.
 [taxonomies]
   tag = "tags"
-  category = "categories"
-  publication_type = "publication_types"
-  author = "authors"
+  #category = "categories"
+  #publication_type = "publication_types"
+  #author = "authors"
+
+# 文章底部的"相关"
+# https://s0gohugo0io.icopy.site/content-management/related/
+[related]
+  threshold = 80
+  includeNewer = true
+  toLower = true
+  [[related.indices]]
+    name = "keywords"
+    weight = 200
+  [[related.indices]]
+    name  = "tags"
+    weight = 160
+  [[related.indices]]
+    name  = "date"
+    weight = 10
+    pattern = "2006"

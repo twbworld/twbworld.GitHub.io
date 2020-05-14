@@ -1,0 +1,85 @@
+{{- define "main" -}}
+
+{{ partial "page_header.html" . }}
+
+
+
+
+
+<!-- =========================此处有修改==================begin -->
+{{ if $.Params.content.show_filter_button }}
+{{ with .Site.Taxonomies.tags }}
+
+  {{ $filter_default_tag := default (string $.Params.content.filter_default_tag) "*" }}
+
+  {{/* Parse default filter tag from front matter in the form of either tag name or CSS class name. */}}
+  {{ $default_filter_tag_raw := $filter_default_tag }}
+  {{ $default_filter_tag := printf ".js-id-%s" (replace $default_filter_tag_raw " " "-") }}
+  {{ if or (eq (substr $default_filter_tag_raw 0 1) "*") (eq (substr $default_filter_tag_raw 0 1) ".") }}
+    {{ $default_filter_tag = $default_filter_tag_raw }}
+  {{ end }}
+
+  <span class="d-none default-project-filter">{{ $default_filter_tag }}</span>
+
+  <div class="project-toolbar universal-wrapper">
+    <div class="project-filters">
+      <div class="btn-toolbar">
+        <div class="btn-group flex-wrap">
+          <a href="#" data-filter="*" class="btn btn-primary btn-lg{{ if eq "*" $filter_default_tag }} active{{ end }}">全部</a>
+          {{ range . }}
+            <!-- ==============判断tag是否为post类型================begin -->
+            {{ $isPost := false }}
+            {{ range .Pages }}
+              {{ if eq .Type "post" }}
+                {{ $isPost = true }}
+              {{ end }}
+            {{ end }}
+            <!-- ==============判断tag是否为post类型================end -->
+            {{ if $isPost }}
+              {{ $data_filter := printf ".js-id-%s" (replace .Page.Title " " "-") }}
+              {{ if or (eq (substr .Page.Title 0 1) "*") (eq (substr .Page.Title 0 1) ".") }}
+                {{ $data_filter = .Page.Title }}
+              {{ end }}
+              <a href="#" data-filter="{{ $data_filter | safeHTMLAttr }}" class="btn btn-primary btn-lg{{ if eq .Page.Title $filter_default_tag }} active{{ end }}" title="共{{ .Count }}篇">{{ .Page.Title }}</a>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+{{ end }}
+{{ end }}
+
+
+
+<div class="universal-wrapper isotope projects-container js-layout-masonry">
+  {{ with .Content }}
+  <div class="article-style">{{ . }}</div>
+  {{ end }}
+  
+  {{ $allCount := 0 }}
+  {{ $paginator := .Paginate .Data.Pages }}
+
+  {{ range $paginator.Pages }}
+    {{ if eq $.Params.view 1 }}
+      {{ partial "li_list" . }}
+    {{ else if eq $.Params.view 3 }}
+      {{ partial "li_card" . }}
+    {{ else }}
+      {{ partial "li_compact" . }}
+    {{ end }}
+    {{ $allCount = add $allCount 1 }}
+  {{ end }}
+
+  {{ partial "pagination" . }}
+
+</div>
+<script type="text/javascript">
+    let dom = document.getElementsByTagName('a');
+    for (let i = 0; i<dom.length; i++) {
+      dom[i].getAttribute('data-filter') === '*' && dom[i].setAttribute('title', '共{{ $allCount }}篇'); //设置"全部"tag的文章数
+    }
+</script>
+<!-- =========================此处有修改==================end -->
+
+{{- end -}}
