@@ -1,5 +1,32 @@
 <!DOCTYPE html><html lang="zh-Hans" >
 
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+    
+  
+
+  
+    
+    
+  
+
+
+
 <head>
 
   <meta charset="utf-8">
@@ -229,6 +256,8 @@
 
   <link rel="canonical" href="https://twbworld.github.io/">
 
+  <link rel="stylesheet" type="text/css" href="/css/my.css">
+
   
   
   
@@ -283,9 +312,23 @@
 
   <title>忐忑の博客</title>
 
+   
+  
+
 </head>
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main" >
+<body id="top" data-spy="scroll" data-offset="70" 
+  data-target="#navbar-main" 
+  class="
+     
+     bg-image parallax
+     waifu-right
+  "
+  style="
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(&#39;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200505231535.jpg&#39;);background-size: cover;background-position: center;
+    background-attachment: fixed; /* 这个属性本来属于parallax,但它的权重不够body.dark的高 */
+  "
+>
 
   <aside class="search-results" id="search">
   <div class="container">
@@ -381,7 +424,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#hero" data-target="#hero"><span>首页</span></a>
+          <a class="nav-link " href="/#hero" data-target="#hero"><i class='fa fa-home big-icon' title='首页'></i><span> </span></a>
         </li>
 
         
@@ -401,7 +444,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/post"><span>博客</span></a>
+          <a class="nav-link " href="/post"><i class='fa fa-list-ul big-icon' title='博客'></i><span></span></a>
         </li>
 
         
@@ -416,7 +459,7 @@
 
 
 
-    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2" style="display: block !important;text-align: right;width: 35%">
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2" style="display: block !important;text-align: right;width: 35%; height:100%">
 
 
 
@@ -521,29 +564,7 @@
   
 
   
-    
-  
 
-  
-    
-    
-      
-    
-    
-
-    
-      
-    
-
-
-    
-      
-      
-    
-    
-      
-      
-    
   
 
   
@@ -566,7 +587,7 @@
   
   
 
-  <section id="hero" class="home-section wg-hero   bg-image parallax " style="background-image: linear-gradient(#4bb4e3, #2b94c3);background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(&#39;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200505231535.jpg&#39;);background-size: cover;background-position: center;" >
+  <section id="hero" class="home-section wg-hero   " style=" background: transparent" >
     <div class="container">
       
 
@@ -611,7 +632,7 @@ Build **Anything** with Widgets
     
     
     <p class="hero-note text-muted mb-0">
-      <div style="height: 500px;width: 1px;"></div>
+      <div style="height: 200px;width: 1px;"></div>
     </p>
     
 
@@ -630,26 +651,6 @@ Build **Anything** with Widgets
   
 
   
-    
-    
-      
-    
-    
-
-    
-      
-    
-
-
-    
-      
-      
-    
-    
-      
-      
-    
-  
 
   
 
@@ -671,9 +672,45 @@ Build **Anything** with Widgets
   
   
 
-  <section id="posts" class="home-section wg-portfolio   bg-image parallax " style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(&#39;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200505231535.jpg&#39;);background-size: cover;background-position: center;" >
+  <section id="posts" class="home-section wg-portfolio   " style=" background: transparent" >
     <div class="container">
       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
 
 
 
@@ -697,47 +734,22 @@ Build **Anything** with Widgets
 
     
 
-      
 
-      
-      
-      
-      
-        
-      
 
-      <span class="d-none default-project-filter">*</span>
 
-      
-      
-      <div class="project-toolbar">
-        <div class="project-filters">
-          <div class="btn-toolbar">
-            <div class="btn-group flex-wrap">
-              
-                
-                
-                
-                  
-                
-                <a href="#" data-filter="*" class="btn btn-primary btn-lg active">All</a>
-              
-                
-                
-                
-                <a href="#" data-filter=".js-id-hugo" class="btn btn-primary btn-lg">Hugo</a>
-              
-                
-                
-                
-                <a href="#" data-filter=".js-id-这是文章的tag" class="btn btn-primary btn-lg">Other</a>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-      
+
     
+      <div class="see-all">
+        <a href="/post/">
+          查看全部
+          <i class="fas fa-angle-right"></i>
+        </a>
+      </div>
+    
+
+
+
+
 
     <div class="isotope projects-container js-layout-masonry ">
       
@@ -756,29 +768,29 @@ Build **Anything** with Widgets
 
 
 
-  
-
 
 
 
 
 <div class="project-card project-item isotope-item js-id-这是文章的tag js-id-在详情页显示">
   <div class="card">
+        
+      
 
       
         
-        <a href="/post/2020/05/03/%E8%BF%99%E6%98%AF%E6%A0%87%E9%A2%98/" target="_blank"  class="card-image hover-overlay">
+      
+
+      
+        <a href="/example/" target="_blank"  class="card-image hover-overlay">
         <img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200503220558.jpg" alt="" class="img-responsive">
         </a>
       
+        
 
     <div class="card-text">
         
-      <h4><a href="/post/2020/05/03/%E8%BF%99%E6%98%AF%E6%A0%87%E9%A2%98/" target="_blank" >这是标题</a></h4>
-      
-      <div class="article-style">
-        <p>这是标题的简介,在文章列表页的文章标题下显示(如果为空,将会自动摘取)</p>
-      </div>
+      <h4><a href="/example/" target="_blank" >这是标题</a></h4>
       
     </div>
   </div>
@@ -801,8 +813,6 @@ Build **Anything** with Widgets
 
 
 
-
-  
 
 
 
@@ -810,25 +820,24 @@ Build **Anything** with Widgets
 
 <div class="project-card project-item isotope-item ">
   <div class="card">
+        
+      
 
       
         
         
-          
-        <a href="/post/2019/07/12/writing-technical-content-in-academic/" target="_blank"  class="card-image hover-overlay">
-        <img src="/post/2019/07/12/writing-technical-content-in-academic/featured_huc72159e0fc0d14b85f60d34436a630f0_266353_550x0_resize_q90_lanczos.jpg" alt="" class="img-responsive">
-        </a>
-        
       
+
+      
+        <a href="/post/2019/07/12/writing-technical-content/" target="_blank"  class="card-image hover-overlay">
+        <img src="/post/2019/07/12/writing-technical-content/featured_huc72159e0fc0d14b85f60d34436a630f0_266353_550x0_resize_q90_lanczos.jpg" alt="" class="img-responsive">
+        </a>
+      
+        
 
     <div class="card-text">
         
-      <h4><a href="/post/2019/07/12/writing-technical-content-in-academic/" target="_blank" >Writing technical content in Academic</a></h4>
-      
-      <div class="article-style">
-        <p>Academic is designed to give technical content creators a seamless experience. You can focus on the content and Academic handles the rest.
-Highlight your code snippets, take notes on math classes, and draw diagrams from textual representation.</p>
-      </div>
+      <h4><a href="/post/2019/07/12/writing-technical-content/" target="_blank" >Writing technical content in Academic</a></h4>
       
     </div>
   </div>
@@ -852,32 +861,30 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
 
 
 
-  
 
 
 
 
-
-<div class="project-card project-item isotope-item ">
+<div class="project-card project-item isotope-item js-id-hugo">
   <div class="card">
+        
+      
 
       
         
         
-          
-        <a href="/post/2019/02/05/display-jupyter-notebooks-with-academic/" target="_blank"  class="card-image hover-overlay">
-        <img src="/post/2019/02/05/display-jupyter-notebooks-with-academic/featured_hub1daa031c2af6888ff37bd93eb033a1a_71549_550x0_resize_q90_lanczos_2.png" alt="" class="img-responsive">
-        </a>
-        
       
+
+      
+        <a href="/post/2019/02/05/jupyter/" target="_blank"  class="card-image hover-overlay">
+        <img src="/post/2019/02/05/jupyter/featured_hub1daa031c2af6888ff37bd93eb033a1a_71549_550x0_resize_q90_lanczos_2.png" alt="" class="img-responsive">
+        </a>
+      
+        
 
     <div class="card-text">
         
-      <h4><a href="/post/2019/02/05/display-jupyter-notebooks-with-academic/" target="_blank" >Display Jupyter Notebooks with Academic</a></h4>
-      
-      <div class="article-style">
-        <p>Learn how to blog in Academic using Jupyter notebooks</p>
-      </div>
+      <h4><a href="/post/2019/02/05/jupyter/" target="_blank" >Display Jupyter Notebooks with Academic</a></h4>
       
     </div>
   </div>
@@ -901,32 +908,30 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
 
 
 
-  
 
 
 
 
-
-<div class="project-card project-item isotope-item js-id-Academic js-id-开源">
+<div class="project-card project-item isotope-item js-id-这是文章的tag js-id-开源">
   <div class="card">
+        
+      
 
       
         
         
-          
-        <a href="/post/2016/04/20/academic-the-website-builder-for-hugo/" target="_blank"  class="card-image hover-overlay">
-        <img src="/post/2016/04/20/academic-the-website-builder-for-hugo/featured_hub9ee31969f44a6711206a2baf9f065b4_241861_550x0_resize_q90_lanczos.jpg" alt="" class="img-responsive">
-        </a>
-        
       
+
+      
+        <a href="/post/2016/04/20/getting-started/" target="_blank"  class="card-image hover-overlay">
+        <img src="/post/2016/04/20/getting-started/featured_hub9ee31969f44a6711206a2baf9f065b4_241861_550x0_resize_q90_lanczos.jpg" alt="" class="img-responsive">
+        </a>
+      
+        
 
     <div class="card-text">
         
-      <h4><a href="/post/2016/04/20/academic-the-website-builder-for-hugo/" target="_blank" >Academic: the website builder for Hugo</a></h4>
-      
-      <div class="article-style">
-        <p>Create a beautifully simple website in under 10 minutes.</p>
-      </div>
+      <h4><a href="/post/2016/04/20/getting-started/" target="_blank" >Academic: the website builder for Hugo</a></h4>
       
     </div>
   </div>
@@ -936,6 +941,11 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
 
       
     </div>
+
+
+
+
+
 
   </div>
 </div>
@@ -1051,7 +1061,7 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
     
     
     
-    <script src="/js/academic.min.8e2248d4d902b71f6a0b10f78d0fbd24.js"></script>
+    <script src="/js/academic.min.414ddc715ea130a48424c619c151e7fc.js"></script>
 
     
 
@@ -1064,38 +1074,12 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
   
 
 
-  
-  
-  
 
-  
-
-    
-    
-      
-    
-
-    
-      
-    
-
-    
-      
-      
-    
-
-    
-      
-      
-    
-
-  
   <div class="
     home-section bg-image parallax
     
-     bg-image parallax
     "
-   style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(&#39;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200505231535.jpg&#39;);background-size: cover;background-position: center;"
+    style="background-color:transparent;"
   >
     
 <footer class="site-footer">

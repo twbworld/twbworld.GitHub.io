@@ -1,0 +1,151 @@
+/* 看板娘 */
+#top #waifu #live2d {
+  height: 250px;
+  width: 250px;
+}
+
+#top #waifu-tips span {
+  color: #2962ff;
+}
+
+.waifu-right #waifu {
+  left: auto;
+  right: 0;
+}
+
+.waifu-right #waifu-toggle {
+  margin-right: -100px;
+  margin-left: 0px;
+  writing-mode: vertical-lr;
+}
+
+.waifu-right #waifu-tool {
+  right: auto;
+}
+
+.waifu-right #waifu-tips {
+  margin-left: auto;
+}
+
+.waifu-right #waifu-toggle {
+  left: auto;
+  right: 0;
+  margin-right: -100px;
+  transition: margin-right 0.5s;
+}
+
+.waifu-right #waifu-toggle.waifu-toggle-active {
+  margin-right: -35px;
+}
+
+.waifu-right #waifu-toggle.waifu-toggle-active:hover {
+  margin-right: -10px;
+}
+
+.waifu-left #waifu-toggle {
+  transition: margin-left 0.5s;
+}
+
+.waifu-left #waifu-toggle.waifu-toggle-active {
+  margin-left: -35px;
+}
+
+.waifu-left #waifu-toggle.waifu-toggle-active:hover {
+  margin-left: -10px;
+}
+
+
+
+
+/* nav渐变透明 */
+#navbar-main {
+  background: #bdc3c7;
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(44, 62, 80, 0.6), rgba(189, 195, 199, 0.6), rgba(44, 62, 80, 0.6));
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(44, 62, 80, 0.6), rgba(189, 195, 199, 0.6), rgba(44, 62, 80, 0.6));
+}
+
+#navbar-main .container {
+  height: 100%;
+}
+
+/* nav-menus渐变透明 */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: #bdc3c7;
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(44, 62, 80, 0.6), rgba(189, 195, 199, 0.6), rgba(44, 62, 80, 0.6));
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(44, 62, 80, 0.6), rgba(189, 195, 199, 0.6), rgba(44, 62, 80, 0.6));
+  }
+}
+
+/* nav字体白色 */
+#navbar-main .navbar-brand,
+#navbar-main .navbar-toggler i,
+#navbar-main .main-menu-item ul li .nav-link,
+#navbar-main .nav-icons i {
+  color: #fff
+}
+
+#navbar-main .navbar-brand:hover {
+  color: #2962ff !important;
+}
+
+#navbar-main i:hover {
+  color: #2962ff !important;
+  transition: color 0.6s ease !important;
+}
+
+#navbar-main .main-menu-item ul li .nav-link {
+  font-weight: bold;
+}
+
+/* 首页箭头 */
+.dark .btn-primary {
+  color: #fff
+}
+
+.dark .btn-primary i:hover {
+  color: #343a40 !important;
+  transition: color 0.3s ease !important;
+}
+
+
+/* 文章详情左侧栏 */
+.post-scroll {
+  overflow-y: auto;
+  direction: rtl
+}
+
+.post-scroll #TableOfContents {
+  border-left: 0;
+  border-right: 1px solid #eee;
+}
+
+/* 文章详情右侧内容 */
+.post-article-container {
+  max-width: none !important;
+  /* 强制换行 */
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.post-article-header-head {
+  text-align: center;
+}
+
+
+
+/* 首页查看更多 */
+.see-all{
+  text-align: right;
+  padding:0 10% 10px 0
+}
+
+/* post列表页文章 */
+.universal-wrapper .media{
+  z-index: 0;
+  width: 100%
+}

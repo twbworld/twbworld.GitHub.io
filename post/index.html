@@ -1,5 +1,11 @@
 <!DOCTYPE html><html lang="zh-Hans" >
 
+
+
+
+
+
+
 <head>
 
   <meta charset="utf-8">
@@ -229,6 +235,8 @@
 
   <link rel="canonical" href="https://twbworld.github.io/post/">
 
+  <link rel="stylesheet" type="text/css" href="/css/my.css">
+
   
   
   
@@ -269,9 +277,25 @@
 
   <title>忐忑の博客</title>
 
+   
+  
+  <script src="/js/vendor/live2d-widget/autoload.js"></script>
+  
+
 </head>
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+<body id="top" data-spy="scroll" data-offset="70" 
+  data-target="#TableOfContents" 
+  class="
+     
+     bg-image parallax
+     waifu-right
+  "
+  style="
+    
+    background-attachment: fixed; /* 这个属性本来属于parallax,但它的权重不够body.dark的高 */
+  "
+>
 
   <aside class="search-results" id="search">
   <div class="container">
@@ -367,7 +391,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#hero"><span>首页</span></a>
+          <a class="nav-link " href="/#hero"><i class='fa fa-home big-icon' title='首页'></i><span> </span></a>
         </li>
 
         
@@ -387,7 +411,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/post"><span>博客</span></a>
+          <a class="nav-link  active" href="/post"><i class='fa fa-list-ul big-icon' title='博客'></i><span></span></a>
         </li>
 
         
@@ -402,7 +426,7 @@
 
 
 
-    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2" style="display: block !important;text-align: right;width: 35%">
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2" style="display: block !important;text-align: right;width: 35%; height:100%">
 
 
 
@@ -511,7 +535,7 @@
   
     
   
-<div class="universal-wrapper pt-3">
+<div class="universal-wrapper pt-3 post-article-header-head">
   <h1></h1>
 
   
@@ -521,11 +545,134 @@
 
 
 
-<div class="universal-wrapper">
+
+
+
+
+
+
+
 
   
 
   
+  
+  
+  
+    
+  
+
+  <span class="d-none default-project-filter">*</span>
+
+  <div class="project-toolbar universal-wrapper">
+    <div class="project-filters">
+      <div class="btn-toolbar">
+        <div class="btn-group flex-wrap">
+          <a href="#" data-filter="*" class="btn btn-primary btn-lg active">全部</a>
+          
+            
+            
+            
+              
+            
+            
+            
+          
+            
+            
+            
+              
+            
+            
+            
+          
+            
+            
+            
+              
+                
+              
+            
+            
+            
+              
+              
+              <a href="#" data-filter=".js-id-hugo" class="btn btn-primary btn-lg" title="共1篇">hugo</a>
+            
+          
+            
+            
+            
+              
+            
+              
+            
+              
+            
+            
+            
+          
+            
+            
+            
+              
+                
+              
+            
+            
+            
+              
+              
+              <a href="#" data-filter=".js-id-在详情页显示" class="btn btn-primary btn-lg" title="共1篇">在详情页显示</a>
+            
+          
+            
+            
+            
+              
+                
+              
+            
+            
+            
+              
+              
+              <a href="#" data-filter=".js-id-开源" class="btn btn-primary btn-lg" title="共1篇">开源</a>
+            
+          
+            
+            
+            
+              
+                
+              
+            
+              
+                
+              
+            
+            
+            
+              
+              
+              <a href="#" data-filter=".js-id-这是文章的tag" class="btn btn-primary btn-lg" title="共2篇">这是文章的tag</a>
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<div class="universal-wrapper isotope projects-container js-layout-masonry">
+  
+  
+  
+  
+
   
     
       
@@ -544,12 +691,16 @@
   
 
 
-<div class="media stream-item">
+
+
+
+<div class="media stream-item project-item isotope-item js-id-这是文章的tag js-id-在详情页显示">
+
   <div class="media-body">
 
     <h3 class="article-title mb-0 mt-0">
       
-      <a href="/post/2020/05/03/%E8%BF%99%E6%98%AF%E6%A0%87%E9%A2%98/" target="_blank" >这是标题</a>
+      <a href="/example/" target="_blank" >这是标题</a>
     </h3>
 
     
@@ -622,18 +773,25 @@
 
   </div>
   <div class="ml-3">
+
     
     
+
     
+      
     
-    <a href="/post/2020/05/03/%E8%BF%99%E6%98%AF%E6%A0%87%E9%A2%98/" target="_blank" >
-      <img src="/post/2020/05/03/%E8%BF%99%E6%98%AF%E6%A0%87%E9%A2%98/featured_bak_hub1daa031c2af6888ff37bd93eb033a1a_71549_150x0_resize_lanczos_2.png" alt="">
+
+    
+    <a href="/example/" >
+      <img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200503220558.jpg" alt="">
     </a>
     
+
   </div>
 </div>
 
     
+    
   
     
       
@@ -652,12 +810,16 @@
   
 
 
-<div class="media stream-item">
+
+
+
+<div class="media stream-item project-item isotope-item ">
+
   <div class="media-body">
 
     <h3 class="article-title mb-0 mt-0">
       
-      <a href="/post/2019/07/12/writing-technical-content-in-academic/" target="_blank" >Writing technical content in Academic</a>
+      <a href="/post/2019/07/12/writing-technical-content/" target="_blank" >Writing technical content in Academic</a>
     </h3>
 
     
@@ -692,7 +854,7 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
           最近更新于
       
     
-    2020-05-02
+    2020-05-07
   </span>
   
 
@@ -733,18 +895,26 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
 
   </div>
   <div class="ml-3">
+
     
     
+
     
+      
+      
     
-    <a href="/post/2019/07/12/writing-technical-content-in-academic/" target="_blank" >
-      <img src="/post/2019/07/12/writing-technical-content-in-academic/featured_huc72159e0fc0d14b85f60d34436a630f0_266353_150x0_resize_q90_lanczos.jpg" alt="">
+
+    
+    <a href="/post/2019/07/12/writing-technical-content/" >
+      <img src="/post/2019/07/12/writing-technical-content/featured_huc72159e0fc0d14b85f60d34436a630f0_266353_150x0_resize_q90_lanczos.jpg" alt="">
     </a>
     
+
   </div>
 </div>
 
     
+    
   
     
       
@@ -763,12 +933,16 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
   
 
 
-<div class="media stream-item">
+
+
+
+<div class="media stream-item project-item isotope-item js-id-hugo">
+
   <div class="media-body">
 
     <h3 class="article-title mb-0 mt-0">
       
-      <a href="/post/2019/02/05/display-jupyter-notebooks-with-academic/" target="_blank" >Display Jupyter Notebooks with Academic</a>
+      <a href="/post/2019/02/05/jupyter/" target="_blank" >Display Jupyter Notebooks with Academic</a>
     </h3>
 
     
@@ -843,18 +1017,26 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
 
   </div>
   <div class="ml-3">
+
     
     
+
     
+      
+      
     
-    <a href="/post/2019/02/05/display-jupyter-notebooks-with-academic/" target="_blank" >
-      <img src="/post/2019/02/05/display-jupyter-notebooks-with-academic/featured_hub1daa031c2af6888ff37bd93eb033a1a_71549_150x0_resize_lanczos_2.png" alt="">
+
+    
+    <a href="/post/2019/02/05/jupyter/" >
+      <img src="/post/2019/02/05/jupyter/featured_hub1daa031c2af6888ff37bd93eb033a1a_71549_150x0_resize_lanczos_2.png" alt="">
     </a>
     
+
   </div>
 </div>
 
     
+    
   
     
       
@@ -873,12 +1055,16 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
   
 
 
-<div class="media stream-item">
+
+
+
+<div class="media stream-item project-item isotope-item js-id-这是文章的tag js-id-开源">
+
   <div class="media-body">
 
     <h3 class="article-title mb-0 mt-0">
       
-      <a href="/post/2016/04/20/academic-the-website-builder-for-hugo/" target="_blank" >Academic: the website builder for Hugo</a>
+      <a href="/post/2016/04/20/getting-started/" target="_blank" >Academic: the website builder for Hugo</a>
     </h3>
 
     
@@ -945,7 +1131,7 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/category/demo/">Demo</a>, <a href="/category/%E6%95%99%E7%A8%8B/">教程</a></span>
+    <i class="fas fa-folder mr-1"></i></span>
   
 
 </div>
@@ -957,24 +1143,39 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
 
   </div>
   <div class="ml-3">
+
     
     
+
     
+      
+      
     
-    <a href="/post/2016/04/20/academic-the-website-builder-for-hugo/" target="_blank" >
-      <img src="/post/2016/04/20/academic-the-website-builder-for-hugo/featured_hub9ee31969f44a6711206a2baf9f065b4_241861_150x0_resize_q90_lanczos.jpg" alt="">
+
+    
+    <a href="/post/2016/04/20/getting-started/" >
+      <img src="/post/2016/04/20/getting-started/featured_hub9ee31969f44a6711206a2baf9f065b4_241861_150x0_resize_q90_lanczos.jpg" alt="">
     </a>
     
+
   </div>
 </div>
 
     
+    
   
 
   
 
 
 </div>
+<script type="text/javascript">
+    let dom = document.getElementsByTagName('a');
+    for (let i = 0; i<dom.length; i++) {
+      dom[i].getAttribute('data-filter') === '*' && dom[i].setAttribute('title', '共4篇'); 
+    }
+</script>
+
 
       
 
@@ -1082,7 +1283,7 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
     
     
     
-    <script src="/js/academic.min.8e2248d4d902b71f6a0b10f78d0fbd24.js"></script>
+    <script src="/js/academic.min.414ddc715ea130a48424c619c151e7fc.js"></script>
 
     
 
@@ -1095,17 +1296,12 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
   
 
 
-  
-  
-  
 
-  
   <div class="
     home-section bg-image parallax
     
-     bg-image parallax
     "
-  
+    style="background-color:transparent;"
   >
     
 <footer class="site-footer">

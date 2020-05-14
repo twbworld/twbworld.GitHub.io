@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Authors | 忐忑の博客</title>
-    <link>https://twbworld.github.io/authors/</link>
-      <atom:link href="https://twbworld.github.io/authors/index.xml" rel="self" type="application/rss+xml" />
-    <description>Authors</description>
+    <title>忐忑 | 忐忑の博客</title>
+    <link>https://twbworld.github.io/authors/admin/</link>
+      <atom:link href="https://twbworld.github.io/authors/admin/index.xml" rel="self" type="application/rss+xml" />
+    <description>忐忑</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><copyright>© 2020 [twbworld](https://github.com/twbworld)</copyright>
     <image>
       <url>https://twbworld.github.io/img/avatar.jpg</url>
-      <title>Authors</title>
-      <link>https://twbworld.github.io/authors/</link>
+      <title>忐忑</title>
+      <link>https://twbworld.github.io/authors/admin/</link>
     </image>
     
   </channel>

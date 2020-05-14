@@ -1,5 +1,11 @@
 <!DOCTYPE html><html lang="zh-Hans" >
 
+
+
+
+
+
+
 <head>
 
   <meta charset="utf-8">
@@ -227,6 +233,8 @@
 
   <link rel="canonical" href="https://twbworld.github.io/404.html">
 
+  <link rel="stylesheet" type="text/css" href="/css/my.css">
+
   
   
   
@@ -267,9 +275,23 @@
 
   <title>404 Page not found | 忐忑の博客</title>
 
+   
+  
+
 </head>
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+<body id="top" data-spy="scroll" data-offset="70" 
+  data-target="#TableOfContents" 
+  class="
+     
+     bg-image parallax
+     waifu-right
+  "
+  style="
+    
+    background-attachment: fixed; /* 这个属性本来属于parallax,但它的权重不够body.dark的高 */
+  "
+>
 
   <aside class="search-results" id="search">
   <div class="container">
@@ -365,7 +387,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#hero"><span>首页</span></a>
+          <a class="nav-link " href="/#hero"><i class='fa fa-home big-icon' title='首页'></i><span> </span></a>
         </li>
 
         
@@ -385,7 +407,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/post"><span>博客</span></a>
+          <a class="nav-link " href="/post"><i class='fa fa-list-ul big-icon' title='博客'></i><span></span></a>
         </li>
 
         
@@ -400,7 +422,7 @@
 
 
 
-    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2" style="display: block !important;text-align: right;width: 35%">
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2" style="display: block !important;text-align: right;width: 35%; height:100%">
 
 
 
@@ -497,15 +519,15 @@
     
       <li><a href="/courses/example/example2/">Example Page 2</a></li>
     
-      <li><a href="/post/2020/05/03/%E8%BF%99%E6%98%AF%E6%A0%87%E9%A2%98/">这是标题</a></li>
+      <li><a href="/example/">这是标题</a></li>
     
       <li><a href="/talk/example/">Example Talk</a></li>
     
-      <li><a href="/post/2019/07/12/writing-technical-content-in-academic/">Writing technical content in Academic</a></li>
+      <li><a href="/post/2019/07/12/writing-technical-content/">Writing technical content in Academic</a></li>
     
       <li><a href="/publication/preprint/">An example preprint / working paper</a></li>
     
-      <li><a href="/post/2019/02/05/display-jupyter-notebooks-with-academic/">Display Jupyter Notebooks with Academic</a></li>
+      <li><a href="/post/2019/02/05/jupyter/">Display Jupyter Notebooks with Academic</a></li>
     
       <li><a href="/slides/example/">Slides</a></li>
     
@@ -624,7 +646,7 @@
     
     
     
-    <script src="/js/academic.min.8e2248d4d902b71f6a0b10f78d0fbd24.js"></script>
+    <script src="/js/academic.min.414ddc715ea130a48424c619c151e7fc.js"></script>
 
     
 
@@ -637,17 +659,12 @@
   
 
 
-  
-  
-  
 
-  
   <div class="
     home-section bg-image parallax
     
-     bg-image parallax
     "
-  
+    style="background-color:transparent;"
   >
     
 <footer class="site-footer">

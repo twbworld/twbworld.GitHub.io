@@ -1,5 +1,11 @@
 <!DOCTYPE html><html lang="zh-Hans" >
 
+
+
+
+
+
+
 <head>
 
   <meta charset="utf-8">
@@ -227,6 +233,8 @@
 
   <link rel="canonical" href="https://twbworld.github.io/publication/conference-paper/">
 
+  <link rel="stylesheet" type="text/css" href="/css/my.css">
+
   
   
   
@@ -317,9 +325,25 @@
 
   <title>An example conference paper | 忐忑の博客</title>
 
+   
+  
+  <script src="/js/vendor/live2d-widget/autoload.js"></script>
+  
+
 </head>
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+<body id="top" data-spy="scroll" data-offset="70" 
+  data-target="#TableOfContents" 
+  class="
+     
+     bg-image parallax
+     waifu-right
+  "
+  style="
+    
+    background-attachment: fixed; /* 这个属性本来属于parallax,但它的权重不够body.dark的高 */
+  "
+>
 
   <aside class="search-results" id="search">
   <div class="container">
@@ -415,7 +439,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#hero"><span>首页</span></a>
+          <a class="nav-link " href="/#hero"><i class='fa fa-home big-icon' title='首页'></i><span> </span></a>
         </li>
 
         
@@ -435,7 +459,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/post"><span>博客</span></a>
+          <a class="nav-link " href="/post"><i class='fa fa-list-ul big-icon' title='博客'></i><span></span></a>
         </li>
 
         
@@ -450,11 +474,15 @@
 
 
 
-    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2" style="display: block !important;text-align: right;width: 35%">
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2" style="display: block !important;text-align: right;width: 35%; height:100%">
 
 
 
 
+      
+      <li class="nav-item" style="display:inline-block;">
+        <a class="nav-link js-search" title="Search" href="#"><i class="fas fa-search big-icon" aria-hidden="true"></i></a>
+      </li>
       
 
 
@@ -538,20 +566,20 @@
 
 
 
+  
+  
 
-
-
-
-
-
-
+  
+  
   
   
     
+    
+      
+    
   
 
-
-<div class="article-container pt-3">
+<div class="article-container pt-3 post-article-header-head">
   <h1>An example conference paper</h1>
 
   
@@ -808,7 +836,7 @@
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tag/source-themes/">Source Themes</a>
+  <a class="badge badge-light" href="/tag/">Source Themes</a>
   
 </div>
 
@@ -951,8 +979,6 @@
 
 
 
-
-  
 
 
   
@@ -1160,7 +1186,7 @@
     
     
     
-    <script src="/js/academic.min.8e2248d4d902b71f6a0b10f78d0fbd24.js"></script>
+    <script src="/js/academic.min.414ddc715ea130a48424c619c151e7fc.js"></script>
 
     
 
@@ -1173,17 +1199,12 @@
   
 
 
-  
-  
-  
 
-  
   <div class="
     home-section bg-image parallax
     
-     bg-image parallax
     "
-  
+    style="background-color:transparent;"
   >
     
 <footer class="site-footer">

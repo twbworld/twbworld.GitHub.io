@@ -18,7 +18,7 @@
   </url>
   
   <url>
-    <loc>https://twbworld.github.io/post/2020/05/03/%E8%BF%99%E6%98%AF%E6%A0%87%E9%A2%98/</loc>
+    <loc>https://twbworld.github.io/example/</loc>
     <lastmod>2020-05-03T19:54:10+08:00</lastmod>
   </url>
   
@@ -28,33 +28,23 @@
   </url>
   
   <url>
-    <loc>https://twbworld.github.io/authors/</loc>
-    <lastmod>2020-05-03T19:54:10+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://twbworld.github.io/tags/</loc>
     <lastmod>2020-05-03T19:54:10+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://twbworld.github.io/tag/%E5%9C%A8%E8%AF%A6%E6%83%85%E9%A1%B5%E6%98%BE%E7%A4%BA/</loc>
+    <loc>https://twbworld.github.io/tag/</loc>
     <lastmod>2020-05-03T19:54:10+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://twbworld.github.io/tag/%E8%BF%99%E6%98%AF%E6%96%87%E7%AB%A0%E7%9A%84tag/</loc>
+    <loc>https://twbworld.github.io/tag/</loc>
     <lastmod>2020-05-03T19:54:10+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://twbworld.github.io/post/2019/07/12/writing-technical-content-in-academic/</loc>
-    <lastmod>2020-05-02T00:58:37+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://twbworld.github.io/publication-type/3/</loc>
-    <lastmod>2020-05-02T00:58:37+08:00</lastmod>
+    <loc>https://twbworld.github.io/post/2019/07/12/writing-technical-content/</loc>
+    <lastmod>2020-05-07T19:26:04+08:00</lastmod>
   </url>
   
   <url>
@@ -63,17 +53,17 @@
   </url>
   
   <url>
-    <loc>https://twbworld.github.io/publication_types/</loc>
+    <loc>https://twbworld.github.io/tag/</loc>
     <lastmod>2020-05-02T00:58:37+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://twbworld.github.io/tag/source-themes/</loc>
+    <loc>https://twbworld.github.io/post/2019/02/05/jupyter/</loc>
     <lastmod>2020-05-02T00:58:37+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://twbworld.github.io/post/2019/02/05/display-jupyter-notebooks-with-academic/</loc>
+    <loc>https://twbworld.github.io/tag/</loc>
     <lastmod>2020-05-02T00:58:37+08:00</lastmod>
   </url>
   
@@ -88,12 +78,12 @@
   </url>
   
   <url>
-    <loc>https://twbworld.github.io/tag/deep-learning/</loc>
+    <loc>https://twbworld.github.io/tag/</loc>
     <lastmod>2020-05-02T00:58:37+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://twbworld.github.io/tag/demo/</loc>
+    <loc>https://twbworld.github.io/tag/</loc>
     <lastmod>2020-05-02T00:58:37+08:00</lastmod>
   </url>
   
@@ -113,57 +103,17 @@
   </url>
   
   <url>
-    <loc>https://twbworld.github.io/tag/academic/</loc>
+    <loc>https://twbworld.github.io/post/2016/04/20/getting-started/</loc>
     <lastmod>2020-05-02T00:58:37+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://twbworld.github.io/post/2016/04/20/academic-the-website-builder-for-hugo/</loc>
-    <lastmod>2020-05-02T00:58:37+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://twbworld.github.io/categories/</loc>
-    <lastmod>2020-05-02T00:58:37+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://twbworld.github.io/category/demo/</loc>
-    <lastmod>2020-05-02T00:58:37+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://twbworld.github.io/author/%E5%90%B3%E6%81%A9%E9%81%94/</loc>
-    <lastmod>2020-05-02T00:58:37+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://twbworld.github.io/tag/%E5%BC%80%E6%BA%90/</loc>
-    <lastmod>2020-05-02T00:58:37+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://twbworld.github.io/category/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2020-05-02T00:58:37+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://twbworld.github.io/publication-type/2/</loc>
+    <loc>https://twbworld.github.io/tag/</loc>
     <lastmod>2020-05-02T00:58:37+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://twbworld.github.io/publication/journal-article/</loc>
-    <lastmod>2020-05-02T00:58:37+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://twbworld.github.io/author/robert-ford/</loc>
-    <lastmod>2020-05-02T00:58:37+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://twbworld.github.io/publication-type/1/</loc>
     <lastmod>2020-05-02T00:58:37+08:00</lastmod>
   </url>
   
@@ -174,7 +124,12 @@
   
   <url>
     <loc>https://twbworld.github.io/post/</loc>
-    <lastmod>2020-05-02T00:58:37+08:00</lastmod>
+    <lastmod>2020-05-07T19:26:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://twbworld.github.io/authors/</loc>
+    <lastmod>2020-05-07T19:26:04+08:00</lastmod>
   </url>
   
   <url>
@@ -193,8 +148,8 @@
   </url>
   
   <url>
-    <loc>https://twbworld.github.io/author/%E5%BF%90%E5%BF%91/</loc>
-    <lastmod>2020-05-02T00:58:37+08:00</lastmod>
+    <loc>https://twbworld.github.io/authors/admin/</loc>
+    <lastmod>2020-05-07T19:26:04+08:00</lastmod>
   </url>
   
   <url>
