@@ -27,7 +27,7 @@ weight: 100
 # 是否精选文章,显示在首页
 featured: true
 # 草稿开关,开启则文章不会打包
-draft: false
+draft: true
 # 是否显示目录
 toc: true
 # 类型,默认是目录名,所以"post",也可以写"widget_page","dosc"等
@@ -84,7 +84,7 @@ projects: []
 # To use, add an image named `featured.jpg/png` to your page's folder.
 # Placement options: 1 = Full column width, 2 = Out-set, 3 = Screen-width
 # Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
-# 控制详情页文章开头图片,如果当前目录下没有featured.jpg/png文件,列表页也会显示这图片
+# 控文章列表页图片,也可以在当前目录下放置featured.jpg/png文件
 image:
   placement: 3
   image: ""
