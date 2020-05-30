@@ -124,7 +124,22 @@
   border-right: 1px solid #eee;
 }
 
-/* 文章详情右侧内容 */
+#TableOfContents ul,
+#TableOfContents li a,
+ul.toc-top {
+  padding: 0;
+}
+
+ul.toc-top {
+  text-align: left;
+  display: block;
+}
+
+#TableOfContents ul {
+  padding-right: 0.5rem
+}
+
+
 .post-article-container {
   max-width: none !important;
   /* 强制换行 */
@@ -139,13 +154,33 @@
 
 
 /* 首页查看更多 */
-.see-all{
+.see-all {
   text-align: right;
-  padding:0 10% 10px 0
+  padding: 0 10% 10px 0
 }
 
 /* post列表页文章 */
-.universal-wrapper .media{
+.universal-wrapper .media {
   z-index: 0;
   width: 100%
+}
+
+.projects-container {
+  min-height: 20rem
+}
+
+
+
+
+/* 网站底部 */
+.powered-by {
+  margin: 0;
+}
+
+.home-section {
+  padding: 0;
+}
+
+ul.network-icon {
+  margin-bottom: 2rem;
 }
