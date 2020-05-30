@@ -134,7 +134,7 @@
 <!-- ============搜索框============begin -->
       {{ if and site.Params.search.engine (not (in site.Params.search.unable_type .Type)) }}
       <li class="nav-item" style="display:inline-block;">
-        <a class="nav-link js-search" title="Search" href="#"><i class="fas fa-search big-icon" aria-hidden="true"></i></a><!-- 此处有修改 -->
+        <a class="nav-link js-search" title="Search" href="#" aria-label="{{ i18n "search" }}"><i class="fas fa-search big-icon" aria-hidden="true"></i></a><!-- 此处有修改 -->
       </li>
       {{ end }}
 <!-- ============搜索框============end -->

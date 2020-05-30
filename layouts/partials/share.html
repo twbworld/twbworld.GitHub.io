@@ -1,6 +1,6 @@
 {{ $data := site.Params }}<!-- 此处有修改 -->
 
-{{ if and site.Params.sharing (ne .Params.share false) }}
+{{ if and site.Params.sharing (and (ne site.Params.post_share false) (ne .Params.share false)) }}
 <div class="share-box" aria-hidden="true">
   <ul class="share">
     <!-- 此处有修改 -->

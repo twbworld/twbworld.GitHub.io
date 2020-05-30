@@ -1,5 +1,9 @@
 # SITE SETUP
-# Documentation: https://sourcethemes.com/academic/
+# Guide: https://sourcethemes.com/academic/docs/get-started/
+# Documentation: https://sourcethemes.com/academic/docs/
+#
+# This file is formatted using TOML syntax - learn more at https://learnxinyminutes.com/docs/toml/
+# Each configuration section is defined by a name in square brackets (e.g. `[search]`).
 
 ############################
 ## Theme
@@ -73,6 +77,8 @@ privacy_pack = false
 #   `repo` defines the repository URL. `editable` defines which page types can be edited.
 edit_page = {repo_url = "https://github.com/gcushen/hugo-academic", content_dir = "", repo_branch = "master", editable = {docs = true, page = false, post = false}}
 
+# Show related content at the bottom of pages?
+show_related = {docs = false, page = false, post = true, project = false, publication = false, talk = false}
 ############################
 ## Contact details
 ##
@@ -118,6 +124,9 @@ contact_links = [
   # {icon = "telegram", icon_pack = "fab", name = "Telegram Me", link = "https://telegram.me/@Telegram"},
   ]
 
+# post页底部显示社交链接
+post_share = false
+
 ############################
 ## Social
 ############################
@@ -159,6 +168,11 @@ docs_section_pager = true  # Display pager in Docs layout (e.g. tutorials)?
 
 # Enable in-built social sharing buttons? (true/false)
 sharing = true
+
+# Show a copyright license from creativecommons.org in the site footer?
+# Page specific copyright licenses are also possible by adding this option to a page's front matter.
+copyright_license = {enable = false, allow_derivatives = false, share_alike = true, allow_commercial = false, notice = "This work is licensed under {license}"}
+
 
 # Link authors to their profile page? (true/false)
 link_authors = true

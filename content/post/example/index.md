@@ -44,7 +44,7 @@ isCJKLanguage: true
 markup: "md"
 # 显示"阅读时长"(params.toml也有统一的设置)
 reading_time: true
-# 底部显示社交链接
+# 底部显示社交链接(params.toml总开关post_share)
 share: true
 # 底部显示作者资料
 profile: false

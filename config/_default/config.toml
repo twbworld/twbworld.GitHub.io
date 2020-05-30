@@ -1,7 +1,8 @@
 #参考https://skyao.io/learning-hugo/theme/academic.html
 
-# Configuration of Academic
-# Documentation: https://sourcethemes.com/academic/
+# Configuration of Hugo
+# Guide: https://sourcethemes.com/academic/docs/get-started/
+# Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
 #
 # This file is formatted using TOML syntax - learn more at https://learnxinyminutes.com/docs/toml/
 # Each configuration section is defined by a name in square brackets (e.g. `[outputs]`).
@@ -15,7 +16,7 @@ baseurl = "https://twbworld.github.io/"
 
 # Enter a copyright notice to display in the site footer.
 # To display a copyright symbol, type `&copy;`. For current year, type `{year}`.
-copyright = "&copy; 2020 [twbworld](https://github.com/twbworld)"
+copyright = "&copy; 2020 [忐忑](/authors/admin/)"
 
 # google分析工具
 # googleAnalytics = "17048c9d4209e5d08a9ae5b0b4160808"
@@ -48,11 +49,11 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
 # 如果index.md没有设置slug,那么默认slug等于title,由于title是文章标题可能是中文,中文不利于 用在url 以及 SEO;其次文章标题可能多变,而目录名不多变以及url和目录名恰好要求是唯一的;所以这里干脆用filename,即目录名(程序员一般不会起中文名的目录)
 # 也可以在index.md设置"url"参数,自定义url
 [permalinks]
-  authors = "/author/:filename/"
-  tags = "/tag/:filename/"
-  categories = "/category/:filename/"
-  publication_types = "/publication-type/:filename/"
   post = "/post/:year/:month/:day/:filename"
+  tags = "/tags/:title/"
+  authors = "/authors/:title/"
+  categories = "/categorys/:title/"
+  publication_types = "/publication-types/:filename/"
 
 [outputs]
   home = [ "HTML", "RSS", "JSON", "WebAppManifest" ]
@@ -65,6 +66,7 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
   mediaType = "application/manifest+json"
   rel = "manifest"
 
+# Configure the Markdown renderer.
 [markup]
   defaultMarkdownHandler = "goldmark"
   [markup.goldmark]
@@ -92,16 +94,22 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
 # 文章底部的"相关"
 # https://s0gohugo0io.icopy.site/content-management/related/
 [related]
-  threshold = 80
+  threshold = 80.0
   includeNewer = true
   toLower = true
   [[related.indices]]
     name = "keywords"
-    weight = 200
+    weight = 200.0
   [[related.indices]]
     name  = "tags"
-    weight = 160
+    weight = 160.0
   [[related.indices]]
     name  = "date"
-    weight = 10
+    weight = 10.0
     pattern = "2006"
+  [[related.indices]]
+    name = "title"
+    weight = 60.0
+  [[related.indices]]
+    name = "summary"
+    weight = 50.0

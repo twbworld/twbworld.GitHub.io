@@ -94,7 +94,7 @@
 
     {{ if $imageSrc }}
     <a href="{{$link}}" {{ $target | safeHTMLAttr }}>
-      <img src="{{ $imageSrc }}" alt="">
+      <img src="{{ $imageSrc }}" alt="{{ $item.Title }}">
     </a>
     {{end}}
 <!-- =========================此处有修改==================end -->
