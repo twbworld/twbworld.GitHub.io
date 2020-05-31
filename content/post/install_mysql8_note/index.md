@@ -7,7 +7,7 @@ summary: "最近试着安装做新版的mysql,过程中出现一些坎坷,所以
 
 # 标签
 tags: 
-- mysql
+- Mysql
 
 #关键字
 keywords:
