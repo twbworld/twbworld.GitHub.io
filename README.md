@@ -1,6 +1,14 @@
 
-hugo-blog - 基于[academic-kickstart](https://github.com/sourcethemes/academic-kickstart.git)
+**Hugo-Blog**
 ===========
+
+[![](https://img.shields.io/github/release/twbworld/hugo-blog)](https://github.com/twbworld/hugo-blog)
+![](https://img.shields.io/badge/language-Js/Html-orange)
+[![](https://img.shields.io/github/release/twbworld/twbworld.GitHub.io?label=GitHub-pages)](https://github.com/twbworld/twbworld.GitHub.io)
+[![](https://img.shields.io/badge/powered-hugo-ff4088)](https://github.com/gohugoio/hugo)
+[![](https://img.shields.io/badge/theme-hugo_academic-00d1b2)](https://github.com/gcushen/hugo-academic)
+[![](https://img.shields.io/badge/fork-academic_kickstart-00d1b2)](https://github.com/sourcethemes/academic-kickstart)
+
 
 ## 外部临时浏览本地
 例: `hugo --i18n-warnings server -D --bind 192.168.2.2 -p 1314 --baseURL=http://192.168.2.2:1314`

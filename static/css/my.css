@@ -203,3 +203,7 @@ ul.toc-top {
 ul.network-icon {
   margin-bottom: 2rem;
 }
+
+.home-section .powered-by img{
+  display: inline-block;
+}

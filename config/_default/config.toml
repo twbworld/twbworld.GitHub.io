@@ -16,7 +16,8 @@ baseurl = "https://twbworld.github.io/"
 
 # Enter a copyright notice to display in the site footer.
 # To display a copyright symbol, type `&copy;`. For current year, type `{year}`.
-copyright = "&copy; 2020 [忐忑](/authors/admin/)"
+copyright = '[![](https://img.shields.io/badge/©-2020—{year}_By_忐忑-2962ff)](/authors/admin/) <br/> [![](https://img.shields.io/github/release/twbworld/hugo-blog)](https://github.com/twbworld/hugo-blog) [![](https://img.shields.io/badge/powered-hugo-ff4088)](https://gohugo.io/) [![](https://img.shields.io/badge/theme-hugo_academic-00d1b2)](https://sourcethemes.com/academic)'
+#&copy; 2020-{year} [忐忑](/authors/admin/) Powered by the [Academic theme](https://sourcethemes.com/academic) for [Hugo](https://gohugo.io).
 
 # google分析工具
 # googleAnalytics = "17048c9d4209e5d08a9ae5b0b4160808"
