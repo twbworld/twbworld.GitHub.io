@@ -9,3 +9,6 @@ resources/
 
 # hugo 写作时的临时目录,,,相对的是public正式目录
 dev/
+
+
+static/js/vendor2/
