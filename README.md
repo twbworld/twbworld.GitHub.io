@@ -2,9 +2,9 @@
 **Hugo-Blog**
 ===========
 
-[![](https://img.shields.io/github/release/twbworld/hugo-blog)](https://github.com/twbworld/hugo-blog)
+[![](https://img.shields.io/github/tag/twbworld/hugo-blog)](https://github.com/twbworld/hugo-blog)
 ![](https://img.shields.io/badge/language-Js/Html-orange)
-[![](https://img.shields.io/github/release/twbworld/twbworld.GitHub.io?label=GitHub-pages)](https://github.com/twbworld/twbworld.GitHub.io)
+[![](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?label=GitHub-pages)](https://github.com/twbworld/twbworld.GitHub.io)
 [![](https://img.shields.io/badge/powered-hugo-ff4088)](https://github.com/gohugoio/hugo)
 [![](https://img.shields.io/badge/theme-hugo_academic-00d1b2)](https://github.com/gcushen/hugo-academic)
 [![](https://img.shields.io/badge/fork-academic_kickstart-00d1b2)](https://github.com/sourcethemes/academic-kickstart)

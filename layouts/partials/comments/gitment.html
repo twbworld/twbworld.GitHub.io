@@ -1,0 +1,53 @@
+{{ if site.Params.comments.gitment.owner | and site.Params.comments.gitment.repo | and site.Params.comments.gitment.client_id | and site.Params.comments.gitment.client_secret }}
+
+<div id="container"></div>
+
+<!-- <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> -->
+<!-- 才发现gitment的作者的服务器关了,改用其他服务器 -->
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
+
+<script>
+
+  const myTheme = {
+    render(state, instance) {
+      const container = document.createElement('div');
+      container.lang = "en-US";
+      container.className = 'gitment-container gitment-root-container';
+      
+       // your custom component
+      container.appendChild(instance.renderSomething(state, instance));
+      
+      container.appendChild(instance.renderHeader(state, instance));
+      container.appendChild(instance.renderEditor(state, instance));
+      container.appendChild(instance.renderComments(state, instance));
+      container.appendChild(instance.renderFooter(state, instance));
+      return container;
+    },
+    renderSomething(state, instance) {
+      const container = document.createElement('div');
+      container.lang = "en-US";
+      if (state.user.login) {
+        container.innerText = `Hello, ${state.user.login}`;
+      }
+      return container;
+    }
+  };
+
+  var gitment = new Gitment({
+    id: window.location.pathname, // 可选,限制50个字符。默认为 location.href,
+    owner: {{ site.Params.comments.gitment.owner }}, // 可以是你的GitHub用户名，也可以是github id
+    repo: {{ site.Params.comments.gitment.repo }},
+    oauth: {
+      client_id: {{ site.Params.comments.gitment.client_id }},
+      client_secret: {{ site.Params.comments.gitment.client_secret }}
+    },
+    theme: myTheme //把评论输入框放在上方
+  });
+
+  gitment.render('container');
+
+</script>
+
+{{end}}
