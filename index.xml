@@ -5,7 +5,7 @@
     <link>https://twbworld.github.io/</link>
       <atom:link href="https://twbworld.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>忐忑の博客</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><copyright>© 2020 [忐忑](/authors/admin/)</copyright><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><copyright>[![](https://img.shields.io/badge/©-2020—2020_By_忐忑-2962ff)](/authors/admin/)  [![](https://img.shields.io/github/tag/twbworld/hugo-blog)](https://github.com/twbworld/hugo-blog) [![](https://img.shields.io/badge/powered-hugo-ff4088)](https://gohugo.io/) [![](https://img.shields.io/badge/theme-hugo_academic-00d1b2)](https://sourcethemes.com/academic)</copyright><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     <image>
       <url>https://twbworld.github.io/img/avatar.jpg</url>
       <title>忐忑の博客</title>
@@ -107,7 +107,7 @@
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531163409.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;虚拟网卡已创建成功,最后还要选择使用新创建的网卡;选择你要使用刚才新建网卡的虚拟机, 右键选择&amp;quot;设置&amp;rdquo;, &amp;ldquo;硬件&amp;quot;==&amp;gt;&amp;quot;网络适配器&amp;rdquo; ,右侧点击&amp;quot;自定义:特定虚拟网络&amp;rdquo;, 选择新建的&amp;quot;VMnet8(NAT 模式)&amp;quot;, 点击&amp;quot;确定&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;虚拟网卡已创建成功,最后还要选择使用新创建的网卡;选择你要使用刚才新建网卡的虚拟机, 右键选择&amp;quot;设置&amp;rdquo;, &amp;ldquo;硬件&amp;quot;==&amp;gt;&amp;quot;网络适配器&amp;rdquo; ,右侧点击&amp;quot;自定义:特定虚拟网络&amp;rdquo;, 选择新建的&amp;quot;VMnet8(NAT 模式)&amp;rdquo;, 点击&amp;quot;确定&amp;rdquo;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;p&gt;这一步非常关键,我曾经缺少这一步,导致虚拟机连不上网&lt;/p&gt;
