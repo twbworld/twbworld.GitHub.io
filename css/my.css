@@ -166,7 +166,9 @@ ul.toc-top {
 }
 
 #container .gitment-comments-init-btn:disabled,
-#container .gitment-editor-submit:disabled {
+#container .gitment-editor-submit:disabled,
+#container .gitment-editor-submit,
+#container .gitment-comments-init-btn{
   background-color: #2962ff;
 }
 
