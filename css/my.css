@@ -161,7 +161,9 @@ ul.toc-top {
 #container a.gitment-header-issue-link,
 #container a.gitment-header-issue-link:visited,
 #container .gitment-editor-tab,
-#container a.gitment-editor-footer-tip {
+#container a.gitment-editor-footer-tip,
+#container a.gitment-editor-logout-link,
+#container a.gitment-editor-logout-link:visited,#container .gitment-comment-header{
   color: rgba(255, 255, 255, 0.68);
 }
 
@@ -183,9 +185,18 @@ ul.toc-top {
   color: rgb(40, 42, 54);
 }
 
-#container .gitment-header-like-btn svg {
+#container .gitment-header-like-btn svg,
+#container .gitment-heart-icon svg {
   background: rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
+}
+#container .gitment-header-like-btn svg {
+  border-radius: 8px;
+}
+#container .gitment-heart-icon svg {
+  border-radius: 5px;
+}
+#container .gitment-markdown{
+  background-color: #fff;
 }
 
 
