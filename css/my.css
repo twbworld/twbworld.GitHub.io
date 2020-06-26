@@ -163,7 +163,9 @@ ul.toc-top {
 #container .gitment-editor-tab,
 #container a.gitment-editor-footer-tip,
 #container a.gitment-editor-logout-link,
-#container a.gitment-editor-logout-link:visited,#container .gitment-comment-header{
+#container a.gitment-editor-logout-link:visited,
+#container .gitment-comment-header,
+#container .gitment-comment-header .gitment-comment-name{
   color: rgba(255, 255, 255, 0.68);
 }
 
@@ -172,6 +174,7 @@ ul.toc-top {
 #container .gitment-editor-submit,
 #container .gitment-comments-init-btn{
   background-color: #2962ff;
+  border-radius: 3px;
 }
 
 #container a.gitment-footer-project-link,
@@ -186,14 +189,14 @@ ul.toc-top {
 }
 
 #container .gitment-header-like-btn svg,
-#container .gitment-heart-icon svg {
+#container .gitment-comment-like-btn svg {
   background: rgba(255, 255, 255, 0.3);
 }
 #container .gitment-header-like-btn svg {
-  border-radius: 8px;
-}
-#container .gitment-heart-icon svg {
   border-radius: 5px;
+}
+#container .gitment-comment-like-btn svg {
+  border-radius: 3px;
 }
 #container .gitment-markdown{
   background-color: #fff;
