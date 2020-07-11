@@ -5,7 +5,7 @@
     <link>https://twbworld.github.io/courses/</link>
       <atom:link href="https://twbworld.github.io/courses/index.xml" rel="self" type="application/rss+xml" />
     <description>Courses</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><copyright>[![](https://img.shields.io/badge/©-2020—2020_By_忐忑-2962ff)](/authors/admin/)  [![](https://img.shields.io/github/tag/twbworld/hugo-blog)](https://github.com/twbworld/hugo-blog) [![](https://img.shields.io/badge/powered-hugo-ff4088)](https://gohugo.io/) [![](https://img.shields.io/badge/theme-hugo_academic-00d1b2)](https://sourcethemes.com/academic)</copyright>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020—2020_忐忑-yellow)](/authors/admin/) [![备案号](https://img.shields.io/badge/粤ICP备-20059599号-eb0500)](http://www.beian.miit.gov.cn/)   [![忐忑的博客](https://img.shields.io/github/tag/twbworld/hugo-blog?logo=github)](https://github.com/twbworld/hugo-blog) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![hugo-academic](https://img.shields.io/badge/theme-hugo_academic-00d1b2)](https://sourcethemes.com/academic)</copyright>
     <image>
       <url>https://twbworld.github.io/img/avatar.jpg</url>
       <title>Courses</title>

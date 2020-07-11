@@ -256,3 +256,12 @@ ul.network-icon {
 .home-section .powered-by img {
   display: inline-block;
 }
+
+.powered-by .ghbtns-a{
+  position: relative;
+}
+.powered-by .ghbtns-a iframe{
+  position: absolute;
+  top: 3px;
+  left: 5px;
+}
