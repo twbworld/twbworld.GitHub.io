@@ -85,6 +85,12 @@
   sri = "sha256-5VhCqFam2Cn+yjw61zbBNrbHVJ6SRydPeKopYlngbiQ="
   url = "https://cdn.staticfile.org/cookieconsent2/%s/cookieconsent.min.js"
   #url = "/js/vendor/cookieconsent2/%s/cookieconsent.min.js"
+[js.busuanzi]
+  # 访问量统计:https://busuanzi.ibruce.info/
+  version = "2.3"
+  sri = ""
+  url = "https://busuanzi.ibruce.info/busuanzi/%s/busuanzi.pure.mini.js"
+  #url = "/js/vendor/busuanzi/%s/busuanzi.pure.mini.js"
 
 # CSS
 

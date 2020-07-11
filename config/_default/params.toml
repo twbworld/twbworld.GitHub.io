@@ -187,6 +187,9 @@ abstract_length = 135
 #   E.g. To load `/assets/js/custom.js`, set `plugins_js = ["custom"]`.
 plugins_js  = []
 
+#文章底部是否显示访问量;与config.copyright配置协同
+site_views = true
+
 # Avatars.
 # An avatar is an image that appears next to a user's name.
 # An avatar can be uploaded as an image named `avatar` to each user's profile or fetched from Gravatar.com.
@@ -254,7 +257,7 @@ plugins_js  = []
   # https://github.com/imsun/gitment
   # 登录账号,填写"认证回调地址"要注意,填写的是重定向后的域名
   [comments.gitment]
-    owner = "twbworld" #GitHub用户名或用户ID,ID获取: https://api.github.com/users/GitHub用户名
+    owner = "twbworld" #GitHub用户名或用户ID,ID获取: https://api.github.com/users/[GitHub用户名]
     repo = "twbworld.github.io" #repositories仓库名称
     client_id = "21184f6e00f998440f3a"
     client_secret = "de270706bf4c583ee94665dc8a3ae08ac446a450"

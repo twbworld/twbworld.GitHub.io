@@ -10,6 +10,23 @@
       {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.isotope.url $js.isotope.version) $js.isotope.sri | safeHTML }}
       {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.fancybox.url $js.fancybox.version) $js.fancybox.sri | safeHTML }}
 
+      <!-- ===============访问量============================brgin -->
+      {{ if site.Params.site_views }}
+      {{ printf "<script src=\"%s\" integrity=\"%s\"></script>" (printf $js.busuanzi.url $js.busuanzi.version) $js.busuanzi.sri | safeHTML }}
+      <script type="text/javascript">
+        window.onload = function (){
+          const views = document.getElementById("busuanzi_value_site_pv").innerHTML,
+                imgNode = document.createElement('img');
+          imgNode.alt = 'Hi !';
+          imgNode.title = 'Hi !';
+          imgNode.src = 'https://img.shields.io/badge/views-' + views + '-purple';
+          document.getElementById('shields-views').appendChild(imgNode);
+        };
+      </script>
+      <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv" style="display: none !important;">*</span></span>
+      {{ end }}
+      <!-- ===============访问量============================end -->
+
       {{ if or .Params.diagram site.Params.diagram }}
         {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"mermaid\"></script>" (printf $js.mermaid.url $js.mermaid.version) $js.mermaid.sri | safeHTML }}
       {{ end }}
