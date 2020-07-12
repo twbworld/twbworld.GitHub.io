@@ -919,7 +919,7 @@
   };
 
   var gitment = new Gitment({
-    id: window.location.pathname, 
+    id: window.location.pathname.match(/\w+/g).pop().slice(-50), 
     owner: "twbworld", 
     repo: "twbworld.github.io",
     oauth: {

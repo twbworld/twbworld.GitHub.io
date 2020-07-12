@@ -702,7 +702,7 @@ Tip 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tell
   };
 
   var gitment = new Gitment({
-    id: window.location.pathname, 
+    id: window.location.pathname.match(/\w+/g).pop().slice(-50), 
     owner: "twbworld", 
     repo: "twbworld.github.io",
     oauth: {
