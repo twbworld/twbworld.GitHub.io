@@ -55,6 +55,135 @@
     </item>
     
     <item>
+      <title>SSH隧道连接局域网下的虚拟机</title>
+      <link>https://twbworld.github.io/post/2020/07/12/use_tunnel_to_connect_to_virtual_machines_in_the_lan/</link>
+      <pubDate>Sun, 12 Jul 2020 18:18:13 +0800</pubDate>
+      <guid>https://twbworld.github.io/post/2020/07/12/use_tunnel_to_connect_to_virtual_machines_in_the_lan/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;连接局域网下的虚拟机,在网上找到的做法通常是:在VMware配置端口转发&lt;br&gt;
+最近了解隧道技术,突发奇想:能不能使用SSH隧道连接局域网下的虚拟机呢?&lt;br&gt;
+在网上找到的相关资料不多,经过自己摸索,终于实现了&lt;br&gt;
+使用SSH隧道连接局域网下的虚拟机,主要有两种方式可以实现&lt;br&gt;
+1: 本地端口转发; 2: 动态端口转发&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先,假设网络图如下,A和B在同一局域网下,我们的目的是: 实现 A 连接到 C 的SSH服务
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712191744.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;方法一--本地端口转发&#34;&gt;方法一 : 本地端口转发&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大体思路: 在A下创建 &lt;code&gt;A --&amp;gt; C&lt;/code&gt; 的SSH隧道,就可以访问A下的指定端口,通过隧道转发,访问到C的22端口了&lt;br&gt;
+具体实现如下 :&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;1b安装ssh服务&#34;&gt;1#B安装SSH服务&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参考文章 &lt;a href=&#34;https://www.cnblogs.com/sparkdev/p/10166061.html&#34;&gt;https://www.cnblogs.com/sparkdev/p/10166061.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;这是非常关键的一步(作为小白,我刚开始就异想天开,直接就想通过A连接到C,直到多次尝试失败并且想通了)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;我的电脑 B 的系统是&lt;code&gt;windows10 1909&lt;/code&gt;,自带了&lt;code&gt;OpenSSH Server&lt;/code&gt;软件;如果版本是&lt;code&gt;wondows10 1809&lt;/code&gt;以下或&lt;code&gt;wondows7&lt;/code&gt;的同学,可以网上搜索windows怎么安装&lt;code&gt;openSSH&lt;/code&gt;服务&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(1) Win10打开 设置(&lt;code&gt;Win + I&lt;/code&gt;) ==&amp;gt; 应用 ==&amp;gt; 应用和功能 ==&amp;gt; 可选功能 =&amp;gt; 添加功能 =&amp;gt; OpenSSH服务器(点击安装)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712195856.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;(2) 打开 任务管理器(&lt;code&gt;Shift + Ctrl + Esc&lt;/code&gt;) ==&amp;gt; 任务 ==&amp;gt; 左下角点击&amp;quot;打开服务&amp;rdquo;; 找到两个OpenSSH服务,右键开启&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712200951.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;(3) 打开 控制面板 ==&amp;gt; 系统和安全  ==&amp;gt; &lt;code&gt;Windows Defender&lt;/code&gt; 防火墙 ==&amp;gt; 启用或关闭&lt;code&gt;windows defender&lt;/code&gt;防火墙;选择关闭防火墙; (或者在入站规则添加允许22端口)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712202126.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;到此, B已经配置完成&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;2a建立-a----c-的隧道&#34;&gt;2#A建立 &lt;code&gt;A --&amp;gt; C&lt;/code&gt; 的隧道&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;本人使用的是&lt;code&gt;PuTTY&lt;/code&gt;的工具, 使用其他工具或&lt;code&gt;PowerShell&lt;/code&gt;也是可以的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;首先保证 C 关闭&lt;code&gt;iptables&lt;/code&gt;或&lt;code&gt;nftables&lt;/code&gt;防火墙 (或配置允许22端口)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过&amp;quot;中间人&amp;rdquo; B ; 在 A 电脑上使用&lt;code&gt;PuTTY&lt;/code&gt;建立起与 C 的SSH隧道 (本地端口转发)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在 A 上配置(基于文章开头假设的网络图) :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712204730.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;点击open,会出现登录,注意:这里登录的是 B 电脑,也就是要输入B的windows的用户名和密码;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;到这里,你已经建立起 &lt;code&gt;A --&amp;gt; C&lt;/code&gt; 的隧道了, 注意: 请不要关闭&lt;code&gt;PuTTY&lt;/code&gt;窗口, 否则隧道会被关闭&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;PuTTY&lt;/code&gt;如上设置,相当于使用命令 &lt;code&gt;ssh -L 127.0.0.1:6666:192.168.2.2:22 192.168.1.107&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;3a通过隧道连接-c-电脑&#34;&gt;3#A通过隧道连接 C 电脑&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;终于到最后一步了, 很简单, 在 A 电脑开启新的&lt;code&gt;PuTTY&lt;/code&gt;窗口, 请求 A 本地的 刚才自定义的 6666端口就可以啦&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712210036.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;恭喜你, 成功通过SSH隧道连接到 C ;因为隧道是 &lt;code&gt;A --&amp;gt; C&lt;/code&gt; 的且加密的, B 不会监听到流量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;方法二--动态端口转发&#34;&gt;方法二 : 动态端口转发&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大体思路: 在A下创建 &lt;code&gt;A --&amp;gt; B&lt;/code&gt; 的SSH隧道,把 B 作为代理(Proxy), 就可以实现 : A 使用&lt;code&gt;SOCKS5&lt;/code&gt;协议通过 B 来访问到 C 的22端口&lt;br&gt;
+具体实现如下 :&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;1b安装ssh服务-1&#34;&gt;1#B安装SSH服务&lt;/h3&gt;
+&lt;p&gt;(在 &lt;code&gt;方法一&lt;/code&gt; 中有具体实现, 略)&lt;/p&gt;
+&lt;h3 id=&#34;2a建立-a----b-的隧道&#34;&gt;2#A建立 &lt;code&gt;A --&amp;gt; B&lt;/code&gt; 的隧道&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;本人使用的是&lt;code&gt;PuTTY&lt;/code&gt;的工具, 使用其他工具或PowerShell也是可以的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 A 电脑上使用&lt;code&gt;PuTTY&lt;/code&gt;建立起与 B 的SSH隧道 (动态端口转发)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在 A 上配置(基于文章开头假设的网络图) :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712215702.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;点击open,会出现登录,注意:这里登录的是 B 电脑,也就是要输入B的windows的用户名和密码;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;到这里,你已经建立起 &lt;code&gt;A --&amp;gt; B&lt;/code&gt; 的隧道了, 注意: 请不要关闭&lt;code&gt;PuTTY&lt;/code&gt;窗口, 否则隧道会被关闭&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;PuTTY&lt;/code&gt;如上设置,相当于使用命令 &lt;code&gt;ssh -D 127.0.0.1:6666 192.168.1.107&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;3a通过代理连接-c-电脑&#34;&gt;3#A通过代理连接 C 电脑&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;终于到最后一步了, 很简单, 在 A 电脑上开启新的&lt;code&gt;PuTTY&lt;/code&gt;窗口, 设置 A 本地的 刚才自定义的 6666端口为代理端口, 请求 C 就可以啦&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712214629.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;方法三--vmware配置端口转发&#34;&gt;方法三 : VMware配置端口转发&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这是一个比较普遍的做法, 在网上也容易找到相关文章&lt;br&gt;
+大体思路: 在&lt;code&gt;VMware&lt;/code&gt;上配置 监听父windows的端口X,把A端口转发到VMware下的虚拟机端口Y, 局域网的电脑只有访问windows的端口X就相当于访问虚拟机的端口Y啦, 是不是很容易&lt;br&gt;
+具体实现如下 :&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;1b配置vmware&#34;&gt;1#B配置VMware&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712220946.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2b配置防火墙&#34;&gt;2#B配置防火墙&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;打开 控制面板 ==&amp;gt; 系统和安全  ==&amp;gt; &lt;code&gt;Windows Defender&lt;/code&gt; 防火墙 ==&amp;gt; 启用或关闭&lt;code&gt;windows defender&lt;/code&gt;防火墙;选择关闭防火墙; (或者在 入站规则 添加允许 上一步自定义的6666端口)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712202126.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;3a通过-b-连接-c-电脑&#34;&gt;3#A通过 B 连接 C 电脑&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;终于到最后一步了, 很简单, 在 A 电脑直接用&lt;code&gt;PuTTY&lt;/code&gt;请求 B 的 6666端口, 就可以登录 C 啦&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712222247.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&amp;hellip; 到此, 文章结束 !&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>VMware自定义虚拟网卡(添加网络)</title>
       <link>https://twbworld.github.io/post/2020/05/31/vmware_customize_network/</link>
       <pubDate>Sun, 31 May 2020 14:07:40 +0800</pubDate>
