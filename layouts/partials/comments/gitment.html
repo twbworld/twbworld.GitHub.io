@@ -36,7 +36,7 @@
   };
 
   var gitment = new Gitment({
-    id: window.location.pathname, // 可选,限制50个字符。默认为 location.href,
+    id: window.location.pathname.match(/\w+/g).pop().slice(-50), // 可选,限制50个字符。默认为 location.href,
     owner: {{ site.Params.comments.gitment.owner }}, // 可以是你的GitHub用户名，也可以是github id
     repo: {{ site.Params.comments.gitment.repo }},
     oauth: {
