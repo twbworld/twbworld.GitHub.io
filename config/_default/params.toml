@@ -350,5 +350,5 @@ site_views = true
 # <!-- 看板娘配置 -->
 [live2d_config]
   enable = true
-  position = "right"
+  position = "left"
   unable_type = ["page"]
