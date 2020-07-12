@@ -7,11 +7,12 @@ summary: "使用SSH隧道技术,连接局域网下的VMware linux虚拟机"
 
 # 标签
 tags: 
-- tunnel
+- Tunnel
 
 #关键字
 keywords:
 - 隧道
+- SSH
 - SSH隧道
 - tunnel
 - VMware
@@ -91,7 +92,7 @@ projects: []
 # 控文章列表页图片,也可以在当前目录下放置featured.jpg/png文件
 image:
   placement: 3
-  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712185956.png"
+  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712191744.png"
   caption: ""
   focal_point: "Center"
   preview_only: true
