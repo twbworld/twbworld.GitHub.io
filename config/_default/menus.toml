@@ -11,7 +11,7 @@
 
 [[main]]
   name = ""
-  url = "post"
+  url = "post/"
   pre = "<i class='fa fa-list-ul big-icon' title='博客'></i>"
   weight = 21
 #  parent= '博客'
