@@ -13,8 +13,8 @@
   url = "https://cdn.staticfile.org/jquery/%s/jquery.min.js"
   #url = "/js/vendor/jquery/%s/jquery.min.js"
 [js.highlight]
-  version = "9.18.1"
-  sri = "sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ="
+  version = "10.1.2"
+  sri = "sha512-7t8APmYpzEsZP7CYoA7RfMPV9Bb+PJHa9x2WiUnDXZx3XHveuyWUtvNOexhkierl5flZ3tr92dP1mMS+SGlD+A=="
   url = "https://cdn.staticfile.org/highlight.js/%s/highlight.min.js"
   #url = "/js/vendor/highlight.js/%s/highlight.min.js"
 [js.mathJax]
@@ -85,6 +85,15 @@
   sri = "sha256-5VhCqFam2Cn+yjw61zbBNrbHVJ6SRydPeKopYlngbiQ="
   url = "https://cdn.staticfile.org/cookieconsent2/%s/cookieconsent.min.js"
   #url = "/js/vendor/cookieconsent2/%s/cookieconsent.min.js"
+[js.instantpage]
+  version = "5.1.0"
+  sri = "sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ=="
+  url = "https://cdn.staticfile.org/instant.page/%s/instantpage.min.js"
+[js.plotly]
+  version = "1.55.0"
+  sri = "sha512-mFhGfqqj673u2lPmwV+lvz3qjVTtwSP1bRiVyV8iIkjpgHUTatPtguaCbzcahBsLvUqe7aYtzQB3aCyQ6AEyyA=="
+  url = "https://cdn.staticfile.org/plotly.js/%s/plotly.min.js"
+
 [js.busuanzi]
   # 访问量统计:https://busuanzi.ibruce.info/
   version = "2.3"
@@ -95,8 +104,8 @@
 # CSS
 
 [css.fontAwesome]
-  version = "5.13.0"
-  sri = "sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+  version = "5.14.0"
+  sri = "sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc="
   url = "https://cdn.staticfile.org/font-awesome/%s/css/all.min.css"
 [css.academicons]
   version = "1.8.6"
@@ -122,7 +131,7 @@
   sri = "sha256-uL8LUd3zkI/lXvc/Hv/oOu8ld6RJcOZiUY/8c+I+3/o="
   url = "/css/vendor/instantsearch.js/%s/instantsearch-theme-algolia.min.css"
 [css.highlight]
-  version = "9.18.1"
+  version = "10.1.2"
   sri = ""  # No SRI as highlight style is determined at run time.
   url = "/css/vendor/highlight.js/%s/styles/%s.min.css"
 [css.cookieconsent]

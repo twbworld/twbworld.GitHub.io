@@ -1,15 +1,17 @@
 !.gitignore
+!.gitkeep
 
 # IDEs
 .idea/
 .vs/
 
 # Hugo
-resources/
+/resources/
 
 # hugo 写作时的临时目录,,,相对的是public正式目录
 dev/
-
+_vendor/
+go.sum
 
 static/js/vendor2/
 static/css/vendor2/

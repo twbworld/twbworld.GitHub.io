@@ -23,7 +23,7 @@ function loadWidget(config) {
                 <span class="fa fa-lg fa-street-view"></span>
                 <span class="fa fa-lg fa-camera-retro d-none"></span>
                 <span class="fa fa-lg fa-info-circle d-none"></span>
-                <span class="fa fa-lg fa-times text-warning"></span>
+                <span class="fa fa-lg fa-times text-danger"></span>
             </div>
         </div>`);
     //上边注意" d-none"

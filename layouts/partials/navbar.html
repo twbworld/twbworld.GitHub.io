@@ -1,3 +1,5 @@
+{{ $show_navbar := site.Params.main_menu.enable | default true }}
+{{ if $show_navbar }}
 {{ $current_page := . }}
 {{ $highlight_active_link := site.Params.main_menu.highlight_active_link | default true }}
 {{ $show_current_language := site.Params.main_menu.show_language | default false }}
@@ -79,17 +81,26 @@
         {{ end }}
 
         {{/* Get active page. */}}
-        {{ $is_link_in_current_path := in $current_page.RelPermalink .URL }}
+
+        {{ $is_link_in_current_path := false }}
         {{ $is_widget_page := or $current_page.IsHome (eq $current_page.Type "widget_page") }}
+        {{ $is_same_page := false }}
         {{ $hash := findRE "#(.+)" .URL }}
-        {{ $is_same_page := $is_link_in_current_path }}
-        {{ if gt (len $hash) 0 }}
-          {{ $hash = index $hash 0 }}
-          {{ $hash_removed := replace .URL $hash "" }}
-          {{ if eq (len $hash_removed) 0 }}
-            {{ $hash_removed = "/" }}{{/* Add robustness for `/#SECTION` or `#SECTION` in `menus.toml`. */}}
+        {{ if $current_page.IsHome | and (or (eq .URL "/") (eq .URL "")) }}
+          {{ $is_link_in_current_path = true }}
+        {{else}}
+          {{ if gt (len .URL) 1 }}{{/* Ignore root URL */}}
+            {{ $is_link_in_current_path = in $current_page.RelPermalink .URL }}
+            {{ $is_same_page = $is_link_in_current_path }}
+          {{end}}
+          {{ if gt (len $hash) 0 }}
+            {{ $hash = index $hash 0 }}
+            {{ $hash_removed := replace .URL $hash "" }}
+            {{ if eq (len $hash_removed) 0 }}
+              {{ $hash_removed = "/" }}{{/* Add robustness for `/#SECTION` or `#SECTION` in `menus.toml`. */}}
+            {{ end }}
+            {{ $is_same_page = eq (path.Dir $current_page.RelPermalink) (path.Dir ($hash_removed|relLangURL)) }}
           {{ end }}
-          {{ $is_same_page = eq (path.Dir $current_page.RelPermalink) (path.Dir ($hash_removed|relLangURL)) }}
         {{ end }}
 
         <li class="nav-item">
@@ -233,3 +244,4 @@
 
   </div><!-- /.container -->
 </nav>
+{{end}}{{/* End show navbar. */}}

@@ -16,8 +16,8 @@ baseurl = "https://twbworld.github.io/"
 
 # Enter a copyright notice to display in the site footer.
 # To display a copyright symbol, type `&copy;`. For current year, type `{year}`.
-copyright = '[![忐忑的博客](https://img.shields.io/badge/©-2020—{year}_忐忑-yellow)](/authors/admin/) [![备案号](https://img.shields.io/badge/粤ICP备-20059599号-eb0500)](http://www.beian.miit.gov.cn/) <a href="javascript:void(0)" id="shields-views"></a> <br/> [![忐忑的博客](https://img.shields.io/github/tag/twbworld/hugo-blog?logo=github)](https://github.com/twbworld/hugo-blog) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![hugo-academic](https://img.shields.io/badge/theme-hugo_academic-00d1b2)](https://sourcethemes.com/academic)'
-#&copy; 2020-{year} [忐忑](/authors/admin/) Powered by the [Academic theme](https://sourcethemes.com/academic) for [Hugo](https://gohugo.io).
+copyright = '[![忐忑的博客](https://img.shields.io/badge/©-2020—{year}_忐忑-yellow)](/authors/admin/) [![备案号](https://img.shields.io/badge/粤ICP备-20059599号-eb0500)](http://www.beian.miit.gov.cn/) <a href="javascript:void(0)" id="shields-views"></a> <br/> [![忐忑的博客](https://img.shields.io/github/tag/twbworld/hugo-blog?logo=github)](https://github.com/twbworld/hugo-blog) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)'
+#&copy; 2020-{year} [忐忑](/authors/admin/) Powered by the [wowchemy theme](https://wowchemy.com/) for [Hugo](https://gohugo.io).
 # <a href="javascript:void(0)" class="ghbtns-a"><iframe src="https://ghbtns.com/github-btn.html?user=twbworld&repo=hugo-blog&type=star&count=false&size=none" frameborder="0" scrolling="0" width="60" height="20" title="GitHub"></iframe></a>
 
 # google分析工具
@@ -28,9 +28,6 @@ copyright = '[![忐忑的博客](https://img.shields.io/badge/©-2020—{year}_�
 ############################
 ## Advanced options below ##
 ############################
-
-# Name of Academic theme folder in `themes/`.
-theme = "academic"
 
 # 写文章不需要手动输入时间,借助git) Get last modified date for content from Git?
 enableGitInfo = true
@@ -44,10 +41,11 @@ removePathAccents = true  # Workaround for https://github.com/gohugoio/hugo/issu
 summaryLength = 30  # 文章列表的简介字数限制)Listing summary length in words. Also, see `abstract_length` in `params.toml`.
 paginate = 10  # Number of items per page in paginated lists.(分页)
 enableEmoji = true
+enableRobotsTXT = true
 footnotereturnlinkcontents = "<sup>^</sup>"
 ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
-# Workaround Hugo publishing taxonomy URLs as plurals - consistently use singular across Academic.
+# Workaround Hugo publishing taxonomy URLs as plurals - consistently use singular across wowchemy.
 # 如果index.md没有设置slug,那么默认slug等于title,由于title是文章标题可能是中文,中文不利于 用在url 以及 SEO;其次文章标题可能多变,而目录名不多变以及url和目录名恰好要求是唯一的;所以这里干脆用filename,即目录名(程序员一般不会起中文名的目录)
 # 也可以在index.md设置"url"参数,自定义url
 [permalinks]
@@ -75,7 +73,7 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
     [markup.goldmark.renderer]
       unsafe = true  # Enable user to embed HTML snippets in Markdown content.
   [markup.highlight]
-    codeFences = true  # Disable Hugo's code highlighter as it conflicts with Academic's highligher.
+    codeFences = true  # Disable Hugo's code highlighter as it conflicts with wowchemy's highligher.
   [markup.tableOfContents]
     startLevel = 2
     endLevel = 3
@@ -115,3 +113,11 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
   [[related.indices]]
     name = "summary"
     weight = 50.0
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.75"
+  [[module.imports]]
+    disable = false
+    path = "github.com/wowchemy/wowchemy-hugo-modules/wowchemy"

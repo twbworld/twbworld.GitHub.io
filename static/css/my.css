@@ -8,6 +8,19 @@
   color: #2962ff;
 }
 
+#top #waifu-toggle {
+  z-index: 99;
+}
+
+#top #waifu {
+  z-index: 99;
+}
+
+.waifu-left #waifu-tool {
+  right: auto;
+  left: 10px
+}
+
 .waifu-right #waifu {
   left: auto;
   right: 0;
@@ -20,7 +33,7 @@
 }
 
 .waifu-right #waifu-tool {
-  right: auto;
+  right: 10px;
 }
 
 .waifu-right #waifu-tips {
@@ -165,14 +178,14 @@ ul.toc-top {
 #container a.gitment-editor-logout-link,
 #container a.gitment-editor-logout-link:visited,
 #container .gitment-comment-header,
-#container .gitment-comment-header .gitment-comment-name{
+#container .gitment-comment-header .gitment-comment-name {
   color: rgba(255, 255, 255, 0.68);
 }
 
 #container .gitment-comments-init-btn:disabled,
 #container .gitment-editor-submit:disabled,
 #container .gitment-editor-submit,
-#container .gitment-comments-init-btn{
+#container .gitment-comments-init-btn {
   background-color: #2962ff;
   border-radius: 3px;
 }
@@ -180,7 +193,7 @@ ul.toc-top {
 #container a.gitment-footer-project-link,
 #container a.gitment-footer-project-link:visited,
 #container a.gitment-editor-login-link,
-#container a.gitment-editor-login-link:visited{
+#container a.gitment-editor-login-link:visited {
   color: #2962ff
 }
 
@@ -192,13 +205,16 @@ ul.toc-top {
 #container .gitment-comment-like-btn svg {
   background: rgba(255, 255, 255, 0.3);
 }
+
 #container .gitment-header-like-btn svg {
   border-radius: 5px;
 }
+
 #container .gitment-comment-like-btn svg {
   border-radius: 3px;
 }
-#container .gitment-markdown{
+
+#container .gitment-markdown {
   background-color: #fff;
 }
 
@@ -208,7 +224,15 @@ ul.toc-top {
 /* 首页查看更多 */
 .see-all {
   text-align: right;
-  padding: 0 10% 10px 0
+  padding: 0 10% 10px 0;
+}
+
+.see-all a {
+  color: #fff;
+}
+
+#top .see-all a:hover {
+  color: #ff0000;
 }
 
 /* post列表页文章 */
@@ -257,10 +281,11 @@ ul.network-icon {
   display: inline-block;
 }
 
-.powered-by .ghbtns-a{
+.powered-by .ghbtns-a {
   position: relative;
 }
-.powered-by .ghbtns-a iframe{
+
+.powered-by .ghbtns-a iframe {
   position: absolute;
   top: 3px;
   left: 5px;

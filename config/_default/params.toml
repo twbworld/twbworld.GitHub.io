@@ -131,7 +131,7 @@ post_share = false
 ## Social
 ############################
 
-# Default image for social sharing and search engines. Place image in `static/img/` folder and specify image name here.
+# Default image for social sharing and search engines. Place image in `static/media/` folder and specify image name here.
 sharing_image = "avatar.jpg"
 
 # Twitter username (without @). Used when a visitor shares your site on Twitter.
@@ -149,7 +149,7 @@ date_format = "2006-01-02"
 # time_format = "3:04 PM"
 time_format = "15:04"
 
-# Address format (choose from the [address_formats] list below or add you own to the list).
+# Address format (en-us, en-gb, de, fr-fr, zh).
 address_format = "zh"
 
 ############################
@@ -200,13 +200,6 @@ site_views = true
   # Choose a shape for avatar images. Options: circle, square.
   shape = "circle"
 
-# Available address formats.
-[address_formats]
-  en-us = {order = ['street', 'city', 'region', 'postcode'], delimiters = [', ', ', ', ' ', '']}
-  en-gb = {order = ['street', 'city', 'region', 'postcode'], delimiters = [', ', ', ', ', ', '']}
-  de = {order = ['street', 'postcode', 'city'], delimiters = ['<br>', ' ', '']}
-  fr-fr = {order = ['street', 'postcode', 'city'], delimiters = ['<br>', ' ', '']}
-  zh = {order = ['postcode', 'region', 'city', 'street'], delimiters = [' ', ' ', ' ', '']}
 
 # Configuration of publication pages.
 [publications]
@@ -320,6 +313,12 @@ site_views = true
   # See https://sourcethemes.com/academic/docs/install/#install-with-web-browser
   netlify_cms = false
 
+############################
+## Icon Pack Extensions
+############################
+[icon.pack]
+  ai = false  # Academicons icon pack https://jpswalsh.github.io/academicons/
+
 
 # <!-- 此处有修改 -->
 # <!-- 首页背景,此处自行添加的 -->
@@ -328,14 +327,14 @@ site_views = true
   #   Uncomment (by removing `#`) an option to apply it.
   #   Choose a light or dark text color by setting `text_color_light`.
   #   Any HTML color name or Hex value is valid.
-  
+
   # Background color.
   # color = "navy"
-  
+
   # Background gradient.
   # gradient_start = "DeepSkyBlue"
   # gradient_end = "SkyBlue"
-  
+
   # Background image.
   image = "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200505231535.jpg"  # Name of image in `static/img/`.
   image_darken = 0.4  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
