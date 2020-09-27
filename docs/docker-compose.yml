@@ -25,7 +25,7 @@ services:
         build:
             context: ${PWD}
             dockerfile: dockerfile_hugo #指定dockerfile文件
-        image: twbworld/hugo-git:latest
+        image: twbworld/hugo-go-git:latest
         container_name: blog_container_name
         hostname: blog_hostname
         working_dir: /src
