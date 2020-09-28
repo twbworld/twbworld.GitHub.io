@@ -6,13 +6,13 @@
 [[main]]
   name = " "
   url = "#hero"
-  pre = "<i class='fa fa-home big-icon' title='首页'></i>"
+  # pre = "<i class='fa fa-home big-icon' title='首页'></i>"
   weight = 10
 
 [[main]]
   name = ""
   url = "post/"
-  pre = "<i class='fa fa-list-ul big-icon' title='博客'></i>"
+  # pre = "<i class='fa fa-list-ul big-icon' title='博客'></i>"
   weight = 21
 #  parent= '博客'
 
