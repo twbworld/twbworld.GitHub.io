@@ -5,52 +5,108 @@
     <link>https://twbworld.github.io/</link>
       <atom:link href="https://twbworld.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>忐忑の博客</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020—2020_忐忑-yellow)](/authors/admin/) [![备案号](https://img.shields.io/badge/粤ICP备-20059599号-eb0500)](http://www.beian.miit.gov.cn/)   [![忐忑的博客](https://img.shields.io/github/tag/twbworld/hugo-blog?logo=github)](https://github.com/twbworld/hugo-blog) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![hugo-academic](https://img.shields.io/badge/theme-hugo_academic-00d1b2)](https://sourcethemes.com/academic)</copyright><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020—2020_忐忑-yellow)](/authors/admin/) [![备案号](https://img.shields.io/badge/粤ICP备-20059599号-eb0500)](http://www.beian.miit.gov.cn/)   [![忐忑的博客](https://img.shields.io/github/tag/twbworld/hugo-blog?logo=github)](https://github.com/twbworld/hugo-blog) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Mon, 28 Sep 2020 22:20:13 +0800</lastBuildDate>
     <image>
-      <url>https://twbworld.github.io/img/avatar.jpg</url>
+      <url>https://twbworld.github.io/media/avatar.jpg</url>
       <title>忐忑の博客</title>
       <link>https://twbworld.github.io/</link>
     </image>
     
     <item>
-      <title>Example Page 1</title>
-      <link>https://twbworld.github.io/courses/example/example1/</link>
-      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://twbworld.github.io/courses/example/example1/</guid>
-      <description>&lt;p&gt;In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:&lt;/p&gt;
-&lt;h2 id=&#34;tip-1&#34;&gt;Tip 1&lt;/h2&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
-&lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
-&lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
-&lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
-&lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
-&lt;h2 id=&#34;tip-2&#34;&gt;Tip 2&lt;/h2&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
-&lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
-&lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
-&lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
-&lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Example Page 2</title>
-      <link>https://twbworld.github.io/courses/example/example2/</link>
-      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://twbworld.github.io/courses/example/example2/</guid>
-      <description>&lt;p&gt;Here are some more tips for getting started with Academic:&lt;/p&gt;
-&lt;h2 id=&#34;tip-3&#34;&gt;Tip 3&lt;/h2&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
-&lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
-&lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
-&lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
-&lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
-&lt;h2 id=&#34;tip-4&#34;&gt;Tip 4&lt;/h2&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
-&lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
-&lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
-&lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
-&lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
+      <title>制作多分区启动盘</title>
+      <link>https://twbworld.github.io/post/2020/09/28/multi_partition_startup_disk/</link>
+      <pubDate>Mon, 28 Sep 2020 22:20:13 +0800</pubDate>
+      <guid>https://twbworld.github.io/post/2020/09/28/multi_partition_startup_disk/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;有些小伙伴手里有上百G甚至上T移动硬盘&lt;br&gt;
+平时制作启动硬盘,除了启动分区,都是只剩一个分区提供自己使用的&lt;br&gt;
+那么问题来了:怎么保留启动盘的功能,又能把硬盘分成多个分区呢?&lt;br&gt;
+搜索引擎也很少有相关文章&lt;br&gt;
+那么,今天就带大家制作一个多分区启动盘&lt;br&gt;
+作者尝试了无数次才成功的,呕心沥血之作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;所使用到的:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;硬盘(本文章使用U盘展示,建议硬盘,毕竟日常生活中的十几或几十G的U盘,也没必要进行分区了)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;微PE(作者使用的版本是&lt;code&gt;2.1&lt;/code&gt;;也可以使用&amp;quot;大白菜&amp;quot;或&amp;quot;老毛桃&amp;quot;,有广告植入,不建议)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;微PE下载(不需要安装): &lt;a href=&#34;http://www.wepe.com.cn/download.html&#34;&gt;http://www.wepe.com.cn/download.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;UltraISO(作者使用的版本是&lt;code&gt;9.7&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;UltraISO下载: &lt;a href=&#34;https://cn.ultraiso.net/xiazai.html&#34;&gt;https://cn.ultraiso.net/xiazai.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;DiskGenius(作者使用的版本是&lt;code&gt;5.1&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;DiskGenius下载: &lt;a href=&#34;https://www.diskgenius.cn/download.php&#34;&gt;https://www.diskgenius.cn/download.php&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;1获取微pe的系统iso&#34;&gt;1#获取&lt;code&gt;微PE&lt;/code&gt;的系统ISO&lt;/h2&gt;
+&lt;p&gt;(1) 双击打开下载好的 &lt;code&gt;微PE&lt;/code&gt; 安装包,看到以下界面,单击右下角的光盘图标
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929001640.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;(2) 接下来,要把 &lt;code&gt;微PE&lt;/code&gt; 自带的ISO镜像保存到电脑,选择保存的位置, &lt;code&gt;光盘卷标&lt;/code&gt; 也就是盘符的名称,也建议改成喜欢的名称,如&amp;quot;pe盘&amp;quot;,最后点击 &lt;code&gt;立即生成ISO&lt;/code&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929003752.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;2写入iso到硬盘&#34;&gt;2#写入ISO到硬盘&lt;/h2&gt;
+&lt;p&gt;(1) 插入硬盘,准备格式化&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PS: 备份数据!!!!!备份数据!!!!!备份数据!!!!!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;(2) 打开安装好的 &lt;code&gt;UltraISO&lt;/code&gt; ,菜单栏依次点击 &lt;code&gt;文件-&amp;gt;打开&lt;/code&gt; ; 选择上一步保存好的ISO文件&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929003225.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;(3) 可以看到,左侧栏出现的ISO文件&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929003656.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;(4) 接着,菜单栏依次点击 &lt;code&gt;启动-&amp;gt;写入硬盘映像&lt;/code&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929003959.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;(5) 出现一个弹窗, &lt;code&gt;硬盘驱动器&lt;/code&gt; 选择正确的硬盘,首先,需要把硬盘格式化,点击&lt;code&gt;格式化&lt;/code&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929004608.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;(6) 最后,正式把ISO文件写入硬盘,点击 &lt;code&gt;写入&lt;/code&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929004749.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3备份启动分区&#34;&gt;3#备份启动分区&lt;/h2&gt;
+&lt;p&gt;(1) 打开安装好的 &lt;code&gt;DiskGenius&lt;/code&gt; ,在左侧栏找到对应的硬盘,单击选中上一步生成的盘
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929010004.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;(2) 菜单栏依次点击 &lt;code&gt;工具-&amp;gt;备份分区到镜像文件&lt;/code&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929010254.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;(3) 出现一个弹窗, 点击 &lt;code&gt;选择文件路径&lt;/code&gt; ,选择一个目录,输入自定义的&lt;code&gt;pmf&lt;/code&gt;文件的名称,点击 &lt;code&gt;打开&lt;/code&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929010619.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;(4) 点击 &lt;code&gt;开始&lt;/code&gt; ,成功后,会生成一个&lt;code&gt;.pmf&lt;/code&gt;后缀文件,这个文件就是你的启动盘备份文件
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929011108.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;4硬盘分区&#34;&gt;4#硬盘分区&lt;/h2&gt;
+&lt;p&gt;(1) &lt;code&gt;DiskGenius&lt;/code&gt; 左侧栏选中对应的硬盘,点击 &lt;code&gt;快速分区&lt;/code&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929011443.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;(2) 可以看到一个弹窗;这一步是成功的关键,要严格按照以下的规定(作者经过无数次的尝试,得出来的结论) :&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;分区表类型&lt;/code&gt; 一定为 &lt;code&gt;MBR&lt;/code&gt; ; 不要问为什么,我也不知道&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;分区数目&lt;/code&gt; 最多为3个; 不要问为什么,我也不知道&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;高级设置&lt;/code&gt; 以第一个作为启动分区,所以第一个分区选择 &lt;code&gt;FAT32&lt;/code&gt;, 其余为 &lt;code&gt;NTFS&lt;/code&gt; ; 不要问为什么,我也不知道&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;高级设置&lt;/code&gt; 把所有的 &lt;code&gt;主分区&lt;/code&gt; 勾上; 不要问为什么,我也不知道&lt;/li&gt;
+&lt;li&gt;至于各分区的容量,卷标名称等,请自定义
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929013018.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;(3) 分区后,可以看到作为启动分区已经显示 &lt;code&gt;活动&lt;/code&gt; 了
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929013528.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;5恢复启动分区&#34;&gt;5#恢复启动分区&lt;/h2&gt;
+&lt;p&gt;(1) &lt;code&gt;DiskGenius&lt;/code&gt; ,在左侧栏找到对应的硬盘,单击选中上一步作为启动的分区
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929013709.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;(2) 菜单栏依次点击 &lt;code&gt;工具-&amp;gt;从镜像文件还原分区&lt;/code&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929014447.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;(3) 出现弹窗, 点击 &lt;code&gt;选择文件&lt;/code&gt; , 选择在 &lt;code&gt;第三步&lt;/code&gt; 生成的 &lt;code&gt;pmf&lt;/code&gt; 文件
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929014834.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;(4) 到此为止,成功制作了一个 多分区启动硬盘&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;但是,这样制作的多分区启动硬盘, &lt;code&gt;BIOS&lt;/code&gt; 只能使用 &lt;code&gt;Legacy&lt;/code&gt; 启动模式来启动硬盘(新型的 &lt;code&gt;UEFI&lt;/code&gt; 无法启动PE), 如下图例子(华硕的BIOS)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929015346.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&amp;hellip; 以上&lt;/strong&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -87,7 +143,7 @@
 &lt;/ul&gt;
 &lt;p&gt;(1) Win10打开 设置(&lt;code&gt;Win + I&lt;/code&gt;) ==&amp;gt; 应用 ==&amp;gt; 应用和功能 ==&amp;gt; 可选功能 =&amp;gt; 添加功能 =&amp;gt; OpenSSH服务器(点击安装)&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712195856.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;(2) 打开 任务管理器(&lt;code&gt;Shift + Ctrl + Esc&lt;/code&gt;) ==&amp;gt; 任务 ==&amp;gt; 左下角点击&amp;quot;打开服务&amp;rdquo;; 找到两个OpenSSH服务,右键开启&lt;/p&gt;
+&lt;p&gt;(2) 打开 任务管理器(&lt;code&gt;Shift + Ctrl + Esc&lt;/code&gt;) ==&amp;gt; 任务 ==&amp;gt; 左下角点击&amp;quot;打开服务&amp;quot;; 找到两个OpenSSH服务,右键开启&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712200951.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;(3) 打开 控制面板 ==&amp;gt; 系统和安全  ==&amp;gt; &lt;code&gt;Windows Defender&lt;/code&gt; 防火墙 ==&amp;gt; 启用或关闭&lt;code&gt;windows defender&lt;/code&gt;防火墙;选择关闭防火墙; (或者在入站规则添加允许22端口)&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712202126.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -103,7 +159,7 @@
 &lt;p&gt;首先保证 C 关闭&lt;code&gt;iptables&lt;/code&gt;或&lt;code&gt;nftables&lt;/code&gt;防火墙 (或配置允许22端口)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;通过&amp;quot;中间人&amp;rdquo; B ; 在 A 电脑上使用&lt;code&gt;PuTTY&lt;/code&gt;建立起与 C 的SSH隧道 (本地端口转发)&lt;/p&gt;
+&lt;p&gt;通过&amp;quot;中间人&amp;quot; B ; 在 A 电脑上使用&lt;code&gt;PuTTY&lt;/code&gt;建立起与 C 的SSH隧道 (本地端口转发)&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;在 A 上配置(基于文章开头假设的网络图) :&lt;/p&gt;
@@ -179,7 +235,7 @@
 &lt;li&gt;终于到最后一步了, 很简单, 在 A 电脑直接用&lt;code&gt;PuTTY&lt;/code&gt;请求 B 的 6666端口, 就可以登录 C 啦&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712222247.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&amp;hellip; 到此, 文章结束 !&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&amp;hellip; 以上&lt;/strong&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -197,30 +253,30 @@
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531154440.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;(这一步可略过)移除所有默认的&amp;quot;网络&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;(这一步可略过)移除所有默认的&amp;quot;网络&amp;quot;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531154849.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;点击&amp;quot;添加网络&amp;rdquo;, 选择&amp;quot;VMnet8&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;点击&amp;quot;添加网络&amp;quot;, 选择&amp;quot;VMnet8&amp;quot;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531155509.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;
 &lt;ul&gt;
-&lt;li&gt;上方列表点击选择刚才添加的网络&amp;quot;VMnet8&amp;rdquo;;&lt;/li&gt;
+&lt;li&gt;上方列表点击选择刚才添加的网络&amp;quot;VMnet8&amp;quot;;&lt;/li&gt;
 &lt;li&gt;选择NAT模式;&lt;/li&gt;
-&lt;li&gt;设置子网IP;一般设置&amp;quot;192.168.xxx.0&amp;rdquo;,我这设置为&amp;quot;192.168.2.0&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;设置子网掩码&amp;quot;255.255.255.0&amp;rdquo;,一般子网掩码固定;&lt;/li&gt;
+&lt;li&gt;设置子网IP;一般设置&amp;quot;192.168.xxx.0&amp;quot;,我这设置为&amp;quot;192.168.2.0&amp;quot;&lt;/li&gt;
+&lt;li&gt;设置子网掩码&amp;quot;255.255.255.0&amp;quot;,一般子网掩码固定;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531155727.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;点击&amp;quot;NAT设置&amp;rdquo;;设置&amp;quot;网关IP&amp;rdquo;, 一般为&amp;quot;192.168.xxx.1&amp;rdquo;, 所以我这设置网关为&amp;quot;192.168.2.1&amp;rdquo;;点击&amp;quot;确定&amp;rdquo; (还有端口转发,一般用于局域网PC链接VMware里的虚拟机所使用)&lt;/li&gt;
+&lt;li&gt;点击&amp;quot;NAT设置&amp;quot;;设置&amp;quot;网关IP&amp;quot;, 一般为&amp;quot;192.168.xxx.1&amp;quot;, 所以我这设置网关为&amp;quot;192.168.2.1&amp;quot;;点击&amp;quot;确定&amp;quot; (还有端口转发,一般用于局域网PC链接VMware里的虚拟机所使用)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531160526.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;6&#34;&gt;
-&lt;li&gt;点击&amp;quot;DHCP设置&amp;rdquo;; 这里可以设置网关分配给VMware下的虚拟机的起始IP和结束IP; 因为网关已经占用了192.168.xxx.1,所以这自定义起始IP可以为&amp;quot;192.168.xxx.2&amp;rdquo;, 结束IP为&amp;quot;192.168.xxx.254&amp;rdquo;, 点击&amp;quot;确认&amp;rdquo;, 回到上一层, 再次点击&amp;quot;确认&amp;rdquo;;&lt;/li&gt;
+&lt;li&gt;点击&amp;quot;DHCP设置&amp;quot;; 这里可以设置网关分配给VMware下的虚拟机的起始IP和结束IP; 因为网关已经占用了192.168.xxx.1,所以这自定义起始IP可以为&amp;quot;192.168.xxx.2&amp;quot;, 结束IP为&amp;quot;192.168.xxx.254&amp;quot;, 点击&amp;quot;确认&amp;quot;, 回到上一层, 再次点击&amp;quot;确认&amp;quot;;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531161155.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;二-使用虚拟网络&#34;&gt;二 使用虚拟网络&lt;/h2&gt;
@@ -229,14 +285,14 @@
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531162022.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;选择新添加的网卡;右键选择&amp;quot;属性&amp;rdquo;;双击&amp;quot;协议版本4&amp;rdquo;;设置IP;我这里设置了100;也可以设大一点,点击&amp;quot;确认&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;选择新添加的网卡;右键选择&amp;quot;属性&amp;quot;;双击&amp;quot;协议版本4&amp;quot;;设置IP;我这里设置了100;也可以设大一点,点击&amp;quot;确认&amp;quot;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
-&lt;p&gt;如果缺少这一步,可能会出现宿主机SSH链接不上虚拟机的情况(或者出现需要长时间才连通,连上后,短时间内又断开的情况);原因可能是因为网卡的IP占用了网关IP&amp;quot;192.168.xxx.1&amp;rdquo;, 导致虚拟机的数据到不了在外一层的宿主机&lt;/p&gt;
+&lt;p&gt;如果缺少这一步,可能会出现宿主机SSH链接不上虚拟机的情况(或者出现需要长时间才连通,连上后,短时间内又断开的情况);原因可能是因为网卡的IP占用了网关IP&amp;quot;192.168.xxx.1&amp;quot;, 导致虚拟机的数据到不了在外一层的宿主机&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531163409.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;虚拟网卡已创建成功,最后还要选择使用新创建的网卡;选择你要使用刚才新建网卡的虚拟机, 右键选择&amp;quot;设置&amp;rdquo;, &amp;ldquo;硬件&amp;quot;==&amp;gt;&amp;quot;网络适配器&amp;rdquo; ,右侧点击&amp;quot;自定义:特定虚拟网络&amp;rdquo;, 选择新建的&amp;quot;VMnet8(NAT 模式)&amp;rdquo;, 点击&amp;quot;确定&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;虚拟网卡已创建成功,最后还要选择使用新创建的网卡;选择你要使用刚才新建网卡的虚拟机, 右键选择&amp;quot;设置&amp;quot;, &amp;ldquo;硬件&amp;rdquo;==&amp;gt;&amp;ldquo;网络适配器&amp;rdquo; ,右侧点击&amp;quot;自定义:特定虚拟网络&amp;quot;, 选择新建的&amp;quot;VMnet8(NAT 模式)&amp;quot;, 点击&amp;quot;确定&amp;quot;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;p&gt;这一步非常关键,我曾经缺少这一步,导致虚拟机连不上网&lt;/p&gt;
@@ -266,7 +322,7 @@
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;原因 :&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;安装mysql8的时候,配置了官方不推荐的&amp;quot;utf8&amp;rdquo;,其实&amp;quot;utf8&amp;quot;就是mysql中&amp;quot;UTF8MB3&amp;quot;的别名,然而又同时存在着&amp;quot;UTF8MB4&amp;rdquo;,所有,建议改为&amp;quot;UTF8MB4&amp;rdquo;;&lt;/p&gt;
+&lt;p&gt;安装mysql8的时候,配置了官方不推荐的&amp;quot;utf8&amp;quot;,其实&amp;quot;utf8&amp;quot;就是mysql中&amp;quot;UTF8MB3&amp;quot;的别名,然而又同时存在着&amp;quot;UTF8MB4&amp;quot;,所有,建议改为&amp;quot;UTF8MB4&amp;quot;;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;解决 :&lt;/p&gt;
 &lt;blockquote&gt;
@@ -838,233 +894,6 @@ cp support-files/mysql.server /etc/init.d/mysql.server
 &lt;li&gt;我用了一个笨方法(当&amp;quot;选择困难症&amp;quot;发作的时候,我经常使用,哈哈),利用了搜索引擎来对比了Hexo和Hugo关键词的搜索热度,结果发现,Hugo的相关文章数量是Hexo的一百多倍,Hugo使用的人更多,可能是代表未来
 &lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200517212636.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Example Talk</title>
-      <link>https://twbworld.github.io/talk/example/</link>
-      <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
-      <guid>https://twbworld.github.io/talk/example/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Academic&amp;rsquo;s 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Slides&lt;/em&gt;&lt;/a&gt; feature and link using &lt;code&gt;slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Upload&lt;/strong&gt; an existing slide deck to &lt;code&gt;static/&lt;/code&gt; and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shortcodes&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Further talk details can easily be added to this page using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>An example preprint / working paper</title>
-      <link>https://twbworld.github.io/publication/preprint/</link>
-      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://twbworld.github.io/publication/preprint/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Supplementary notes can be added here, including 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code and math&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Slides</title>
-      <link>https://twbworld.github.io/slides/example/</link>
-      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>https://twbworld.github.io/slides/example/</guid>
-      <description>&lt;h1 id=&#34;create-slides-in-markdown-with-academic&#34;&gt;Create slides in Markdown with Academic&lt;/h1&gt;
-&lt;p&gt;
-&lt;a href=&#34;https://sourcethemes.com/academic/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Academic&lt;/a&gt; | 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Efficiently write slides in Markdown&lt;/li&gt;
-&lt;li&gt;3-in-1: Create, Present, and Publish your slides&lt;/li&gt;
-&lt;li&gt;Supports speaker notes&lt;/li&gt;
-&lt;li&gt;Mobile friendly slides&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;controls&#34;&gt;Controls&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Next: &lt;code&gt;Right Arrow&lt;/code&gt; or &lt;code&gt;Space&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Previous: &lt;code&gt;Left Arrow&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Start: &lt;code&gt;Home&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Finish: &lt;code&gt;End&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Overview: &lt;code&gt;Esc&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Speaker notes: &lt;code&gt;S&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Fullscreen: &lt;code&gt;F&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Zoom: &lt;code&gt;Alt + Click&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&#34;https://github.com/hakimel/reveal.js#pdf-export&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PDF Export&lt;/a&gt;: &lt;code&gt;E&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;code-highlighting&#34;&gt;Code Highlighting&lt;/h2&gt;
-&lt;p&gt;Inline code: &lt;code&gt;variable&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Code block:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;porridge &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blueberry&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; porridge &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blueberry&amp;#34;&lt;/span&gt;:
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Eating...&amp;#34;&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;math&#34;&gt;Math&lt;/h2&gt;
-&lt;p&gt;In-line math: $x + y = z$&lt;/p&gt;
-&lt;p&gt;Block math:&lt;/p&gt;
-&lt;p&gt;$$
-f\left( x \right) = ;\frac{{2\left( {x + 4} \right)\left( {x - 4} \right)}}{{\left( {x + 4} \right)\left( {x + 1} \right)}}
-$$&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;fragments&#34;&gt;Fragments&lt;/h2&gt;
-&lt;p&gt;Make content appear incrementally&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;{{% fragment %}} One {{% /fragment %}}
-{{% fragment %}} **Two** {{% /fragment %}}
-{{% fragment %}} Three {{% /fragment %}}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Press &lt;code&gt;Space&lt;/code&gt; to play!&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;fragment &#34; &gt;
-One
-&lt;/span&gt;
-&lt;span class=&#34;fragment &#34; &gt;
-&lt;strong&gt;Two&lt;/strong&gt;
-&lt;/span&gt;
-&lt;span class=&#34;fragment &#34; &gt;
-Three
-&lt;/span&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;A fragment can accept two optional parameters:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;class&lt;/code&gt;: use a custom style (requires definition in custom CSS)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;weight&lt;/code&gt;: sets the order in which a fragment appears&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;speaker-notes&#34;&gt;Speaker Notes&lt;/h2&gt;
-&lt;p&gt;Add speaker notes to your presentation&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;{{% speaker_note %}}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;-&lt;/span&gt; Only the speaker can read these notes
-&lt;span style=&#34;color:#66d9ef&#34;&gt;-&lt;/span&gt; Press &lt;span style=&#34;color:#e6db74&#34;&gt;`S`&lt;/span&gt; key to view
-{{% /speaker_note %}}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Press the &lt;code&gt;S&lt;/code&gt; key to view the speaker notes!&lt;/p&gt;
-&lt;aside class=&#34;notes&#34;&gt;
-  &lt;ul&gt;
-&lt;li&gt;Only the speaker can read these notes&lt;/li&gt;
-&lt;li&gt;Press &lt;code&gt;S&lt;/code&gt; key to view&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;/aside&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;themes&#34;&gt;Themes&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;black: Black background, white text, blue links (default)&lt;/li&gt;
-&lt;li&gt;white: White background, black text, blue links&lt;/li&gt;
-&lt;li&gt;league: Gray background, white text, blue links&lt;/li&gt;
-&lt;li&gt;beige: Beige background, dark text, brown links&lt;/li&gt;
-&lt;li&gt;sky: Blue background, thin dark text, blue links&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;night: Black background, thick white text, orange links&lt;/li&gt;
-&lt;li&gt;serif: Cappuccino background, gray text, brown links&lt;/li&gt;
-&lt;li&gt;simple: White background, black text, blue links&lt;/li&gt;
-&lt;li&gt;solarized: Cream-colored background, dark green text, blue links&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;section data-noprocess data-shortcode-slide
-  
-      
-      data-background-image=&#34;/img/boards.jpg&#34;
-  &gt;
-
-&lt;h2 id=&#34;custom-slide&#34;&gt;Custom Slide&lt;/h2&gt;
-&lt;p&gt;Customize the slide style and background&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;{{&amp;lt; &lt;span style=&#34;color:#f92672&#34;&gt;slide&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;background-image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/img/boards.jpg&amp;#34;&lt;/span&gt; &amp;gt;}}
-{{&amp;lt; &lt;span style=&#34;color:#f92672&#34;&gt;slide&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;background-color&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#0000FF&amp;#34;&lt;/span&gt; &amp;gt;}}
-{{&amp;lt; &lt;span style=&#34;color:#f92672&#34;&gt;slide&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;my-style&amp;#34;&lt;/span&gt; &amp;gt;}}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;custom-css-example&#34;&gt;Custom CSS Example&lt;/h2&gt;
-&lt;p&gt;Let&amp;rsquo;s make headers navy colored.&lt;/p&gt;
-&lt;p&gt;Create &lt;code&gt;assets/css/reveal_custom.css&lt;/code&gt; with:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;reveal&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;section&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;h1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
-.&lt;span style=&#34;color:#a6e22e&#34;&gt;reveal&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;section&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;h2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
-.&lt;span style=&#34;color:#a6e22e&#34;&gt;reveal&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;section&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;h3&lt;/span&gt; {
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;navy&lt;/span&gt;;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h1 id=&#34;questions&#34;&gt;Questions?&lt;/h1&gt;
-&lt;p&gt;
-&lt;a href=&#34;https://spectrum.chat/academic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>External Project</title>
-      <link>https://twbworld.github.io/project/external-project/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://twbworld.github.io/project/external-project/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Internal Project</title>
-      <link>https://twbworld.github.io/project/internal-project/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://twbworld.github.io/project/internal-project/</guid>
-      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
-&lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
-&lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
-&lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
-&lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>An example journal article</title>
-      <link>https://twbworld.github.io/publication/journal-article/</link>
-      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://twbworld.github.io/publication/journal-article/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Supplementary notes can be added here, including 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code and math&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>An example conference paper</title>
-      <link>https://twbworld.github.io/publication/conference-paper/</link>
-      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>https://twbworld.github.io/publication/conference-paper/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Supplementary notes can be added here, including 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code and math&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

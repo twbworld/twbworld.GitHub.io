@@ -5,9 +5,9 @@
     <link>https://twbworld.github.io/tags/vmware/</link>
       <atom:link href="https://twbworld.github.io/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
     <description>VMware</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020—2020_忐忑-yellow)](/authors/admin/) [![备案号](https://img.shields.io/badge/粤ICP备-20059599号-eb0500)](http://www.beian.miit.gov.cn/)   [![忐忑的博客](https://img.shields.io/github/tag/twbworld/hugo-blog?logo=github)](https://github.com/twbworld/hugo-blog) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![hugo-academic](https://img.shields.io/badge/theme-hugo_academic-00d1b2)](https://sourcethemes.com/academic)</copyright><lastBuildDate>Sun, 31 May 2020 14:07:40 +0800</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020—2020_忐忑-yellow)](/authors/admin/) [![备案号](https://img.shields.io/badge/粤ICP备-20059599号-eb0500)](http://www.beian.miit.gov.cn/)   [![忐忑的博客](https://img.shields.io/github/tag/twbworld/hugo-blog?logo=github)](https://github.com/twbworld/hugo-blog) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sun, 31 May 2020 14:07:40 +0800</lastBuildDate>
     <image>
-      <url>https://twbworld.github.io/img/avatar.jpg</url>
+      <url>https://twbworld.github.io/media/avatar.jpg</url>
       <title>VMware</title>
       <link>https://twbworld.github.io/tags/vmware/</link>
     </image>
@@ -26,30 +26,30 @@
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531154440.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;(这一步可略过)移除所有默认的&amp;quot;网络&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;(这一步可略过)移除所有默认的&amp;quot;网络&amp;quot;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531154849.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;点击&amp;quot;添加网络&amp;rdquo;, 选择&amp;quot;VMnet8&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;点击&amp;quot;添加网络&amp;quot;, 选择&amp;quot;VMnet8&amp;quot;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531155509.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;
 &lt;ul&gt;
-&lt;li&gt;上方列表点击选择刚才添加的网络&amp;quot;VMnet8&amp;rdquo;;&lt;/li&gt;
+&lt;li&gt;上方列表点击选择刚才添加的网络&amp;quot;VMnet8&amp;quot;;&lt;/li&gt;
 &lt;li&gt;选择NAT模式;&lt;/li&gt;
-&lt;li&gt;设置子网IP;一般设置&amp;quot;192.168.xxx.0&amp;rdquo;,我这设置为&amp;quot;192.168.2.0&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;设置子网掩码&amp;quot;255.255.255.0&amp;rdquo;,一般子网掩码固定;&lt;/li&gt;
+&lt;li&gt;设置子网IP;一般设置&amp;quot;192.168.xxx.0&amp;quot;,我这设置为&amp;quot;192.168.2.0&amp;quot;&lt;/li&gt;
+&lt;li&gt;设置子网掩码&amp;quot;255.255.255.0&amp;quot;,一般子网掩码固定;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531155727.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;点击&amp;quot;NAT设置&amp;rdquo;;设置&amp;quot;网关IP&amp;rdquo;, 一般为&amp;quot;192.168.xxx.1&amp;rdquo;, 所以我这设置网关为&amp;quot;192.168.2.1&amp;rdquo;;点击&amp;quot;确定&amp;rdquo; (还有端口转发,一般用于局域网PC链接VMware里的虚拟机所使用)&lt;/li&gt;
+&lt;li&gt;点击&amp;quot;NAT设置&amp;quot;;设置&amp;quot;网关IP&amp;quot;, 一般为&amp;quot;192.168.xxx.1&amp;quot;, 所以我这设置网关为&amp;quot;192.168.2.1&amp;quot;;点击&amp;quot;确定&amp;quot; (还有端口转发,一般用于局域网PC链接VMware里的虚拟机所使用)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531160526.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;6&#34;&gt;
-&lt;li&gt;点击&amp;quot;DHCP设置&amp;rdquo;; 这里可以设置网关分配给VMware下的虚拟机的起始IP和结束IP; 因为网关已经占用了192.168.xxx.1,所以这自定义起始IP可以为&amp;quot;192.168.xxx.2&amp;rdquo;, 结束IP为&amp;quot;192.168.xxx.254&amp;rdquo;, 点击&amp;quot;确认&amp;rdquo;, 回到上一层, 再次点击&amp;quot;确认&amp;rdquo;;&lt;/li&gt;
+&lt;li&gt;点击&amp;quot;DHCP设置&amp;quot;; 这里可以设置网关分配给VMware下的虚拟机的起始IP和结束IP; 因为网关已经占用了192.168.xxx.1,所以这自定义起始IP可以为&amp;quot;192.168.xxx.2&amp;quot;, 结束IP为&amp;quot;192.168.xxx.254&amp;quot;, 点击&amp;quot;确认&amp;quot;, 回到上一层, 再次点击&amp;quot;确认&amp;quot;;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531161155.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;二-使用虚拟网络&#34;&gt;二 使用虚拟网络&lt;/h2&gt;
@@ -58,14 +58,14 @@
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531162022.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;选择新添加的网卡;右键选择&amp;quot;属性&amp;rdquo;;双击&amp;quot;协议版本4&amp;rdquo;;设置IP;我这里设置了100;也可以设大一点,点击&amp;quot;确认&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;选择新添加的网卡;右键选择&amp;quot;属性&amp;quot;;双击&amp;quot;协议版本4&amp;quot;;设置IP;我这里设置了100;也可以设大一点,点击&amp;quot;确认&amp;quot;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
-&lt;p&gt;如果缺少这一步,可能会出现宿主机SSH链接不上虚拟机的情况(或者出现需要长时间才连通,连上后,短时间内又断开的情况);原因可能是因为网卡的IP占用了网关IP&amp;quot;192.168.xxx.1&amp;rdquo;, 导致虚拟机的数据到不了在外一层的宿主机&lt;/p&gt;
+&lt;p&gt;如果缺少这一步,可能会出现宿主机SSH链接不上虚拟机的情况(或者出现需要长时间才连通,连上后,短时间内又断开的情况);原因可能是因为网卡的IP占用了网关IP&amp;quot;192.168.xxx.1&amp;quot;, 导致虚拟机的数据到不了在外一层的宿主机&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531163409.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;虚拟网卡已创建成功,最后还要选择使用新创建的网卡;选择你要使用刚才新建网卡的虚拟机, 右键选择&amp;quot;设置&amp;rdquo;, &amp;ldquo;硬件&amp;quot;==&amp;gt;&amp;quot;网络适配器&amp;rdquo; ,右侧点击&amp;quot;自定义:特定虚拟网络&amp;rdquo;, 选择新建的&amp;quot;VMnet8(NAT 模式)&amp;rdquo;, 点击&amp;quot;确定&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;虚拟网卡已创建成功,最后还要选择使用新创建的网卡;选择你要使用刚才新建网卡的虚拟机, 右键选择&amp;quot;设置&amp;quot;, &amp;ldquo;硬件&amp;rdquo;==&amp;gt;&amp;ldquo;网络适配器&amp;rdquo; ,右侧点击&amp;quot;自定义:特定虚拟网络&amp;quot;, 选择新建的&amp;quot;VMnet8(NAT 模式)&amp;quot;, 点击&amp;quot;确定&amp;quot;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;p&gt;这一步非常关键,我曾经缺少这一步,导致虚拟机连不上网&lt;/p&gt;

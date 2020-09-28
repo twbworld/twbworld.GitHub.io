@@ -5,9 +5,9 @@
     <link>https://twbworld.github.io/tags/mysql/</link>
       <atom:link href="https://twbworld.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     <description>Mysql</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020—2020_忐忑-yellow)](/authors/admin/) [![备案号](https://img.shields.io/badge/粤ICP备-20059599号-eb0500)](http://www.beian.miit.gov.cn/)   [![忐忑的博客](https://img.shields.io/github/tag/twbworld/hugo-blog?logo=github)](https://github.com/twbworld/hugo-blog) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![hugo-academic](https://img.shields.io/badge/theme-hugo_academic-00d1b2)](https://sourcethemes.com/academic)</copyright><lastBuildDate>Sat, 30 May 2020 20:47:16 +0800</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020—2020_忐忑-yellow)](/authors/admin/) [![备案号](https://img.shields.io/badge/粤ICP备-20059599号-eb0500)](http://www.beian.miit.gov.cn/)   [![忐忑的博客](https://img.shields.io/github/tag/twbworld/hugo-blog?logo=github)](https://github.com/twbworld/hugo-blog) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sat, 30 May 2020 20:47:16 +0800</lastBuildDate>
     <image>
-      <url>https://twbworld.github.io/img/avatar.jpg</url>
+      <url>https://twbworld.github.io/media/avatar.jpg</url>
       <title>Mysql</title>
       <link>https://twbworld.github.io/tags/mysql/</link>
     </image>
@@ -24,7 +24,7 @@
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;原因 :&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;安装mysql8的时候,配置了官方不推荐的&amp;quot;utf8&amp;rdquo;,其实&amp;quot;utf8&amp;quot;就是mysql中&amp;quot;UTF8MB3&amp;quot;的别名,然而又同时存在着&amp;quot;UTF8MB4&amp;rdquo;,所有,建议改为&amp;quot;UTF8MB4&amp;rdquo;;&lt;/p&gt;
+&lt;p&gt;安装mysql8的时候,配置了官方不推荐的&amp;quot;utf8&amp;quot;,其实&amp;quot;utf8&amp;quot;就是mysql中&amp;quot;UTF8MB3&amp;quot;的别名,然而又同时存在着&amp;quot;UTF8MB4&amp;quot;,所有,建议改为&amp;quot;UTF8MB4&amp;quot;;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;解决 :&lt;/p&gt;
 &lt;blockquote&gt;

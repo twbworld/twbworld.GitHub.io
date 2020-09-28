@@ -5,9 +5,9 @@
     <link>https://twbworld.github.io/tags/tunnel/</link>
       <atom:link href="https://twbworld.github.io/tags/tunnel/index.xml" rel="self" type="application/rss+xml" />
     <description>Tunnel</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020—2020_忐忑-yellow)](/authors/admin/) [![备案号](https://img.shields.io/badge/粤ICP备-20059599号-eb0500)](http://www.beian.miit.gov.cn/)   [![忐忑的博客](https://img.shields.io/github/tag/twbworld/hugo-blog?logo=github)](https://github.com/twbworld/hugo-blog) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![hugo-academic](https://img.shields.io/badge/theme-hugo_academic-00d1b2)](https://sourcethemes.com/academic)</copyright><lastBuildDate>Sun, 12 Jul 2020 18:18:13 +0800</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020—2020_忐忑-yellow)](/authors/admin/) [![备案号](https://img.shields.io/badge/粤ICP备-20059599号-eb0500)](http://www.beian.miit.gov.cn/)   [![忐忑的博客](https://img.shields.io/github/tag/twbworld/hugo-blog?logo=github)](https://github.com/twbworld/hugo-blog) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sun, 12 Jul 2020 18:18:13 +0800</lastBuildDate>
     <image>
-      <url>https://twbworld.github.io/img/avatar.jpg</url>
+      <url>https://twbworld.github.io/media/avatar.jpg</url>
       <title>Tunnel</title>
       <link>https://twbworld.github.io/tags/tunnel/</link>
     </image>
@@ -45,7 +45,7 @@
 &lt;/ul&gt;
 &lt;p&gt;(1) Win10打开 设置(&lt;code&gt;Win + I&lt;/code&gt;) ==&amp;gt; 应用 ==&amp;gt; 应用和功能 ==&amp;gt; 可选功能 =&amp;gt; 添加功能 =&amp;gt; OpenSSH服务器(点击安装)&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712195856.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;(2) 打开 任务管理器(&lt;code&gt;Shift + Ctrl + Esc&lt;/code&gt;) ==&amp;gt; 任务 ==&amp;gt; 左下角点击&amp;quot;打开服务&amp;rdquo;; 找到两个OpenSSH服务,右键开启&lt;/p&gt;
+&lt;p&gt;(2) 打开 任务管理器(&lt;code&gt;Shift + Ctrl + Esc&lt;/code&gt;) ==&amp;gt; 任务 ==&amp;gt; 左下角点击&amp;quot;打开服务&amp;quot;; 找到两个OpenSSH服务,右键开启&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712200951.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;(3) 打开 控制面板 ==&amp;gt; 系统和安全  ==&amp;gt; &lt;code&gt;Windows Defender&lt;/code&gt; 防火墙 ==&amp;gt; 启用或关闭&lt;code&gt;windows defender&lt;/code&gt;防火墙;选择关闭防火墙; (或者在入站规则添加允许22端口)&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712202126.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -61,7 +61,7 @@
 &lt;p&gt;首先保证 C 关闭&lt;code&gt;iptables&lt;/code&gt;或&lt;code&gt;nftables&lt;/code&gt;防火墙 (或配置允许22端口)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;通过&amp;quot;中间人&amp;rdquo; B ; 在 A 电脑上使用&lt;code&gt;PuTTY&lt;/code&gt;建立起与 C 的SSH隧道 (本地端口转发)&lt;/p&gt;
+&lt;p&gt;通过&amp;quot;中间人&amp;quot; B ; 在 A 电脑上使用&lt;code&gt;PuTTY&lt;/code&gt;建立起与 C 的SSH隧道 (本地端口转发)&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;在 A 上配置(基于文章开头假设的网络图) :&lt;/p&gt;
@@ -137,7 +137,7 @@
 &lt;li&gt;终于到最后一步了, 很简单, 在 A 电脑直接用&lt;code&gt;PuTTY&lt;/code&gt;请求 B 的 6666端口, 就可以登录 C 啦&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712222247.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&amp;hellip; 到此, 文章结束 !&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&amp;hellip; 以上&lt;/strong&gt;&lt;/p&gt;
 </description>
     </item>
     
