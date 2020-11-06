@@ -385,8 +385,8 @@
 &lt;td&gt;添加子模块&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git submodule update --init&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;下载子模块&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;git submodule update --init --recursive&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;下载所有子模块&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;git submodule update --remote&lt;/code&gt;&lt;/td&gt;
