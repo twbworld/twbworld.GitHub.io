@@ -128,6 +128,7 @@ image:
 
 ## 常用 命令&&快捷键
 
+
 ### Linux
 
 | 命令 | 描述 |
@@ -176,11 +177,12 @@ image:
 | nohup <shell\>                     | 在后台运行shell命令 |
 | tree -LNFC 2                       | tree软件常用命令 |
 | tar -xaf                        | 识别压缩文件类型,进行解压(-caf) |
+| unzip -O cp936                  | zip文件解压避免乱码 |
 | find / -name "*.txt" \| xargs grep "hello" | 查找文件内容 |
 | cat <filename\> \| openssl dgst -sha256 -binary \| openssl base64 -A | 计算文件sha256校验值(css校验方法:`<link href="filename.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=">`) |
 | sha256sum filename | 计算文件md5校验值 |
-| docker container list -aq \|xargs docker container rm | docker清理容器 |
-| docker volume ls -q \|xargs docker volume rm | docker清理卷 |
+| docker container list -aq \|xargs docker container rm | docker清理容器(同样效果 `docker container prune`) |
+| docker volume ls -q \|xargs docker volume rm | docker清理卷(同样效果 `docker volume prune`) |
 
 
 ### Git
@@ -221,7 +223,7 @@ image:
 | `git rm -rf --cached . && git add -A`        | 清徐缓存,用于更新gitignore |
 | `git diff <commit-id> <commit-id> --stat`    | 比较两个版本变化了的文件 |
 | `git submodule add <远程项目地址>`             | 添加子模块 |
-| `git submodule update --init`                 | 下载子模块 |
+| `git submodule update --init --recursive`     | 下载所有子模块 |
 | `git submodule update --remote`               | 更新所有子模块 |
 | `git remote show origin`                      | 详细的远程分支的信息 |
 | `git log --oneline --graph --decorate --all -9`   | 可视化显示版本树 |
@@ -796,8 +798,8 @@ keepalive=true
   json_encode($a);
   0.55 * 100 == 55; //为false
   ```
-
-
+* json_encode((array)$array, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT)
+* 有时候exec命令执行失败,却没有报错,请这样使用:`exec('ls 2>&1', $a, $b)`
 * `fastcgi`就是执行 `cgi协议` 的,用于定义 `Nginx` 调用 `php` 时的数据格式,并减少对 `php.ini` 的读取
 * `php-fpm`就是 `Nginx` 服务调用的程序,管理 `fastcgi` 进程
 * `php-cli`就是 `shell` 命令行调用的程序
@@ -842,7 +844,7 @@ keepalive=true
 | in_array($xy,$twb)          | 数组$twb是否含$xy |
 | mb_substr($twb,x,y,'utf-8') | 截取字符串,从第x个字符开始截取y个字符 |
 | strtotime()                 | 将任何英文文本的日期或时间描述解析为 Unix 时间戳. |
-| 字符串类型 | |
+| 字符串类型 |-- |
 | addcslashes()               | 返回在指定的字符前添加反斜杠的字符串. |
 | addslashes()                | 返回在预定义的字符前添加反斜杠的字符串. |
 | chop()                      | 删除字符串右侧的空白字符或其他字符.. |
@@ -886,7 +888,7 @@ keepalive=true
 | substr_replace()            | 把字符串的一部分替换为另一个字符串. |
 | ucfirst()                   | 把字符串中的首字符转换为大写. |
 | ucwords()                   | 把字符串中每个单词的首字符转换为大写. |
-| 数组函数 |  |
+| 数组函数 | -- |
 | array_change_key_case()     | 把数组中所有键更改为小写或大写. |
 | array_chunk()               | 把一个数组分割为新的数组块. |
 | array_column()              | 返回输入数组中某个单一列的值. |
