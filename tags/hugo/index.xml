@@ -1,123 +1,99 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Hugo | 忐忑の博客</title>
-    <link>https://twbworld.github.io/tags/hugo/</link>
-      <atom:link href="https://twbworld.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
-    <description>Hugo</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020—2020_忐忑-yellow)](/authors/admin/) [![备案号](https://img.shields.io/badge/粤ICP备-20059599号-eb0500)](http://www.beian.miit.gov.cn/)   [![忐忑的博客](https://img.shields.io/github/tag/twbworld/hugo-blog?logo=github)](https://github.com/twbworld/hugo-blog) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sun, 17 May 2020 19:06:47 +0800</lastBuildDate>
-    <image>
-      <url>https://twbworld.github.io/media/avatar.jpg</url>
-      <title>Hugo</title>
-      <link>https://twbworld.github.io/tags/hugo/</link>
-    </image>
-    
-    <item>
-      <title>搭建博客的准备</title>
-      <link>https://twbworld.github.io/post/2020/05/17/blog_ready/</link>
-      <pubDate>Sun, 17 May 2020 19:06:47 +0800</pubDate>
-      <guid>https://twbworld.github.io/post/2020/05/17/blog_ready/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;最近想建立自己的博客网站,便于在开发过程中记录一些笔记;&lt;br&gt;
-但是每次进入一个未知的领域,我的强迫症就会犯了,面临了抉择的问题;毕竟每个人都不想一开始就选择了不适合自己的,学到一半才后悔最初的选择;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;平台的选择&#34;&gt;平台的选择&lt;/h2&gt;
-&lt;p&gt;进入我的备选名单的有:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;CSDN&lt;/li&gt;
-&lt;li&gt;博客园&lt;/li&gt;
-&lt;li&gt;WordPress&lt;/li&gt;
-&lt;li&gt;Github Pages&lt;/li&gt;
-&lt;li&gt;知乎&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;先讲结论,我最终选择了Github Pages&lt;/p&gt;
-&lt;h3 id=&#34;wordpress&#34;&gt;WordPress&lt;/h3&gt;
-&lt;p&gt;优点:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;自己搭建的博客,自由度非常高&lt;/li&gt;
-&lt;li&gt;历经多年,插件丰富&lt;/li&gt;
-&lt;li&gt;因为工作原因,个人比较熟悉PHP&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;缺点:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;会浪费自己的大量精力和时间去维护网站(服务器的维护,域名,SEO,还有服务器安全方面的考虑,等等)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;所有不好意思,程序员的时间非常宝贵,不要把时间浪费在这种无意义的事情上,我只想静静的写博客文章&lt;/p&gt;
-&lt;h3 id=&#34;知乎&#34;&gt;知乎&lt;/h3&gt;
-&lt;p&gt;优点:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;网站设计比较前卫&lt;/li&gt;
-&lt;li&gt;平台的文章质量也很高,也有大量的程序员聚集在此&lt;/li&gt;
-&lt;li&gt;个人原因,平时也喜欢逛逛知乎的热榜,消磨时间,感情上挺适合我胃口的&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;缺点:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;知乎这个平台信息有点杂,文章五花八门,而且这几年很多在知乎上带节奏,以及一些搞营销的,比较反感&lt;/li&gt;
-&lt;li&gt;听说知乎的MarkDown支持的不太好&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;所有,只能忍痛割爱了&lt;/p&gt;
-&lt;h3 id=&#34;csdn和博客园&#34;&gt;CSDN和博客园&lt;/h3&gt;
-&lt;p&gt;优点:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;很明显,CSDN和博客园的搜索引擎优化是做的非常不错的&lt;/li&gt;
-&lt;li&gt;程序员这个物种比较多&lt;/li&gt;
-&lt;li&gt;专注于技术博客,不像知乎给人的感觉很杂&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;缺点:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;平台太难看,设计太老旧了,点名批评博客园,强迫症看着难受&lt;/li&gt;
-&lt;li&gt;在CSDN居然有下载收费的模式,反感&lt;/li&gt;
-&lt;li&gt;限制太严格,卖个广告收不行&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;github-pages&#34;&gt;Github Pages&lt;/h3&gt;
-&lt;p&gt;优点:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;可以使用Git管理,这是必杀技啊&lt;/li&gt;
-&lt;li&gt;静态网站,比较好维护&lt;/li&gt;
-&lt;li&gt;搜索引擎优化,服务器的维护等等这些,全权交给github好了,咋们不需要浪费过多的精力&lt;/li&gt;
-&lt;li&gt;自由度比较高,可以使用各种各样的主题和插件,没有平台限制,可以卖个广告,放个收款码,放个看板娘啥的&lt;/li&gt;
-&lt;li&gt;可使用自己的域名,而且提供免费https证书&lt;/li&gt;
-&lt;li&gt;写博客,当然要使用MarkDown语法,而要很好的使用MarkDown,就要有自己的图床;正好可以使用Github仓库作为图床,托管自己的图片和静态资源;简直是完美的衔接&lt;/li&gt;
-&lt;li&gt;Github代表了未来,Github代表了未来,Github代表了未来&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;缺点:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Github Pages屏蔽了百度蜘蛛,用百度搜索引擎无法搜索出Github Pages的文章(但是,从另外一方面想,百度搜索出来的结果本来就是垃圾,也不必讨好你.只要不屏蔽Google就行),不过解决办法也不是没有,就是使用cdn,
-&lt;a href=&#34;https://vercel.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;zeit.co&lt;/a&gt; 可提供这样的服务&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;如果您也决定使用Github Pages搭建自己的个人博客,那么你就会面临着另外的一个选择(强迫症又要犯了)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;博客框架的选择&#34;&gt;博客框架的选择&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我的理解博客框架就是:静态网站生成器;简单理解就是:按照它的规则,写MarkDown文章,它再把MarkDown格式的文章生成HTML&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;主流选择也就那么几个:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Jekyll&lt;/li&gt;
-&lt;li&gt;Hexo&lt;/li&gt;
-&lt;li&gt;Hugo&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;先讲结论,经过一番思想斗争,我最终选择了Hugo&lt;/p&gt;
-&lt;h3 id=&#34;jekyll&#34;&gt;Jekyll&lt;/h3&gt;
-&lt;p&gt;Jekyll是使用Ruby写的,同时也是Github Pages默认的静态网站生成器&lt;br&gt;
-被我pass了的原因主要是:看到网上的人说,Jekyll速度比较慢,特别是到后期&lt;/p&gt;
-&lt;h3 id=&#34;hexo&#34;&gt;Hexo&lt;/h3&gt;
-&lt;p&gt;Hexo是js写的,因为这个原因,很多人使用Hexo也没压力,优点也很明显,
-国内使用的人数比较多,中文文档比较齐全(当时看Hugo的文档,看得我头都疼)&lt;/p&gt;
-&lt;h3 id=&#34;hugo&#34;&gt;Hugo&lt;/h3&gt;
-&lt;p&gt;Hugo是使用golang写的&lt;br&gt;
-优点:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;天下武功真的唯快不破,由于使用go开发的,go语言天生的速度优势,生成静态文件也就几秒的时间&lt;/li&gt;
-&lt;li&gt;golang是Google推出的,&amp;ldquo;Google出品,必属精品&amp;rdquo;,历史证明,golang也确实能当大任&lt;/li&gt;
-&lt;li&gt;由于在之前就想学golang了,Hugo正合我意&lt;/li&gt;
-&lt;li&gt;我用了一个笨方法(当&amp;quot;选择困难症&amp;quot;发作的时候,我经常使用,哈哈),利用了搜索引擎来对比了Hexo和Hugo关键词的搜索热度,结果发现,Hugo的相关文章数量是Hexo的一百多倍,Hugo使用的人更多,可能是代表未来
-&lt;img src=&#34;https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200517212636.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo | 忐忑の博客</title><link>https://twbworld.github.io/tags/hugo/</link><atom:link href="https://twbworld.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><description>Hugo</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020—2021_忐忑-yellow)](/authors/admin/) [![备案号](https://img.shields.io/badge/粤ICP备-20059599号-eb0500)](http://www.beian.miit.gov.cn/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sun, 17 May 2020 19:06:47 +0800</lastBuildDate><image><url>https://twbworld.github.io/media/avatar.jpg</url><title>Hugo</title><link>https://twbworld.github.io/tags/hugo/</link></image><item><title>搭建博客的准备</title><link>https://twbworld.github.io/post/2020/05/17/blog_ready/</link><pubDate>Sun, 17 May 2020 19:06:47 +0800</pubDate><guid>https://twbworld.github.io/post/2020/05/17/blog_ready/</guid><description>&lt;blockquote>
+&lt;p>最近想建立自己的博客网站,便于在开发过程中记录一些笔记;&lt;br>
+但是每次进入一个未知的领域,我的强迫症就会犯了,面临了抉择的问题;毕竟每个人都不想一开始就选择了不适合自己的,学到一半才后悔最初的选择;&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="平台的选择">平台的选择&lt;/h2>
+&lt;p>进入我的备选名单的有:&lt;/p>
+&lt;ul>
+&lt;li>CSDN&lt;/li>
+&lt;li>博客园&lt;/li>
+&lt;li>WordPress&lt;/li>
+&lt;li>Github Pages&lt;/li>
+&lt;li>知乎&lt;/li>
+&lt;/ul>
+&lt;p>先讲结论,我最终选择了Github Pages&lt;/p>
+&lt;h3 id="wordpress">WordPress&lt;/h3>
+&lt;p>优点:&lt;/p>
+&lt;ul>
+&lt;li>自己搭建的博客,自由度非常高&lt;/li>
+&lt;li>历经多年,插件丰富&lt;/li>
+&lt;li>因为工作原因,个人比较熟悉PHP&lt;/li>
+&lt;/ul>
+&lt;p>缺点:&lt;/p>
+&lt;ul>
+&lt;li>会浪费自己的大量精力和时间去维护网站(服务器的维护,域名,SEO,还有服务器安全方面的考虑,等等)&lt;/li>
+&lt;/ul>
+&lt;p>所有不好意思,程序员的时间非常宝贵,不要把时间浪费在这种无意义的事情上,我只想静静的写博客文章&lt;/p>
+&lt;h3 id="知乎">知乎&lt;/h3>
+&lt;p>优点:&lt;/p>
+&lt;ul>
+&lt;li>网站设计比较前卫&lt;/li>
+&lt;li>平台的文章质量也很高,也有大量的程序员聚集在此&lt;/li>
+&lt;li>个人原因,平时也喜欢逛逛知乎的热榜,消磨时间,感情上挺适合我胃口的&lt;/li>
+&lt;/ul>
+&lt;p>缺点:&lt;/p>
+&lt;ul>
+&lt;li>知乎这个平台信息有点杂,文章五花八门,而且这几年很多在知乎上带节奏,以及一些搞营销的,比较反感&lt;/li>
+&lt;li>听说知乎的MarkDown支持的不太好&lt;/li>
+&lt;/ul>
+&lt;p>所有,只能忍痛割爱了&lt;/p>
+&lt;h3 id="csdn和博客园">CSDN和博客园&lt;/h3>
+&lt;p>优点:&lt;/p>
+&lt;ul>
+&lt;li>很明显,CSDN和博客园的搜索引擎优化是做的非常不错的&lt;/li>
+&lt;li>程序员这个物种比较多&lt;/li>
+&lt;li>专注于技术博客,不像知乎给人的感觉很杂&lt;/li>
+&lt;/ul>
+&lt;p>缺点:&lt;/p>
+&lt;ul>
+&lt;li>平台太难看,设计太老旧了,点名批评博客园,强迫症看着难受&lt;/li>
+&lt;li>在CSDN居然有下载收费的模式,反感&lt;/li>
+&lt;li>限制太严格,卖个广告收不行&lt;/li>
+&lt;/ul>
+&lt;h3 id="github-pages">Github Pages&lt;/h3>
+&lt;p>优点:&lt;/p>
+&lt;ul>
+&lt;li>可以使用Git管理,这是必杀技啊&lt;/li>
+&lt;li>静态网站,比较好维护&lt;/li>
+&lt;li>搜索引擎优化,服务器的维护等等这些,全权交给github好了,咋们不需要浪费过多的精力&lt;/li>
+&lt;li>自由度比较高,可以使用各种各样的主题和插件,没有平台限制,可以卖个广告,放个收款码,放个看板娘啥的&lt;/li>
+&lt;li>可使用自己的域名,而且提供免费https证书&lt;/li>
+&lt;li>写博客,当然要使用MarkDown语法,而要很好的使用MarkDown,就要有自己的图床;正好可以使用Github仓库作为图床,托管自己的图片和静态资源;简直是完美的衔接&lt;/li>
+&lt;li>Github代表了未来,Github代表了未来,Github代表了未来&lt;/li>
+&lt;/ul>
+&lt;p>缺点:&lt;/p>
+&lt;ul>
+&lt;li>Github Pages屏蔽了百度蜘蛛,用百度搜索引擎无法搜索出Github Pages的文章(但是,从另外一方面想,百度搜索出来的结果本来就是垃圾,也不必讨好你.只要不屏蔽Google就行),不过解决办法也不是没有,就是使用cdn,
+&lt;a href="https://vercel.com/" target="_blank" rel="noopener">zeit.co&lt;/a> 可提供这样的服务&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;blockquote>
+&lt;p>如果您也决定使用Github Pages搭建自己的个人博客,那么你就会面临着另外的一个选择(强迫症又要犯了)&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="博客框架的选择">博客框架的选择&lt;/h2>
+&lt;blockquote>
+&lt;p>我的理解博客框架就是:静态网站生成器;简单理解就是:按照它的规则,写MarkDown文章,它再把MarkDown格式的文章生成HTML&lt;/p>
+&lt;/blockquote>
+&lt;p>主流选择也就那么几个:&lt;/p>
+&lt;ul>
+&lt;li>Jekyll&lt;/li>
+&lt;li>Hexo&lt;/li>
+&lt;li>Hugo&lt;/li>
+&lt;/ul>
+&lt;p>先讲结论,经过一番思想斗争,我最终选择了Hugo&lt;/p>
+&lt;h3 id="jekyll">Jekyll&lt;/h3>
+&lt;p>Jekyll是使用Ruby写的,同时也是Github Pages默认的静态网站生成器&lt;br>
+被我pass了的原因主要是:看到网上的人说,Jekyll速度比较慢,特别是到后期&lt;/p>
+&lt;h3 id="hexo">Hexo&lt;/h3>
+&lt;p>Hexo是js写的,因为这个原因,很多人使用Hexo也没压力,优点也很明显,
+国内使用的人数比较多,中文文档比较齐全(当时看Hugo的文档,看得我头都疼)&lt;/p>
+&lt;h3 id="hugo">Hugo&lt;/h3>
+&lt;p>Hugo是使用golang写的&lt;br>
+优点:&lt;/p>
+&lt;ul>
+&lt;li>天下武功真的唯快不破,由于使用go开发的,go语言天生的速度优势,生成静态文件也就几秒的时间&lt;/li>
+&lt;li>golang是Google推出的,&amp;ldquo;Google出品,必属精品&amp;rdquo;,历史证明,golang也确实能当大任&lt;/li>
+&lt;li>由于在之前就想学golang了,Hugo正合我意&lt;/li>
+&lt;li>我用了一个笨方法(当&amp;quot;选择困难症&amp;quot;发作的时候,我经常使用,哈哈),利用了搜索引擎来对比了Hexo和Hugo关键词的搜索热度,结果发现,Hugo的相关文章数量是Hexo的一百多倍,Hugo使用的人更多,可能是代表未来
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200517212636.png" alt="">&lt;/li>
+&lt;/ul></description></item></channel></rss>

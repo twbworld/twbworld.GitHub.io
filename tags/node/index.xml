@@ -1,1778 +1,1720 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Node | 忐忑の博客</title>
-    <link>https://twbworld.github.io/tags/node/</link>
-      <atom:link href="https://twbworld.github.io/tags/node/index.xml" rel="self" type="application/rss+xml" />
-    <description>Node</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020—2020_忐忑-yellow)](/authors/admin/) [![备案号](https://img.shields.io/badge/粤ICP备-20059599号-eb0500)](http://www.beian.miit.gov.cn/)   [![忐忑的博客](https://img.shields.io/github/tag/twbworld/hugo-blog?logo=github)](https://github.com/twbworld/hugo-blog) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate>
-    <image>
-      <url>https://twbworld.github.io/media/avatar.jpg</url>
-      <title>Node</title>
-      <link>https://twbworld.github.io/tags/node/</link>
-    </image>
-    
-    <item>
-      <title>学习笔记</title>
-      <link>https://twbworld.github.io/post/2020/10/04/node/</link>
-      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>https://twbworld.github.io/post/2020/10/04/node/</guid>
-      <description>&lt;h2 id=&#34;扩展知识&#34;&gt;扩展知识&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;在 &lt;code&gt;Windows&lt;/code&gt; 下配置文件,注意 &lt;code&gt;\n&lt;/code&gt; 和 &lt;code&gt;\r&lt;/code&gt; 和 &lt;code&gt;\t&lt;/code&gt; 会被转义,要把 &lt;code&gt;\&lt;/code&gt; 改成 &lt;code&gt;/&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;双系统制作&#34;&gt;双系统制作&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103&#34;&gt;https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;电脑已有 &lt;code&gt;Windows系统&lt;/code&gt; 的前提下,用 &lt;code&gt;UltraISO&lt;/code&gt; 把 &lt;code&gt;centos系统&lt;/code&gt; 刻入U盘&lt;/li&gt;
-&lt;li&gt;启动系统U盘(新机用 &lt;code&gt;uefi启动&lt;/code&gt; ),在系统选择页面,按下 &lt;code&gt;tab健&lt;/code&gt; 修改启动项,把 &lt;code&gt;LABEL=CentOS\x207\x20x86_64&lt;/code&gt; 改为 &lt;code&gt;/dev/sdb4&lt;/code&gt; (不一定是 &lt;code&gt;sdb4&lt;/code&gt; ,可能是 &lt;code&gt;sda4&lt;/code&gt; , &lt;code&gt;sdc4&lt;/code&gt; 等等,具体百度)&lt;/li&gt;
-&lt;li&gt;安装系统界面,选择硬盘,自动分配分区得以回收空间&lt;/li&gt;
-&lt;li&gt;重做 &lt;code&gt;PE启动盘&lt;/code&gt; ,启动盘用 &lt;code&gt;NTBOOT&lt;/code&gt; 软件做 &lt;code&gt;双系统引导修复&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;常用-命令快捷键&#34;&gt;常用 命令&amp;amp;&amp;amp;快捷键&lt;/h2&gt;
-&lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;命令&lt;/th&gt;
-&lt;th&gt;描述&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;..&lt;/td&gt;
-&lt;td&gt;上一级目录&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;cd -&lt;/td&gt;
-&lt;td&gt;上一次目录&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ctrl+C&lt;/td&gt;
-&lt;td&gt;强制中断&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ctrl+U&lt;/td&gt;
-&lt;td&gt;清除输入命令&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;!v&lt;/td&gt;
-&lt;td&gt;执行上一条以&amp;rsquo;v&amp;rsquo;开头的命令&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ll&lt;/td&gt;
-&lt;td&gt;ls -l 缩写&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;|grep&lt;/td&gt;
-&lt;td&gt;过滤结果&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ctrl+a/e&lt;/td&gt;
-&lt;td&gt;命令最前/后&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;clear&lt;/td&gt;
-&lt;td&gt;清屏(或ctrl+L)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;pwd&lt;/td&gt;
-&lt;td&gt;当前目录&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;cat&lt;/td&gt;
-&lt;td&gt;查看文件内容&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;mkdir/mv/cp/rm&lt;/td&gt;
-&lt;td&gt;文件名操作&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;\cp&lt;/td&gt;
-&lt;td&gt;不使用alias&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;useradd&lt;/td&gt;
-&lt;td&gt;创建新用户&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;which&lt;/td&gt;
-&lt;td&gt;查找命令&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;chown&lt;/td&gt;
-&lt;td&gt;设置文件拥有者&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;chmod&lt;/td&gt;
-&lt;td&gt;设置u/g/o权限&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;setfacl -R -m u:apache:rwx /var&lt;/td&gt;
-&lt;td&gt;设置单独用户的权限(getfacl查看)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;chattr&lt;/td&gt;
-&lt;td&gt;设置文件属性,如设置成禁止删除文件&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ps -ef(ps aux)&lt;/td&gt;
-&lt;td&gt;查看所有进程&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;pstree -p&lt;/td&gt;
-&lt;td&gt;查看进程树&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;pkill httpd&lt;/td&gt;
-&lt;td&gt;关闭某进程(或killall)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;uptime&lt;/td&gt;
-&lt;td&gt;计算机负载&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;top&lt;/td&gt;
-&lt;td&gt;实时负载(可安装htop加强版)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;df -h&lt;/td&gt;
-&lt;td&gt;磁盘占用&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;du -h &amp;ndash;max-depth=1&lt;/td&gt;
-&lt;td&gt;目录下各个文件大小&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;pkill -kill -t pts/1&lt;/td&gt;
-&lt;td&gt;强退指定用户&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;who&lt;/td&gt;
-&lt;td&gt;在线用户(或缩写w)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;last&lt;/td&gt;
-&lt;td&gt;用户登录历史记录&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;id&lt;/td&gt;
-&lt;td&gt;查看用户所在的组&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;lsof -i:80&lt;/td&gt;
-&lt;td&gt;查看端口&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;man&lt;/td&gt;
-&lt;td&gt;命令帮助(可安装中文软件)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;netstat -antup | grep nginx&lt;/td&gt;
-&lt;td&gt;查看进程或端口等&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;curl ifconfig.me&lt;/td&gt;
-&lt;td&gt;查看公网ip&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;rpm -qa|grep&lt;/td&gt;
-&lt;td&gt;查看应用程序&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;yum install -y nginx&lt;/td&gt;
-&lt;td&gt;安装软件&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;pkill -HUP nginx&lt;/td&gt;
-&lt;td&gt;系统级别重载配置文件&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;systemctl status nginx.service&lt;/td&gt;
-&lt;td&gt;查看状态(或service nginx status)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;chkconfig iptables off&lt;/td&gt;
-&lt;td&gt;永久关闭防火墙&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;chkconfig iptables on&lt;/td&gt;
-&lt;td&gt;永久关闭后重启&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ln&lt;/td&gt;
-&lt;td&gt;建立连接,用于设置系统变量的第一步&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;nohup &amp;lt;shell&amp;gt;&lt;/td&gt;
-&lt;td&gt;在后台运行shell命令&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;tree -LNFC 2&lt;/td&gt;
-&lt;td&gt;tree软件常用命令&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;tar -xaf&lt;/td&gt;
-&lt;td&gt;识别压缩文件类型,进行解压(-caf)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;find / -name &amp;ldquo;*.txt&amp;rdquo; | xargs grep &amp;ldquo;hello&amp;rdquo;&lt;/td&gt;
-&lt;td&gt;查找文件内容&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;cat &amp;lt;filename&amp;gt; | openssl dgst -sha256 -binary | openssl base64 -A&lt;/td&gt;
-&lt;td&gt;计算文件sha256校验值(css校验方法:&lt;code&gt;&amp;lt;link href=&amp;quot;filename.css&amp;quot; integrity=&amp;quot;sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=&amp;quot;&amp;gt;&lt;/code&gt;)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;sha256sum filename&lt;/td&gt;
-&lt;td&gt;计算文件md5校验值&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;docker container list -aq |xargs docker container rm&lt;/td&gt;
-&lt;td&gt;docker清理容器&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;docker volume ls -q |xargs docker volume rm&lt;/td&gt;
-&lt;td&gt;docker清理卷&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;git&#34;&gt;Git&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;命令&lt;/th&gt;
-&lt;th&gt;描述&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git init&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;初始化为git管理仓库&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git status&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;仓库状态&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git diff &amp;lt;file&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;工作区版本库对比&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git commit --amend&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;修改已commit的备注&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git commit –am &amp;lt;备注&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;直接跳过add命令&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git reset --hard HEAD&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;还原最新版&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git reset --hard &amp;lt;commit-id&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;还原指定版&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git reset HEAD &amp;lt;file&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;放弃暂存区的修改&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git checkout -- &amp;lt;file&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;放弃工作区的修改&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git checkout . &amp;amp;&amp;amp; git clean -df&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;清除所有新增的文件目录&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git checkout –b &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;创建并切换分支&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git branch –d &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;删除分支&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git branch -D &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;丢弃未合并的分支&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git branch -r -d origin/&amp;lt;name&amp;gt; &amp;amp;&amp;amp; git push origin :&amp;lt;name&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;删除远程分支&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git branch&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;查看分支&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git merge &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;合并分支&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git mergetool&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;解决冲突的合并工具&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git tag -a &amp;lt;name&amp;gt; -m &amp;lt;备注&amp;gt; &amp;lt;commit-id&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;创建并指定标签信息&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git tag&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;查看所有标签&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git show &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;查看标签信息&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git stash&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;保存当前工作现场&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git stash pop&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;恢复并删除工作现场&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git stash list&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;查看工作现场&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git stash apply &amp;lt;stash@{0}&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;恢复工作现场&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git stash drop &amp;lt;stash@{0}&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;删除工作现场&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git push -u origin master&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;首次推送&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git clone &amp;lt;远程项目地址&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;克隆远程仓库&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git reflog &amp;lt;file&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;命令历史&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git revert &amp;lt;commit-id&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;撤销某个版本&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git cherry-pick &amp;lt;commit-id&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;提取某个分支的某个版本到当前分支&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git check-ignore -v &amp;lt;file&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;检查哪个规则忽略了文件&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git rm -rf --cached . &amp;amp;&amp;amp; git add -A&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;清徐缓存,用于更新gitignore&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git diff &amp;lt;commit-id&amp;gt; &amp;lt;commit-id&amp;gt; --stat&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;比较两个版本变化了的文件&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git submodule add &amp;lt;远程项目地址&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;添加子模块&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git submodule update --init --recursive&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;下载所有子模块&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git submodule update --remote&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;更新所有子模块&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git remote show origin&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;详细的远程分支的信息&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git log --oneline --graph --decorate --all -9&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;可视化显示版本树&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git config --global alias.lg &amp;quot;log --color --graph --all --oneline  --decorate --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&amp;lt;%an&amp;gt;%Creset&#39; --abbrev-commit&amp;quot;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;可视化显示版本树配置别名&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git config --global core.filemode false&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;关闭git对文件权限的监视&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git config --global core.quotepath false&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;正常显示中文文件名&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;git config --global color.ui true&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;彩色显示&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;vim&#34;&gt;Vim&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;命令&lt;/th&gt;
-&lt;th&gt;效果&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;!&amp;lt;shell&amp;gt;&lt;/td&gt;
-&lt;td&gt;执行系统命令&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;u&lt;/td&gt;
-&lt;td&gt;后退&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Ctrl + r&lt;/td&gt;
-&lt;td&gt;前进&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;i/I/a/A/o/O&lt;/td&gt;
-&lt;td&gt;前/行首/后/行尾/上行/下行 插入&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;b/e/^/$/H/M/L/gg/G&lt;/td&gt;
-&lt;td&gt;移动光标到 跳前/跳后/行首/行尾/窗头/窗中/窗尾/头部/尾部&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Ctrl + b/f/d/u&lt;/td&gt;
-&lt;td&gt;翻一页/半页&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;D&lt;/td&gt;
-&lt;td&gt;删除到行尾&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;dG&lt;/td&gt;
-&lt;td&gt;向下删除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;dd&lt;/td&gt;
-&lt;td&gt;删除当前行&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;yy&lt;/td&gt;
-&lt;td&gt;复制&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;p&lt;/td&gt;
-&lt;td&gt;粘贴&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ddp&lt;/td&gt;
-&lt;td&gt;与下行互换位置&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;yyp&lt;/td&gt;
-&lt;td&gt;新增一行&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ggvG&lt;/td&gt;
-&lt;td&gt;全选&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;set number&lt;/td&gt;
-&lt;td&gt;显示行数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;vim +X &amp;lt;filename&amp;gt;&lt;/td&gt;
-&lt;td&gt;文件加密&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;:&amp;lt;number&amp;gt;&lt;/td&gt;
-&lt;td&gt;跳到指定行&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;/&amp;lt;name&amp;gt;&lt;/td&gt;
-&lt;td&gt;搜索(按 n/N 向 下/上 查找)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;sublime&#34;&gt;Sublime&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;快捷键&lt;/th&gt;
-&lt;th&gt;描述&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Ctrl+Shift+L&lt;/td&gt;
-&lt;td&gt;所有选中的行,在行后后出现光标&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Ctrl+Shift+M&lt;/td&gt;
-&lt;td&gt;选中括号里的内容&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Ctrl+M&lt;/td&gt;
-&lt;td&gt;光标在括号前后跳&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Ctrl+Shift+[ / ]&lt;/td&gt;
-&lt;td&gt;隐藏/显示 内容&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Ctrl+J&lt;/td&gt;
-&lt;td&gt;多行成一行&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Ctrl+KK&lt;/td&gt;
-&lt;td&gt;删除行后的内容&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Ctrl+K+U / L&lt;/td&gt;
-&lt;td&gt;选中的内容 大写/小写&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Ctrl+F2&lt;/td&gt;
-&lt;td&gt;标记行&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;F6&lt;/td&gt;
-&lt;td&gt;检错&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Alt+.&lt;/td&gt;
-&lt;td&gt;补充标签&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Alt+数字&lt;/td&gt;
-&lt;td&gt;跳转tag&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;shift+pgup&lt;/td&gt;
-&lt;td&gt;向下选择&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;vimium&#34;&gt;Vimium&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;快捷键&lt;/th&gt;
-&lt;th&gt;描述&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;o&lt;/td&gt;
-&lt;td&gt;搜索&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;j/k&lt;/td&gt;
-&lt;td&gt;滚动&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;gg/G&lt;/td&gt;
-&lt;td&gt;头/底部&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;d/u&lt;/td&gt;
-&lt;td&gt;翻页&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;f&lt;/td&gt;
-&lt;td&gt;打开连接&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;x/X&lt;/td&gt;
-&lt;td&gt;关闭/恢复标签页&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;J/K&lt;/td&gt;
-&lt;td&gt;上/下一个标签页&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;yy&lt;/td&gt;
-&lt;td&gt;复制链接&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;H/L&lt;/td&gt;
-&lt;td&gt;后退/前进记录&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;p&lt;/td&gt;
-&lt;td&gt;刷新&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;t&lt;/td&gt;
-&lt;td&gt;新建标签页&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;chrome&#34;&gt;chrome&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;快捷键&lt;/th&gt;
-&lt;th&gt;描述&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Ctrl+0&lt;/td&gt;
-&lt;td&gt;恢复100%&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Ctrl+j&lt;/td&gt;
-&lt;td&gt;下载页&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Ctrl+Shift+Delete&lt;/td&gt;
-&lt;td&gt;清除数据&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Ctrl+u&lt;/td&gt;
-&lt;td&gt;html源码&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;windows&#34;&gt;windows&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;快捷键&lt;/th&gt;
-&lt;th&gt;描述&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Win+←&lt;/td&gt;
-&lt;td&gt;小化&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;win+v&lt;/td&gt;
-&lt;td&gt;粘贴板&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Win+i&lt;/td&gt;
-&lt;td&gt;设置页&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Shift+Ctrl+Esc&lt;/td&gt;
-&lt;td&gt;任务管理器&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Alt+F4&lt;/td&gt;
-&lt;td&gt;关机&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Alt+1/Enter/双击&lt;/td&gt;
-&lt;td&gt;查看文件属性&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Alt+↑&lt;/td&gt;
-&lt;td&gt;上一级目录&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Alt+2(Shift+Ctrl+n)&lt;/td&gt;
-&lt;td&gt;新建文件夹&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;右击+v+d&lt;/td&gt;
-&lt;td&gt;隐藏图标(等等操作)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ctrl+win+D&lt;/td&gt;
-&lt;td&gt;新建桌面&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ctrl+win+←&lt;/td&gt;
-&lt;td&gt;返回桌面(老板键)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;linux-1&#34;&gt;Linux&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;端口号&amp;lt;1024为系统预留端口&lt;/li&gt;
-&lt;li&gt;uid &amp;lt; 500 为系统用户&lt;/li&gt;
-&lt;li&gt;非&lt;code&gt;root&lt;/code&gt;用户不能监听&amp;lt;1024的端口(所以一般&lt;code&gt;root&lt;/code&gt;启动&lt;code&gt;nginx&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;bnoody为Linux非登录用户,其作为nginx运行用户可保证安全&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Linux&lt;/code&gt;的共享:&lt;code&gt;NFS&lt;/code&gt;协议&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;windows&lt;/code&gt;与&lt;code&gt;linux&lt;/code&gt;共享:&lt;code&gt;SMB&lt;/code&gt;协议(&lt;code&gt;Samba&lt;/code&gt;软件)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;权限&lt;/th&gt;
-&lt;th&gt;符号&lt;/th&gt;
-&lt;th&gt;描述&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;可执行&lt;/td&gt;
-&lt;td&gt;x&lt;/td&gt;
-&lt;td&gt;可以进入该目录,无法读取该目录中的内容&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;可执行可读&lt;/td&gt;
-&lt;td&gt;xr&lt;/td&gt;
-&lt;td&gt;可以进入该目录并读取该目录中的内容,不能创建文件&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;可执行可写&lt;/td&gt;
-&lt;td&gt;xw&lt;/td&gt;
-&lt;td&gt;可以创建文件但是不能读取&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;git-1&#34;&gt;Git&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;初始配置Git&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;设置本地用户和邮箱&lt;br&gt;
-&lt;code&gt;git config --global user.name &amp;lt;your_name&amp;gt; &amp;amp;&amp;amp; git config --global user.email &amp;lt;your_email&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;本地生成公钥&lt;br&gt;
-&lt;code&gt;ssh-keygen -t rsa -C &amp;lt;your_email&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;找到公钥,复制到github账号(即添加过公钥的用户才被允许管理github项目)&lt;/li&gt;
-&lt;li&gt;测试公钥&lt;br&gt;
-&lt;code&gt;ssh -T git@github.com&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;到github创建项目&lt;/li&gt;
-&lt;li&gt;本地创建项目并初始化&lt;br&gt;
-&lt;code&gt;git init&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;关联远程库和本地&lt;br&gt;
-&lt;code&gt;git remote add &amp;lt;自定义远程仓库名,如origin&amp;gt; &amp;lt;远程项目地址&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;可查看本地关联的所有仓库主机&lt;br&gt;
-&lt;code&gt;git remote -v 或者 git remote show origin&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;把项目添加到缓存区&lt;br&gt;
-&lt;code&gt;git add . 和 git commit –m &amp;lt;备注&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;提交项目到origin仓库的master分支&lt;br&gt;
-&lt;code&gt;git push origin master (添加&amp;quot;--tags&amp;quot;可同时上传tag)&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;git hook :&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;第三方仓库git hook&lt;/li&gt;
-&lt;li&gt;服务器部署git裸仓库
-&lt;a href=&#34;http://kongfangyu.com/2016/02/12/git-deploy&#34;&gt;http://kongfangyu.com/2016/02/12/git-deploy&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;备注规范 :&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;feat: 新功能&lt;/li&gt;
-&lt;li&gt;fix: 修复 bug&lt;/li&gt;
-&lt;li&gt;docs: 文档变动&lt;/li&gt;
-&lt;li&gt;style: 格式调整，对代码实际运行没有改动，例如添加空行、格式化等&lt;/li&gt;
-&lt;li&gt;refactor: bug 修复和添加新功能之外的代码改动,重构大改动&lt;/li&gt;
-&lt;li&gt;perf: 提升性能的改动&lt;/li&gt;
-&lt;li&gt;test: 添加或修正测试代码&lt;/li&gt;
-&lt;li&gt;chore: 构建过程或辅助工具和库（如文档生成）的更改&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;编译安装&#34;&gt;编译安装&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# 配置&lt;/span&gt;
-./configure --prefix&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/usr/local/nginx
-&lt;span style=&#34;color:#75715e&#34;&gt;# 清除编译文件&lt;/span&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Node | 忐忑の博客</title><link>https://twbworld.github.io/tags/node/</link><atom:link href="https://twbworld.github.io/tags/node/index.xml" rel="self" type="application/rss+xml"/><description>Node</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020—2021_忐忑-yellow)](/authors/admin/) [![备案号](https://img.shields.io/badge/粤ICP备-20059599号-eb0500)](http://www.beian.miit.gov.cn/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><image><url>https://twbworld.github.io/media/avatar.jpg</url><title>Node</title><link>https://twbworld.github.io/tags/node/</link></image><item><title>学习笔记</title><link>https://twbworld.github.io/post/2020/10/04/node/</link><pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate><guid>https://twbworld.github.io/post/2020/10/04/node/</guid><description>&lt;h2 id="扩展知识">扩展知识&lt;/h2>
+&lt;ul>
+&lt;li>在 &lt;code>Windows&lt;/code> 下配置文件,注意 &lt;code>\n&lt;/code> 和 &lt;code>\r&lt;/code> 和 &lt;code>\t&lt;/code> 会被转义,要把 &lt;code>\&lt;/code> 改成 &lt;code>/&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="双系统制作">双系统制作&lt;/h3>
+&lt;blockquote>
+&lt;p>&lt;a href="https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103">https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>电脑已有 &lt;code>Windows系统&lt;/code> 的前提下,用 &lt;code>UltraISO&lt;/code> 把 &lt;code>centos系统&lt;/code> 刻入U盘&lt;/li>
+&lt;li>启动系统U盘(新机用 &lt;code>uefi启动&lt;/code> ),在系统选择页面,按下 &lt;code>tab健&lt;/code> 修改启动项,把 &lt;code>LABEL=CentOS\x207\x20x86_64&lt;/code> 改为 &lt;code>/dev/sdb4&lt;/code> (不一定是 &lt;code>sdb4&lt;/code> ,可能是 &lt;code>sda4&lt;/code> , &lt;code>sdc4&lt;/code> 等等,具体百度)&lt;/li>
+&lt;li>安装系统界面,选择硬盘,自动分配分区得以回收空间&lt;/li>
+&lt;li>重做 &lt;code>PE启动盘&lt;/code> ,启动盘用 &lt;code>NTBOOT&lt;/code> 软件做 &lt;code>双系统引导修复&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h2 id="常用-命令快捷键">常用 命令&amp;amp;&amp;amp;快捷键&lt;/h2>
+&lt;h3 id="linux">Linux&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>命令&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>..&lt;/td>
+&lt;td>上一级目录&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>cd -&lt;/td>
+&lt;td>上一次目录&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ctrl+C&lt;/td>
+&lt;td>强制中断&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ctrl+U&lt;/td>
+&lt;td>清除输入命令&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>!v&lt;/td>
+&lt;td>执行上一条以&amp;rsquo;v&amp;rsquo;开头的命令&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ll&lt;/td>
+&lt;td>ls -l 缩写&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>|grep&lt;/td>
+&lt;td>过滤结果&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ctrl+a/e&lt;/td>
+&lt;td>命令最前/后&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>clear&lt;/td>
+&lt;td>清屏(或ctrl+L)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>pwd&lt;/td>
+&lt;td>当前目录&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>cat&lt;/td>
+&lt;td>查看文件内容&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>mkdir/mv/cp/rm&lt;/td>
+&lt;td>文件名操作&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>\cp&lt;/td>
+&lt;td>不使用alias&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>useradd&lt;/td>
+&lt;td>创建新用户&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>which&lt;/td>
+&lt;td>查找命令&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>chown&lt;/td>
+&lt;td>设置文件拥有者&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>chmod&lt;/td>
+&lt;td>设置u/g/o权限&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>setfacl -R -m u:apache:rwx /var&lt;/td>
+&lt;td>设置单独用户的权限(getfacl查看)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>chattr&lt;/td>
+&lt;td>设置文件属性,如设置成禁止删除文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ps -ef(ps aux)&lt;/td>
+&lt;td>查看所有进程&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>pstree -p&lt;/td>
+&lt;td>查看进程树&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>pkill httpd&lt;/td>
+&lt;td>关闭某进程(或killall)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>uptime&lt;/td>
+&lt;td>计算机负载&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>top&lt;/td>
+&lt;td>实时负载(可安装htop加强版)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>df -h&lt;/td>
+&lt;td>磁盘占用&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>du -h &amp;ndash;max-depth=1&lt;/td>
+&lt;td>目录下各个文件大小&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>pkill -kill -t pts/1&lt;/td>
+&lt;td>强退指定用户&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>who&lt;/td>
+&lt;td>在线用户(或缩写w)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>last&lt;/td>
+&lt;td>用户登录历史记录&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>id&lt;/td>
+&lt;td>查看用户所在的组&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>lsof -i:80&lt;/td>
+&lt;td>查看端口&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>man&lt;/td>
+&lt;td>命令帮助(可安装中文软件)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>netstat -antup | grep nginx&lt;/td>
+&lt;td>查看进程或端口等&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>curl ifconfig.me&lt;/td>
+&lt;td>查看公网ip&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>rpm -qa|grep&lt;/td>
+&lt;td>查看应用程序&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>yum install -y nginx&lt;/td>
+&lt;td>安装软件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>pkill -HUP nginx&lt;/td>
+&lt;td>系统级别重载配置文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>systemctl status nginx.service&lt;/td>
+&lt;td>查看状态(或service nginx status)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>chkconfig iptables off&lt;/td>
+&lt;td>永久关闭防火墙&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>chkconfig iptables on&lt;/td>
+&lt;td>永久关闭后重启&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ln&lt;/td>
+&lt;td>建立连接,用于设置系统变量的第一步&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>nohup &amp;lt;shell&amp;gt;&lt;/td>
+&lt;td>在后台运行shell命令&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>tree -LNFC 2&lt;/td>
+&lt;td>tree软件常用命令&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>tar -xaf&lt;/td>
+&lt;td>识别压缩文件类型,进行解压(-caf)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>unzip -O cp936&lt;/td>
+&lt;td>zip文件解压避免乱码&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>find / -name &amp;ldquo;*.txt&amp;rdquo; | xargs grep &amp;ldquo;hello&amp;rdquo;&lt;/td>
+&lt;td>查找文件内容&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>cat &amp;lt;filename&amp;gt; | openssl dgst -sha256 -binary | openssl base64 -A&lt;/td>
+&lt;td>计算文件sha256校验值(css校验方法:&lt;code>&amp;lt;link href=&amp;quot;filename.css&amp;quot; integrity=&amp;quot;sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=&amp;quot;&amp;gt;&lt;/code>)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>sha256sum filename&lt;/td>
+&lt;td>计算文件md5校验值&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>docker container list -aq |xargs docker container rm&lt;/td>
+&lt;td>docker清理容器(同样效果 &lt;code>docker container prune&lt;/code>)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>docker volume ls -q |xargs docker volume rm&lt;/td>
+&lt;td>docker清理卷(同样效果 &lt;code>docker volume prune&lt;/code>)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="git">Git&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>命令&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>git init&lt;/code>&lt;/td>
+&lt;td>初始化为git管理仓库&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git status&lt;/code>&lt;/td>
+&lt;td>仓库状态&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git diff &amp;lt;file&amp;gt;&lt;/code>&lt;/td>
+&lt;td>工作区版本库对比&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git commit --amend&lt;/code>&lt;/td>
+&lt;td>修改已commit的备注&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git commit –am &amp;lt;备注&amp;gt;&lt;/code>&lt;/td>
+&lt;td>直接跳过add命令&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git reset --hard HEAD&lt;/code>&lt;/td>
+&lt;td>还原最新版&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git reset --hard &amp;lt;commit-id&amp;gt;&lt;/code>&lt;/td>
+&lt;td>还原指定版&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git reset HEAD &amp;lt;file&amp;gt;&lt;/code>&lt;/td>
+&lt;td>放弃暂存区的修改&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git checkout -- &amp;lt;file&amp;gt;&lt;/code>&lt;/td>
+&lt;td>放弃工作区的修改&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git checkout . &amp;amp;&amp;amp; git clean -df&lt;/code>&lt;/td>
+&lt;td>清除所有新增的文件目录&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git checkout –b &amp;lt;name&amp;gt;&lt;/code>&lt;/td>
+&lt;td>创建并切换分支&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git branch –d &amp;lt;name&amp;gt;&lt;/code>&lt;/td>
+&lt;td>删除分支&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git branch -D &amp;lt;name&amp;gt;&lt;/code>&lt;/td>
+&lt;td>丢弃未合并的分支&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git branch -r -d origin/&amp;lt;name&amp;gt; &amp;amp;&amp;amp; git push origin :&amp;lt;name&amp;gt;&lt;/code>&lt;/td>
+&lt;td>删除远程分支&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git branch&lt;/code>&lt;/td>
+&lt;td>查看分支&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git merge &amp;lt;name&amp;gt;&lt;/code>&lt;/td>
+&lt;td>合并分支&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git mergetool&lt;/code>&lt;/td>
+&lt;td>解决冲突的合并工具&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git tag -a &amp;lt;name&amp;gt; -m &amp;lt;备注&amp;gt; &amp;lt;commit-id&amp;gt;&lt;/code>&lt;/td>
+&lt;td>创建并指定标签信息&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git tag&lt;/code>&lt;/td>
+&lt;td>查看所有标签&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git show &amp;lt;name&amp;gt;&lt;/code>&lt;/td>
+&lt;td>查看标签信息&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git stash&lt;/code>&lt;/td>
+&lt;td>保存当前工作现场&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git stash pop&lt;/code>&lt;/td>
+&lt;td>恢复并删除工作现场&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git stash list&lt;/code>&lt;/td>
+&lt;td>查看工作现场&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git stash apply &amp;lt;stash@{0}&amp;gt;&lt;/code>&lt;/td>
+&lt;td>恢复工作现场&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git stash drop &amp;lt;stash@{0}&amp;gt;&lt;/code>&lt;/td>
+&lt;td>删除工作现场&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git push -u origin master&lt;/code>&lt;/td>
+&lt;td>首次推送&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git clone &amp;lt;远程项目地址&amp;gt;&lt;/code>&lt;/td>
+&lt;td>克隆远程仓库&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git reflog &amp;lt;file&amp;gt;&lt;/code>&lt;/td>
+&lt;td>命令历史&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git revert &amp;lt;commit-id&amp;gt;&lt;/code>&lt;/td>
+&lt;td>撤销某个版本&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git cherry-pick &amp;lt;commit-id&amp;gt;&lt;/code>&lt;/td>
+&lt;td>提取某个分支的某个版本到当前分支&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git check-ignore -v &amp;lt;file&amp;gt;&lt;/code>&lt;/td>
+&lt;td>检查哪个规则忽略了文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git rm -rf --cached . &amp;amp;&amp;amp; git add -A&lt;/code>&lt;/td>
+&lt;td>清徐缓存,用于更新gitignore&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git diff &amp;lt;commit-id&amp;gt; &amp;lt;commit-id&amp;gt; --stat&lt;/code>&lt;/td>
+&lt;td>比较两个版本变化了的文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git submodule add &amp;lt;远程项目地址&amp;gt; &amp;lt;路径&amp;gt;&lt;/code>&lt;/td>
+&lt;td>添加子模块&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git submodule update --init --recursive&lt;/code>&lt;/td>
+&lt;td>下载所有子模块&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git submodule update --remote&lt;/code>&lt;/td>
+&lt;td>更新所有子模块&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git remote show origin&lt;/code>&lt;/td>
+&lt;td>详细的远程分支的信息&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git log --oneline --graph --decorate --all -9&lt;/code>&lt;/td>
+&lt;td>可视化显示版本树&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git config --global alias.lg &amp;quot;log --color --graph --all --oneline --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&amp;lt;%an&amp;gt;%Creset' --abbrev-commit&amp;quot;&lt;/code>&lt;/td>
+&lt;td>可视化显示版本树配置别名&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git config --global core.filemode false&lt;/code>&lt;/td>
+&lt;td>关闭git对文件权限的监视&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git config --global core.quotepath false&lt;/code>&lt;/td>
+&lt;td>正常显示中文文件名&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git config --global color.ui true&lt;/code>&lt;/td>
+&lt;td>彩色显示&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="vim">Vim&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>命令&lt;/th>
+&lt;th>效果&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>!&amp;lt;shell&amp;gt;&lt;/td>
+&lt;td>执行系统命令&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>u&lt;/td>
+&lt;td>后退&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + r&lt;/td>
+&lt;td>前进&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>i/I/a/A/o/O&lt;/td>
+&lt;td>前/行首/后/行尾/上行/下行 插入&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>b/e/^/$/H/M/L/gg/G&lt;/td>
+&lt;td>移动光标到 跳前/跳后/行首/行尾/窗头/窗中/窗尾/头部/尾部&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + b/f/d/u&lt;/td>
+&lt;td>翻一页/半页&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>D&lt;/td>
+&lt;td>删除到行尾&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>dG&lt;/td>
+&lt;td>向下删除&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>dd&lt;/td>
+&lt;td>删除当前行&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>yy&lt;/td>
+&lt;td>复制&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>p&lt;/td>
+&lt;td>粘贴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ddp&lt;/td>
+&lt;td>与下行互换位置&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>yyp&lt;/td>
+&lt;td>新增一行&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ggvG&lt;/td>
+&lt;td>全选&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>set number&lt;/td>
+&lt;td>显示行数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>vim +X &amp;lt;filename&amp;gt;&lt;/td>
+&lt;td>文件加密&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>:&amp;lt;number&amp;gt;&lt;/td>
+&lt;td>跳到指定行&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>/&amp;lt;name&amp;gt;&lt;/td>
+&lt;td>搜索(按 n/N 向 下/上 查找)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="sublime">Sublime&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Ctrl+Shift+L&lt;/td>
+&lt;td>所有选中的行,在行后后出现光标&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl+Shift+M&lt;/td>
+&lt;td>选中括号里的内容&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl+M&lt;/td>
+&lt;td>光标在括号前后跳&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl+Shift+[ / ]&lt;/td>
+&lt;td>隐藏/显示 内容&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl+J&lt;/td>
+&lt;td>多行成一行&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl+KK&lt;/td>
+&lt;td>删除行后的内容&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl+K+U / L&lt;/td>
+&lt;td>选中的内容 大写/小写&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl+F2&lt;/td>
+&lt;td>标记行&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>F6&lt;/td>
+&lt;td>检错&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt+.&lt;/td>
+&lt;td>补充标签&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt+数字&lt;/td>
+&lt;td>跳转tag&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>shift+pgup&lt;/td>
+&lt;td>向下选择&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="vimium">Vimium&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>o&lt;/td>
+&lt;td>搜索&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>j/k&lt;/td>
+&lt;td>滚动&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>gg/G&lt;/td>
+&lt;td>头/底部&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>d/u&lt;/td>
+&lt;td>翻页&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>f&lt;/td>
+&lt;td>打开连接&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>x/X&lt;/td>
+&lt;td>关闭/恢复标签页&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>J/K&lt;/td>
+&lt;td>上/下一个标签页&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>yy&lt;/td>
+&lt;td>复制链接&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>H/L&lt;/td>
+&lt;td>后退/前进记录&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>p&lt;/td>
+&lt;td>刷新&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>t&lt;/td>
+&lt;td>新建标签页&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="chrome">chrome&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Ctrl+0&lt;/td>
+&lt;td>恢复100%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl+j&lt;/td>
+&lt;td>下载页&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl+Shift+Delete&lt;/td>
+&lt;td>清除数据&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl+u&lt;/td>
+&lt;td>html源码&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="windows">windows&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Win+←&lt;/td>
+&lt;td>小化&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>win+v&lt;/td>
+&lt;td>粘贴板&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Win+i&lt;/td>
+&lt;td>设置页&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Shift+Ctrl+Esc&lt;/td>
+&lt;td>任务管理器&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt+F4&lt;/td>
+&lt;td>关机&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt+1/Enter/双击&lt;/td>
+&lt;td>查看文件属性&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt+↑&lt;/td>
+&lt;td>上一级目录&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt+2(Shift+Ctrl+n)&lt;/td>
+&lt;td>新建文件夹&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>右击+v+d&lt;/td>
+&lt;td>隐藏图标(等等操作)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ctrl+win+D&lt;/td>
+&lt;td>新建桌面&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ctrl+win+←&lt;/td>
+&lt;td>返回桌面(老板键)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="linux-1">Linux&lt;/h2>
+&lt;ul>
+&lt;li>端口号&amp;lt;1024为系统预留端口&lt;/li>
+&lt;li>uid &amp;lt; 500 为系统用户&lt;/li>
+&lt;li>非&lt;code>root&lt;/code>用户不能监听&amp;lt;1024的端口(所以一般&lt;code>root&lt;/code>启动&lt;code>nginx&lt;/code>)&lt;/li>
+&lt;li>bnoody为Linux非登录用户,其作为nginx运行用户可保证安全&lt;/li>
+&lt;li>&lt;code>Linux&lt;/code>的共享:&lt;code>NFS&lt;/code>协议&lt;/li>
+&lt;li>&lt;code>windows&lt;/code>与&lt;code>linux&lt;/code>共享:&lt;code>SMB&lt;/code>协议(&lt;code>Samba&lt;/code>软件)&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>权限&lt;/th>
+&lt;th>符号&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>可执行&lt;/td>
+&lt;td>x&lt;/td>
+&lt;td>可以进入该目录,无法读取该目录中的内容&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>可执行可读&lt;/td>
+&lt;td>xr&lt;/td>
+&lt;td>可以进入该目录并读取该目录中的内容,不能创建文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>可执行可写&lt;/td>
+&lt;td>xw&lt;/td>
+&lt;td>可以创建文件但是不能读取&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="git-1">Git&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>初始配置Git&lt;/p>
+&lt;blockquote>
+&lt;ol>
+&lt;li>设置本地用户和邮箱&lt;br>
+&lt;code>git config --global user.name &amp;lt;your_name&amp;gt; &amp;amp;&amp;amp; git config --global user.email &amp;lt;your_email&amp;gt;&lt;/code>&lt;/li>
+&lt;li>本地生成公钥&lt;br>
+&lt;code>ssh-keygen -t rsa -C &amp;lt;your_email&amp;gt;&lt;/code>&lt;/li>
+&lt;li>找到公钥,复制到github账号(即添加过公钥的用户才被允许管理github项目)&lt;/li>
+&lt;li>测试公钥&lt;br>
+&lt;code>ssh -T git@github.com&lt;/code>&lt;/li>
+&lt;li>到github创建项目&lt;/li>
+&lt;li>本地创建项目并初始化&lt;br>
+&lt;code>git init&lt;/code>&lt;/li>
+&lt;li>关联远程库和本地&lt;br>
+&lt;code>git remote add &amp;lt;自定义远程仓库名,如origin&amp;gt; &amp;lt;远程项目地址&amp;gt;&lt;/code>&lt;/li>
+&lt;li>可查看本地关联的所有仓库主机&lt;br>
+&lt;code>git remote -v 或者 git remote show origin&lt;/code>&lt;/li>
+&lt;li>把项目添加到缓存区&lt;br>
+&lt;code>git add . 和 git commit –m &amp;lt;备注&amp;gt;&lt;/code>&lt;/li>
+&lt;li>提交项目到origin仓库的master分支&lt;br>
+&lt;code>git push origin master (添加&amp;quot;--tags&amp;quot;可同时上传tag)&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>git hook :&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>第三方仓库git hook&lt;/li>
+&lt;li>服务器部署git裸仓库
+&lt;a href="http://kongfangyu.com/2016/02/12/git-deploy">http://kongfangyu.com/2016/02/12/git-deploy&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>备注规范 :&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>feat: 新功能&lt;/li>
+&lt;li>fix: 修复 bug&lt;/li>
+&lt;li>docs: 文档变动&lt;/li>
+&lt;li>style: 格式调整，对代码实际运行没有改动，例如添加空行、格式化等&lt;/li>
+&lt;li>refactor: bug 修复和添加新功能之外的代码改动,重构大改动&lt;/li>
+&lt;li>perf: 提升性能的改动&lt;/li>
+&lt;li>test: 添加或修正测试代码&lt;/li>
+&lt;li>chore: 构建过程或辅助工具和库（如文档生成）的更改&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="编译安装">编译安装&lt;/h2>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">
+&lt;span style="color:#75715e"># 配置&lt;/span>
+./configure --prefix&lt;span style="color:#f92672">=&lt;/span>/usr/local/nginx
+&lt;span style="color:#75715e"># 清除编译文件&lt;/span>
 make clean
-&lt;span style=&#34;color:#75715e&#34;&gt;# 编译&lt;/span&gt;
+&lt;span style="color:#75715e"># 编译&lt;/span>
 make
-&lt;span style=&#34;color:#75715e&#34;&gt;# 安装&lt;/span&gt;
+&lt;span style="color:#75715e"># 安装&lt;/span>
 make install
-&lt;span style=&#34;color:#75715e&#34;&gt;# 软连接&lt;/span&gt;
+&lt;span style="color:#75715e"># 软连接&lt;/span>
 ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx
-&lt;span style=&#34;color:#75715e&#34;&gt;# 开机自启&lt;/span&gt;
-vim /etc/init.d/nginx &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; chmod a+x /etc/init.d/nginx
-&lt;span style=&#34;color:#75715e&#34;&gt;# 加入chkconfig管理列表&lt;/span&gt;
+&lt;span style="color:#75715e"># 开机自启&lt;/span>
+vim /etc/init.d/nginx &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> chmod a+x /etc/init.d/nginx
+&lt;span style="color:#75715e"># 加入chkconfig管理列表&lt;/span>
 chkconfig --add /etc/init.d/nginx
 chkconfig nginx on
 systemctl status nginx.service
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;yum安装指定版本&#34;&gt;yum安装指定版本&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;1. 到官网找到对应版本的rpm包,如:http://nginx.org/packages
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="yum安装指定版本">yum安装指定版本&lt;/h2>
+&lt;pre>&lt;code>1. 到官网找到对应版本的rpm包,如:http://nginx.org/packages
 2. 下载rpm包:wget http://nginx.org/packages/.../xxx.rpm
 3. 安装:yum install -y xxx.rpm
 4. /etc/rc.d/rc.local是系统启动后执行的文件,可在里添加自启的命令(但不推荐用这方式)
 5. /etc/profile是系统变量的文件
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;网络&#34;&gt;网络&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;TCP&lt;/code&gt; :需要三次握手,建立了 &lt;code&gt;TCP&lt;/code&gt; 虚拟通道,之后, &lt;code&gt;TCP&lt;/code&gt; 运输 &lt;code&gt;HTTP流&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;SSL&lt;/code&gt; : 位于 &lt;code&gt;TCP&lt;/code&gt; 与 &lt;code&gt;HTTP&lt;/code&gt; 之间,作为 &lt;code&gt;HTTP&lt;/code&gt; 的安全供应商，全权负责 &lt;code&gt;HTTP&lt;/code&gt; 的安全加密工作。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;TLS&lt;/code&gt; : 在 &lt;code&gt;SSL3.0&lt;/code&gt; 版本的基础上，重新设计并命名了这个协议，其全新的名字为 &lt;code&gt;TLS&lt;/code&gt; ,形成: &lt;code&gt;TCP连接时间&lt;/code&gt; + &lt;code&gt;TLS 连接时间&lt;/code&gt; + &lt;code&gt;HTTP交易时间&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;HTTPS&lt;/code&gt; : 通常将 &lt;code&gt;TLS&lt;/code&gt; 安全保护的 &lt;code&gt;HTTP&lt;/code&gt; 通信，称之为 &lt;code&gt;HTTPS&lt;/code&gt; ，以区别于没有 &lt;code&gt;TLS&lt;/code&gt; 安全防护的 &lt;code&gt;HTTP&lt;/code&gt; 明文通信。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;HTTP/2&lt;/code&gt; : 第一次页面与第二次页面都是同一个网站服务器,重用第一个页面 &lt;code&gt;TCP&lt;/code&gt; 连接&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;QUIC&lt;/code&gt; : &lt;code&gt;http/2&lt;/code&gt; 去掉 &lt;code&gt;TCP&lt;/code&gt; ,改用不需要连接的 &lt;code&gt;UDP&lt;/code&gt; ,形成: &lt;code&gt;UDP / QUIC&lt;/code&gt; ,第一次 &lt;code&gt;2.5RTT&lt;/code&gt; ,完成 &lt;code&gt;QUIC&lt;/code&gt; 交易的连接的 &lt;code&gt;Session ID&lt;/code&gt; 会缓存在浏览器内存里,第二次,使用 &lt;code&gt;Session ID&lt;/code&gt; ,重连 &lt;code&gt;TLS&lt;/code&gt; 连接是一个 &lt;code&gt;0 RTT&lt;/code&gt; 事件&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;HTTP/3&lt;/code&gt; : 把 &lt;code&gt;QUIC&lt;/code&gt; 与 &lt;code&gt;HTTP&lt;/code&gt; 分离,形成: &lt;code&gt;UDP / QUIC / HTTP&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用 &lt;code&gt;IPv4&lt;/code&gt; 进行路由，使用 &lt;code&gt;TCP&lt;/code&gt; 进行连接层面的流量控制，使用 &lt;code&gt;SSL/TLS&lt;/code&gt; 协议实现传输安全，使用 &lt;code&gt;DNS&lt;/code&gt; 进行域名解析，使用 &lt;code&gt;HTTP&lt;/code&gt; 进行应用数据的传输。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;IP&lt;/code&gt; 是网络层&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;TCP&lt;/code&gt; 是传输层&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;网络层 &lt;code&gt;ARP&lt;/code&gt; : 保存 &lt;code&gt;IP&lt;/code&gt; 与 &lt;code&gt;mac&lt;/code&gt; 地址的映射列表,没有则会广播&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;TCP/IP&lt;/code&gt; 连接 + &lt;code&gt;http&lt;/code&gt; 传输 &amp;ndash;&amp;gt; 网卡 &amp;ndash;&amp;gt; 内核(通过资源包的四元组信息,信息的其中之二是访问的 &lt;code&gt;IP+端口&lt;/code&gt; ) &amp;ndash;&amp;gt; &lt;code&gt;socket&lt;/code&gt;(它是文件系统,是资源,储存着端对端的四元组信息,被进程使用) &amp;ndash;&amp;gt; 进程&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;socket&lt;/code&gt; 是网络与进程的中介&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;隧道&#34;&gt;隧道&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/39382183&#34;&gt;https://www.zhihu.com/question/39382183&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;隧道是一种技术,有 &lt;code&gt;SSH隧道&lt;/code&gt; 和 &lt;code&gt;http隧道&lt;/code&gt; 和 &lt;code&gt;UDP隧道(p2p)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;隧道的中间服务器是不参与流量分析的,只用来传输流量,只是用于简单的过度&lt;/li&gt;
-&lt;li&gt;代理是可以参与流量的处理的,比如 &lt;code&gt;http代理&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;但 &lt;code&gt;http代理&lt;/code&gt; 不能传输 &lt;code&gt;https流量&lt;/code&gt; ,因为 &lt;code&gt;https&lt;/code&gt; 是端对端的加密,没有中间人&lt;/li&gt;
-&lt;li&gt;为了解决不能代理 &lt;code&gt;https流量&lt;/code&gt; , &lt;code&gt;http隧道&lt;/code&gt; 配合 &lt;code&gt;http&lt;/code&gt; 的 &lt;code&gt;CONNECT报文&lt;/code&gt; 解决了这个问题;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;SOCKS5&lt;/code&gt; 方式可以代替 &lt;code&gt;CONNECT报文&lt;/code&gt; 的方法, &lt;code&gt;CONNECT报文&lt;/code&gt; 只能用于 &lt;code&gt;http流量&lt;/code&gt; ,而 &lt;code&gt;SOCKS5&lt;/code&gt; 可以传输任意协议,如 &lt;code&gt;https&lt;/code&gt; 或 &lt;code&gt;ftp&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;大致原理: &lt;code&gt;本地---(1)---&amp;gt;代理---(2)---&amp;gt;服务器&lt;/code&gt;; 本地与代理建立动态端口隧道,过程&lt;code&gt;(1)&lt;/code&gt; 使用 &lt;code&gt;SOCKS5&lt;/code&gt; 或 &lt;code&gt;http&lt;/code&gt; 的 &lt;code&gt;CONNECT报文(包裹着https流量)&lt;/code&gt; , 过程 &lt;code&gt;(2)&lt;/code&gt; 使用 &lt;code&gt;https&lt;/code&gt;;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.zsythink.net/archives/2450&#34;&gt;https://www.zsythink.net/archives/2450&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;动态转发(科学上网)&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# socks5代理的建立&lt;/span&gt;
+&lt;/code>&lt;/pre>
+&lt;h2 id="网络">网络&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>TCP&lt;/code> :需要三次握手,建立了 &lt;code>TCP&lt;/code> 虚拟通道,之后, &lt;code>TCP&lt;/code> 运输 &lt;code>HTTP流&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>SSL&lt;/code> : 位于 &lt;code>TCP&lt;/code> 与 &lt;code>HTTP&lt;/code> 之间,作为 &lt;code>HTTP&lt;/code> 的安全供应商，全权负责 &lt;code>HTTP&lt;/code> 的安全加密工作。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>TLS&lt;/code> : 在 &lt;code>SSL3.0&lt;/code> 版本的基础上，重新设计并命名了这个协议，其全新的名字为 &lt;code>TLS&lt;/code> ,形成: &lt;code>TCP连接时间&lt;/code> + &lt;code>TLS 连接时间&lt;/code> + &lt;code>HTTP交易时间&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>HTTPS&lt;/code> : 通常将 &lt;code>TLS&lt;/code> 安全保护的 &lt;code>HTTP&lt;/code> 通信，称之为 &lt;code>HTTPS&lt;/code> ，以区别于没有 &lt;code>TLS&lt;/code> 安全防护的 &lt;code>HTTP&lt;/code> 明文通信。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>HTTP/2&lt;/code> : 第一次页面与第二次页面都是同一个网站服务器,重用第一个页面 &lt;code>TCP&lt;/code> 连接&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>QUIC&lt;/code> : &lt;code>http/2&lt;/code> 去掉 &lt;code>TCP&lt;/code> ,改用不需要连接的 &lt;code>UDP&lt;/code> ,形成: &lt;code>UDP / QUIC&lt;/code> ,第一次 &lt;code>2.5RTT&lt;/code> ,完成 &lt;code>QUIC&lt;/code> 交易的连接的 &lt;code>Session ID&lt;/code> 会缓存在浏览器内存里,第二次,使用 &lt;code>Session ID&lt;/code> ,重连 &lt;code>TLS&lt;/code> 连接是一个 &lt;code>0 RTT&lt;/code> 事件&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>HTTP/3&lt;/code> : 把 &lt;code>QUIC&lt;/code> 与 &lt;code>HTTP&lt;/code> 分离,形成: &lt;code>UDP / QUIC / HTTP&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>使用 &lt;code>IPv4&lt;/code> 进行路由，使用 &lt;code>TCP&lt;/code> 进行连接层面的流量控制，使用 &lt;code>SSL/TLS&lt;/code> 协议实现传输安全，使用 &lt;code>DNS&lt;/code> 进行域名解析，使用 &lt;code>HTTP&lt;/code> 进行应用数据的传输。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>IP&lt;/code> 是网络层&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>TCP&lt;/code> 是传输层&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>网络层 &lt;code>ARP&lt;/code> : 保存 &lt;code>IP&lt;/code> 与 &lt;code>mac&lt;/code> 地址的映射列表,没有则会广播&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>TCP/IP&lt;/code> 连接 + &lt;code>http&lt;/code> 传输 &amp;ndash;&amp;gt; 网卡 &amp;ndash;&amp;gt; 内核(通过资源包的四元组信息,信息的其中之二是访问的 &lt;code>IP+端口&lt;/code> ) &amp;ndash;&amp;gt; &lt;code>socket&lt;/code>(它是文件系统,是资源,储存着端对端的四元组信息,被进程使用) &amp;ndash;&amp;gt; 进程&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>socket&lt;/code> 是网络与进程的中介&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="隧道">隧道&lt;/h2>
+&lt;blockquote>
+&lt;p>&lt;a href="https://www.zhihu.com/question/39382183">https://www.zhihu.com/question/39382183&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>隧道是一种技术,有 &lt;code>SSH隧道&lt;/code> 和 &lt;code>http隧道&lt;/code> 和 &lt;code>UDP隧道(p2p)&lt;/code>&lt;/li>
+&lt;li>隧道的中间服务器是不参与流量分析的,只用来传输流量,只是用于简单的过度&lt;/li>
+&lt;li>代理是可以参与流量的处理的,比如 &lt;code>http代理&lt;/code>&lt;/li>
+&lt;li>但 &lt;code>http代理&lt;/code> 不能传输 &lt;code>https流量&lt;/code> ,因为 &lt;code>https&lt;/code> 是端对端的加密,没有中间人&lt;/li>
+&lt;li>为了解决不能代理 &lt;code>https流量&lt;/code> , &lt;code>http隧道&lt;/code> 配合 &lt;code>http&lt;/code> 的 &lt;code>CONNECT报文&lt;/code> 解决了这个问题;&lt;/li>
+&lt;li>&lt;code>SOCKS5&lt;/code> 方式可以代替 &lt;code>CONNECT报文&lt;/code> 的方法, &lt;code>CONNECT报文&lt;/code> 只能用于 &lt;code>http流量&lt;/code> ,而 &lt;code>SOCKS5&lt;/code> 可以传输任意协议,如 &lt;code>https&lt;/code> 或 &lt;code>ftp&lt;/code>&lt;/li>
+&lt;li>大致原理: &lt;code>本地---(1)---&amp;gt;代理---(2)---&amp;gt;服务器&lt;/code>; 本地与代理建立动态端口隧道,过程&lt;code>(1)&lt;/code> 使用 &lt;code>SOCKS5&lt;/code> 或 &lt;code>http&lt;/code> 的 &lt;code>CONNECT报文(包裹着https流量)&lt;/code> , 过程 &lt;code>(2)&lt;/code> 使用 &lt;code>https&lt;/code>;&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>&lt;a href="https://www.zsythink.net/archives/2450">https://www.zsythink.net/archives/2450&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>
+&lt;p>动态转发(科学上网)&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#75715e"># socks5代理的建立&lt;/span>
 ssh -N -f -D 127.0.0.1:6666 root@121.199.63.39
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# 原理:本地(127.0.0.1:6666)与代理(121.199.63.39)服务器建立隧道后,本地(127.0.0.1)使用socks5协议在外层加密https协议,通过本地代理端口(6666)-(隧道)-代理(121.199.63.39)-https访问服务端(https://www.google.com)&lt;/span&gt;
-curl -x socks5://127.0.0.1:6666 https://www.google.com &lt;span style=&#34;color:#75715e&#34;&gt;#http为例&lt;/span&gt;
-ssh -o ProxyCommand&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;nc -X 5 -x 127.0.0.1:6666 %h %p&amp;#34;&lt;/span&gt; https://www.google.com &lt;span style=&#34;color:#75715e&#34;&gt;#ssh为例,参数-X默认socks5&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;本地转发&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -N -f -L 192.168.2.2:6666:121.199.63.39:22 root@121.199.63.39
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;远程转发&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -N -f -R 121.199.63.39:6666:127.0.0.1:22 root@121.199.63.39
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;通过 &lt;code&gt;121.199.63.39&lt;/code&gt; 的 &lt;code&gt;22&lt;/code&gt; 端口,登录 &lt;code&gt;121.199.63.39localhost&lt;/code&gt; 的 &lt;code&gt;6666&lt;/code&gt; 端口&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -J root@121.199.63.39:22 -p6666 localhost
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;ftp&#34;&gt;Ftp&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;关闭防火墙&lt;/li&gt;
-&lt;li&gt;安装 &lt;code&gt;ftp&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;修改三份文件 &lt;code&gt;ftpusers&lt;/code&gt; &lt;code&gt;user_list&lt;/code&gt; &lt;code&gt;vsftpd.conf&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;重启 &lt;code&gt;ftp&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;防火墙配置文件允许 &lt;code&gt;21&lt;/code&gt; 端口&lt;/li&gt;
-&lt;li&gt;开启防火墙&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ftp&lt;/code&gt; 限制用户访问目录思路:修改 &lt;code&gt;/etc/vsftpd/vsftpd.conf&lt;/code&gt; 文件中 &lt;code&gt;chroot_local_user&lt;/code&gt; , &lt;code&gt;chroot_list_enable&lt;/code&gt; , &lt;code&gt;chroot_list_file&lt;/code&gt; 三项; 修改用户默认进入的家目录,则修改 &lt;code&gt;/etc/passwd&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;code&gt;vsftpd.conf&lt;/code&gt; 文件参考配置 :&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;listen_ipv6&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;YES
-pam_service_name&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;vsftpd
-tcp_wrappers&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;YES
-write_enable&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;YES
-local_umask&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;022&lt;/span&gt;             &lt;span style=&#34;color:#75715e&#34;&gt;#用户ftp创建目录的权限掩码,022即为755&lt;/span&gt;
-listen&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;NO                   &lt;span style=&#34;color:#75715e&#34;&gt;#监听,yes可能导致无法启动ftp&lt;/span&gt;
-anonymous_enable&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;NO         &lt;span style=&#34;color:#75715e&#34;&gt;#拒绝匿名用户&lt;/span&gt;
-local_root&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/var/www/html    &lt;span style=&#34;color:#75715e&#34;&gt;#本地用户初始目录&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;#登录限制&lt;/span&gt;
-local_enable&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;YES
-userlist_enable&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;YES
-userlist_deny&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;NO
-userlist_file&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/etc/vsftpd/user_list
-&lt;span style=&#34;color:#75715e&#34;&gt;#目录限制&lt;/span&gt;
-chroot_local_user&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;YES
-chroot_list_enable&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;YES
-chroot_list_file&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/etc/vsftpd/chroot_list
-allow_writeable_chroot&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;YES
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;nginx&#34;&gt;Nginx&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;Nginx&lt;/code&gt; (web服务器)偏向于 &lt;code&gt;静态资源&lt;/code&gt; ,处理高并发,可用 &lt;code&gt;反向代理&lt;/code&gt; 从而实现 &lt;code&gt;负载均衡&lt;/code&gt; (类似 &lt;code&gt;dns&lt;/code&gt; )&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;Apache&lt;/code&gt; 偏向于&lt;code&gt; PHP&lt;/code&gt; 的动态资源,bug少稳定&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;负载均衡&lt;/code&gt; 实现思路: &lt;code&gt;动静态资源分离&lt;/code&gt; ,主服务器使用 &lt;code&gt;Nginx&lt;/code&gt; ,动态资源则 &lt;code&gt;反向代理&lt;/code&gt; 到本机或集群的 &lt;code&gt;Apache&lt;/code&gt; 服务器(一台服务器安装两个 &lt;code&gt;Apache&lt;/code&gt; 服务可防止 &lt;code&gt;宕机&lt;/code&gt; )&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;linux&lt;/code&gt; 有端口复用(套接字端口共享)功能( &lt;code&gt;nginx&lt;/code&gt; 开启 &lt;code&gt;reuseport&lt;/code&gt; );从内核层面做 &lt;code&gt;负载均衡&lt;/code&gt; ,避免 &lt;code&gt;锁竞争&lt;/code&gt; ( &lt;code&gt;惊群效应&lt;/code&gt; ): &lt;a href=&#34;https://www.zhihu.com/question/51618274&#34;&gt;https://www.zhihu.com/question/51618274&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;Nginx&lt;/code&gt; 启用 &lt;code&gt;PHP&lt;/code&gt; 需要配置文件&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;Nginx&lt;/code&gt; 等软件自启,需要参考官方的启动代码,添加到 &lt;code&gt;/etc/init.d/&lt;/code&gt; 下&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;Nginx&lt;/code&gt; 支持缓存&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;Nginx&lt;/code&gt; 支持 &lt;code&gt;gzip&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Nginx实现负载均衡需要源码的同步, 使用 &lt;code&gt;rsync&lt;/code&gt; (或+ &lt;code&gt;sersync&lt;/code&gt; )实现集群服务器源码同步,源服务器执行的命令:&lt;br&gt;
-&lt;code&gt;rsync -avH --progress --delete --exclude-from=/etc/exclude.txt --password-file=/etc/pw.txt /var/www/html/ username@192.168.43.175::module1&lt;/code&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;其中按顺序是:含有忽略同步列表的 &lt;code&gt;exclude.txt&lt;/code&gt; 文件,含有密码的 &lt;code&gt;pw.txt&lt;/code&gt; 文件,源服务器的同步目录, &lt;code&gt;username&lt;/code&gt; 用户名,ip地址,对应的模块
-&lt;a href=&#34;https://blog.51cto.com/chenfei123/1707746&#34;&gt;https://blog.51cto.com/chenfei123/1707746&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;负载均衡&lt;/code&gt; 和 &lt;code&gt;前后端分离&lt;/code&gt; 配置 :&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#后端应反向给Apache代理&lt;/span&gt;
-upstream proxys &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-    server 127.0.0.1:8080 weight&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2;
-    server 192.168.43.175:9090 weight&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;3;
-    ip_hash;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;#前端应反向给Nginx代理&lt;/span&gt;
-upstream proxys2 &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-    server 127.0.0.1:8081 weight&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;3;
-    server 192.168.43.175:9090 weight&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-server &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-    listen 80;
-    server_name www.centos.top centos.top;
-    index index.html index.htm index.php;
-    location / &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-        proxy_pass http://proxys;
-        proxy_http_version 1.1;
-        proxy_set_header Host $http_host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        add_header X-Slave $upstream_addr;
-    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-    location ~* &lt;span style=&#34;color:#ae81ff&#34;&gt;\.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;css|js|png|jpg|jpeg|gif|txt|ico&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;$|^~/static &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-       proxy_pass http://proxys2;
-       proxy_set_header Host $http_host;
-       proxy_set_header X-Real-IP $remote_addr;
-       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-       add_header X-Slave $upstream_addr;
-    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;#前端请求代理的配置&lt;/span&gt;
-server &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-    listen 8081;
-    server_name www.centos.top centos.top;
-    location / &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-       root /var/www/html/tp/public;
-    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;缓存&lt;/code&gt; 和 &lt;code&gt;gzip&lt;/code&gt; 配置 :&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;http &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-
-  &lt;span style=&#34;color:#75715e&#34;&gt;# 开启缓存&lt;/span&gt;
-  proxy_connect_timeout 10;
-  proxy_read_timeout 180;
-  proxy_send_timeout 5;
-  proxy_buffer_size 16k;
-  proxy_buffers &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; 32k;
-  proxy_busy_buffers_size 96k;
-  proxy_temp_file_write_size 96k;
-  proxy_temp_path /tmp/temp_dir;
-  proxy_cache_path /tmp/cache levels&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;1:2 keys_zone&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;cache_one:100m inactive&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;1d max_size&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;10g;
-
-  server
-  &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-      listen &lt;span style=&#34;color:#ae81ff&#34;&gt;8081&lt;/span&gt; reuseport;
-      server_name localhost;
-      root /usr/share/nginx/tp/public/;
-
-      location /
-      &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-
-
-  server
-  &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#75715e&#34;&gt;#开启gzip压缩资源&lt;/span&gt;
-      gzip  on;
-      gzip_vary on;
-      gzip_proxied any;
-      gzip_comp_level 6;
-      gzip_buffers &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt; 8k;
-      gzip_http_version 1.0;
-      gzip_min_length 100;
-      gzip_types text/plain text/css application/javascript application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/vnd.ms-fontobject application/x-font-ttf font/opentype image/svg+xml image/x-icon;
-
-      &lt;span style=&#34;color:#75715e&#34;&gt;#资源文件缓存&lt;/span&gt;
-      location ~* &lt;span style=&#34;color:#ae81ff&#34;&gt;\.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;css|js|json|png|jpg|jpeg|gif|txt|ico|bmp|swf&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;$|^~/static/
-      &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-          proxy_pass http://127.0.0.1:8081;
-          proxy_redirect off;
-          proxy_set_header Host $host;
-          proxy_cache cache_one; &lt;span style=&#34;color:#75715e&#34;&gt;#cache_one在http设置层proxy_cache_path定义&lt;/span&gt;
-          proxy_cache_valid &lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;302&lt;/span&gt; 24h;
-          proxy_cache_valid &lt;span style=&#34;color:#ae81ff&#34;&gt;301&lt;/span&gt; 30d;
-          proxy_cache_valid any 5m;
-          expires 90d;
-          add_header wall  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;hey!这文件进行了缓存和压缩哟!&amp;#34;&lt;/span&gt;;
-      &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;数据库读写分离&#34;&gt;数据库读写分离&lt;/h2&gt;
-&lt;p&gt;实现 &lt;code&gt;读写分离&lt;/code&gt; 分为两大步 :&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;a href=&#34;https://www.jianshu.com/p/bfca0cdfb169&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;主从同步&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;读写分离;有两种方式 :
-&lt;ul&gt;
-&lt;li&gt;通过程序实现,如TP框架,性能最好;&lt;/li&gt;
-&lt;li&gt;使用代理工具,如 :
-&lt;ul&gt;
-&lt;li&gt;
-&lt;a href=&#34;https://www.jianshu.com/p/cb7ec06dae05&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mycat&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&#34;https://www.jianshu.com/p/cadf337274c1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mysql-Proxy&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;mysql&lt;/code&gt; 之间可相互主从同步,避免 &lt;code&gt;单点&lt;/code&gt; ;当有主从数据库发生宕机,可使用 &lt;code&gt;percona-tooldit&lt;/code&gt; 工具解决恢复宕机后主从数据不同步的问题
-&lt;a href=&#34;https://blog.51cto.com/moerjinrong/2352317&#34;&gt;https://blog.51cto.com/moerjinrong/2352317&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;code&gt;Mysql-Proxy&lt;/code&gt; 配置文件 &lt;code&gt;mysql-proxy.cnf&lt;/code&gt; 参考 :&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;mysql-proxy&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
-  &lt;span style=&#34;color:#75715e&#34;&gt;#运行mysql-proxy用户&lt;/span&gt;
-user&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;root
-  &lt;span style=&#34;color:#75715e&#34;&gt;#主从mysql共有的用户&lt;/span&gt;
-admin-username&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;proxy
-  &lt;span style=&#34;color:#75715e&#34;&gt;#用户的密码&lt;/span&gt;
-admin-password&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;root
-  &lt;span style=&#34;color:#75715e&#34;&gt;#mysql-proxy运行ip(不能是127.0.0.1)和端口,不加端口,默认4040&lt;/span&gt;
-proxy-address&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;192.168.1.1:4040
-  &lt;span style=&#34;color:#75715e&#34;&gt;#slave从数据库Ip地址,默认端口3306&lt;/span&gt;
-proxy-read-only-backend-addresses&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;192.168.1.2:3306
-  &lt;span style=&#34;color:#75715e&#34;&gt;#master主数据库Ip地址,默认端口3306&lt;/span&gt;
-proxy-backend-addresses&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;192.168.1.3:3306
-  &lt;span style=&#34;color:#75715e&#34;&gt;#读写分离配置文件&lt;/span&gt;
-proxy-lua-script&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/usr/lib64/mysql-proxy/lua/rw-splitting.lua
-  &lt;span style=&#34;color:#75715e&#34;&gt;#管理脚本&lt;/span&gt;
-admin-lua-script&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/usr/lib64/mysql-proxy/lua/admin.lua
-  &lt;span style=&#34;color:#75715e&#34;&gt;#日志&lt;/span&gt;
-log-file&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/var/log/mysql-proxy.log
-  &lt;span style=&#34;color:#75715e&#34;&gt;#日志级别,高到低有error|warning|info|message|debug&lt;/span&gt;
-log-level&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;info
-  &lt;span style=&#34;color:#75715e&#34;&gt;#以守护进程方式运行&lt;/span&gt;
-daemon&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;true
-  &lt;span style=&#34;color:#75715e&#34;&gt;#崩溃时,尝试重启&lt;/span&gt;
-keepalive&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;true
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;数据库&#34;&gt;数据库&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;mysql8&lt;/code&gt; 特性 :&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;utf8mb4&lt;/code&gt; 储存表情符号&lt;/li&gt;
-&lt;li&gt;默认 &lt;code&gt;InnoDB&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;降序索引&lt;/li&gt;
-&lt;li&gt;JSON支持,直接操作json里的数据&lt;/li&gt;
-&lt;li&gt;跳过锁等待&lt;/li&gt;
-&lt;li&gt;用户角色管理权限&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;innodb_dedicated_server&lt;/code&gt; 自适应参数,自动配置 &lt;code&gt;mysql&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;redis&lt;/code&gt; 只做缓存使用,避免进行 &lt;code&gt;持久性&lt;/code&gt; &amp;amp;&amp;amp; &lt;code&gt;队列&lt;/code&gt; &amp;amp;&amp;amp; &lt;code&gt;事务&lt;/code&gt; (总之一句话:专人专事)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;redis&lt;/code&gt; 和 &lt;code&gt;DB&lt;/code&gt; 一致性方案:只读 &lt;code&gt;redis&lt;/code&gt; ,当更新 &lt;code&gt;DB&lt;/code&gt; 之后把受影响的缓存全部干掉(注意:是干掉,不是更新),并且设定过期时间: &lt;a href=&#34;https://www.zhihu.com/question/319817091&#34;&gt;https://www.zhihu.com/question/319817091&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;出现不能连接数据库的情况,除了防火墙,也可能是数据库没有设置对外添加权限&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;出现用户不能登录的情况,可能是默认登录了 &lt;code&gt;匿名用户&lt;/code&gt; , 要把用户名为 &lt;code&gt;&#39;&#39;&lt;/code&gt; 的用户清除&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;MyISAM&lt;/code&gt; 存储引擎偏向于大量查询和插入事件,表锁&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;InnoDB&lt;/code&gt; 存储引擎偏向于增删改事件,支持事务,支持索引行锁&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;索引才用 &lt;code&gt;for update&lt;/code&gt; 锁库&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;数据库类型&lt;br&gt;
-&lt;a href=&#34;http://www.jb51.net/article/55853.htm&#34;&gt;http://www.jb51.net/article/55853.htm&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;免密码登录&lt;br&gt;
-&lt;code&gt;skip-grant-tables&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;数据库导出&lt;br&gt;
-&lt;code&gt;mysqldump -uroot -p dbname &amp;gt; dbname.sql&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;新建数据库&lt;br&gt;
-&lt;code&gt;CREATE DATABASE mydb CHARACTER SET utf8 COLLATE utf8_general_ci&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;插入数据&lt;br&gt;
-&lt;code&gt;insert into $twb (id,name,tel) values(&#39;2&#39;,&#39;tab&#39;,null)&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;删除数据&lt;br&gt;
-&lt;code&gt;delete from twb where id = 1;&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;修改数据&lt;br&gt;
-&lt;code&gt;update twb set id=&#39;2&#39;,name=&#39;tab&#39; where id=1;&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;插入字段&lt;br&gt;
-&lt;code&gt;alter table twb add id varchar(32)&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;删除字段&lt;br&gt;
-&lt;code&gt;alter table twb drop id&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;去掉name重复的&lt;br&gt;
-&lt;code&gt;SELECT DISTINCT name FROM twb&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;计算个数&lt;br&gt;
-&lt;code&gt;select count(*) from twb&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;计算总和&lt;br&gt;
-&lt;code&gt;select sum(*) from twb&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;计算平均&lt;br&gt;
-&lt;code&gt;select sum(*)/count(*) from twb&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;计算平均&lt;br&gt;
-&lt;code&gt;select avg(name) from twb&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;最小值&lt;br&gt;
-&lt;code&gt;select min(name) from twb&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;双重查询,查询指定最小值对应的的所有字段&lt;br&gt;
-&lt;code&gt;SELECT * FROM twb WHERE name=(SELECT max(name)FROM twb)&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;根据指定字段分类&lt;br&gt;
-&lt;code&gt;select * from twb group by name;&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;表的联合查询&lt;br&gt;
-&lt;code&gt;SELECT * FROM twb as a INNER JOIN twb2 as b on a.name=b.id&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;左查询,就是当twb跟twb2的的值不相对应则以twb为主要,twb2多出的值则省略&lt;br&gt;
-&lt;code&gt;SELECT * FROM twb as a left outer JOIN twb2 as b on a.name=b.id&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;php&#34;&gt;PHP&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;php7特性&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;用绝对路径&lt;/li&gt;
-&lt;li&gt;重定向后使用exit&lt;/li&gt;
-&lt;li&gt;array_walk&lt;/li&gt;
-&lt;li&gt;&amp;amp;引用节省内存&lt;/li&gt;
-&lt;li&gt;+= array()&lt;/li&gt;
-&lt;li&gt;isset($a{1})&lt;/li&gt;
-&lt;li&gt;$_SERVER[&amp;lsquo;REQUEST_TIME&amp;rsquo;]&lt;/li&gt;
-&lt;li&gt;strtr&lt;/li&gt;
-&lt;li&gt;高亮PHP代码highlight_file&lt;/li&gt;
-&lt;li&gt;2 &amp;lt;=&amp;gt; 1&lt;/li&gt;
-&lt;li&gt;echo &amp;ldquo;\u{41}&amp;quot;,PHP_EOL;&lt;/li&gt;
-&lt;li&gt;use some\namespace{ClassA, ClassB, ClassC as C};&lt;/li&gt;
-&lt;li&gt;function arraysSum(int &amp;hellip;$ints): string&lt;/li&gt;
-&lt;li&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;A&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; $b &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;hello world&amp;#39;&lt;/span&gt;;}
- $bb &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; (){&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;A&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;$b;};
- &lt;span style=&#34;color:#66d9ef&#34;&gt;echo&lt;/span&gt; $bb&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;call&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;A&lt;/span&gt;);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;bug&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;[] &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; []; &lt;span style=&#34;color:#75715e&#34;&gt;//为false
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
-&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
-
-$a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0.3&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0.1&amp;#39;&lt;/span&gt;;
-&lt;span style=&#34;color:#a6e22e&#34;&gt;json_encode&lt;/span&gt;($a);
-&lt;span style=&#34;color:#ae81ff&#34;&gt;0.55&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;55&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;//为false
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;fastcgi&lt;/code&gt;就是执行 &lt;code&gt;cgi协议&lt;/code&gt; 的,用于定义 &lt;code&gt;Nginx&lt;/code&gt; 调用 &lt;code&gt;php&lt;/code&gt; 时的数据格式,并减少对 &lt;code&gt;php.ini&lt;/code&gt; 的读取&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;php-fpm&lt;/code&gt;就是 &lt;code&gt;Nginx&lt;/code&gt; 服务调用的程序,管理 &lt;code&gt;fastcgi&lt;/code&gt; 进程&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;php-cli&lt;/code&gt;就是 &lt;code&gt;shell&lt;/code&gt; 命令行调用的程序&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;|||nochange|||&lt;/code&gt;表示 &lt;code&gt;input&lt;/code&gt; 输入框为空&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;htmlentities&lt;/code&gt; / &lt;code&gt;htmlspecialchars&lt;/code&gt; 可以过滤成 &lt;code&gt;html格式&lt;/code&gt; , 防止 &lt;code&gt;XSS&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;addslashes&lt;/code&gt; 防止 &lt;code&gt;sql注入&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;explain&lt;/code&gt; 用于测试 &lt;code&gt;sql语句&lt;/code&gt; 性能&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;引用字符串方式: &lt;code&gt;Nowdoc&lt;/code&gt; / &lt;code&gt;Heredoc&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;中文简体格式
-&lt;code&gt;header(&#39;Content-type:text/html;charset=utf-8&#39;)&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;解决textarea标签回车编码问题
-&lt;code&gt;str_replace(&amp;quot; &amp;quot;,&amp;quot; &amp;quot;,str_replace(&amp;quot;\n&amp;quot;,&amp;quot;&amp;lt;br/&amp;gt;&amp;quot;,$data))&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;单入口写上: &lt;code&gt;session_start()&lt;/code&gt; 才可以使用 &lt;code&gt;$_SESSION&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;跳转到#页面
-&lt;code&gt;header(&#39;Location:#&#39;)&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;php格式插入html遍历&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;?&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;php&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;foreach&lt;/span&gt; ($twb &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; $x &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; $y){ &lt;span style=&#34;color:#75715e&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;    &amp;lt;li&amp;gt;&amp;lt;?php echo $y[&amp;#39;z&amp;#39;] ?&amp;gt;&amp;lt;/li&amp;gt;
-&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;lt;?php } ?&amp;gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;解决ajax夸域&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;header&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Access-Control-Allow-Origin:twb.com&amp;#39;&lt;/span&gt;); &lt;span style=&#34;color:#75715e&#34;&gt;//可以用*允许所有
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;header&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Content-Type:application/json; charset=utf-8&amp;#39;&lt;/span&gt;);
-&lt;span style=&#34;color:#a6e22e&#34;&gt;header&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Access-Control-Allow-Methods: GET, POST, DELETE&amp;#39;&lt;/span&gt;);
-&lt;span style=&#34;color:#a6e22e&#34;&gt;header&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept&amp;#39;&lt;/span&gt;);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;内容返回&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ob_start&lt;/span&gt;(); &lt;span style=&#34;color:#75715e&#34;&gt;//开启echo缓存区
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello&amp;#34;&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;//输出
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ob_end_flush&lt;/span&gt;(); &lt;span style=&#34;color:#75715e&#34;&gt;//输出全部内容到浏览器,包括echo
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;函数&lt;/th&gt;
-&lt;th&gt;描述&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;rand(x,y)&lt;/td&gt;
-&lt;td&gt;在xy之间取随机数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;implode(&amp;lsquo;xx&amp;rsquo;,&#39;$twb&#39;)&lt;/td&gt;
-&lt;td&gt;用xx隔开twb中每个元素&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;explode()&lt;/td&gt;
-&lt;td&gt;把字符串打散为数组.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;arry_merge()&lt;/td&gt;
-&lt;td&gt;打散混乱数组重新排列&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;in_array($xy,$twb)&lt;/td&gt;
-&lt;td&gt;数组$twb是否含$xy&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;mb_substr($twb,x,y,&amp;lsquo;utf-8&amp;rsquo;)&lt;/td&gt;
-&lt;td&gt;截取字符串,从第x个字符开始截取y个字符&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;strtotime()&lt;/td&gt;
-&lt;td&gt;将任何英文文本的日期或时间描述解析为 Unix 时间戳.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;字符串类型&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;addcslashes()&lt;/td&gt;
-&lt;td&gt;返回在指定的字符前添加反斜杠的字符串.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;addslashes()&lt;/td&gt;
-&lt;td&gt;返回在预定义的字符前添加反斜杠的字符串.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;chop()&lt;/td&gt;
-&lt;td&gt;删除字符串右侧的空白字符或其他字符..&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;chunk_split()&lt;/td&gt;
-&lt;td&gt;把字符串分割为一系列更小的部分.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;html_entity_decode()&lt;/td&gt;
-&lt;td&gt;把 HTML 实体转换为字符.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;htmlentities()&lt;/td&gt;
-&lt;td&gt;把字符转换为 HTML 实体.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;htmlspecialchars_decode()&lt;/td&gt;
-&lt;td&gt;把一些预定义的 HTML 实体转换为字符.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;htmlspecialchars()&lt;/td&gt;
-&lt;td&gt;把一些预定义的字符转换为 HTML 实体.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;join()&lt;/td&gt;
-&lt;td&gt;implode() 的别名.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ltrim()&lt;/td&gt;
-&lt;td&gt;移除字符串左侧的空白字符或其他字符.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;md5()&lt;/td&gt;
-&lt;td&gt;计算字符串的 MD5 散列.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;number_format()&lt;/td&gt;
-&lt;td&gt;以千位分组来格式化数字.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;parse_str()&lt;/td&gt;
-&lt;td&gt;把查询字符串解析到变量中.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;rtrim()&lt;/td&gt;
-&lt;td&gt;移除字符串右侧的空白字符或其他字符.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;sha1()&lt;/td&gt;
-&lt;td&gt;计算字符串的 SHA-1 散列.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;similar_text()&lt;/td&gt;
-&lt;td&gt;计算两个字符串的相似度.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;sprintf()&lt;/td&gt;
-&lt;td&gt;把格式化的字符串写入变量中.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;str_pad()&lt;/td&gt;
-&lt;td&gt;把字符串填充为新的长度.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;str_repeat()&lt;/td&gt;
-&lt;td&gt;把字符串重复指定的次数.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;str_replace()&lt;/td&gt;
-&lt;td&gt;替换字符串中的一些字符(对大小写敏感)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;str_shuffle()&lt;/td&gt;
-&lt;td&gt;随机地打乱字符串中的所有字符.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;str_split()&lt;/td&gt;
-&lt;td&gt;把字符串分割到数组中.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;strip_tags()&lt;/td&gt;
-&lt;td&gt;剥去字符串中的 HTML 和 PHP 标签.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;stripcslashes()&lt;/td&gt;
-&lt;td&gt;删除由 addcslashes() 函数添加的反斜杠.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;stripslashes()&lt;/td&gt;
-&lt;td&gt;删除由 addslashes() 函数添加的反斜杠.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;stripos()&lt;/td&gt;
-&lt;td&gt;返回字符串第一次出现的位置(大小写不敏感)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;strpos()&lt;/td&gt;
-&lt;td&gt;返回字符串第一次出现的位置(大小写敏感)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;stristr()&lt;/td&gt;
-&lt;td&gt;查找字符串第一次出现的位置(大小写不敏感)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;strrchr()&lt;/td&gt;
-&lt;td&gt;查找字符串最后一次出现.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;strripos()&lt;/td&gt;
-&lt;td&gt;查找字符串最后一次出现的位置(大小写不敏感)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;strrpos()&lt;/td&gt;
-&lt;td&gt;查找字符串最后一次出现的位置(大小写敏感)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;strstr()&lt;/td&gt;
-&lt;td&gt;查找字符串第一次出现(大小写敏感)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;strchr()&lt;/td&gt;
-&lt;td&gt;查找字符串第一次出现,strstr() 的别名&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;strrev()&lt;/td&gt;
-&lt;td&gt;反转字符串.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;strlen()&lt;/td&gt;
-&lt;td&gt;返回字符串的长度.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;strtolower()&lt;/td&gt;
-&lt;td&gt;把字符串转换为小写字母.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;strtoupper()&lt;/td&gt;
-&lt;td&gt;把字符串转换为大写字母.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;strtr()&lt;/td&gt;
-&lt;td&gt;转换字符串中特定的字符.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;substr()&lt;/td&gt;
-&lt;td&gt;返回字符串的一部分.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;substr_count()&lt;/td&gt;
-&lt;td&gt;计算子串在字符串中出现的次数.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;substr_replace()&lt;/td&gt;
-&lt;td&gt;把字符串的一部分替换为另一个字符串.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ucfirst()&lt;/td&gt;
-&lt;td&gt;把字符串中的首字符转换为大写.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ucwords()&lt;/td&gt;
-&lt;td&gt;把字符串中每个单词的首字符转换为大写.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;数组函数&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_change_key_case()&lt;/td&gt;
-&lt;td&gt;把数组中所有键更改为小写或大写.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_chunk()&lt;/td&gt;
-&lt;td&gt;把一个数组分割为新的数组块.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_column()&lt;/td&gt;
-&lt;td&gt;返回输入数组中某个单一列的值.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_combine()&lt;/td&gt;
-&lt;td&gt;通过合并两个数组来创建一个新数组.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_count_values()&lt;/td&gt;
-&lt;td&gt;用于统计数组中所有值出现的次数.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_diff()&lt;/td&gt;
-&lt;td&gt;比较数组,返回差集(只比较键值)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_fill()&lt;/td&gt;
-&lt;td&gt;用给定的键值填充数组.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_fill_keys()&lt;/td&gt;
-&lt;td&gt;用指定键名的给定键值填充数组.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_filter()&lt;/td&gt;
-&lt;td&gt;用回调函数过滤数组中的元素.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_flip()&lt;/td&gt;
-&lt;td&gt;交换数组中的键和值.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_intersect()&lt;/td&gt;
-&lt;td&gt;比较数组,返回交集(只比较键值)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_key_exists()&lt;/td&gt;
-&lt;td&gt;检查指定的键名是否存在于数组中.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_keys()&lt;/td&gt;
-&lt;td&gt;返回数组中所有的键名.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_map()&lt;/td&gt;
-&lt;td&gt;把数组中的每个值发送到用户自定义函数,返回新的值.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_merge()&lt;/td&gt;
-&lt;td&gt;把一个或多个数组合并为一个数组.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_multisort()&lt;/td&gt;
-&lt;td&gt;对多个数组或多维数组进行排序.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_pad()&lt;/td&gt;
-&lt;td&gt;用值将数组填补到指定长度.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_pop()&lt;/td&gt;
-&lt;td&gt;删除数组的最后一个元素(出栈)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_push()&lt;/td&gt;
-&lt;td&gt;将一个或多个元素插入数组的末尾(入栈)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_replace()&lt;/td&gt;
-&lt;td&gt;使用后面数组的值替换第一个数组的值.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_reverse()&lt;/td&gt;
-&lt;td&gt;以相反的顺序返回数组.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_search()&lt;/td&gt;
-&lt;td&gt;搜索数组中给定的值并返回键名.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_shift()&lt;/td&gt;
-&lt;td&gt;删除数组中首个元素,并返回被删除元素的值.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_slice()&lt;/td&gt;
-&lt;td&gt;返回数组中被选定的部分.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_splice()&lt;/td&gt;
-&lt;td&gt;删除并替换数组中指定的元素.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_sum()&lt;/td&gt;
-&lt;td&gt;返回数组中值的和.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_udiff()&lt;/td&gt;
-&lt;td&gt;比较数组,返回差集&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_unique()&lt;/td&gt;
-&lt;td&gt;删除数组中的重复值.(集合的概念)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_unshift()&lt;/td&gt;
-&lt;td&gt;在数组开头插入一个或多个元素.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;array_values()&lt;/td&gt;
-&lt;td&gt;返回数组中所有的值.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;arsort()&lt;/td&gt;
-&lt;td&gt;对关联数组按照键值进行降序排序.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;asort()&lt;/td&gt;
-&lt;td&gt;对关联数组按照键值进行升序排序.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;compact()&lt;/td&gt;
-&lt;td&gt;创建包含变量名和它们的值的数组.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;count()&lt;/td&gt;
-&lt;td&gt;返回数组中元素的数目.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;current()&lt;/td&gt;
-&lt;td&gt;返回数组中的当前元素.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;extract()&lt;/td&gt;
-&lt;td&gt;从数组中将变量导入到当前的符号表.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;in_array()&lt;/td&gt;
-&lt;td&gt;检查数组中是否存在指定的值.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;key()&lt;/td&gt;
-&lt;td&gt;从关联数组中取得键名.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;krsort()&lt;/td&gt;
-&lt;td&gt;对数组按照键名逆向排序.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ksort()&lt;/td&gt;
-&lt;td&gt;对数组按照键名排序.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;list()&lt;/td&gt;
-&lt;td&gt;把数组中的值赋给一些变量.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;range()&lt;/td&gt;
-&lt;td&gt;创建包含指定范围单元的数组.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;rsort()&lt;/td&gt;
-&lt;td&gt;对数组逆向排序.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;shuffle()&lt;/td&gt;
-&lt;td&gt;将数组打乱.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;sizeof()&lt;/td&gt;
-&lt;td&gt;count() 的别名.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;sort()&lt;/td&gt;
-&lt;td&gt;对数组排序.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;uasort()&lt;/td&gt;
-&lt;td&gt;使用用户自定义的比较函数对数组中的键值进行排序.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;uksort()&lt;/td&gt;
-&lt;td&gt;使用用户自定义的比较函数对数组中的键名进行排序.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;usort()&lt;/td&gt;
-&lt;td&gt;使用用户自定义的比较函数对数组进行排序.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;前端&#34;&gt;前端&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;可以设置类似&lt;code&gt;cookie&lt;/code&gt; , 它可永久保存&lt;br&gt;
-&lt;code&gt;localStorage.setItem(name, val)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;死链&lt;br&gt;
-&lt;code&gt;&amp;lt;a href=&amp;quot;javascript:void(0);&amp;quot;&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;CSS加载JS样式&lt;br&gt;
-&lt;code&gt;behavior:url()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;选择div内第二个li,类似js&lt;br&gt;
-&lt;code&gt;div li:first-child+li{}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;选择form下类型为text的input标签&lt;br&gt;
-&lt;code&gt;form input[type=&amp;quot;text&amp;quot;]{}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;居中CSS背景图片&lt;br&gt;
-&lt;code&gt;background-position:center&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;居中HTML图片&lt;br&gt;
-&lt;code&gt;&amp;lt;div align=&amp;quot;center&amp;quot;&amp;gt;&amp;lt;img src=&amp;quot;&amp;quot;&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;居中div&lt;br&gt;
-&lt;code&gt;{top:0;left:0;bottom:0;right:0;margin:auto}/margin:0 auto;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;单行文字水平/垂直居中&lt;br&gt;
-&lt;code&gt;text-decoration:center;/line-height:10px;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;多行文字垂直居中:div1&amp;gt;div2&amp;gt;p&lt;br&gt;
-&lt;code&gt;div1{display:table;/*转换成表格*/} div2{display:table-cell;vertical-align:middle;}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;li中间向两边分布&lt;br&gt;
-&lt;code&gt;ul{text-align:center}li{display: inline-block;}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;li水平分布,ul宽度平均分割给li&lt;br&gt;
-&lt;code&gt;ul{display:flex}li{flex:1;text-align:center}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;li水平分布,类似最左和最右浮动两边的效果&lt;br&gt;
-&lt;code&gt;div{overflow:hidden;width:11px} div ul{width:12px}   li{width:5px;margin_right:1px}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;轮播图不能有滚动条&lt;br&gt;
-&lt;code&gt;在ul父级加overflow:hidden;width:100%;position: relative;//position用于ul居中&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;清除浮动,class是twb就可以清除浮动&lt;br&gt;
-&lt;code&gt;.twb:after{content:&amp;quot;&amp;quot;; display:block; height:0; visibility:hidden; clear:both;}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;鼠标悬浮图片放大&lt;br&gt;
-&lt;code&gt;.div:hover img{transform: scale(1.03);transition: all 1s ease 0s;-webkit-transform: scale(1.03);-webkit-transform: all 1s ease 0s;}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;iframe高度
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;e&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; window,
-    &lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;inner&amp;#39;&lt;/span&gt;,
-    &lt;span style=&#34;color:#a6e22e&#34;&gt;$header&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;$&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.header&amp;#34;&lt;/span&gt;);&lt;span style=&#34;color:#75715e&#34;&gt;//如果页面有头部,则要减去
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;innerWidth&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; window)) {
-    &lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;client&amp;#39;&lt;/span&gt;;
-    &lt;span style=&#34;color:#a6e22e&#34;&gt;e&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; document.&lt;span style=&#34;color:#a6e22e&#34;&gt;documentElement&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; document.&lt;span style=&#34;color:#a6e22e&#34;&gt;body&lt;/span&gt;;
+&lt;span style="color:#75715e"># 原理:本地(127.0.0.1:6666)与代理(121.199.63.39)服务器建立隧道后,本地(127.0.0.1)使用socks5协议在外层加密https协议,通过本地代理端口(6666)-(隧道)-代理(121.199.63.39)-https访问服务端(https://www.google.com)&lt;/span>
+curl -x socks5://127.0.0.1:6666 https://www.google.com &lt;span style="color:#75715e">#http为例&lt;/span>
+ssh -o ProxyCommand&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;nc -X 5 -x 127.0.0.1:6666 %h %p&amp;#34;&lt;/span> https://www.google.com &lt;span style="color:#75715e">#ssh为例,参数-X默认socks5&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>本地转发&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">ssh -N -f -L 192.168.2.2:6666:121.199.63.39:22 root@121.199.63.39
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>远程转发&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">ssh -N -f -R 121.199.63.39:6666:127.0.0.1:22 root@121.199.63.39
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>通过 &lt;code>121.199.63.39&lt;/code> 的 &lt;code>22&lt;/code> 端口,登录 &lt;code>121.199.63.39localhost&lt;/code> 的 &lt;code>6666&lt;/code> 端口&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">ssh -J root@121.199.63.39:22 -p6666 localhost
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h2 id="ftp">Ftp&lt;/h2>
+&lt;ol>
+&lt;li>关闭防火墙&lt;/li>
+&lt;li>安装 &lt;code>ftp&lt;/code>&lt;/li>
+&lt;li>修改三份文件 &lt;code>ftpusers&lt;/code> &lt;code>user_list&lt;/code> &lt;code>vsftpd.conf&lt;/code>&lt;/li>
+&lt;li>重启 &lt;code>ftp&lt;/code>&lt;/li>
+&lt;li>防火墙配置文件允许 &lt;code>21&lt;/code> 端口&lt;/li>
+&lt;li>开启防火墙&lt;/li>
+&lt;li>&lt;code>ftp&lt;/code> 限制用户访问目录思路:修改 &lt;code>/etc/vsftpd/vsftpd.conf&lt;/code> 文件中 &lt;code>chroot_local_user&lt;/code> , &lt;code>chroot_list_enable&lt;/code> , &lt;code>chroot_list_file&lt;/code> 三项; 修改用户默认进入的家目录,则修改 &lt;code>/etc/passwd&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>&lt;code>vsftpd.conf&lt;/code> 文件参考配置 :&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">listen_ipv6&lt;span style="color:#f92672">=&lt;/span>YES
+pam_service_name&lt;span style="color:#f92672">=&lt;/span>vsftpd
+tcp_wrappers&lt;span style="color:#f92672">=&lt;/span>YES
+write_enable&lt;span style="color:#f92672">=&lt;/span>YES
+local_umask&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">022&lt;/span> &lt;span style="color:#75715e">#用户ftp创建目录的权限掩码,022即为755&lt;/span>
+listen&lt;span style="color:#f92672">=&lt;/span>NO &lt;span style="color:#75715e">#监听,yes可能导致无法启动ftp&lt;/span>
+anonymous_enable&lt;span style="color:#f92672">=&lt;/span>NO &lt;span style="color:#75715e">#拒绝匿名用户&lt;/span>
+local_root&lt;span style="color:#f92672">=&lt;/span>/var/www/html &lt;span style="color:#75715e">#本地用户初始目录&lt;/span>
+&lt;span style="color:#75715e">#登录限制&lt;/span>
+local_enable&lt;span style="color:#f92672">=&lt;/span>YES
+userlist_enable&lt;span style="color:#f92672">=&lt;/span>YES
+userlist_deny&lt;span style="color:#f92672">=&lt;/span>NO
+userlist_file&lt;span style="color:#f92672">=&lt;/span>/etc/vsftpd/user_list
+&lt;span style="color:#75715e">#目录限制&lt;/span>
+chroot_local_user&lt;span style="color:#f92672">=&lt;/span>YES
+chroot_list_enable&lt;span style="color:#f92672">=&lt;/span>YES
+chroot_list_file&lt;span style="color:#f92672">=&lt;/span>/etc/vsftpd/chroot_list
+allow_writeable_chroot&lt;span style="color:#f92672">=&lt;/span>YES
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="nginx">Nginx&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>Nginx&lt;/code> (web服务器)偏向于 &lt;code>静态资源&lt;/code> ,处理高并发,可用 &lt;code>反向代理&lt;/code> 从而实现 &lt;code>负载均衡&lt;/code> (类似 &lt;code>dns&lt;/code> )&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Apache&lt;/code> 偏向于&lt;code> PHP&lt;/code> 的动态资源,bug少稳定&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>负载均衡&lt;/code> 实现思路: &lt;code>动静态资源分离&lt;/code> ,主服务器使用 &lt;code>Nginx&lt;/code> ,动态资源则 &lt;code>反向代理&lt;/code> 到本机或集群的 &lt;code>Apache&lt;/code> 服务器(一台服务器安装两个 &lt;code>Apache&lt;/code> 服务可防止 &lt;code>宕机&lt;/code> )&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>linux&lt;/code> 有端口复用(套接字端口共享)功能( &lt;code>nginx&lt;/code> 开启 &lt;code>reuseport&lt;/code> );从内核层面做 &lt;code>负载均衡&lt;/code> ,避免 &lt;code>锁竞争&lt;/code> ( &lt;code>惊群效应&lt;/code> ): &lt;a href="https://www.zhihu.com/question/51618274">https://www.zhihu.com/question/51618274&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Nginx&lt;/code> 启用 &lt;code>PHP&lt;/code> 需要配置文件&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Nginx&lt;/code> 等软件自启,需要参考官方的启动代码,添加到 &lt;code>/etc/init.d/&lt;/code> 下&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Nginx&lt;/code> 支持缓存&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Nginx&lt;/code> 支持 &lt;code>gzip&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Nginx实现负载均衡需要源码的同步, 使用 &lt;code>rsync&lt;/code> (或+ &lt;code>sersync&lt;/code> )实现集群服务器源码同步,源服务器执行的命令:&lt;br>
+&lt;code>rsync -avH --progress --delete --exclude-from=/etc/exclude.txt --password-file=/etc/pw.txt /var/www/html/ username@192.168.43.175::module1&lt;/code>&lt;/p>
+&lt;blockquote>
+&lt;p>其中按顺序是:含有忽略同步列表的 &lt;code>exclude.txt&lt;/code> 文件,含有密码的 &lt;code>pw.txt&lt;/code> 文件,源服务器的同步目录, &lt;code>username&lt;/code> 用户名,ip地址,对应的模块
+&lt;a href="https://blog.51cto.com/chenfei123/1707746">https://blog.51cto.com/chenfei123/1707746&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>负载均衡&lt;/code> 和 &lt;code>前后端分离&lt;/code> 配置 :&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#75715e">#后端应反向给Apache代理&lt;/span>
+upstream proxys &lt;span style="color:#f92672">{&lt;/span>
+server 127.0.0.1:8080 weight&lt;span style="color:#f92672">=&lt;/span>2;
+server 192.168.43.175:9090 weight&lt;span style="color:#f92672">=&lt;/span>3;
+ip_hash;
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#75715e">#前端应反向给Nginx代理&lt;/span>
+upstream proxys2 &lt;span style="color:#f92672">{&lt;/span>
+server 127.0.0.1:8081 weight&lt;span style="color:#f92672">=&lt;/span>3;
+server 192.168.43.175:9090 weight&lt;span style="color:#f92672">=&lt;/span>2;
+&lt;span style="color:#f92672">}&lt;/span>
+server &lt;span style="color:#f92672">{&lt;/span>
+listen 80;
+server_name www.centos.top centos.top;
+index index.html index.htm index.php;
+location / &lt;span style="color:#f92672">{&lt;/span>
+proxy_pass http://proxys;
+proxy_http_version 1.1;
+proxy_set_header Host $http_host;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+add_header X-Slave $upstream_addr;
+&lt;span style="color:#f92672">}&lt;/span>
+location ~* &lt;span style="color:#ae81ff">\.&lt;/span>&lt;span style="color:#f92672">(&lt;/span>css|js|png|jpg|jpeg|gif|txt|ico&lt;span style="color:#f92672">)&lt;/span>$|^~/static &lt;span style="color:#f92672">{&lt;/span>
+proxy_pass http://proxys2;
+proxy_set_header Host $http_host;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+add_header X-Slave $upstream_addr;
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#75715e">#前端请求代理的配置&lt;/span>
+server &lt;span style="color:#f92672">{&lt;/span>
+listen 8081;
+server_name www.centos.top centos.top;
+location / &lt;span style="color:#f92672">{&lt;/span>
+root /var/www/html/tp/public;
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>缓存&lt;/code> 和 &lt;code>gzip&lt;/code> 配置 :&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">http &lt;span style="color:#f92672">{&lt;/span>
+&lt;span style="color:#75715e"># 开启缓存&lt;/span>
+proxy_connect_timeout 10;
+proxy_read_timeout 180;
+proxy_send_timeout 5;
+proxy_buffer_size 16k;
+proxy_buffers &lt;span style="color:#ae81ff">4&lt;/span> 32k;
+proxy_busy_buffers_size 96k;
+proxy_temp_file_write_size 96k;
+proxy_temp_path /tmp/temp_dir;
+proxy_cache_path /tmp/cache levels&lt;span style="color:#f92672">=&lt;/span>1:2 keys_zone&lt;span style="color:#f92672">=&lt;/span>cache_one:100m inactive&lt;span style="color:#f92672">=&lt;/span>1d max_size&lt;span style="color:#f92672">=&lt;/span>10g;
+server
+&lt;span style="color:#f92672">{&lt;/span>
+listen &lt;span style="color:#ae81ff">8081&lt;/span> reuseport;
+server_name localhost;
+root /usr/share/nginx/tp/public/;
+location /
+&lt;span style="color:#f92672">{&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
+server
+&lt;span style="color:#f92672">{&lt;/span>
+&lt;span style="color:#75715e">#开启gzip压缩资源&lt;/span>
+gzip on;
+gzip_vary on;
+gzip_proxied any;
+gzip_comp_level 6;
+gzip_buffers &lt;span style="color:#ae81ff">16&lt;/span> 8k;
+gzip_http_version 1.0;
+gzip_min_length 100;
+gzip_types text/plain text/css application/javascript application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/vnd.ms-fontobject application/x-font-ttf font/opentype image/svg+xml image/x-icon;
+&lt;span style="color:#75715e">#资源文件缓存&lt;/span>
+location ~* &lt;span style="color:#ae81ff">\.&lt;/span>&lt;span style="color:#f92672">(&lt;/span>css|js|json|png|jpg|jpeg|gif|txt|ico|bmp|swf&lt;span style="color:#f92672">)&lt;/span>$|^~/static/
+&lt;span style="color:#f92672">{&lt;/span>
+proxy_pass http://127.0.0.1:8081;
+proxy_redirect off;
+proxy_set_header Host $host;
+proxy_cache cache_one; &lt;span style="color:#75715e">#cache_one在http设置层proxy_cache_path定义&lt;/span>
+proxy_cache_valid &lt;span style="color:#ae81ff">200&lt;/span> &lt;span style="color:#ae81ff">302&lt;/span> 24h;
+proxy_cache_valid &lt;span style="color:#ae81ff">301&lt;/span> 30d;
+proxy_cache_valid any 5m;
+expires 90d;
+add_header wall &lt;span style="color:#e6db74">&amp;#34;hey!这文件进行了缓存和压缩哟!&amp;#34;&lt;/span>;
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="数据库读写分离">数据库读写分离&lt;/h2>
+&lt;p>实现 &lt;code>读写分离&lt;/code> 分为两大步 :&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;a href="https://www.jianshu.com/p/bfca0cdfb169" target="_blank" rel="noopener">主从同步&lt;/a>&lt;/li>
+&lt;li>读写分离;有两种方式 :
+&lt;ul>
+&lt;li>通过程序实现,如TP框架,性能最好;&lt;/li>
+&lt;li>使用代理工具,如 :
+&lt;ul>
+&lt;li>
+&lt;a href="https://www.jianshu.com/p/cb7ec06dae05" target="_blank" rel="noopener">Mycat&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://www.jianshu.com/p/cadf337274c1" target="_blank" rel="noopener">Mysql-Proxy&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>&lt;code>mysql&lt;/code> 之间可相互主从同步,避免 &lt;code>单点&lt;/code> ;当有主从数据库发生宕机,可使用 &lt;code>percona-tooldit&lt;/code> 工具解决恢复宕机后主从数据不同步的问题
+&lt;a href="https://blog.51cto.com/moerjinrong/2352317">https://blog.51cto.com/moerjinrong/2352317&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;code>Mysql-Proxy&lt;/code> 配置文件 &lt;code>mysql-proxy.cnf&lt;/code> 参考 :&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#f92672">[&lt;/span>mysql-proxy&lt;span style="color:#f92672">]&lt;/span>
+&lt;span style="color:#75715e">#运行mysql-proxy用户&lt;/span>
+user&lt;span style="color:#f92672">=&lt;/span>root
+&lt;span style="color:#75715e">#主从mysql共有的用户&lt;/span>
+admin-username&lt;span style="color:#f92672">=&lt;/span>proxy
+&lt;span style="color:#75715e">#用户的密码&lt;/span>
+admin-password&lt;span style="color:#f92672">=&lt;/span>root
+&lt;span style="color:#75715e">#mysql-proxy运行ip(不能是127.0.0.1)和端口,不加端口,默认4040&lt;/span>
+proxy-address&lt;span style="color:#f92672">=&lt;/span>192.168.1.1:4040
+&lt;span style="color:#75715e">#slave从数据库Ip地址,默认端口3306&lt;/span>
+proxy-read-only-backend-addresses&lt;span style="color:#f92672">=&lt;/span>192.168.1.2:3306
+&lt;span style="color:#75715e">#master主数据库Ip地址,默认端口3306&lt;/span>
+proxy-backend-addresses&lt;span style="color:#f92672">=&lt;/span>192.168.1.3:3306
+&lt;span style="color:#75715e">#读写分离配置文件&lt;/span>
+proxy-lua-script&lt;span style="color:#f92672">=&lt;/span>/usr/lib64/mysql-proxy/lua/rw-splitting.lua
+&lt;span style="color:#75715e">#管理脚本&lt;/span>
+admin-lua-script&lt;span style="color:#f92672">=&lt;/span>/usr/lib64/mysql-proxy/lua/admin.lua
+&lt;span style="color:#75715e">#日志&lt;/span>
+log-file&lt;span style="color:#f92672">=&lt;/span>/var/log/mysql-proxy.log
+&lt;span style="color:#75715e">#日志级别,高到低有error|warning|info|message|debug&lt;/span>
+log-level&lt;span style="color:#f92672">=&lt;/span>info
+&lt;span style="color:#75715e">#以守护进程方式运行&lt;/span>
+daemon&lt;span style="color:#f92672">=&lt;/span>true
+&lt;span style="color:#75715e">#崩溃时,尝试重启&lt;/span>
+keepalive&lt;span style="color:#f92672">=&lt;/span>true
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="数据库">数据库&lt;/h2>
+&lt;blockquote>
+&lt;p>&lt;code>mysql8&lt;/code> 特性 :&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>utf8mb4&lt;/code> 储存表情符号&lt;/li>
+&lt;li>默认 &lt;code>InnoDB&lt;/code>&lt;/li>
+&lt;li>降序索引&lt;/li>
+&lt;li>JSON支持,直接操作json里的数据&lt;/li>
+&lt;li>跳过锁等待&lt;/li>
+&lt;li>用户角色管理权限&lt;/li>
+&lt;li>&lt;code>innodb_dedicated_server&lt;/code> 自适应参数,自动配置 &lt;code>mysql&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>redis&lt;/code> 只做缓存使用,避免进行 &lt;code>持久性&lt;/code> &amp;amp;&amp;amp; &lt;code>队列&lt;/code> &amp;amp;&amp;amp; &lt;code>事务&lt;/code> (总之一句话:专人专事)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>redis&lt;/code> 和 &lt;code>DB&lt;/code> 一致性方案:只读 &lt;code>redis&lt;/code> ,当更新 &lt;code>DB&lt;/code> 之后把受影响的缓存全部干掉(注意:是干掉,不是更新),并且设定过期时间: &lt;a href="https://www.zhihu.com/question/319817091">https://www.zhihu.com/question/319817091&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>出现不能连接数据库的情况,除了防火墙,也可能是数据库没有设置对外添加权限&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>出现用户不能登录的情况,可能是默认登录了 &lt;code>匿名用户&lt;/code> , 要把用户名为 &lt;code>''&lt;/code> 的用户清除&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>MyISAM&lt;/code> 存储引擎偏向于大量查询和插入事件,表锁&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>InnoDB&lt;/code> 存储引擎偏向于增删改事件,支持事务,支持索引行锁&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>索引才用 &lt;code>for update&lt;/code> 锁库&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>数据库类型&lt;br>
+&lt;a href="http://www.jb51.net/article/55853.htm">http://www.jb51.net/article/55853.htm&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>免密码登录&lt;br>
+&lt;code>skip-grant-tables&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>数据库导出&lt;br>
+&lt;code>mysqldump -uroot -p dbname &amp;gt; dbname.sql&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>新建数据库&lt;br>
+&lt;code>CREATE DATABASE mydb CHARACTER SET utf8 COLLATE utf8_general_ci&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>插入数据&lt;br>
+&lt;code>insert into $twb (id,name,tel) values('2','tab',null)&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>删除数据&lt;br>
+&lt;code>delete from twb where id = 1;&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>修改数据&lt;br>
+&lt;code>update twb set id='2',name='tab' where id=1;&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>插入字段&lt;br>
+&lt;code>alter table twb add id varchar(32)&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>删除字段&lt;br>
+&lt;code>alter table twb drop id&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>去掉name重复的&lt;br>
+&lt;code>SELECT DISTINCT name FROM twb&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>计算个数&lt;br>
+&lt;code>select count(*) from twb&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>计算总和&lt;br>
+&lt;code>select sum(*) from twb&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>计算平均&lt;br>
+&lt;code>select sum(*)/count(*) from twb&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>计算平均&lt;br>
+&lt;code>select avg(name) from twb&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>最小值&lt;br>
+&lt;code>select min(name) from twb&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>双重查询,查询指定最小值对应的的所有字段&lt;br>
+&lt;code>SELECT * FROM twb WHERE name=(SELECT max(name)FROM twb)&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>根据指定字段分类&lt;br>
+&lt;code>select * from twb group by name;&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>表的联合查询&lt;br>
+&lt;code>SELECT * FROM twb as a INNER JOIN twb2 as b on a.name=b.id&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>左查询,就是当twb跟twb2的的值不相对应则以twb为主要,twb2多出的值则省略&lt;br>
+&lt;code>SELECT * FROM twb as a left outer JOIN twb2 as b on a.name=b.id&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="php">PHP&lt;/h2>
+&lt;blockquote>
+&lt;p>php7特性&lt;/p>
+&lt;ul>
+&lt;li>用绝对路径&lt;/li>
+&lt;li>重定向后使用exit&lt;/li>
+&lt;li>array_walk&lt;/li>
+&lt;li>&amp;amp;引用节省内存&lt;/li>
+&lt;li>+= array()&lt;/li>
+&lt;li>isset($a{1})&lt;/li>
+&lt;li>$_SERVER[&amp;lsquo;REQUEST_TIME&amp;rsquo;]&lt;/li>
+&lt;li>strtr&lt;/li>
+&lt;li>高亮PHP代码highlight_file&lt;/li>
+&lt;li>2 &amp;lt;=&amp;gt; 1&lt;/li>
+&lt;li>echo &amp;ldquo;\u{41}&amp;quot;,PHP_EOL;&lt;/li>
+&lt;li>use some\namespace{ClassA, ClassB, ClassC as C};&lt;/li>
+&lt;li>function arraysSum(int &amp;hellip;$ints): string&lt;/li>
+&lt;li>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-php" data-lang="php"> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">A&lt;/span>{&lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">private&lt;/span> $b &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;hello world&amp;#39;&lt;/span>;}
+$bb &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">function&lt;/span> (){&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">A&lt;/span>&lt;span style="color:#f92672">::&lt;/span>$b;};
+&lt;span style="color:#66d9ef">echo&lt;/span> $bb&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">call&lt;/span>(&lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">A&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>bug
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-php" data-lang="php">[] &lt;span style="color:#f92672">==&lt;/span> []; &lt;span style="color:#75715e">//为false
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#e6db74">&amp;#39;a&amp;#39;&lt;/span> &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+$a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;0.3&amp;#39;&lt;/span> &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#e6db74">&amp;#39;0.1&amp;#39;&lt;/span>;
+&lt;span style="color:#a6e22e">json_encode&lt;/span>($a);
+&lt;span style="color:#ae81ff">0.55&lt;/span> &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">100&lt;/span> &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">55&lt;/span>; &lt;span style="color:#75715e">//为false
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>json_encode((array)$array, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT)&lt;/li>
+&lt;li>有时候exec命令执行失败,却没有报错,请这样使用:&lt;code>exec('ls 2&amp;gt;&amp;amp;1', $a, $b)&lt;/code>&lt;/li>
+&lt;li>&lt;code>fastcgi&lt;/code>就是执行 &lt;code>cgi协议&lt;/code> 的,用于定义 &lt;code>Nginx&lt;/code> 调用 &lt;code>php&lt;/code> 时的数据格式,并减少对 &lt;code>php.ini&lt;/code> 的读取&lt;/li>
+&lt;li>&lt;code>php-fpm&lt;/code>就是 &lt;code>Nginx&lt;/code> 服务调用的程序,管理 &lt;code>fastcgi&lt;/code> 进程&lt;/li>
+&lt;li>&lt;code>php-cli&lt;/code>就是 &lt;code>shell&lt;/code> 命令行调用的程序&lt;/li>
+&lt;li>&lt;code>|||nochange|||&lt;/code>表示 &lt;code>input&lt;/code> 输入框为空&lt;/li>
+&lt;li>&lt;code>htmlentities&lt;/code> / &lt;code>htmlspecialchars&lt;/code> 可以过滤成 &lt;code>html格式&lt;/code> , 防止 &lt;code>XSS&lt;/code>&lt;/li>
+&lt;li>&lt;code>addslashes&lt;/code> 防止 &lt;code>sql注入&lt;/code>&lt;/li>
+&lt;li>&lt;code>explain&lt;/code> 用于测试 &lt;code>sql语句&lt;/code> 性能&lt;/li>
+&lt;li>引用字符串方式: &lt;code>Nowdoc&lt;/code> / &lt;code>Heredoc&lt;/code>&lt;/li>
+&lt;li>中文简体格式
+&lt;code>header('Content-type:text/html;charset=utf-8')&lt;/code>&lt;/li>
+&lt;li>解决textarea标签回车编码问题
+&lt;code>str_replace(&amp;quot; &amp;quot;,&amp;quot; &amp;quot;,str_replace(&amp;quot;\n&amp;quot;,&amp;quot;&amp;lt;br/&amp;gt;&amp;quot;,$data))&lt;/code>&lt;/li>
+&lt;li>单入口写上: &lt;code>session_start()&lt;/code> 才可以使用 &lt;code>$_SESSION&lt;/code>&lt;/li>
+&lt;li>跳转到#页面
+&lt;code>header('Location:#')&lt;/code>&lt;/li>
+&lt;li>php格式插入html遍历
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-php" data-lang="php">&lt;span style="color:#f92672">&amp;lt;?&lt;/span>&lt;span style="color:#a6e22e">php&lt;/span> &lt;span style="color:#66d9ef">foreach&lt;/span> ($twb &lt;span style="color:#66d9ef">as&lt;/span> $x &lt;span style="color:#f92672">=&amp;gt;&lt;/span> $y){ &lt;span style="color:#75715e">?&amp;gt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010"> &amp;lt;li&amp;gt;&amp;lt;?php echo $y[&amp;#39;z&amp;#39;] ?&amp;gt;&amp;lt;/li&amp;gt;
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&amp;lt;?php } ?&amp;gt;
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>解决ajax夸域
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-php" data-lang="php">&lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Access-Control-Allow-Origin:twb.com&amp;#39;&lt;/span>); &lt;span style="color:#75715e">//可以用*允许所有
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Content-Type:application/json; charset=utf-8&amp;#39;&lt;/span>);
+&lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Access-Control-Allow-Methods: GET, POST, DELETE&amp;#39;&lt;/span>);
+&lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept&amp;#39;&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>内容返回
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-php" data-lang="php">&lt;span style="color:#a6e22e">ob_start&lt;/span>(); &lt;span style="color:#75715e">//开启echo缓存区
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">echo&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Hello&amp;#34;&lt;/span>; &lt;span style="color:#75715e">//输出
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">ob_end_flush&lt;/span>(); &lt;span style="color:#75715e">//输出全部内容到浏览器,包括echo
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>函数&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>rand(x,y)&lt;/td>
+&lt;td>在xy之间取随机数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>implode(&amp;lsquo;xx&amp;rsquo;,'$twb')&lt;/td>
+&lt;td>用xx隔开twb中每个元素&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>explode()&lt;/td>
+&lt;td>把字符串打散为数组.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>arry_merge()&lt;/td>
+&lt;td>打散混乱数组重新排列&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>in_array($xy,$twb)&lt;/td>
+&lt;td>数组$twb是否含$xy&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>mb_substr($twb,x,y,&amp;lsquo;utf-8&amp;rsquo;)&lt;/td>
+&lt;td>截取字符串,从第x个字符开始截取y个字符&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>strtotime()&lt;/td>
+&lt;td>将任何英文文本的日期或时间描述解析为 Unix 时间戳.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>字符串类型&lt;/td>
+&lt;td>&amp;ndash;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>addcslashes()&lt;/td>
+&lt;td>返回在指定的字符前添加反斜杠的字符串.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>addslashes()&lt;/td>
+&lt;td>返回在预定义的字符前添加反斜杠的字符串.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>chop()&lt;/td>
+&lt;td>删除字符串右侧的空白字符或其他字符..&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>chunk_split()&lt;/td>
+&lt;td>把字符串分割为一系列更小的部分.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>html_entity_decode()&lt;/td>
+&lt;td>把 HTML 实体转换为字符.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>htmlentities()&lt;/td>
+&lt;td>把字符转换为 HTML 实体.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>htmlspecialchars_decode()&lt;/td>
+&lt;td>把一些预定义的 HTML 实体转换为字符.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>htmlspecialchars()&lt;/td>
+&lt;td>把一些预定义的字符转换为 HTML 实体.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>join()&lt;/td>
+&lt;td>implode() 的别名.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ltrim()&lt;/td>
+&lt;td>移除字符串左侧的空白字符或其他字符.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>md5()&lt;/td>
+&lt;td>计算字符串的 MD5 散列.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>number_format()&lt;/td>
+&lt;td>以千位分组来格式化数字.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>parse_str()&lt;/td>
+&lt;td>把查询字符串解析到变量中.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>rtrim()&lt;/td>
+&lt;td>移除字符串右侧的空白字符或其他字符.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>sha1()&lt;/td>
+&lt;td>计算字符串的 SHA-1 散列.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>similar_text()&lt;/td>
+&lt;td>计算两个字符串的相似度.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>sprintf()&lt;/td>
+&lt;td>把格式化的字符串写入变量中.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>str_pad()&lt;/td>
+&lt;td>把字符串填充为新的长度.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>str_repeat()&lt;/td>
+&lt;td>把字符串重复指定的次数.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>str_replace()&lt;/td>
+&lt;td>替换字符串中的一些字符(对大小写敏感)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>str_shuffle()&lt;/td>
+&lt;td>随机地打乱字符串中的所有字符.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>str_split()&lt;/td>
+&lt;td>把字符串分割到数组中.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>strip_tags()&lt;/td>
+&lt;td>剥去字符串中的 HTML 和 PHP 标签.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>stripcslashes()&lt;/td>
+&lt;td>删除由 addcslashes() 函数添加的反斜杠.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>stripslashes()&lt;/td>
+&lt;td>删除由 addslashes() 函数添加的反斜杠.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>stripos()&lt;/td>
+&lt;td>返回字符串第一次出现的位置(大小写不敏感)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>strpos()&lt;/td>
+&lt;td>返回字符串第一次出现的位置(大小写敏感)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>stristr()&lt;/td>
+&lt;td>查找字符串第一次出现的位置(大小写不敏感)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>strrchr()&lt;/td>
+&lt;td>查找字符串最后一次出现.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>strripos()&lt;/td>
+&lt;td>查找字符串最后一次出现的位置(大小写不敏感)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>strrpos()&lt;/td>
+&lt;td>查找字符串最后一次出现的位置(大小写敏感)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>strstr()&lt;/td>
+&lt;td>查找字符串第一次出现(大小写敏感)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>strchr()&lt;/td>
+&lt;td>查找字符串第一次出现,strstr() 的别名&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>strrev()&lt;/td>
+&lt;td>反转字符串.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>strlen()&lt;/td>
+&lt;td>返回字符串的长度.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>strtolower()&lt;/td>
+&lt;td>把字符串转换为小写字母.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>strtoupper()&lt;/td>
+&lt;td>把字符串转换为大写字母.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>strtr()&lt;/td>
+&lt;td>转换字符串中特定的字符.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>substr()&lt;/td>
+&lt;td>返回字符串的一部分.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>substr_count()&lt;/td>
+&lt;td>计算子串在字符串中出现的次数.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>substr_replace()&lt;/td>
+&lt;td>把字符串的一部分替换为另一个字符串.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ucfirst()&lt;/td>
+&lt;td>把字符串中的首字符转换为大写.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ucwords()&lt;/td>
+&lt;td>把字符串中每个单词的首字符转换为大写.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>数组函数&lt;/td>
+&lt;td>&amp;ndash;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_change_key_case()&lt;/td>
+&lt;td>把数组中所有键更改为小写或大写.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_chunk()&lt;/td>
+&lt;td>把一个数组分割为新的数组块.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_column()&lt;/td>
+&lt;td>返回输入数组中某个单一列的值.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_combine()&lt;/td>
+&lt;td>通过合并两个数组来创建一个新数组.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_count_values()&lt;/td>
+&lt;td>用于统计数组中所有值出现的次数.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_diff()&lt;/td>
+&lt;td>比较数组,返回差集(只比较键值)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_fill()&lt;/td>
+&lt;td>用给定的键值填充数组.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_fill_keys()&lt;/td>
+&lt;td>用指定键名的给定键值填充数组.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_filter()&lt;/td>
+&lt;td>用回调函数过滤数组中的元素.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_flip()&lt;/td>
+&lt;td>交换数组中的键和值.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_intersect()&lt;/td>
+&lt;td>比较数组,返回交集(只比较键值)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_key_exists()&lt;/td>
+&lt;td>检查指定的键名是否存在于数组中.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_keys()&lt;/td>
+&lt;td>返回数组中所有的键名.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_map()&lt;/td>
+&lt;td>把数组中的每个值发送到用户自定义函数,返回新的值.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_merge()&lt;/td>
+&lt;td>把一个或多个数组合并为一个数组.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_multisort()&lt;/td>
+&lt;td>对多个数组或多维数组进行排序.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_pad()&lt;/td>
+&lt;td>用值将数组填补到指定长度.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_pop()&lt;/td>
+&lt;td>删除数组的最后一个元素(出栈)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_push()&lt;/td>
+&lt;td>将一个或多个元素插入数组的末尾(入栈)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_replace()&lt;/td>
+&lt;td>使用后面数组的值替换第一个数组的值.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_reverse()&lt;/td>
+&lt;td>以相反的顺序返回数组.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_search()&lt;/td>
+&lt;td>搜索数组中给定的值并返回键名.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_shift()&lt;/td>
+&lt;td>删除数组中首个元素,并返回被删除元素的值.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_slice()&lt;/td>
+&lt;td>返回数组中被选定的部分.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_splice()&lt;/td>
+&lt;td>删除并替换数组中指定的元素.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_sum()&lt;/td>
+&lt;td>返回数组中值的和.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_udiff()&lt;/td>
+&lt;td>比较数组,返回差集&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_unique()&lt;/td>
+&lt;td>删除数组中的重复值.(集合的概念)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_unshift()&lt;/td>
+&lt;td>在数组开头插入一个或多个元素.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>array_values()&lt;/td>
+&lt;td>返回数组中所有的值.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>arsort()&lt;/td>
+&lt;td>对关联数组按照键值进行降序排序.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>asort()&lt;/td>
+&lt;td>对关联数组按照键值进行升序排序.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>compact()&lt;/td>
+&lt;td>创建包含变量名和它们的值的数组.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>count()&lt;/td>
+&lt;td>返回数组中元素的数目.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>current()&lt;/td>
+&lt;td>返回数组中的当前元素.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>extract()&lt;/td>
+&lt;td>从数组中将变量导入到当前的符号表.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>in_array()&lt;/td>
+&lt;td>检查数组中是否存在指定的值.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>key()&lt;/td>
+&lt;td>从关联数组中取得键名.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>krsort()&lt;/td>
+&lt;td>对数组按照键名逆向排序.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ksort()&lt;/td>
+&lt;td>对数组按照键名排序.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>list()&lt;/td>
+&lt;td>把数组中的值赋给一些变量.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>range()&lt;/td>
+&lt;td>创建包含指定范围单元的数组.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>rsort()&lt;/td>
+&lt;td>对数组逆向排序.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>shuffle()&lt;/td>
+&lt;td>将数组打乱.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>sizeof()&lt;/td>
+&lt;td>count() 的别名.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>sort()&lt;/td>
+&lt;td>对数组排序.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>uasort()&lt;/td>
+&lt;td>使用用户自定义的比较函数对数组中的键值进行排序.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>uksort()&lt;/td>
+&lt;td>使用用户自定义的比较函数对数组中的键名进行排序.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>usort()&lt;/td>
+&lt;td>使用用户自定义的比较函数对数组进行排序.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="前端">前端&lt;/h2>
+&lt;ul>
+&lt;li>可以设置类似&lt;code>cookie&lt;/code> , 它可永久保存&lt;br>
+&lt;code>localStorage.setItem(name, val)&lt;/code>&lt;/li>
+&lt;li>死链&lt;br>
+&lt;code>&amp;lt;a href=&amp;quot;javascript:void(0);&amp;quot;&amp;gt;&lt;/code>&lt;/li>
+&lt;li>CSS加载JS样式&lt;br>
+&lt;code>behavior:url()&lt;/code>&lt;/li>
+&lt;li>选择div内第二个li,类似js&lt;br>
+&lt;code>div li:first-child+li{}&lt;/code>&lt;/li>
+&lt;li>选择form下类型为text的input标签&lt;br>
+&lt;code>form input[type=&amp;quot;text&amp;quot;]{}&lt;/code>&lt;/li>
+&lt;li>居中CSS背景图片&lt;br>
+&lt;code>background-position:center&lt;/code>&lt;/li>
+&lt;li>居中HTML图片&lt;br>
+&lt;code>&amp;lt;div align=&amp;quot;center&amp;quot;&amp;gt;&amp;lt;img src=&amp;quot;&amp;quot;&amp;gt;&lt;/code>&lt;/li>
+&lt;li>居中div&lt;br>
+&lt;code>{top:0;left:0;bottom:0;right:0;margin:auto}/margin:0 auto;&lt;/code>&lt;/li>
+&lt;li>单行文字水平/垂直居中&lt;br>
+&lt;code>text-decoration:center;/line-height:10px;&lt;/code>&lt;/li>
+&lt;li>多行文字垂直居中:div1&amp;gt;div2&amp;gt;p&lt;br>
+&lt;code>div1{display:table;/*转换成表格*/} div2{display:table-cell;vertical-align:middle;}&lt;/code>&lt;/li>
+&lt;li>li中间向两边分布&lt;br>
+&lt;code>ul{text-align:center}li{display: inline-block;}&lt;/code>&lt;/li>
+&lt;li>li水平分布,ul宽度平均分割给li&lt;br>
+&lt;code>ul{display:flex}li{flex:1;text-align:center}&lt;/code>&lt;/li>
+&lt;li>li水平分布,类似最左和最右浮动两边的效果&lt;br>
+&lt;code>div{overflow:hidden;width:11px} div ul{width:12px} li{width:5px;margin_right:1px}&lt;/code>&lt;/li>
+&lt;li>轮播图不能有滚动条&lt;br>
+&lt;code>在ul父级加overflow:hidden;width:100%;position: relative;//position用于ul居中&lt;/code>&lt;/li>
+&lt;li>清除浮动,class是twb就可以清除浮动&lt;br>
+&lt;code>.twb:after{content:&amp;quot;&amp;quot;; display:block; height:0; visibility:hidden; clear:both;}&lt;/code>&lt;/li>
+&lt;li>鼠标悬浮图片放大&lt;br>
+&lt;code>.div:hover img{transform: scale(1.03);transition: all 1s ease 0s;-webkit-transform: scale(1.03);-webkit-transform: all 1s ease 0s;}&lt;/code>&lt;/li>
+&lt;li>iframe高度
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">e&lt;/span> &lt;span style="color:#f92672">=&lt;/span> window,
+&lt;span style="color:#a6e22e">a&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;inner&amp;#39;&lt;/span>,
+&lt;span style="color:#a6e22e">$header&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">$&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;.header&amp;#34;&lt;/span>);&lt;span style="color:#75715e">//如果页面有头部,则要减去
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#f92672">!&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;innerWidth&amp;#39;&lt;/span> &lt;span style="color:#66d9ef">in&lt;/span> window)) {
+&lt;span style="color:#a6e22e">a&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;client&amp;#39;&lt;/span>;
+&lt;span style="color:#a6e22e">e&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">documentElement&lt;/span> &lt;span style="color:#f92672">||&lt;/span> document.&lt;span style="color:#a6e22e">body&lt;/span>;
 }
-&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;height&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;e&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Height&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;$header&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;outerHeight&lt;/span&gt;();
-&lt;span style=&#34;color:#a6e22e&#34;&gt;$&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.iframe&amp;#34;&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;css&lt;/span&gt;({
-    &lt;span style=&#34;color:#a6e22e&#34;&gt;height&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;height&lt;/span&gt;,
-    &lt;span style=&#34;color:#a6e22e&#34;&gt;width&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;100%&amp;#34;&lt;/span&gt;
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">height&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">e&lt;/span>[&lt;span style="color:#a6e22e">a&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#e6db74">&amp;#39;Height&amp;#39;&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#a6e22e">$header&lt;/span>.&lt;span style="color:#a6e22e">outerHeight&lt;/span>();
+&lt;span style="color:#a6e22e">$&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;.iframe&amp;#34;&lt;/span>).&lt;span style="color:#a6e22e">css&lt;/span>({
+&lt;span style="color:#a6e22e">height&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#a6e22e">height&lt;/span>,
+&lt;span style="color:#a6e22e">width&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#34;100%&amp;#34;&lt;/span>
 });
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;&amp;hellip; 以上&lt;/strong&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>&amp;hellip; 以上&lt;/strong>&lt;/p></description></item></channel></rss>
