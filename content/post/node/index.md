@@ -222,7 +222,7 @@ image:
 | `git check-ignore -v <file>`                  | 检查哪个规则忽略了文件 |
 | `git rm -rf --cached . && git add -A`        | 清徐缓存,用于更新gitignore |
 | `git diff <commit-id> <commit-id> --stat`    | 比较两个版本变化了的文件 |
-| `git submodule add <远程项目地址>`             | 添加子模块 |
+| `git submodule add <远程项目地址> <路径>`      | 添加子模块 |
 | `git submodule update --init --recursive`     | 下载所有子模块 |
 | `git submodule update --remote`               | 更新所有子模块 |
 | `git remote show origin`                      | 详细的远程分支的信息 |

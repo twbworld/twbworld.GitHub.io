@@ -21,13 +21,13 @@ x-logging: &default-logging
         max-file: "10"
 
 services:
-    blog:
+    hugo:
         build:
-            context: ${PWD}
-            dockerfile: dockerfile_hugo #指定dockerfile文件
+            context: ${PWD}/hugo-go-git #!!!!!!!!!!!!!!!!注意#!!!!!!!!!!!!!!!!
+            dockerfile: Dockerfile
         image: twbworld/hugo-go-git:latest
-        container_name: blog_container_name
-        hostname: blog_hostname
+        container_name: hugo
+        hostname: docker-hugo
         working_dir: /src
         command: server
         ports:
@@ -42,4 +42,4 @@ services:
         logging: *default-logging
         networks:
             net1:
-                ipv4_address: 172.1.1.2
+                ipv4_address: 172.1.1.99
