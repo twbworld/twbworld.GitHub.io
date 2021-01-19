@@ -225,6 +225,7 @@ image:
 | `git submodule add <远程项目地址> <路径>`      | 添加子模块 |
 | `git submodule update --init --recursive`     | 下载所有子模块 |
 | `git submodule update --remote`               | 更新所有子模块 |
+| `git worktree add ../folder master`           | 关联某分支到目录 |
 | `git remote show origin`                      | 详细的远程分支的信息 |
 | `git log --oneline --graph --decorate --all -9`   | 可视化显示版本树 |
 | `git config --global alias.lg "log --color --graph --all --oneline  --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"` | 可视化显示版本树配置别名 |
