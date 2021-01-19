@@ -378,6 +378,10 @@
 &lt;td>更新所有子模块&lt;/td>
 &lt;/tr>
 &lt;tr>
+&lt;td>&lt;code>git worktree add ../folder master&lt;/code>&lt;/td>
+&lt;td>关联某分支到目录&lt;/td>
+&lt;/tr>
+&lt;tr>
 &lt;td>&lt;code>git remote show origin&lt;/code>&lt;/td>
 &lt;td>详细的远程分支的信息&lt;/td>
 &lt;/tr>
