@@ -389,7 +389,7 @@ image:
 
 
 ## 编译安装
-```shell
+``` sh
 
 # 配置
 ./configure --prefix=/usr/local/nginx
@@ -463,7 +463,7 @@ systemctl status nginx.service
 > <https://www.zsythink.net/archives/2450>
 
 1. 动态转发(科学上网)
-    ``` shell
+    ``` sh
     # socks5代理的建立
     ssh -N -f -D 127.0.0.1:6666 root@121.199.63.39
 
@@ -473,22 +473,65 @@ systemctl status nginx.service
     ```
 
 2. 本地转发
-    ``` shell
+    ``` sh
     ssh -N -f -L 192.168.2.2:6666:121.199.63.39:22 root@121.199.63.39
     ```
 
 3. 远程转发
-    ``` shell
+    ``` sh
     ssh -N -f -R 121.199.63.39:6666:127.0.0.1:22 root@121.199.63.39
     ```
 
 3. 通过 `121.199.63.39` 的 `22` 端口,登录 `121.199.63.39localhost` 的 `6666` 端口
-    ``` shell
+    ``` sh
     ssh -J root@121.199.63.39:22 -p6666 localhost
     ```
 
 
 
+## Nftables
+
+防火墙配置例子 :
+
+``` sh
+# my.nft
+table inet filter {
+    chain input {
+        type filter hook input priority 0; policy drop;
+        ct state established,related accept
+        iif "lo" accept comment "一律接受本地环回"
+        ct state invalid drop
+        ip protocol icmp icmp type echo-request ct state new accept
+        ip protocol udp ct state new jump UDP
+        ip protocol tcp tcp flags & (fin | syn | rst | ack) == syn ct state new jump TCP
+        ip protocol udp reject
+        ip protocol tcp reject with tcp reset
+        meta nfproto ipv4 counter packets 0 bytes 0 reject with icmp type prot-unreachable
+    }
+
+    chain forward {
+        type filter hook forward priority 0; policy drop;
+    }
+
+    chain output {
+        type filter hook output priority 0; policy accept;
+    }
+
+    chain TCP {
+        tcp dport ssh ct state new limit rate 15/minute accept comment "避免对SSH施加暴力"
+        tcp dport { http, https, mysql } accept comment "80,443,3306"
+        tcp dport domain accept comment "DNS:53"
+        tcp dport { netbios-ns, netbios-dgm, netbios-ssn, microsoft-ds } accept comment "Samba:137,138,139,445"
+        tcp dport { xtel, xtelw } accept comment ":Hugo:1313,1314"
+        ip saddr { 192.168.2.100 } drop
+    }
+
+    chain UDP {
+        udp dport domain accept
+    }
+}
+
+```
 
 
 
@@ -506,7 +549,7 @@ systemctl status nginx.service
 
 `vsftpd.conf` 文件参考配置 :
 
-``` shell
+``` sh
 listen_ipv6=YES
 pam_service_name=vsftpd
 tcp_wrappers=YES
@@ -551,7 +594,7 @@ allow_writeable_chroot=YES
 
 `负载均衡` 和 `前后端分离` 配置 :
 
-``` shell
+``` sh
 #后端应反向给Apache代理
 upstream proxys {
     server 127.0.0.1:8080 weight=2;
@@ -597,7 +640,7 @@ server {
 
 `缓存` 和 `gzip` 配置 :
 
-``` shell
+``` sh
 http {
 
   # 开启缓存
@@ -673,7 +716,7 @@ http {
 
 `Mysql-Proxy` 配置文件 `mysql-proxy.cnf` 参考 :
 
-``` shell
+``` sh
 [mysql-proxy]
   #运行mysql-proxy用户
 user=root
@@ -783,14 +826,14 @@ keepalive=true
 > * echo "\u{41}",PHP_EOL;
 > * use some\namespace\{ClassA, ClassB, ClassC as C};
 > * function arraysSum(int ...$ints): string
-> * ```php
+> * ``` php
 >    class A{static private $b = 'hello world';}
 >    $bb = function (){return A::$b;};
 >    echo $bb->call(new A);
 >    ```
 
 * bug
-  ```php
+  ``` php
   [] == []; //为false
 
   'a' == 0;
@@ -830,7 +873,7 @@ keepalive=true
     header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
     ```
 * 内容返回
-    ```php
+    ``` php
     ob_start(); //开启echo缓存区
     echo "Hello"; //输出
     ob_end_flush(); //输出全部内容到浏览器,包括echo

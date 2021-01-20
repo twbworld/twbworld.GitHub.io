@@ -112,7 +112,7 @@ image:
 ## 笔记一: 安装时,发生警告
 
 
-```shell
+``` sh
 
 --character-set-server: 'utf8' is currently an alias for the character set UTF8MB3, but will be an alias for UTF8MB4 in a future release. Please consider using UTF8MB4 in order to be unambiguous
 --collation-server: 'utf8_general_ci' is a collation of the deprecated character set UTF8MB3. Please consider using UTF8MB4 with an appropriate collation instead
@@ -128,7 +128,7 @@ image:
 
 给出完整cmake命令 :
 
-```shell
+``` sh
 
 # 切换到mysql8解压后的目录
 cd /usr/local/mysql8/
@@ -168,7 +168,7 @@ cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local/mysql8 \
 
 `vim /etc/my.cnf`
 
-```
+``` sh
 
 # 客户端设置
 [client]
@@ -544,7 +544,7 @@ socket = /tmp/mysql.sock
 
 创建my.cnf后
 
-```shell
+``` sh
 # 切换到安装目录
 cd /usr/local/mysql8
 
@@ -566,7 +566,7 @@ chown -R mysql:mysql data log
 
 开启并修改root密码
 
-```shell
+``` sh
 
 cd /usr/local/mysql8
 
@@ -587,7 +587,7 @@ mysql> alter user 'root'@'localhost' identified by "123456";
 
 ## 笔记三: 开关mysql
 
-```
+``` sh
 cd /usr/local/mysql8
 
 # 开启mysql进程
