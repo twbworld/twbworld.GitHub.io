@@ -158,7 +158,7 @@ image:
 | uptime                            | 计算机负载 |
 | top                               | 实时负载(可安装htop加强版) |
 | df -h                             | 磁盘占用 |
-| du -h --max-depth=1               | 目录下各个文件大小 |
+| du -h --max-depth=0 \* (du -sh \*) | 目录下各个文件大小 |
 | pkill -kill -t pts/1              | 强退指定用户 |
 | who                               | 在线用户(或缩写w) |
 | last                              | 用户登录历史记录 |

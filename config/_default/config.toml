@@ -119,7 +119,7 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
 [module]
   [module.hugoVersion]
     extended = true
-    min = "0.75"
+    min = "0.80"
   [[module.imports]]
     disable = false
     path = "github.com/wowchemy/wowchemy-hugo-modules/wowchemy"
