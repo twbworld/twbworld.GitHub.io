@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Node | 忐忑の博客</title><link>https://twbworld.github.io/tags/node/</link><atom:link href="https://twbworld.github.io/tags/node/index.xml" rel="self" type="application/rss+xml"/><description>Node</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020—2021_忐忑-yellow)](/authors/admin/) [![备案号](https://img.shields.io/badge/粤ICP备-20059599号-eb0500)](http://www.beian.miit.gov.cn/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><image><url>https://twbworld.github.io/media/avatar.jpg</url><title>Node</title><link>https://twbworld.github.io/tags/node/</link></image><item><title>学习笔记</title><link>https://twbworld.github.io/post/2020/10/04/node/</link><pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate><guid>https://twbworld.github.io/post/2020/10/04/node/</guid><description>&lt;h2 id="扩展知识">扩展知识&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Node | 忐忑の博客</title><link>https://twbworld.github.io/tags/node/</link><atom:link href="https://twbworld.github.io/tags/node/index.xml" rel="self" type="application/rss+xml"/><description>Node</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202021_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><image><url>https://twbworld.github.io/media/avatar.jpg</url><title>Node</title><link>https://twbworld.github.io/tags/node/</link></image><item><title>学习笔记</title><link>https://twbworld.github.io/post/node/</link><pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate><guid>https://twbworld.github.io/post/node/</guid><description>&lt;h2 id="扩展知识">扩展知识&lt;/h2>
 &lt;ul>
 &lt;li>在 &lt;code>Windows&lt;/code> 下配置文件,注意 &lt;code>\n&lt;/code> 和 &lt;code>\r&lt;/code> 和 &lt;code>\t&lt;/code> 会被转义,要把 &lt;code>\&lt;/code> 改成 &lt;code>/&lt;/code>&lt;/li>
 &lt;/ul>
@@ -123,7 +123,7 @@
 &lt;td>磁盘占用&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>du -h &amp;ndash;max-depth=1&lt;/td>
+&lt;td>du -h &amp;ndash;max-depth=0 * (du -sh *)&lt;/td>
 &lt;td>目录下各个文件大小&lt;/td>
 &lt;/tr>
 &lt;tr>
@@ -775,7 +775,7 @@
 &lt;/li>
 &lt;/ul>
 &lt;h2 id="编译安装">编译安装&lt;/h2>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">
 &lt;span style="color:#75715e"># 配置&lt;/span>
 ./configure --prefix&lt;span style="color:#f92672">=&lt;/span>/usr/local/nginx
 &lt;span style="color:#75715e"># 清除编译文件&lt;/span>
@@ -860,7 +860,7 @@ systemctl status nginx.service
 &lt;ol>
 &lt;li>
 &lt;p>动态转发(科学上网)&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#75715e"># socks5代理的建立&lt;/span>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#75715e"># socks5代理的建立&lt;/span>
 ssh -N -f -D 127.0.0.1:6666 root@121.199.63.39
 &lt;span style="color:#75715e"># 原理:本地(127.0.0.1:6666)与代理(121.199.63.39)服务器建立隧道后,本地(127.0.0.1)使用socks5协议在外层加密https协议,通过本地代理端口(6666)-(隧道)-代理(121.199.63.39)-https访问服务端(https://www.google.com)&lt;/span>
 curl -x socks5://127.0.0.1:6666 https://www.google.com &lt;span style="color:#75715e">#http为例&lt;/span>
@@ -868,18 +868,52 @@ ssh -o ProxyCommand&lt;span style="color:#f92672">=&lt;/span>&lt;span style="col
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>本地转发&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">ssh -N -f -L 192.168.2.2:6666:121.199.63.39:22 root@121.199.63.39
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ssh -N -f -L 192.168.2.2:6666:121.199.63.39:22 root@121.199.63.39
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>远程转发&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">ssh -N -f -R 121.199.63.39:6666:127.0.0.1:22 root@121.199.63.39
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ssh -N -f -R 121.199.63.39:6666:127.0.0.1:22 root@121.199.63.39
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>通过 &lt;code>121.199.63.39&lt;/code> 的 &lt;code>22&lt;/code> 端口,登录 &lt;code>121.199.63.39localhost&lt;/code> 的 &lt;code>6666&lt;/code> 端口&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">ssh -J root@121.199.63.39:22 -p6666 localhost
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ssh -J root@121.199.63.39:22 -p6666 localhost
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol>
-&lt;h2 id="ftp">Ftp&lt;/h2>
+&lt;h2 id="nftables">Nftables&lt;/h2>
+&lt;p>防火墙配置例子 :&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#75715e"># my.nft&lt;/span>
+table inet filter &lt;span style="color:#f92672">{&lt;/span>
+chain input &lt;span style="color:#f92672">{&lt;/span>
+type filter hook input priority 0; policy drop;
+ct state established,related accept
+iif &lt;span style="color:#e6db74">&amp;#34;lo&amp;#34;&lt;/span> accept comment &lt;span style="color:#e6db74">&amp;#34;一律接受本地环回&amp;#34;&lt;/span>
+ct state invalid drop
+ip protocol icmp icmp type echo-request ct state new accept
+ip protocol udp ct state new jump UDP
+ip protocol tcp tcp flags &amp;amp; &lt;span style="color:#f92672">(&lt;/span>fin | syn | rst | ack&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">==&lt;/span> syn ct state new jump TCP
+ip protocol udp reject
+ip protocol tcp reject with tcp reset
+meta nfproto ipv4 counter packets &lt;span style="color:#ae81ff">0&lt;/span> bytes &lt;span style="color:#ae81ff">0&lt;/span> reject with icmp type prot-unreachable
+&lt;span style="color:#f92672">}&lt;/span>
+chain forward &lt;span style="color:#f92672">{&lt;/span>
+type filter hook forward priority 0; policy drop;
+&lt;span style="color:#f92672">}&lt;/span>
+chain output &lt;span style="color:#f92672">{&lt;/span>
+type filter hook output priority 0; policy accept;
+&lt;span style="color:#f92672">}&lt;/span>
+chain TCP &lt;span style="color:#f92672">{&lt;/span>
+tcp dport ssh ct state new limit rate 15/minute accept comment &lt;span style="color:#e6db74">&amp;#34;避免对SSH施加暴力&amp;#34;&lt;/span>
+tcp dport &lt;span style="color:#f92672">{&lt;/span> http, https, mysql &lt;span style="color:#f92672">}&lt;/span> accept comment &lt;span style="color:#e6db74">&amp;#34;80,443,3306&amp;#34;&lt;/span>
+tcp dport domain accept comment &lt;span style="color:#e6db74">&amp;#34;DNS:53&amp;#34;&lt;/span>
+tcp dport &lt;span style="color:#f92672">{&lt;/span> netbios-ns, netbios-dgm, netbios-ssn, microsoft-ds &lt;span style="color:#f92672">}&lt;/span> accept comment &lt;span style="color:#e6db74">&amp;#34;Samba:137,138,139,445&amp;#34;&lt;/span>
+tcp dport &lt;span style="color:#f92672">{&lt;/span> xtel, xtelw &lt;span style="color:#f92672">}&lt;/span> accept comment &lt;span style="color:#e6db74">&amp;#34;:Hugo:1313,1314&amp;#34;&lt;/span>
+ip saddr &lt;span style="color:#f92672">{&lt;/span> 192.168.2.100 &lt;span style="color:#f92672">}&lt;/span> drop
+&lt;span style="color:#f92672">}&lt;/span>
+chain UDP &lt;span style="color:#f92672">{&lt;/span>
+udp dport domain accept
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ftp">Ftp&lt;/h2>
 &lt;ol>
 &lt;li>关闭防火墙&lt;/li>
 &lt;li>安装 &lt;code>ftp&lt;/code>&lt;/li>
@@ -890,7 +924,7 @@ ssh -o ProxyCommand&lt;span style="color:#f92672">=&lt;/span>&lt;span style="col
 &lt;li>&lt;code>ftp&lt;/code> 限制用户访问目录思路:修改 &lt;code>/etc/vsftpd/vsftpd.conf&lt;/code> 文件中 &lt;code>chroot_local_user&lt;/code> , &lt;code>chroot_list_enable&lt;/code> , &lt;code>chroot_list_file&lt;/code> 三项; 修改用户默认进入的家目录,则修改 &lt;code>/etc/passwd&lt;/code>&lt;/li>
 &lt;/ol>
 &lt;p>&lt;code>vsftpd.conf&lt;/code> 文件参考配置 :&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">listen_ipv6&lt;span style="color:#f92672">=&lt;/span>YES
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">listen_ipv6&lt;span style="color:#f92672">=&lt;/span>YES
 pam_service_name&lt;span style="color:#f92672">=&lt;/span>vsftpd
 tcp_wrappers&lt;span style="color:#f92672">=&lt;/span>YES
 write_enable&lt;span style="color:#f92672">=&lt;/span>YES
@@ -944,7 +978,7 @@ allow_writeable_chroot&lt;span style="color:#f92672">=&lt;/span>YES
 &lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>负载均衡&lt;/code> 和 &lt;code>前后端分离&lt;/code> 配置 :&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#75715e">#后端应反向给Apache代理&lt;/span>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#75715e">#后端应反向给Apache代理&lt;/span>
 upstream proxys &lt;span style="color:#f92672">{&lt;/span>
 server 127.0.0.1:8080 weight&lt;span style="color:#f92672">=&lt;/span>2;
 server 192.168.43.175:9090 weight&lt;span style="color:#f92672">=&lt;/span>3;
@@ -984,7 +1018,7 @@ root /var/www/html/tp/public;
 &lt;span style="color:#f92672">}&lt;/span>
 &lt;span style="color:#f92672">}&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>缓存&lt;/code> 和 &lt;code>gzip&lt;/code> 配置 :&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">http &lt;span style="color:#f92672">{&lt;/span>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">http &lt;span style="color:#f92672">{&lt;/span>
 &lt;span style="color:#75715e"># 开启缓存&lt;/span>
 proxy_connect_timeout 10;
 proxy_read_timeout 180;
@@ -1054,7 +1088,7 @@ add_header wall &lt;span style="color:#e6db74">&amp;#34;hey!这文件进行了�
 &lt;a href="https://blog.51cto.com/moerjinrong/2352317">https://blog.51cto.com/moerjinrong/2352317&lt;/a>&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;code>Mysql-Proxy&lt;/code> 配置文件 &lt;code>mysql-proxy.cnf&lt;/code> 参考 :&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#f92672">[&lt;/span>mysql-proxy&lt;span style="color:#f92672">]&lt;/span>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#f92672">[&lt;/span>mysql-proxy&lt;span style="color:#f92672">]&lt;/span>
 &lt;span style="color:#75715e">#运行mysql-proxy用户&lt;/span>
 user&lt;span style="color:#f92672">=&lt;/span>root
 &lt;span style="color:#75715e">#主从mysql共有的用户&lt;/span>
