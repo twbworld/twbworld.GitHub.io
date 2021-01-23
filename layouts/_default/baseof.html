@@ -49,6 +49,14 @@
   "
 >
 
+{{ if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") | and site.Params.marketing.google_tag_manager }}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{site.Params.marketing.google_tag_manager}}"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+{{ end }}
+
+
   {{/* Load day/night theme. */}}
   {{/* Initialise default theme. */}}
   {{ if site.Params.day_night }}
