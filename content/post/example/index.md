@@ -18,14 +18,14 @@ keywords:
 # 文章分类,在列表页显示(暂时使用tags)
 categories: 
 
-# 自定义url
+# 自定义url,如果为空则按配置选项"permalinks"
 url: "/example"
 # 分类排序权重
 tags_weight: 100
 # 文章排序权重
 weight: 100
 # 是否精选文章,显示在首页
-featured: true
+featured: false
 # 草稿开关,开启则文章不会打包
 draft: true
 # 是否显示目录
@@ -33,7 +33,7 @@ toc: true
 # 类型,默认是目录名,所以"post",也可以写"widget_page","dosc"等
 type: post
 # 文章添加时间
-date: 2020-05-03T19:54:10+08:00
+date: 2021-01-01T00:00:00+08:00
 # 文章更新时间,可开启 自动使用git时间
 # lastmod: 2020-05-03T19:54:10+08:00
 # 定时发布时间
@@ -53,7 +53,7 @@ commentable: true
 # 是否允许编辑(跳到github,前提是github有权限)
 editable: false
 # 作者
-authors: 
+authors:
 - admin
 
 # Markdown Slides (optional).

@@ -6,7 +6,7 @@ subtitle: ""
 summary: "平时学习中,比较重要的知识点,记下来备忘"
 
 # 标签
-tags: 
+tags:
 - Node
 
 #关键字
@@ -332,7 +332,7 @@ image:
 * 端口号<1024为系统预留端口
 * uid < 500 为系统用户
 * 非`root`用户不能监听<1024的端口(所以一般`root`启动`nginx`)
-* bnoody为Linux非登录用户,其作为nginx运行用户可保证安全
+* nobody为Linux非登录用户,其作为nginx运行用户可保证安全
 * `Linux`的共享:`NFS`协议
 * `windows`与`linux`共享:`SMB`协议(`Samba`软件)
 

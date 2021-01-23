@@ -251,7 +251,7 @@ site_views = true
   # 登录账号,填写"认证回调地址"要注意,填写的是重定向后的域名
   [comments.gitment]
     owner = "twbworld" #GitHub用户名或用户ID,ID获取: https://api.github.com/users/[GitHub用户名]
-    repo = "twbworld.github.io" #repositories仓库名称
+    repo = "twbworld.GitHub.io" #repositories仓库名称
     client_id = "21184f6e00f998440f3a"
     client_secret = "de270706bf4c583ee94665dc8a3ae08ac446a450"
 
