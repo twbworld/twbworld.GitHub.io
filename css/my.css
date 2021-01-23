@@ -222,7 +222,8 @@ ul.toc-top {
 }
 
 #container .gitment-markdown {
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(255, 255, 255, 0.68)
 }
 
 
