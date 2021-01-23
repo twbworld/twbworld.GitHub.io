@@ -181,6 +181,13 @@ ul.toc-top {
 #container .gitment-comment-header .gitment-comment-name {
   color: rgba(255, 255, 255, 0.68);
 }
+#container .gitment-container{
+  color: rgba(255, 255, 255, 0.68) !important;
+}
+
+#container .gitment-comment-header{
+  background-color: rgba(0, 0, 0, 0) !important;
+}
 
 #container .gitment-comments-init-btn:disabled,
 #container .gitment-editor-submit:disabled,
@@ -215,7 +222,8 @@ ul.toc-top {
 }
 
 #container .gitment-markdown {
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(255, 255, 255, 0.68)
 }
 
 
