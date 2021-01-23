@@ -1,4 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>忐忑の博客</title><link>https://twbworld.github.io/post/</link><atom:link href="https://twbworld.github.io/post/index.xml" rel="self" type="application/rss+xml"/><description>忐忑の博客</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202021_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><image><url>https://twbworld.github.io/media/avatar.jpg</url><title>忐忑の博客</title><link>https://twbworld.github.io/post/</link></image><item><title>学习笔记</title><link>https://twbworld.github.io/post/node/</link><pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate><guid>https://twbworld.github.io/post/node/</guid><description>&lt;h2 id="扩展知识">扩展知识&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>忐忑の博客</title><link>https://twbworld.github.io/post/</link><atom:link href="https://twbworld.github.io/post/index.xml" rel="self" type="application/rss+xml"/><description>忐忑の博客</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202021_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><image><url>https://twbworld.github.io/media/avatar.jpg</url><title>忐忑の博客</title><link>https://twbworld.github.io/post/</link></image><item><title>GitHub Actions无法触发</title><link>https://twbworld.github.io/post/github_actions_invalid/</link><pubDate>Sat, 23 Jan 2021 19:00:00 +0800</pubDate><guid>https://twbworld.github.io/post/github_actions_invalid/</guid><description>&lt;h2 id="问题">问题&lt;/h2>
+&lt;blockquote>
+&lt;p>刚刚接触github actions实现CI/CD, 遇到了一个yml文件触发失败的问题&lt;/p>
+&lt;/blockquote>
+&lt;p>yml文件配置如下 :&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yml" data-lang="yml">&lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">ci-test&lt;/span>
+&lt;span style="color:#f92672">on&lt;/span>:
+&lt;span style="color:#f92672">pull_request&lt;/span>:
+&lt;span style="color:#f92672">branches&lt;/span>:
+- &lt;span style="color:#ae81ff">dev&lt;/span>
+&lt;span style="color:#f92672">jobs&lt;/span>:
+&lt;span style="color:#f92672">ssh-login&lt;/span>:
+&lt;span style="color:#f92672">runs-on&lt;/span>: &lt;span style="color:#ae81ff">ubuntu-latest&lt;/span>
+&lt;span style="color:#f92672">steps&lt;/span>:
+- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">appleboy/ssh-action@master&lt;/span>
+&lt;span style="color:#f92672">with&lt;/span>:
+&lt;span style="color:#f92672">host&lt;/span>: &lt;span style="color:#ae81ff">${{ secrets.HOST }}&lt;/span>
+&lt;span style="color:#f92672">username&lt;/span>: &lt;span style="color:#ae81ff">${{ secrets.USERNAME }}&lt;/span>
+&lt;span style="color:#f92672">key&lt;/span>: &lt;span style="color:#ae81ff">${{ secrets.KEY }}&lt;/span>
+&lt;span style="color:#f92672">port&lt;/span>: &lt;span style="color:#ae81ff">${{ secrets.PORT }}&lt;/span>
+&lt;span style="color:#f92672">script&lt;/span>: |&lt;span style="color:#e6db74">
+&lt;/span>&lt;span style="color:#e6db74"> &lt;/span> &lt;span style="color:#ae81ff">ls ./&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>当我 &lt;code>git pull&lt;/code> 时, 却没有触发该yml文件(在github项目的Actions的选项卡下不存在任务)&lt;br>
+但是,当把触发条件 &lt;code>pull_request&lt;/code> 改成 &lt;code>push&lt;/code> , &lt;code>git push&lt;/code> 却意外的成功了触发了Actions&lt;/p>
+&lt;h2 id="解决">解决&lt;/h2>
+&lt;p>最后多次尝试,才发现问题 :&lt;/p>
+&lt;p>&lt;em>&lt;strong>&lt;code>pull_request&lt;/code> 触发条件只能在默认分支上使用, 也就是说我的配置项 &lt;code>branches&lt;/code> 下的 &lt;code>dev&lt;/code> 不是项目的默认分支, 所以触发Actions失败, 除此之外还有 &lt;code>workflow_run&lt;/code> | &lt;code>issue&lt;/code>&lt;/strong>&lt;/em>&lt;/p>
+&lt;blockquote>
+&lt;p>都怪自己没有认真看
+&lt;a href="https://docs.github.com/cn/actions/reference/events-that-trigger-workflows" target="_blank" rel="noopener">文档&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>另外再做个笔记 :&lt;br>
+如果 &lt;code>workflows&lt;/code> 目录下有多个yml, GitHub-Actions默认是并行触发的, 如果想实现按顺序触发, 请使用
+&lt;a href="https://docs.github.com/cn/actions/reference/events-that-trigger-workflows#workflow_run" target="_blank" rel="noopener">&lt;code>workflow_run&lt;/code>&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>GitHub-Actions 真香 !&lt;/p>
+&lt;/blockquote></description></item><item><title>学习笔记</title><link>https://twbworld.github.io/post/node/</link><pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate><guid>https://twbworld.github.io/post/node/</guid><description>&lt;h2 id="扩展知识">扩展知识&lt;/h2>
 &lt;ul>
 &lt;li>在 &lt;code>Windows&lt;/code> 下配置文件,注意 &lt;code>\n&lt;/code> 和 &lt;code>\r&lt;/code> 和 &lt;code>\t&lt;/code> 会被转义,要把 &lt;code>\&lt;/code> 改成 &lt;code>/&lt;/code>&lt;/li>
 &lt;/ul>
@@ -691,7 +727,7 @@
 &lt;li>端口号&amp;lt;1024为系统预留端口&lt;/li>
 &lt;li>uid &amp;lt; 500 为系统用户&lt;/li>
 &lt;li>非&lt;code>root&lt;/code>用户不能监听&amp;lt;1024的端口(所以一般&lt;code>root&lt;/code>启动&lt;code>nginx&lt;/code>)&lt;/li>
-&lt;li>bnoody为Linux非登录用户,其作为nginx运行用户可保证安全&lt;/li>
+&lt;li>nobody为Linux非登录用户,其作为nginx运行用户可保证安全&lt;/li>
 &lt;li>&lt;code>Linux&lt;/code>的共享:&lt;code>NFS&lt;/code>协议&lt;/li>
 &lt;li>&lt;code>windows&lt;/code>与&lt;code>linux&lt;/code>共享:&lt;code>SMB&lt;/code>协议(&lt;code>Samba&lt;/code>软件)&lt;/li>
 &lt;/ul>

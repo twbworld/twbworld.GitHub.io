@@ -691,7 +691,7 @@
 &lt;li>端口号&amp;lt;1024为系统预留端口&lt;/li>
 &lt;li>uid &amp;lt; 500 为系统用户&lt;/li>
 &lt;li>非&lt;code>root&lt;/code>用户不能监听&amp;lt;1024的端口(所以一般&lt;code>root&lt;/code>启动&lt;code>nginx&lt;/code>)&lt;/li>
-&lt;li>bnoody为Linux非登录用户,其作为nginx运行用户可保证安全&lt;/li>
+&lt;li>nobody为Linux非登录用户,其作为nginx运行用户可保证安全&lt;/li>
 &lt;li>&lt;code>Linux&lt;/code>的共享:&lt;code>NFS&lt;/code>协议&lt;/li>
 &lt;li>&lt;code>windows&lt;/code>与&lt;code>linux&lt;/code>共享:&lt;code>SMB&lt;/code>协议(&lt;code>Samba&lt;/code>软件)&lt;/li>
 &lt;/ul>
