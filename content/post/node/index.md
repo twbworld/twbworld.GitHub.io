@@ -168,7 +168,6 @@ image:
 | netstat -antup \| grep nginx       | 查看进程或端口等 |
 | curl ifconfig.me                  | 查看公网ip |
 | rpm -qa\|grep                      | 查看应用程序 |
-| yum install -y nginx              | 安装软件 |
 | pkill -HUP nginx                  | 系统级别重载配置文件 |
 | systemctl status nginx.service    | 查看状态(或service nginx status) |
 | chkconfig iptables off            | 永久关闭防火墙 |
@@ -189,9 +188,8 @@ image:
 
 | 命令 | 描述 |
 | ---- | ---- |
-| `git init`                                    | 初始化为git管理仓库 |
-| `git status`                                  | 仓库状态 |
 | `git diff <file>`                             | 工作区版本库对比 |
+| `git diff <commit-id> <commit-id> --stat`    | 比较两个版本变化了的文件 |
 | `git commit --amend`                          | 修改已commit的备注 |
 | `git commit –am <备注>`                       | 直接跳过add命令 |
 | `git reset --hard HEAD`                       | 还原最新版 |
@@ -200,28 +198,21 @@ image:
 | `git checkout -- <file>`                      | 放弃工作区的修改 |
 | `git checkout . && git clean -df`             | 清除所有新增的文件目录 |
 | `git checkout –b <name>`                      | 创建并切换分支 |
-| `git branch –d <name>`                        | 删除分支 |
 | `git branch -D <name>`                        | 丢弃未合并的分支 |
 | `git branch -r -d origin/<name> && git push origin :<name>`     | 删除远程分支 |
-| `git branch`                                  | 查看分支 |
-| `git merge <name>`                            | 合并分支 |
 | `git mergetool`                               | 解决冲突的合并工具 |
 | `git tag -a <name> -m <备注> <commit-id>`     | 创建并指定标签信息 |
-| `git tag`                                     | 查看所有标签 |
 | `git show <name>`                             | 查看标签信息 |
 | `git stash`                                   | 保存当前工作现场 |
 | `git stash pop`                               | 恢复并删除工作现场 |
 | `git stash list`                              | 查看工作现场 |
 | `git stash apply <stash@{0}>`                 | 恢复工作现场 |
 | `git stash drop <stash@{0}>`                  | 删除工作现场 |
-| `git push -u origin master`                   | 首次推送 |
-| `git clone <远程项目地址>`                     | 克隆远程仓库 |
 | `git reflog <file>`                           | 命令历史 |
 | `git revert <commit-id>`                      | 撤销某个版本 |
 | `git cherry-pick <commit-id>`                 | 提取某个分支的某个版本到当前分支 |
 | `git check-ignore -v <file>`                  | 检查哪个规则忽略了文件 |
 | `git rm -rf --cached . && git add -A`        | 清徐缓存,用于更新gitignore |
-| `git diff <commit-id> <commit-id> --stat`    | 比较两个版本变化了的文件 |
 | `git submodule add <远程项目地址> <路径>`      | 添加子模块 |
 | `git submodule update --init --recursive`     | 下载所有子模块 |
 | `git submodule update --remote`               | 更新所有子模块 |
@@ -342,6 +333,32 @@ image:
 | 可执行可读   | xr | 可以进入该目录并读取该目录中的内容,不能创建文件 |
 | 可执行可写   | xw | 可以创建文件但是不能读取 |
 
+ubuntu环境安装流程 :  
+``` txt
+.bashrc命令别名
+ufw防火墙关闭
+静态ip
+ali源
+vim安装及.vimrc解决乱码
+ssh安装配置
+samba安装配置;用户:root;密码:root;
+传项目文件
+python升级
+net-tools安装
+htop安装
+git安装
+tig安装
+tree安装
+screen安装
+docker安装
+docker-compose安装
+golang安装
+hugo安装
+node安装
+php安装
+mysql安装
+```
+
 
 
 
@@ -416,7 +433,7 @@ systemctl status nginx.service
 
 
 
-## yum安装指定版本
+## CentOS指定版本安装
 
     1. 到官网找到对应版本的rpm包,如:http://nginx.org/packages
     2. 下载rpm包:wget http://nginx.org/packages/.../xxx.rpm
@@ -608,7 +625,7 @@ upstream proxys2 {
 }
 server {
     listen 80;
-    server_name www.centos.top centos.top;
+    server_name www.domain.top domain.top;
     index index.html index.htm index.php;
     location / {
         proxy_pass http://proxys;
@@ -629,7 +646,7 @@ server {
 #前端请求代理的配置
 server {
     listen 8081;
-    server_name www.centos.top centos.top;
+    server_name www.domain.top domain.top;
     location / {
        root /var/www/html/tp/public;
     }
@@ -775,36 +792,36 @@ keepalive=true
 * 新建数据库  
     `CREATE DATABASE mydb CHARACTER SET utf8 COLLATE utf8_general_ci`
 * 插入数据  
-    `insert into $twb (id,name,tel) values('2','tab',null)`
+    `insert into $my_name (id,name,tel) values('2','tab',null)`
 * 删除数据  
-    `delete from twb where id = 1;`
+    `delete from my_name where id = 1;`
 * 修改数据  
-    `update twb set id='2',name='tab' where id=1;`
+    `update my_name set id='2',name='tab' where id=1;`
 * 插入字段  
-    `alter table twb add id varchar(32)`
+    `alter table my_name add id varchar(32)`
 * 删除字段  
-    `alter table twb drop id`
+    `alter table my_name drop id`
 * 去掉name重复的  
-    `SELECT DISTINCT name FROM twb`
+    `SELECT DISTINCT name FROM my_name`
 * 计算个数  
-    `select count(*) from twb`
+    `select count(*) from my_name`
 * 计算总和  
-    `select sum(*) from twb`
+    `select sum(*) from my_name`
 * 计算平均  
-    `select sum(*)/count(*) from twb`
+    `select sum(*)/count(*) from my_name`
 * 计算平均  
-    `select avg(name) from twb`
+    `select avg(name) from my_name`
 * 最小值  
-    `select min(name) from twb`
+    `select min(name) from my_name`
 
 * 双重查询,查询指定最小值对应的的所有字段  
-    `SELECT * FROM twb WHERE name=(SELECT max(name)FROM twb)`
+    `SELECT * FROM my_name WHERE name=(SELECT max(name)FROM my_name)`
 * 根据指定字段分类  
-    `select * from twb group by name;`
+    `select * from my_name group by name;`
 * 表的联合查询  
-    `SELECT * FROM twb as a INNER JOIN twb2 as b on a.name=b.id`
-* 左查询,就是当twb跟twb2的的值不相对应则以twb为主要,twb2多出的值则省略  
-    `SELECT * FROM twb as a left outer JOIN twb2 as b on a.name=b.id`
+    `SELECT * FROM my_name as a INNER JOIN my_name2 as b on a.name=b.id`
+* 左查询,就是当my_name跟my_name2的的值不相对应则以my_name为主要,my_name2多出的值则省略  
+    `SELECT * FROM my_name as a left outer JOIN my_name2 as b on a.name=b.id`
 
 
 
@@ -861,13 +878,13 @@ keepalive=true
     `header('Location:#')`
 * php格式插入html遍历
     ``` php
-    <?php foreach ($twb as $x => $y){ ?>
+    <?php foreach ($my_name as $x => $y){ ?>
         <li><?php echo $y['z'] ?></li>
     <?php } ?>
     ```
 * 解决ajax夸域
     ``` php
-    header('Access-Control-Allow-Origin:twb.com'); //可以用*允许所有
+    header('Access-Control-Allow-Origin:demain.com'); //可以用*允许所有
     header('Content-Type:application/json; charset=utf-8');
     header('Access-Control-Allow-Methods: GET, POST, DELETE');
     header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
@@ -882,11 +899,11 @@ keepalive=true
 | 函数 | 描述 |
 | ---- | ---- |
 | rand(x,y)                   | 在xy之间取随机数 |
-| implode('xx','$twb')        | 用xx隔开twb中每个元素 |
+| implode('xx','$my_name')        | 用xx隔开my_name中每个元素 |
 | explode()                   | 把字符串打散为数组. |
 | arry_merge()                | 打散混乱数组重新排列 |
-| in_array($xy,$twb)          | 数组$twb是否含$xy |
-| mb_substr($twb,x,y,'utf-8') | 截取字符串,从第x个字符开始截取y个字符 |
+| in_array($xy,$my_name)          | 数组$my_name是否含$xy |
+| mb_substr($my_name,x,y,'utf-8') | 截取字符串,从第x个字符开始截取y个字符 |
 | strtotime()                 | 将任何英文文本的日期或时间描述解析为 Unix 时间戳. |
 | 字符串类型 |-- |
 | addcslashes()               | 返回在指定的字符前添加反斜杠的字符串. |
@@ -1016,8 +1033,8 @@ keepalive=true
     `div{overflow:hidden;width:11px} div ul{width:12px}   li{width:5px;margin_right:1px}`
 * 轮播图不能有滚动条  
     `在ul父级加overflow:hidden;width:100%;position: relative;//position用于ul居中`
-* 清除浮动,class是twb就可以清除浮动  
-    `.twb:after{content:""; display:block; height:0; visibility:hidden; clear:both;}`
+* 清除浮动,class是my_name就可以清除浮动  
+    `.my_name:after{content:""; display:block; height:0; visibility:hidden; clear:both;}`
 * 鼠标悬浮图片放大  
     `.div:hover img{transform: scale(1.03);transition: all 1s ease 0s;-webkit-transform: scale(1.03);-webkit-transform: all 1s ease 0s;}`
 * iframe高度
