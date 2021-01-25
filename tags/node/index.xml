@@ -163,10 +163,6 @@
 &lt;td>查看应用程序&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>yum install -y nginx&lt;/td>
-&lt;td>安装软件&lt;/td>
-&lt;/tr>
-&lt;tr>
 &lt;td>pkill -HUP nginx&lt;/td>
 &lt;td>系统级别重载配置文件&lt;/td>
 &lt;/tr>
@@ -234,16 +230,12 @@
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td>&lt;code>git init&lt;/code>&lt;/td>
-&lt;td>初始化为git管理仓库&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>git status&lt;/code>&lt;/td>
-&lt;td>仓库状态&lt;/td>
-&lt;/tr>
-&lt;tr>
 &lt;td>&lt;code>git diff &amp;lt;file&amp;gt;&lt;/code>&lt;/td>
 &lt;td>工作区版本库对比&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git diff &amp;lt;commit-id&amp;gt; &amp;lt;commit-id&amp;gt; --stat&lt;/code>&lt;/td>
+&lt;td>比较两个版本变化了的文件&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;code>git commit --amend&lt;/code>&lt;/td>
@@ -278,10 +270,6 @@
 &lt;td>创建并切换分支&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;code>git branch –d &amp;lt;name&amp;gt;&lt;/code>&lt;/td>
-&lt;td>删除分支&lt;/td>
-&lt;/tr>
-&lt;tr>
 &lt;td>&lt;code>git branch -D &amp;lt;name&amp;gt;&lt;/code>&lt;/td>
 &lt;td>丢弃未合并的分支&lt;/td>
 &lt;/tr>
@@ -290,24 +278,12 @@
 &lt;td>删除远程分支&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;code>git branch&lt;/code>&lt;/td>
-&lt;td>查看分支&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>git merge &amp;lt;name&amp;gt;&lt;/code>&lt;/td>
-&lt;td>合并分支&lt;/td>
-&lt;/tr>
-&lt;tr>
 &lt;td>&lt;code>git mergetool&lt;/code>&lt;/td>
 &lt;td>解决冲突的合并工具&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;code>git tag -a &amp;lt;name&amp;gt; -m &amp;lt;备注&amp;gt; &amp;lt;commit-id&amp;gt;&lt;/code>&lt;/td>
 &lt;td>创建并指定标签信息&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>git tag&lt;/code>&lt;/td>
-&lt;td>查看所有标签&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;code>git show &amp;lt;name&amp;gt;&lt;/code>&lt;/td>
@@ -334,14 +310,6 @@
 &lt;td>删除工作现场&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;code>git push -u origin master&lt;/code>&lt;/td>
-&lt;td>首次推送&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>git clone &amp;lt;远程项目地址&amp;gt;&lt;/code>&lt;/td>
-&lt;td>克隆远程仓库&lt;/td>
-&lt;/tr>
-&lt;tr>
 &lt;td>&lt;code>git reflog &amp;lt;file&amp;gt;&lt;/code>&lt;/td>
 &lt;td>命令历史&lt;/td>
 &lt;/tr>
@@ -360,10 +328,6 @@
 &lt;tr>
 &lt;td>&lt;code>git rm -rf --cached . &amp;amp;&amp;amp; git add -A&lt;/code>&lt;/td>
 &lt;td>清徐缓存,用于更新gitignore&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>git diff &amp;lt;commit-id&amp;gt; &amp;lt;commit-id&amp;gt; --stat&lt;/code>&lt;/td>
-&lt;td>比较两个版本变化了的文件&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;code>git submodule add &amp;lt;远程项目地址&amp;gt; &amp;lt;路径&amp;gt;&lt;/code>&lt;/td>
@@ -721,7 +685,30 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h2 id="git-1">Git&lt;/h2>
+&lt;p>ubuntu环境安装流程 :&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-txt" data-lang="txt">.bashrc命令别名
+ufw防火墙关闭
+静态ip
+ali源
+vim安装及.vimrc解决乱码
+ssh安装配置
+samba安装配置;用户:root;密码:root;
+传项目文件
+python升级
+net-tools安装
+htop安装
+git安装
+tig安装
+tree安装
+screen安装
+docker安装
+docker-compose安装
+golang安装
+hugo安装
+node安装
+php安装
+mysql安装
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="git-1">Git&lt;/h2>
 &lt;ul>
 &lt;li>
 &lt;p>初始配置Git&lt;/p>
@@ -792,7 +779,7 @@ vim /etc/init.d/nginx &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span
 chkconfig --add /etc/init.d/nginx
 chkconfig nginx on
 systemctl status nginx.service
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="yum安装指定版本">yum安装指定版本&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="centos指定版本安装">CentOS指定版本安装&lt;/h2>
 &lt;pre>&lt;code>1. 到官网找到对应版本的rpm包,如:http://nginx.org/packages
 2. 下载rpm包:wget http://nginx.org/packages/.../xxx.rpm
 3. 安装:yum install -y xxx.rpm
@@ -991,7 +978,7 @@ server 192.168.43.175:9090 weight&lt;span style="color:#f92672">=&lt;/span>2;
 &lt;span style="color:#f92672">}&lt;/span>
 server &lt;span style="color:#f92672">{&lt;/span>
 listen 80;
-server_name www.centos.top centos.top;
+server_name www.domain.top domain.top;
 index index.html index.htm index.php;
 location / &lt;span style="color:#f92672">{&lt;/span>
 proxy_pass http://proxys;
@@ -1012,7 +999,7 @@ add_header X-Slave $upstream_addr;
 &lt;span style="color:#75715e">#前端请求代理的配置&lt;/span>
 server &lt;span style="color:#f92672">{&lt;/span>
 listen 8081;
-server_name www.centos.top centos.top;
+server_name www.domain.top domain.top;
 location / &lt;span style="color:#f92672">{&lt;/span>
 root /var/www/html/tp/public;
 &lt;span style="color:#f92672">}&lt;/span>
@@ -1166,63 +1153,63 @@ keepalive&lt;span style="color:#f92672">=&lt;/span>true
 &lt;/li>
 &lt;li>
 &lt;p>插入数据&lt;br>
-&lt;code>insert into $twb (id,name,tel) values('2','tab',null)&lt;/code>&lt;/p>
+&lt;code>insert into $my_name (id,name,tel) values('2','tab',null)&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>删除数据&lt;br>
-&lt;code>delete from twb where id = 1;&lt;/code>&lt;/p>
+&lt;code>delete from my_name where id = 1;&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>修改数据&lt;br>
-&lt;code>update twb set id='2',name='tab' where id=1;&lt;/code>&lt;/p>
+&lt;code>update my_name set id='2',name='tab' where id=1;&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>插入字段&lt;br>
-&lt;code>alter table twb add id varchar(32)&lt;/code>&lt;/p>
+&lt;code>alter table my_name add id varchar(32)&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>删除字段&lt;br>
-&lt;code>alter table twb drop id&lt;/code>&lt;/p>
+&lt;code>alter table my_name drop id&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>去掉name重复的&lt;br>
-&lt;code>SELECT DISTINCT name FROM twb&lt;/code>&lt;/p>
+&lt;code>SELECT DISTINCT name FROM my_name&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>计算个数&lt;br>
-&lt;code>select count(*) from twb&lt;/code>&lt;/p>
+&lt;code>select count(*) from my_name&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>计算总和&lt;br>
-&lt;code>select sum(*) from twb&lt;/code>&lt;/p>
+&lt;code>select sum(*) from my_name&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>计算平均&lt;br>
-&lt;code>select sum(*)/count(*) from twb&lt;/code>&lt;/p>
+&lt;code>select sum(*)/count(*) from my_name&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>计算平均&lt;br>
-&lt;code>select avg(name) from twb&lt;/code>&lt;/p>
+&lt;code>select avg(name) from my_name&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>最小值&lt;br>
-&lt;code>select min(name) from twb&lt;/code>&lt;/p>
+&lt;code>select min(name) from my_name&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>双重查询,查询指定最小值对应的的所有字段&lt;br>
-&lt;code>SELECT * FROM twb WHERE name=(SELECT max(name)FROM twb)&lt;/code>&lt;/p>
+&lt;code>SELECT * FROM my_name WHERE name=(SELECT max(name)FROM my_name)&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>根据指定字段分类&lt;br>
-&lt;code>select * from twb group by name;&lt;/code>&lt;/p>
+&lt;code>select * from my_name group by name;&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>表的联合查询&lt;br>
-&lt;code>SELECT * FROM twb as a INNER JOIN twb2 as b on a.name=b.id&lt;/code>&lt;/p>
+&lt;code>SELECT * FROM my_name as a INNER JOIN my_name2 as b on a.name=b.id&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>左查询,就是当twb跟twb2的的值不相对应则以twb为主要,twb2多出的值则省略&lt;br>
-&lt;code>SELECT * FROM twb as a left outer JOIN twb2 as b on a.name=b.id&lt;/code>&lt;/p>
+&lt;p>左查询,就是当my_name跟my_name2的的值不相对应则以my_name为主要,my_name2多出的值则省略&lt;br>
+&lt;code>SELECT * FROM my_name as a left outer JOIN my_name2 as b on a.name=b.id&lt;/code>&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h2 id="php">PHP&lt;/h2>
@@ -1276,12 +1263,12 @@ $a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&am
 &lt;li>跳转到#页面
 &lt;code>header('Location:#')&lt;/code>&lt;/li>
 &lt;li>php格式插入html遍历
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-php" data-lang="php">&lt;span style="color:#f92672">&amp;lt;?&lt;/span>&lt;span style="color:#a6e22e">php&lt;/span> &lt;span style="color:#66d9ef">foreach&lt;/span> ($twb &lt;span style="color:#66d9ef">as&lt;/span> $x &lt;span style="color:#f92672">=&amp;gt;&lt;/span> $y){ &lt;span style="color:#75715e">?&amp;gt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-php" data-lang="php">&lt;span style="color:#f92672">&amp;lt;?&lt;/span>&lt;span style="color:#a6e22e">php&lt;/span> &lt;span style="color:#66d9ef">foreach&lt;/span> ($my_name &lt;span style="color:#66d9ef">as&lt;/span> $x &lt;span style="color:#f92672">=&amp;gt;&lt;/span> $y){ &lt;span style="color:#75715e">?&amp;gt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
 &lt;/span>&lt;span style="color:#960050;background-color:#1e0010"> &amp;lt;li&amp;gt;&amp;lt;?php echo $y[&amp;#39;z&amp;#39;] ?&amp;gt;&amp;lt;/li&amp;gt;
 &lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&amp;lt;?php } ?&amp;gt;
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>解决ajax夸域
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-php" data-lang="php">&lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Access-Control-Allow-Origin:twb.com&amp;#39;&lt;/span>); &lt;span style="color:#75715e">//可以用*允许所有
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-php" data-lang="php">&lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Access-Control-Allow-Origin:demain.com&amp;#39;&lt;/span>); &lt;span style="color:#75715e">//可以用*允许所有
 &lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Content-Type:application/json; charset=utf-8&amp;#39;&lt;/span>);
 &lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Access-Control-Allow-Methods: GET, POST, DELETE&amp;#39;&lt;/span>);
 &lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept&amp;#39;&lt;/span>);
@@ -1305,8 +1292,8 @@ $a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&am
 &lt;td>在xy之间取随机数&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>implode(&amp;lsquo;xx&amp;rsquo;,'$twb')&lt;/td>
-&lt;td>用xx隔开twb中每个元素&lt;/td>
+&lt;td>implode(&amp;lsquo;xx&amp;rsquo;,'$my_name')&lt;/td>
+&lt;td>用xx隔开my_name中每个元素&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>explode()&lt;/td>
@@ -1317,11 +1304,11 @@ $a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&am
 &lt;td>打散混乱数组重新排列&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>in_array($xy,$twb)&lt;/td>
-&lt;td>数组$twb是否含$xy&lt;/td>
+&lt;td>in_array($xy,$my_name)&lt;/td>
+&lt;td>数组$my_name是否含$xy&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>mb_substr($twb,x,y,&amp;lsquo;utf-8&amp;rsquo;)&lt;/td>
+&lt;td>mb_substr($my_name,x,y,&amp;lsquo;utf-8&amp;rsquo;)&lt;/td>
 &lt;td>截取字符串,从第x个字符开始截取y个字符&lt;/td>
 &lt;/tr>
 &lt;tr>
@@ -1736,8 +1723,8 @@ $a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&am
 &lt;code>div{overflow:hidden;width:11px} div ul{width:12px} li{width:5px;margin_right:1px}&lt;/code>&lt;/li>
 &lt;li>轮播图不能有滚动条&lt;br>
 &lt;code>在ul父级加overflow:hidden;width:100%;position: relative;//position用于ul居中&lt;/code>&lt;/li>
-&lt;li>清除浮动,class是twb就可以清除浮动&lt;br>
-&lt;code>.twb:after{content:&amp;quot;&amp;quot;; display:block; height:0; visibility:hidden; clear:both;}&lt;/code>&lt;/li>
+&lt;li>清除浮动,class是my_name就可以清除浮动&lt;br>
+&lt;code>.my_name:after{content:&amp;quot;&amp;quot;; display:block; height:0; visibility:hidden; clear:both;}&lt;/code>&lt;/li>
 &lt;li>鼠标悬浮图片放大&lt;br>
 &lt;code>.div:hover img{transform: scale(1.03);transition: all 1s ease 0s;-webkit-transform: scale(1.03);-webkit-transform: all 1s ease 0s;}&lt;/code>&lt;/li>
 &lt;li>iframe高度
