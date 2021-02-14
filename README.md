@@ -9,6 +9,7 @@
 [![](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://github.com/gohugoio/hugo)
 [![](https://img.shields.io/badge/theme-wowchemy-00d1b2?logo=github)](https://github.com/wowchemy/wowchemy-hugo-modules)
 [![](https://img.shields.io/badge/fork-starter%20academic-00d1b2?logo=github)](https://github.com/wowchemy/starter-academic)
+[![](https://img.shields.io/github/license/twbworld/twbworld.GitHub.io)](https://github.com/twbworld/twbworld.GitHub.io/blob/master/LICENSE)
 
 
 ## 外部临时浏览本地

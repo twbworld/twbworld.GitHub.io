@@ -108,8 +108,8 @@ jobs:
           script: |
             ls ./
 ```
-当我 `git pull` 时, 却没有触发该yml文件(在github项目的Actions的选项卡下不存在任务)  
-但是,当把触发条件 `pull_request` 改成 `push` , `git push` 却意外的成功了触发了Actions
+当使用 `git pull` 时, 却没有触发该yml文件(在github项目的Actions的选项卡下不存在任务)  
+但是,当把触发条件 `pull_request` 改成 `push` , 再push到Github 却意外的成功了触发了Actions
 
 ## 解决
 
@@ -117,7 +117,7 @@ jobs:
 
 ***`pull_request` 触发条件只能在默认分支上使用, 也就是说我的配置项 `branches` 下的 `dev` 不是项目的默认分支, 所以触发Actions失败, 除此之外还有 `workflow_run` | `issue`***
 
-> 都怪自己没有认真看[文档](https://docs.github.com/cn/actions/reference/events-that-trigger-workflows)
+> 都怪没认真看[文档](https://docs.github.com/cn/actions/reference/events-that-trigger-workflows)
 
 另外再做个笔记 :  
 如果 `workflows` 目录下有多个yml, GitHub-Actions默认是并行触发的, 如果想实现按顺序触发, 请使用 [`workflow_run`](https://docs.github.com/cn/actions/reference/events-that-trigger-workflows#workflow_run)

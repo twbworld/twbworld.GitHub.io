@@ -111,8 +111,6 @@ image:
 
 ## 扩展知识
 
-* 在 `Windows` 下配置文件,注意 `\n` 和 `\r` 和 `\t` 会被转义,要把 `\` 改成 `/`
-
 ### 双系统制作
 > <https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103>
 
@@ -145,7 +143,7 @@ image:
 | pwd                               | 当前目录 |
 | cat                               | 查看文件内容 |
 | mkdir/mv/cp/rm                    | 文件名操作 |
-| \cp                               | 不使用alias |
+| \cp                               | 当有同名文件,不需要输"Y"即可覆盖 |
 | useradd                           | 创建新用户 |
 | which                             | 查找命令 |
 | chown                             | 设置文件拥有者 |
@@ -164,20 +162,20 @@ image:
 | last                              | 用户登录历史记录 |
 | id                                | 查看用户所在的组 |
 | lsof -i:80                        | 查看端口 |
-| man                               | 命令帮助(可安装中文软件) |
 | netstat -antup \| grep nginx       | 查看进程或端口等 |
+| man                               | 命令帮助(可安装中文软件) |
 | curl ifconfig.me                  | 查看公网ip |
 | rpm -qa\|grep                      | 查看应用程序 |
 | pkill -HUP nginx                  | 系统级别重载配置文件 |
 | systemctl status nginx.service    | 查看状态(或service nginx status) |
 | chkconfig iptables off            | 永久关闭防火墙 |
 | chkconfig iptables on             | 永久关闭后重启 |
-| ln                                | 建立连接,用于设置系统变量的第一步 |
+| ln                                | 软连接 |
 | nohup <shell\>                     | 在后台运行shell命令 |
 | tree -LNFC 2                       | tree软件常用命令 |
 | tar -xaf                        | 识别压缩文件类型,进行解压(-caf) |
 | unzip -O cp936                  | zip文件解压避免乱码 |
-| find / -name "*.txt" \| xargs grep "hello" | 查找文件内容 |
+| find / -type f -name "*.txt" \| xargs grep "hello" | 查找文件内容 |
 | cat <filename\> \| openssl dgst -sha256 -binary \| openssl base64 -A | 计算文件sha256校验值(css校验方法:`<link href="filename.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=">`) |
 | sha256sum filename | 计算文件md5校验值 |
 | docker container list -aq \|xargs docker container rm | docker清理容器(同样效果 `docker container prune`) |
@@ -340,13 +338,13 @@ ufw防火墙关闭
 静态ip
 ali源
 vim安装及.vimrc解决乱码
-ssh安装配置
-samba安装配置;用户:root;密码:root;
+ssh安装及配置
+samba安装及配置;用户:root;密码:root;
 传项目文件
 python升级
 net-tools安装
 htop安装
-git安装
+git安装及配置
 tig安装
 tree安装
 screen安装
