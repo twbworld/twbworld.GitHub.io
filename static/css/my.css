@@ -116,12 +116,12 @@
 }
 
 /* 首页箭头 */
-.dark .btn-primary {
+.dark .cta-btns .btn-primary {
   color: #fff
 }
 
 .dark .btn-primary i:hover {
-  color: #343a40 !important;
+  color: #bbdefb !important;
   transition: color 0.3s ease !important;
 }
 
@@ -129,6 +129,9 @@
   text-transform: none;
 }
 
+.btn-primary{
+    background-color: #2962ff
+}
 
 /* 文章详情左侧栏 */
 .post-scroll {
@@ -235,13 +238,14 @@ ul.toc-top {
   padding: 0 10% 10px 0;
 }
 
-.see-all a {
+#top .see-all a {
   color: #fff;
 }
 
 #top .see-all a:hover {
-  color: #ff0000;
+  color: #bbdefb;
 }
+
 
 /* post列表页文章 */
 .universal-wrapper {
@@ -268,6 +272,9 @@ ul.toc-top {
   height: 100%;
   max-width: none;
 }
+.projects-container h3.article-title a:hover{
+  color: #2962ff
+}
 
 
 
@@ -279,6 +286,7 @@ ul.toc-top {
 
 .home-section {
   padding: 0;
+  background: none !important;
 }
 
 ul.network-icon {
@@ -297,4 +305,14 @@ ul.network-icon {
   position: absolute;
   top: 3px;
   left: 5px;
+}
+.site-footer li a{
+  color: #2962ff;
+}
+
+
+
+/*个人页*/
+#top .network-icon li a{
+  color: #2962ff
 }

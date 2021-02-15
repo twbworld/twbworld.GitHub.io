@@ -1,3 +1,0 @@
-[submodule "docs/hugo-go-git"]
-	path = docs/hugo-go-git
-	url = https://github.com/twbworld/docker-hugo-go-git.git

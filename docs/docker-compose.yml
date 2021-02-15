@@ -22,9 +22,6 @@ x-logging: &default-logging
 
 services:
     hugo:
-        build:
-            context: ${PWD}/hugo-go-git #!!!!!!!!!!!!!!!!注意#!!!!!!!!!!!!!!!!
-            dockerfile: Dockerfile
         image: twbworld/hugo-go-git:latest
         container_name: hugo
         hostname: docker-hugo

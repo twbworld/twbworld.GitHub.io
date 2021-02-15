@@ -1,7 +1,7 @@
 {{ if site.Params.comments.disqus.shortname }}
 <div id="disqus_thread"></div>
 <script>
-  let disqus_config = function () {
+  var disqus_config = function () {
     {{with .Params.disqus_identifier }}this.page.identifier = '{{ . }}';{{end}}
     {{with .Params.disqus_title }}this.page.title = '{{ . }}';{{end}}
     {{with .Params.disqus_url }}this.page.url = '{{ . | html  }}';{{end}}
@@ -59,5 +59,7 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <p class="dsq-brlink" style="font-size: 14px">评论功能由<a href="https://disqus.com" class="logo-disqus" style="font-size: 18px"> Disqus </a>提供支持<span style="font-size: 10px"> 需科学上网</span></p><!-- 此处有修改 -->
-
+{{ if (site.Params.comments.disqus.show_count | default true) }}
+  <script id="dsq-count-scr" src="https://{{site.Params.comments.disqus.shortname}}.disqus.com/count.js" async></script>
+{{end}}
 {{end}}

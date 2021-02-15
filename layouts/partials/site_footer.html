@@ -57,6 +57,7 @@
   {{/* Display copyright license. */}}
   {{ partial "site_footer_license" . }}
   <p class="powered-by">
+
     {{ if not (in (slice "book" "docs" "updates") .Type) }}
     <span class="float-right" aria-hidden="true">
       <a href="#" class="back-to-top">
@@ -65,6 +66,7 @@
         </span>
       </a>
     </span>
+
     {{ end }}
   </p>
 <!-- ===========版权=========end -->

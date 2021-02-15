@@ -31,3 +31,4 @@
 
 ## PS
 - robots.txt等文件位于static下
+- 在 `.github/workflows` 下存在 `CI/CD` 配置 , 可自动化发布

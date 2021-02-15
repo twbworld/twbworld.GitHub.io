@@ -1,8 +1,8 @@
 {{ $item := .item }}
 {{ $widget := .widget }}
-
 {{ $link := .link }}
 {{ $target := .target }}
+{{ $has_attachments := partial "functions/has_attachments" $item }}
 
 {{/* Get summary. */}}
 {{ $summary := "" }}
@@ -23,19 +23,25 @@
   <div class="card">
         <!-- =====================此处有修改==================begin -->
       {{ $imageSrc := ""}}
+      {{ $imagelqSrc := ""}}
 
       {{ if $item.Params.image.image }}
         {{ $imageSrc = $item.Params.image.image}}
+        {{ $imagelqSrc = $item.Params.image.image}}
       {{ else if $item.Params.header.image }}
         {{ $imageSrc = $item.Params.header.image}}
+        {{ $imagelqSrc = $item.Params.header.image}}
       {{ else if $resource }}
-        {{ $image := $resource.Resize (printf "550x q90 %s") }}
-        {{ $imageSrc = $image.RelPermalink}}
+        {{ $filters := slice (images.GaussianBlur 21) (images.Pixelate 8) }}
+        {{ $image :=  $resource.Resize "550x" }}
+        {{ $image_lq := ( $resource.Resize "550x q1").Filter $filters }}
+        {{ $imageSrc = $image_lq.RelPermalink}}
+        {{ $imagelqSrc = $image.RelPermalink}}
       {{ end }}
 
       {{ if $imageSrc }}
         <a href="{{ $link }}" target="_blank" {{ $target | safeHTMLAttr }} class="card-image hover-overlay">
-        <img src="{{ $imageSrc }}" alt="" class="img-responsive">
+        <img src="{{ $imageSrc }}" data-src="{{ $imagelqSrc }}" alt="{{ $item.Title }}" class="img-responsive lazyload">
         </a>
       {{ end }}
         <!-- =====================此处有修改==================end -->
@@ -46,6 +52,12 @@
       {{ with $summary }}
       <div class="article-style">
         <p>{{ . }}</p>
+      </div>
+      {{ end }}
+
+      {{ if $has_attachments }}
+      <div class="btn-links">
+        {{ partial "page_links" (dict "page" $item "is_list" 1) }}
       </div>
       {{ end }}
     </div>

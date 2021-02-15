@@ -42,14 +42,6 @@ subtitle = ""
     name = "All"
     tag = "*"
   
-  [[content.filter_button]]
-    name = "Hugo"
-    tag = "hugo"
-  
-  [[content.filter_button]]
-    name = "Other"
-    tag = "这是文章的tag"
-  
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
   columns = "1"
