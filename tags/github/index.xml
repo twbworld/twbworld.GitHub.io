@@ -20,18 +20,16 @@
 &lt;span style="color:#f92672">port&lt;/span>: &lt;span style="color:#ae81ff">${{ secrets.PORT }}&lt;/span>
 &lt;span style="color:#f92672">script&lt;/span>: |&lt;span style="color:#e6db74">
 &lt;/span>&lt;span style="color:#e6db74"> &lt;/span> &lt;span style="color:#ae81ff">ls ./&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>当我 &lt;code>git pull&lt;/code> 时, 却没有触发该yml文件(在github项目的Actions的选项卡下不存在任务)&lt;br>
-但是,当把触发条件 &lt;code>pull_request&lt;/code> 改成 &lt;code>push&lt;/code> , &lt;code>git push&lt;/code> 却意外的成功了触发了Actions&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>当使用 &lt;code>git pull&lt;/code> 时, 却没有触发该yml文件(在github项目的Actions的选项卡下不存在任务)&lt;br>
+但是,当把触发条件 &lt;code>pull_request&lt;/code> 改成 &lt;code>push&lt;/code> , 再push到Github 却意外的成功了触发了Actions&lt;/p>
 &lt;h2 id="解决">解决&lt;/h2>
 &lt;p>最后多次尝试,才发现问题 :&lt;/p>
 &lt;p>&lt;em>&lt;strong>&lt;code>pull_request&lt;/code> 触发条件只能在默认分支上使用, 也就是说我的配置项 &lt;code>branches&lt;/code> 下的 &lt;code>dev&lt;/code> 不是项目的默认分支, 所以触发Actions失败, 除此之外还有 &lt;code>workflow_run&lt;/code> | &lt;code>issue&lt;/code>&lt;/strong>&lt;/em>&lt;/p>
 &lt;blockquote>
-&lt;p>都怪自己没有认真看
-&lt;a href="https://docs.github.com/cn/actions/reference/events-that-trigger-workflows" target="_blank" rel="noopener">文档&lt;/a>&lt;/p>
+&lt;p>都怪没认真看&lt;a href="https://docs.github.com/cn/actions/reference/events-that-trigger-workflows" target="_blank" rel="noopener">文档&lt;/a>&lt;/p>
 &lt;/blockquote>
 &lt;p>另外再做个笔记 :&lt;br>
-如果 &lt;code>workflows&lt;/code> 目录下有多个yml, GitHub-Actions默认是并行触发的, 如果想实现按顺序触发, 请使用
-&lt;a href="https://docs.github.com/cn/actions/reference/events-that-trigger-workflows#workflow_run" target="_blank" rel="noopener">&lt;code>workflow_run&lt;/code>&lt;/a>&lt;/p>
+如果 &lt;code>workflows&lt;/code> 目录下有多个yml, GitHub-Actions默认是并行触发的, 如果想实现按顺序触发, 请使用 &lt;a href="https://docs.github.com/cn/actions/reference/events-that-trigger-workflows#workflow_run" target="_blank" rel="noopener">&lt;code>workflow_run&lt;/code>&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>GitHub-Actions 真香 !&lt;/p>
 &lt;/blockquote></description></item><item><title>搭建博客的准备</title><link>https://twbworld.github.io/post/blog_ready/</link><pubDate>Sun, 17 May 2020 19:06:47 +0800</pubDate><guid>https://twbworld.github.io/post/blog_ready/</guid><description>&lt;blockquote>
@@ -100,8 +98,7 @@
 &lt;/ul>
 &lt;p>缺点:&lt;/p>
 &lt;ul>
-&lt;li>gh-pages屏蔽了百度蜘蛛,用百度搜索引擎无法搜索出Github Pages的文章(但另一方面,百度相比Google的搜索质量差太多了;有&amp;quot;条件&amp;quot;的程序猿都善用Google吧?)解决办法并不是没有,
-&lt;a href="https://vercel.com/" target="_blank" rel="noopener">zeit.co&lt;/a> 可提供CDN服务&lt;/li>
+&lt;li>gh-pages屏蔽了百度蜘蛛,用百度搜索引擎无法搜索出Github Pages的文章(但另一方面,百度相比Google的搜索质量差太多了;有&amp;quot;条件&amp;quot;的程序猿都善用Google吧?)解决办法并不是没有,&lt;a href="https://vercel.com/" target="_blank" rel="noopener">zeit.co&lt;/a> 可提供CDN服务&lt;/li>
 &lt;/ul>
 &lt;hr>
 &lt;blockquote>

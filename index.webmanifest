@@ -2,8 +2,8 @@
   "name": "忐忑の博客",
   "short_name": "忐忑の博客",
   "lang": "zh-Hans",
-  "theme_color": "#2962ff",
-  "background_color": "#2962ff",
+  "theme_color": "#1565c0",
+  "background_color": "#1565c0",
   "icons": [{
     "src": "/images/icon_huf8f9e04b16a1b18d734a3b791d2e4cd6_136989_192x192_fill_lanczos_center_2.png",
     "sizes": "192x192",

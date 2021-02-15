@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Node | 忐忑の博客</title><link>https://twbworld.github.io/tags/node/</link><atom:link href="https://twbworld.github.io/tags/node/index.xml" rel="self" type="application/rss+xml"/><description>Node</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202021_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><image><url>https://twbworld.github.io/media/avatar.jpg</url><title>Node</title><link>https://twbworld.github.io/tags/node/</link></image><item><title>学习笔记</title><link>https://twbworld.github.io/post/node/</link><pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate><guid>https://twbworld.github.io/post/node/</guid><description>&lt;h2 id="扩展知识">扩展知识&lt;/h2>
-&lt;ul>
-&lt;li>在 &lt;code>Windows&lt;/code> 下配置文件,注意 &lt;code>\n&lt;/code> 和 &lt;code>\r&lt;/code> 和 &lt;code>\t&lt;/code> 会被转义,要把 &lt;code>\&lt;/code> 改成 &lt;code>/&lt;/code>&lt;/li>
-&lt;/ul>
 &lt;h3 id="双系统制作">双系统制作&lt;/h3>
 &lt;blockquote>
 &lt;p>&lt;a href="https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103">https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103&lt;/a>&lt;/p>
@@ -72,7 +69,7 @@
 &lt;/tr>
 &lt;tr>
 &lt;td>\cp&lt;/td>
-&lt;td>不使用alias&lt;/td>
+&lt;td>当有同名文件,不需要输&amp;quot;Y&amp;quot;即可覆盖&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>useradd&lt;/td>
@@ -147,12 +144,12 @@
 &lt;td>查看端口&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>man&lt;/td>
-&lt;td>命令帮助(可安装中文软件)&lt;/td>
-&lt;/tr>
-&lt;tr>
 &lt;td>netstat -antup | grep nginx&lt;/td>
 &lt;td>查看进程或端口等&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>man&lt;/td>
+&lt;td>命令帮助(可安装中文软件)&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>curl ifconfig.me&lt;/td>
@@ -180,7 +177,7 @@
 &lt;/tr>
 &lt;tr>
 &lt;td>ln&lt;/td>
-&lt;td>建立连接,用于设置系统变量的第一步&lt;/td>
+&lt;td>软连接&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>nohup &amp;lt;shell&amp;gt;&lt;/td>
@@ -199,7 +196,7 @@
 &lt;td>zip文件解压避免乱码&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>find / -name &amp;ldquo;*.txt&amp;rdquo; | xargs grep &amp;ldquo;hello&amp;rdquo;&lt;/td>
+&lt;td>find / -type f -name &amp;ldquo;*.txt&amp;rdquo; | xargs grep &amp;ldquo;hello&amp;rdquo;&lt;/td>
 &lt;td>查找文件内容&lt;/td>
 &lt;/tr>
 &lt;tr>
@@ -691,13 +688,13 @@ ufw防火墙关闭
 静态ip
 ali源
 vim安装及.vimrc解决乱码
-ssh安装配置
-samba安装配置;用户:root;密码:root;
+ssh安装及配置
+samba安装及配置;用户:root;密码:root;
 传项目文件
 python升级
 net-tools安装
 htop安装
-git安装
+git安装及配置
 tig安装
 tree安装
 screen安装
@@ -1054,17 +1051,14 @@ add_header wall &lt;span style="color:#e6db74">&amp;#34;hey!这文件进行了�
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="数据库读写分离">数据库读写分离&lt;/h2>
 &lt;p>实现 &lt;code>读写分离&lt;/code> 分为两大步 :&lt;/p>
 &lt;ul>
-&lt;li>
-&lt;a href="https://www.jianshu.com/p/bfca0cdfb169" target="_blank" rel="noopener">主从同步&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.jianshu.com/p/bfca0cdfb169" target="_blank" rel="noopener">主从同步&lt;/a>&lt;/li>
 &lt;li>读写分离;有两种方式 :
 &lt;ul>
 &lt;li>通过程序实现,如TP框架,性能最好;&lt;/li>
 &lt;li>使用代理工具,如 :
 &lt;ul>
-&lt;li>
-&lt;a href="https://www.jianshu.com/p/cb7ec06dae05" target="_blank" rel="noopener">Mycat&lt;/a>&lt;/li>
-&lt;li>
-&lt;a href="https://www.jianshu.com/p/cadf337274c1" target="_blank" rel="noopener">Mysql-Proxy&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.jianshu.com/p/cb7ec06dae05" target="_blank" rel="noopener">Mycat&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.jianshu.com/p/cadf337274c1" target="_blank" rel="noopener">Mysql-Proxy&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
