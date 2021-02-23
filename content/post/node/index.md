@@ -13,12 +13,13 @@ tags:
 keywords:
 - 学习笔记
 - 笔记
+
 - Linux
 - Shell
 - PHP
 
 # 文章分类,在列表页显示(暂时使用tags)
-categories: 
+categories:
 
 # 自定义url
 url: ""
@@ -55,7 +56,7 @@ commentable: true
 # 是否允许编辑(跳到github,前提是github有权限)
 editable: false
 # 作者
-authors: 
+authors:
 - admin
 
 # Markdown Slides (optional).
@@ -331,7 +332,7 @@ image:
 | 可执行可读   | xr | 可以进入该目录并读取该目录中的内容,不能创建文件 |
 | 可执行可写   | xw | 可以创建文件但是不能读取 |
 
-ubuntu环境安装流程 :  
+ubuntu环境安装流程 :
 ``` txt
 .bashrc命令别名
 ufw防火墙关闭
@@ -364,23 +365,23 @@ mysql安装
 ## Git
 
 * 初始配置Git
-    > 1. 设置本地用户和邮箱  
+    > 1. 设置本地用户和邮箱
     `git config --global user.name <your_name> && git config --global user.email <your_email>`
-    > 2. 本地生成公钥  
+    > 2. 本地生成公钥
     `ssh-keygen -t rsa -C <your_email>`
     > 3. 找到公钥,复制到github账号(即添加过公钥的用户才被允许管理github项目)
-    > 4. 测试公钥  
+    > 4. 测试公钥
     `ssh -T git@github.com`
     > 5. 到github创建项目
-    > 6. 本地创建项目并初始化  
+    > 6. 本地创建项目并初始化
     `git init`
-    > 7. 关联远程库和本地  
+    > 7. 关联远程库和本地
     `git remote add <自定义远程仓库名,如origin> <远程项目地址>`
-    > 8. 可查看本地关联的所有仓库主机  
+    > 8. 可查看本地关联的所有仓库主机
     `git remote -v 或者 git remote show origin`
-    > 9. 把项目添加到缓存区  
+    > 9. 把项目添加到缓存区
     `git add . 和 git commit –m <备注>`
-    > 10. 提交项目到origin仓库的master分支  
+    > 10. 提交项目到origin仓库的master分支
     `git push origin master (添加"--tags"可同时上传tag)`
 
 * git hook :
@@ -391,12 +392,15 @@ mysql安装
 * 备注规范 :
   > * feat: 新功能
   > * fix: 修复 bug
+  > * perf: 提升性能的改动
+  > * refactor: bug 修复和添加新功能之外的代码改动,重构大改动
+  > * chore: 其他修改,构建过程或辅助工具和库（如文档生成）的更改
   > * docs: 文档变动
   > * style: 格式调整，对代码实际运行没有改动，例如添加空行、格式化等
-  > * refactor: bug 修复和添加新功能之外的代码改动,重构大改动
-  > * perf: 提升性能的改动
   > * test: 添加或修正测试代码
-  > * chore: 构建过程或辅助工具和库（如文档生成）的更改
+  > * ci: 持续集成相关文件修改
+  > * release: 发布新版本
+  > * revert: 恢复上一次提交
 
 
 
@@ -602,7 +606,7 @@ allow_writeable_chroot=YES
 
 
 
-* Nginx实现负载均衡需要源码的同步, 使用 `rsync` (或+ `sersync` )实现集群服务器源码同步,源服务器执行的命令:  
+* Nginx实现负载均衡需要源码的同步, 使用 `rsync` (或+ `sersync` )实现集群服务器源码同步,源服务器执行的命令:
 `rsync -avH --progress --delete --exclude-from=/etc/exclude.txt --password-file=/etc/pw.txt /var/www/html/ username@192.168.43.175::module1`
     >其中按顺序是:含有忽略同步列表的 `exclude.txt` 文件,含有密码的 `pw.txt` 文件,源服务器的同步目录, `username` 用户名,ip地址,对应的模块
     > <https://blog.51cto.com/chenfei123/1707746>
@@ -723,8 +727,8 @@ http {
     * 使用代理工具,如 :
         * [Mycat](https://www.jianshu.com/p/cb7ec06dae05)
         * [Mysql-Proxy](https://www.jianshu.com/p/cadf337274c1)
-        
-        
+
+
 
 > `mysql` 之间可相互主从同步,避免 `单点` ;当有主从数据库发生宕机,可使用 `percona-tooldit` 工具解决恢复宕机后主从数据不同步的问题
     <https://blog.51cto.com/moerjinrong/2352317>
@@ -781,44 +785,44 @@ keepalive=true
 * `InnoDB` 存储引擎偏向于增删改事件,支持事务,支持索引行锁
 * 索引才用 `for update` 锁库
 
-* 数据库类型  
+* 数据库类型
     <http://www.jb51.net/article/55853.htm>
-* 免密码登录  
+* 免密码登录
     `skip-grant-tables`
-* 数据库导出  
+* 数据库导出
     `mysqldump -uroot -p dbname > dbname.sql`
-* 新建数据库  
+* 新建数据库
     `CREATE DATABASE mydb CHARACTER SET utf8 COLLATE utf8_general_ci`
-* 插入数据  
+* 插入数据
     `insert into $my_name (id,name,tel) values('2','tab',null)`
-* 删除数据  
+* 删除数据
     `delete from my_name where id = 1;`
-* 修改数据  
+* 修改数据
     `update my_name set id='2',name='tab' where id=1;`
-* 插入字段  
+* 插入字段
     `alter table my_name add id varchar(32)`
-* 删除字段  
+* 删除字段
     `alter table my_name drop id`
-* 去掉name重复的  
+* 去掉name重复的
     `SELECT DISTINCT name FROM my_name`
-* 计算个数  
+* 计算个数
     `select count(*) from my_name`
-* 计算总和  
+* 计算总和
     `select sum(*) from my_name`
-* 计算平均  
+* 计算平均
     `select sum(*)/count(*) from my_name`
-* 计算平均  
+* 计算平均
     `select avg(name) from my_name`
-* 最小值  
+* 最小值
     `select min(name) from my_name`
 
-* 双重查询,查询指定最小值对应的的所有字段  
+* 双重查询,查询指定最小值对应的的所有字段
     `SELECT * FROM my_name WHERE name=(SELECT max(name)FROM my_name)`
-* 根据指定字段分类  
+* 根据指定字段分类
     `select * from my_name group by name;`
-* 表的联合查询  
+* 表的联合查询
     `SELECT * FROM my_name as a INNER JOIN my_name2 as b on a.name=b.id`
-* 左查询,就是当my_name跟my_name2的的值不相对应则以my_name为主要,my_name2多出的值则省略  
+* 左查询,就是当my_name跟my_name2的的值不相对应则以my_name为主要,my_name2多出的值则省略
     `SELECT * FROM my_name as a left outer JOIN my_name2 as b on a.name=b.id`
 
 
@@ -1003,37 +1007,37 @@ keepalive=true
 
 ## 前端
 
-* 可以设置类似`cookie` , 它可永久保存  
+* 可以设置类似`cookie` , 它可永久保存
     `localStorage.setItem(name, val)`
-* 死链  
+* 死链
     `<a href="javascript:void(0);">`
-* CSS加载JS样式  
+* CSS加载JS样式
     `behavior:url()`
-* 选择div内第二个li,类似js  
+* 选择div内第二个li,类似js
     `div li:first-child+li{}`
-* 选择form下类型为text的input标签  
+* 选择form下类型为text的input标签
     `form input[type="text"]{}`
-* 居中CSS背景图片  
+* 居中CSS背景图片
     `background-position:center`
-* 居中HTML图片  
+* 居中HTML图片
     `<div align="center"><img src="">`
-* 居中div  
+* 居中div
     `{top:0;left:0;bottom:0;right:0;margin:auto}/margin:0 auto;`
-* 单行文字水平/垂直居中  
+* 单行文字水平/垂直居中
     `text-decoration:center;/line-height:10px;`
-* 多行文字垂直居中:div1>div2>p  
+* 多行文字垂直居中:div1>div2>p
     `div1{display:table;/*转换成表格*/} div2{display:table-cell;vertical-align:middle;}`
-* li中间向两边分布  
+* li中间向两边分布
     `ul{text-align:center}li{display: inline-block;}`
-* li水平分布,ul宽度平均分割给li  
+* li水平分布,ul宽度平均分割给li
     `ul{display:flex}li{flex:1;text-align:center}`
-* li水平分布,类似最左和最右浮动两边的效果  
+* li水平分布,类似最左和最右浮动两边的效果
     `div{overflow:hidden;width:11px} div ul{width:12px}   li{width:5px;margin_right:1px}`
-* 轮播图不能有滚动条  
+* 轮播图不能有滚动条
     `在ul父级加overflow:hidden;width:100%;position: relative;//position用于ul居中`
-* 清除浮动,class是my_name就可以清除浮动  
+* 清除浮动,class是my_name就可以清除浮动
     `.my_name:after{content:""; display:block; height:0; visibility:hidden; clear:both;}`
-* 鼠标悬浮图片放大  
+* 鼠标悬浮图片放大
     `.div:hover img{transform: scale(1.03);transition: all 1s ease 0s;-webkit-transform: scale(1.03);-webkit-transform: all 1s ease 0s;}`
 * iframe高度
     ``` js
