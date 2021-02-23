@@ -745,23 +745,23 @@ mysql安装
 &lt;p>初始配置Git&lt;/p>
 &lt;blockquote>
 &lt;ol>
-&lt;li>设置本地用户和邮箱&lt;br>
+&lt;li>设置本地用户和邮箱
 &lt;code>git config --global user.name &amp;lt;your_name&amp;gt; &amp;amp;&amp;amp; git config --global user.email &amp;lt;your_email&amp;gt;&lt;/code>&lt;/li>
-&lt;li>本地生成公钥&lt;br>
+&lt;li>本地生成公钥
 &lt;code>ssh-keygen -t rsa -C &amp;lt;your_email&amp;gt;&lt;/code>&lt;/li>
 &lt;li>找到公钥,复制到github账号(即添加过公钥的用户才被允许管理github项目)&lt;/li>
-&lt;li>测试公钥&lt;br>
+&lt;li>测试公钥
 &lt;code>ssh -T git@github.com&lt;/code>&lt;/li>
 &lt;li>到github创建项目&lt;/li>
-&lt;li>本地创建项目并初始化&lt;br>
+&lt;li>本地创建项目并初始化
 &lt;code>git init&lt;/code>&lt;/li>
-&lt;li>关联远程库和本地&lt;br>
+&lt;li>关联远程库和本地
 &lt;code>git remote add &amp;lt;自定义远程仓库名,如origin&amp;gt; &amp;lt;远程项目地址&amp;gt;&lt;/code>&lt;/li>
-&lt;li>可查看本地关联的所有仓库主机&lt;br>
+&lt;li>可查看本地关联的所有仓库主机
 &lt;code>git remote -v 或者 git remote show origin&lt;/code>&lt;/li>
-&lt;li>把项目添加到缓存区&lt;br>
+&lt;li>把项目添加到缓存区
 &lt;code>git add . 和 git commit –m &amp;lt;备注&amp;gt;&lt;/code>&lt;/li>
-&lt;li>提交项目到origin仓库的master分支&lt;br>
+&lt;li>提交项目到origin仓库的master分支
 &lt;code>git push origin master (添加&amp;quot;--tags&amp;quot;可同时上传tag)&lt;/code>&lt;/li>
 &lt;/ol>
 &lt;/blockquote>
@@ -782,12 +782,15 @@ mysql安装
 &lt;ul>
 &lt;li>feat: 新功能&lt;/li>
 &lt;li>fix: 修复 bug&lt;/li>
+&lt;li>perf: 提升性能的改动&lt;/li>
+&lt;li>refactor: bug 修复和添加新功能之外的代码改动,重构大改动&lt;/li>
+&lt;li>chore: 其他修改,构建过程或辅助工具和库（如文档生成）的更改&lt;/li>
 &lt;li>docs: 文档变动&lt;/li>
 &lt;li>style: 格式调整，对代码实际运行没有改动，例如添加空行、格式化等&lt;/li>
-&lt;li>refactor: bug 修复和添加新功能之外的代码改动,重构大改动&lt;/li>
-&lt;li>perf: 提升性能的改动&lt;/li>
 &lt;li>test: 添加或修正测试代码&lt;/li>
-&lt;li>chore: 构建过程或辅助工具和库（如文档生成）的更改&lt;/li>
+&lt;li>ci: 持续集成相关文件修改&lt;/li>
+&lt;li>release: 发布新版本&lt;/li>
+&lt;li>revert: 恢复上一次提交&lt;/li>
 &lt;/ul>
 &lt;/blockquote>
 &lt;/li>
@@ -987,7 +990,7 @@ allow_writeable_chroot&lt;span style="color:#f92672">=&lt;/span>YES
 &lt;p>&lt;code>Nginx&lt;/code> 支持 &lt;code>gzip&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Nginx实现负载均衡需要源码的同步, 使用 &lt;code>rsync&lt;/code> (或+ &lt;code>sersync&lt;/code> )实现集群服务器源码同步,源服务器执行的命令:&lt;br>
+&lt;p>Nginx实现负载均衡需要源码的同步, 使用 &lt;code>rsync&lt;/code> (或+ &lt;code>sersync&lt;/code> )实现集群服务器源码同步,源服务器执行的命令:
 &lt;code>rsync -avH --progress --delete --exclude-from=/etc/exclude.txt --password-file=/etc/pw.txt /var/www/html/ username@192.168.43.175::module1&lt;/code>&lt;/p>
 &lt;blockquote>
 &lt;p>其中按顺序是:含有忽略同步列表的 &lt;code>exclude.txt&lt;/code> 文件,含有密码的 &lt;code>pw.txt&lt;/code> 文件,源服务器的同步目录, &lt;code>username&lt;/code> 用户名,ip地址,对应的模块
@@ -1164,79 +1167,79 @@ keepalive&lt;span style="color:#f92672">=&lt;/span>true
 &lt;p>索引才用 &lt;code>for update&lt;/code> 锁库&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>数据库类型&lt;br>
+&lt;p>数据库类型
 &lt;a href="http://www.jb51.net/article/55853.htm">http://www.jb51.net/article/55853.htm&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>免密码登录&lt;br>
+&lt;p>免密码登录
 &lt;code>skip-grant-tables&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>数据库导出&lt;br>
+&lt;p>数据库导出
 &lt;code>mysqldump -uroot -p dbname &amp;gt; dbname.sql&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>新建数据库&lt;br>
+&lt;p>新建数据库
 &lt;code>CREATE DATABASE mydb CHARACTER SET utf8 COLLATE utf8_general_ci&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>插入数据&lt;br>
+&lt;p>插入数据
 &lt;code>insert into $my_name (id,name,tel) values('2','tab',null)&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>删除数据&lt;br>
+&lt;p>删除数据
 &lt;code>delete from my_name where id = 1;&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>修改数据&lt;br>
+&lt;p>修改数据
 &lt;code>update my_name set id='2',name='tab' where id=1;&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>插入字段&lt;br>
+&lt;p>插入字段
 &lt;code>alter table my_name add id varchar(32)&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>删除字段&lt;br>
+&lt;p>删除字段
 &lt;code>alter table my_name drop id&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>去掉name重复的&lt;br>
+&lt;p>去掉name重复的
 &lt;code>SELECT DISTINCT name FROM my_name&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>计算个数&lt;br>
+&lt;p>计算个数
 &lt;code>select count(*) from my_name&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>计算总和&lt;br>
+&lt;p>计算总和
 &lt;code>select sum(*) from my_name&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>计算平均&lt;br>
+&lt;p>计算平均
 &lt;code>select sum(*)/count(*) from my_name&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>计算平均&lt;br>
+&lt;p>计算平均
 &lt;code>select avg(name) from my_name&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>最小值&lt;br>
+&lt;p>最小值
 &lt;code>select min(name) from my_name&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>双重查询,查询指定最小值对应的的所有字段&lt;br>
+&lt;p>双重查询,查询指定最小值对应的的所有字段
 &lt;code>SELECT * FROM my_name WHERE name=(SELECT max(name)FROM my_name)&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>根据指定字段分类&lt;br>
+&lt;p>根据指定字段分类
 &lt;code>select * from my_name group by name;&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>表的联合查询&lt;br>
+&lt;p>表的联合查询
 &lt;code>SELECT * FROM my_name as a INNER JOIN my_name2 as b on a.name=b.id&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>左查询,就是当my_name跟my_name2的的值不相对应则以my_name为主要,my_name2多出的值则省略&lt;br>
+&lt;p>左查询,就是当my_name跟my_name2的的值不相对应则以my_name为主要,my_name2多出的值则省略
 &lt;code>SELECT * FROM my_name as a left outer JOIN my_name2 as b on a.name=b.id&lt;/code>&lt;/p>
 &lt;/li>
 &lt;/ul>
@@ -1723,37 +1726,37 @@ $a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&am
 &lt;/table>
 &lt;h2 id="前端">前端&lt;/h2>
 &lt;ul>
-&lt;li>可以设置类似&lt;code>cookie&lt;/code> , 它可永久保存&lt;br>
+&lt;li>可以设置类似&lt;code>cookie&lt;/code> , 它可永久保存
 &lt;code>localStorage.setItem(name, val)&lt;/code>&lt;/li>
-&lt;li>死链&lt;br>
+&lt;li>死链
 &lt;code>&amp;lt;a href=&amp;quot;javascript:void(0);&amp;quot;&amp;gt;&lt;/code>&lt;/li>
-&lt;li>CSS加载JS样式&lt;br>
+&lt;li>CSS加载JS样式
 &lt;code>behavior:url()&lt;/code>&lt;/li>
-&lt;li>选择div内第二个li,类似js&lt;br>
+&lt;li>选择div内第二个li,类似js
 &lt;code>div li:first-child+li{}&lt;/code>&lt;/li>
-&lt;li>选择form下类型为text的input标签&lt;br>
+&lt;li>选择form下类型为text的input标签
 &lt;code>form input[type=&amp;quot;text&amp;quot;]{}&lt;/code>&lt;/li>
-&lt;li>居中CSS背景图片&lt;br>
+&lt;li>居中CSS背景图片
 &lt;code>background-position:center&lt;/code>&lt;/li>
-&lt;li>居中HTML图片&lt;br>
+&lt;li>居中HTML图片
 &lt;code>&amp;lt;div align=&amp;quot;center&amp;quot;&amp;gt;&amp;lt;img src=&amp;quot;&amp;quot;&amp;gt;&lt;/code>&lt;/li>
-&lt;li>居中div&lt;br>
+&lt;li>居中div
 &lt;code>{top:0;left:0;bottom:0;right:0;margin:auto}/margin:0 auto;&lt;/code>&lt;/li>
-&lt;li>单行文字水平/垂直居中&lt;br>
+&lt;li>单行文字水平/垂直居中
 &lt;code>text-decoration:center;/line-height:10px;&lt;/code>&lt;/li>
-&lt;li>多行文字垂直居中:div1&amp;gt;div2&amp;gt;p&lt;br>
+&lt;li>多行文字垂直居中:div1&amp;gt;div2&amp;gt;p
 &lt;code>div1{display:table;/*转换成表格*/} div2{display:table-cell;vertical-align:middle;}&lt;/code>&lt;/li>
-&lt;li>li中间向两边分布&lt;br>
+&lt;li>li中间向两边分布
 &lt;code>ul{text-align:center}li{display: inline-block;}&lt;/code>&lt;/li>
-&lt;li>li水平分布,ul宽度平均分割给li&lt;br>
+&lt;li>li水平分布,ul宽度平均分割给li
 &lt;code>ul{display:flex}li{flex:1;text-align:center}&lt;/code>&lt;/li>
-&lt;li>li水平分布,类似最左和最右浮动两边的效果&lt;br>
+&lt;li>li水平分布,类似最左和最右浮动两边的效果
 &lt;code>div{overflow:hidden;width:11px} div ul{width:12px} li{width:5px;margin_right:1px}&lt;/code>&lt;/li>
-&lt;li>轮播图不能有滚动条&lt;br>
+&lt;li>轮播图不能有滚动条
 &lt;code>在ul父级加overflow:hidden;width:100%;position: relative;//position用于ul居中&lt;/code>&lt;/li>
-&lt;li>清除浮动,class是my_name就可以清除浮动&lt;br>
+&lt;li>清除浮动,class是my_name就可以清除浮动
 &lt;code>.my_name:after{content:&amp;quot;&amp;quot;; display:block; height:0; visibility:hidden; clear:both;}&lt;/code>&lt;/li>
-&lt;li>鼠标悬浮图片放大&lt;br>
+&lt;li>鼠标悬浮图片放大
 &lt;code>.div:hover img{transform: scale(1.03);transition: all 1s ease 0s;-webkit-transform: scale(1.03);-webkit-transform: all 1s ease 0s;}&lt;/code>&lt;/li>
 &lt;li>iframe高度
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">e&lt;/span> &lt;span style="color:#f92672">=&lt;/span> window,
@@ -2507,4 +2510,56 @@ cp support-files/mysql.server /etc/init.d/mysql.server
 &lt;p>缺点:&lt;/p>
 &lt;ul>
 &lt;li>虽然全球用户量庞大,但缺乏中文文档, 国内用户群体少, Hugo的相关中文文章也就少; Hugo会不会是在国内的一支&amp;quot;潜力股&amp;quot; ?&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul></description></item><item><title>关于机场</title><link>https://twbworld.github.io/proxy/</link><pubDate>Fri, 01 Jan 2021 00:00:00 +0800</pubDate><guid>https://twbworld.github.io/proxy/</guid><description>&lt;h2 id="1收费">1#收费&lt;/h2>
+&lt;h3 id="月付">月付&lt;/h3>
+&lt;blockquote>
+&lt;p>如想要更低的价 , 或者 担心每月忘记续费 , 可选择 &lt;em>&lt;strong>年付&lt;/strong>&lt;/em>&lt;/p>
+&lt;/blockquote>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>流量(G/月)&lt;/th>
+&lt;th>价格(￥)&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>50&lt;/td>
+&lt;td>9&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>100&lt;/td>
+&lt;td>15&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>250&lt;/td>
+&lt;td>29&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>500&lt;/td>
+&lt;td>49&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="年付">年付&lt;/h3>
+&lt;h4 id="年付8折计算">年付8折计算&lt;/h4>
+&lt;p>以 &lt;code>100G/月&lt;/code> 为例计算 :&lt;br>
+&lt;code>15(元/月) X 12(月) X 0.8(折扣) = 144(元/年)&lt;/code>&lt;/p>
+&lt;h3 id="ps">PS&lt;/h3>
+&lt;ul>
+&lt;li>现在 , 可免费试用1个月, 50-100g, 就当请你喝杯奶茶啦!!&lt;/li>
+&lt;li>每月1号流量重新开始算, 所以请在1号前续费&lt;/li>
+&lt;li>如果月底前就把流量用光了, 联系可免费续10%流量&lt;/li>
+&lt;li>如果觉得可以, 把我推荐给身边的朋友哟, 发你个红包哈!!&lt;/li>
+&lt;/ul>
+&lt;h3 id="2联系">2#联系&lt;/h3>
+&lt;p>+wx: &lt;em>&lt;strong>&lt;code>twbhub&lt;/code>&lt;/strong>&lt;/em>&lt;/p>
+&lt;h2 id="3教程">3#教程&lt;/h2>
+&lt;h4 id="android">Android&lt;/h4>
+&lt;p>点击&lt;a href="http://oneindex.twbhub.com/0/?/oneindex_share/Android.docx" target="_blank" style="">下载&lt;/a>&lt;/p>
+&lt;h4 id="ios">iOS&lt;/h4>
+&lt;p>点击&lt;a href="http://oneindex.twbhub.com/0/?/oneindex_share/iOS.docx" target="_blank" style="">下载&lt;/a>&lt;/p>
+&lt;h4 id="windows">Windows&lt;/h4>
+&lt;p>点击&lt;a href="http://oneindex.twbhub.com/0/?/oneindex_share/Windows.docx" target="_blank" style="">下载&lt;/a>&lt;/p>
+&lt;h4 id="macos">macOS&lt;/h4>
+&lt;p>点击&lt;a href="http://oneindex.twbhub.com/0/?/oneindex_share/macOS.docx" target="_blank" style="">下载&lt;/a>&lt;/p></description></item></channel></rss>
