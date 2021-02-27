@@ -17,7 +17,7 @@ keywords:
 categories: 
 
 # 自定义url,如果为空则按配置选项"permalinks"
-url: "/proxy"
+url: ""
 # 分类排序权重
 tags_weight: 9999
 # 文章排序权重
@@ -31,7 +31,7 @@ toc: true
 # 类型,默认是目录名,所以"post",也可以写"widget_page","dosc"等
 type: post
 # 文章添加时间
-date: 2021-01-01T00:00:00+08:00
+date: 2021-02-23T00:00:00+08:00
 # 文章更新时间,可开启 自动使用git时间
 # lastmod: 2020-05-03T19:54:10+08:00
 # 定时发布时间
@@ -85,7 +85,7 @@ projects: []
 # 控文章列表页图片,也可以在当前目录下放置featured.jpg/png文件
 image:
   placement: 3
-  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20201004235821.jpg"
+  image: ""
   caption: ""
   focal_point: "Center"
   preview_only: true
@@ -130,10 +130,11 @@ image:
 
 ### PS
 
-* 现在 , 可免费试用1个月, 50-100g, 就当请你喝杯奶茶啦!!
-* 每月1号流量重新开始算, 所以请在1号前续费
+* 现在 , 可免费试用1个月, 50-100g不等 (亏本吖)
 * 如果月底前就把流量用光了, 联系可免费续10%流量
-* 如果觉得可以, 把我推荐给身边的朋友哟, 发你个红包哈!!
+* 如果觉得可以, 把我推荐给身边的朋友哟, 可适当奖励哟
+* 每月1号流量重新开始算, 所以请在1号前续费
+* [`fq`后,可做啥?](https://fanqianghou.com/)
 
 ### 2#联系
 

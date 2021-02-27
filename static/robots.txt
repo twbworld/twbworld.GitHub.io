@@ -8,6 +8,6 @@ Disallow: .gif$
 Disallow: /publication/
 Disallow: /slides/
 Disallow: /talk/
-Disallow: /proxy
 
 Allow: /post/
+Disallow: /post/proxy
