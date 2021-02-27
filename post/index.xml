@@ -2510,7 +2510,7 @@ cp support-files/mysql.server /etc/init.d/mysql.server
 &lt;p>缺点:&lt;/p>
 &lt;ul>
 &lt;li>虽然全球用户量庞大,但缺乏中文文档, 国内用户群体少, Hugo的相关中文文章也就少; Hugo会不会是在国内的一支&amp;quot;潜力股&amp;quot; ?&lt;/li>
-&lt;/ul></description></item><item><title>关于机场</title><link>https://twbworld.github.io/proxy/</link><pubDate>Fri, 01 Jan 2021 00:00:00 +0800</pubDate><guid>https://twbworld.github.io/proxy/</guid><description>&lt;h2 id="1收费">1#收费&lt;/h2>
+&lt;/ul></description></item><item><title>关于机场</title><link>https://twbworld.github.io/post/proxy/</link><pubDate>Tue, 23 Feb 2021 00:00:00 +0800</pubDate><guid>https://twbworld.github.io/post/proxy/</guid><description>&lt;h2 id="1收费">1#收费&lt;/h2>
 &lt;h3 id="月付">月付&lt;/h3>
 &lt;blockquote>
 &lt;p>如想要更低的价 , 或者 担心每月忘记续费 , 可选择 &lt;em>&lt;strong>年付&lt;/strong>&lt;/em>&lt;/p>
@@ -2547,10 +2547,11 @@ cp support-files/mysql.server /etc/init.d/mysql.server
 &lt;code>15(元/月) X 12(月) X 0.8(折扣) = 144(元/年)&lt;/code>&lt;/p>
 &lt;h3 id="ps">PS&lt;/h3>
 &lt;ul>
-&lt;li>现在 , 可免费试用1个月, 50-100g, 就当请你喝杯奶茶啦!!&lt;/li>
-&lt;li>每月1号流量重新开始算, 所以请在1号前续费&lt;/li>
+&lt;li>现在 , 可免费试用1个月, 50-100g不等 (亏本吖)&lt;/li>
 &lt;li>如果月底前就把流量用光了, 联系可免费续10%流量&lt;/li>
-&lt;li>如果觉得可以, 把我推荐给身边的朋友哟, 发你个红包哈!!&lt;/li>
+&lt;li>如果觉得可以, 把我推荐给身边的朋友哟, 可适当奖励哟&lt;/li>
+&lt;li>每月1号流量重新开始算, 所以请在1号前续费&lt;/li>
+&lt;li>&lt;a href="https://fanqianghou.com/" target="_blank" rel="noopener">&lt;code>fq&lt;/code>后,可做啥?&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="2联系">2#联系&lt;/h3>
 &lt;p>+wx: &lt;em>&lt;strong>&lt;code>twbhub&lt;/code>&lt;/strong>&lt;/em>&lt;/p>
