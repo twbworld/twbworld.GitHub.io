@@ -26,7 +26,7 @@ tags_weight: 100
 # 文章排序权重
 weight: 100
 # 是否精选文章,显示在首页
-featured: true
+featured: false
 # 草稿开关,开启则文章不会打包
 draft: false
 # 是否显示目录

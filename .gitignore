@@ -76,6 +76,7 @@ ehthumbs_vista.db
 .eslintcache
 .env
 
+/worktree*/
 
 
 !/static/js/vendor/
