@@ -44,6 +44,10 @@
 &lt;td>ls -l 缩写&lt;/td>
 &lt;/tr>
 &lt;tr>
+&lt;td>2&amp;gt;&amp;amp;1&lt;/td>
+&lt;td>输出错误&lt;/td>
+&lt;/tr>
+&lt;tr>
 &lt;td>|grep&lt;/td>
 &lt;td>过滤结果&lt;/td>
 &lt;/tr>

@@ -1,0 +1,181 @@
+<!doctype html><html lang=zh-hans><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Wowchemy 5.0.0-beta.3 for Hugo"><meta name=author content="忐忑"><meta name=description content="使用GitHub Actions实现对docker包的自动化构建及发布"><link rel=alternate hreflang=zh-hans href=https://twbworld.github.io/post/github-actions_publish_images/><link rel=preconnect href=https://fonts.gstatic.com crossorigin><meta name=theme-color content="#1565c0"><link rel=stylesheet href=https://cdn.staticfile.org/font-awesome/5.14.0/css/all.min.css integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin=anonymous media=print onload="this.media='all'"><link rel=stylesheet href=https://cdn.staticfile.org/highlight.js/10.2.0/styles/github.min.css crossorigin=anonymous title=hl-light media=print onload="this.media='all'"><link rel=stylesheet href=https://cdn.staticfile.org/highlight.js/10.2.0/styles/dracula.min.css crossorigin=anonymous title=hl-dark media=print onload="this.media='all'" disabled><link rel=stylesheet href=https://cdn.staticfile.org/leaflet/1.7.1/leaflet.min.css integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin=anonymous media=print onload="this.media='all'"><script src=https://cdn.staticfile.org/lazysizes/5.2.2/lazysizes.min.js integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin=anonymous async></script><link rel=preload as=style href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap"><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media=print onload="this.media='all'"><link rel=stylesheet href=/css/wowchemy.9897f1c627eb9868c50c38850223a7db.css><script async src="https://www.googletagmanager.com/gtag/js?id=UA-165300316-1"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+function trackOutboundLink(url,target){gtag('event','click',{'event_category':'outbound','event_label':url,'transport_type':'beacon','event_callback':function(){if(target!=='_blank'){document.location=url;}}});console.debug("Outbound link clicked: "+url);}
+function onClickCallback(event){if((event.target.tagName!=='A')||(event.target.host===window.location.host)){return;}
+trackOutboundLink(event.target,event.target.getAttribute('target'));}
+gtag('js',new Date());gtag('config','UA-165300316-1',{});gtag('set',{'cookie_flags':'SameSite=None;Secure'});document.addEventListener('click',onClickCallback,false);</script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P8WL7G3');</script><link rel=manifest href=/index.webmanifest><link rel=icon type=image/png href=/images/icon_huf8f9e04b16a1b18d734a3b791d2e4cd6_136989_32x32_fill_lanczos_center_2.png><link rel=apple-touch-icon type=image/png href=/images/icon_huf8f9e04b16a1b18d734a3b791d2e4cd6_136989_180x180_fill_lanczos_center_2.png><link rel=canonical href=https://twbworld.github.io/post/github-actions_publish_images/><link rel=stylesheet type=text/css href=/css/my.css><meta property="twitter:card" content="summary_large_image"><meta property="twitter:site" content="@twbworld"><meta property="twitter:creator" content="@twbworld"><meta property="og:site_name" content="忐忑の博客"><meta property="og:url" content="https://twbworld.github.io/post/github-actions_publish_images/"><meta property="og:title" content="使用Github Actions发布docker镜像到仓库 | 忐忑の博客"><meta property="og:description" content="使用GitHub Actions实现对docker包的自动化构建及发布"><meta property="og:image" content="https://twbworld.github.io/media/avatar.jpg"><meta property="twitter:image" content="https://twbworld.github.io/media/avatar.jpg"><meta property="og:locale" content="zh-Hans"><meta property="article:published_time" content="2021-03-13T14:00:00+08:00"><meta property="article:modified_time" content="2021-03-13T17:12:27+08:00"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://twbworld.github.io/post/github-actions_publish_images/"},"headline":"使用Github Actions发布docker镜像到仓库","datePublished":"2021-03-13T14:00:00+08:00","dateModified":"2021-03-13T17:12:27+08:00","author":{"@type":"Person","name":"忐忑"},"publisher":{"@type":"Organization","name":"忐忑の博客","logo":{"@type":"ImageObject","url":"https://twbworld.github.io/images/icon_huf8f9e04b16a1b18d734a3b791d2e4cd6_136989_192x192_fill_lanczos_center_2.png"}},"description":"使用GitHub Actions实现对docker包的自动化构建及发布"}</script><title>使用Github Actions发布docker镜像到仓库 | 忐忑の博客</title><script src=/js/vendor/live2d-widget/autoload.js></script></head><body id=top data-spy=scroll data-offset=70 data-target=#TableOfContents class="page-wrapper
+bg-image parallax
+waifu-left" style=background-attachment:fixed><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8WL7G3" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript><script src=/js/wowchemy-init.min.js></script><aside class=search-modal id=search><div class=container><section class=search-header><div class="row no-gutters justify-content-between mb-3"><div class=col-6><h1>搜索</h1></div><div class="col-6 col-search-close"><a class=js-search href=# aria-label=Close><i class="fas fa-times-circle text-muted" aria-hidden=true></i></a></div></div><div id=search-box><input name=q id=search-query placeholder=搜索... autocapitalize=off autocomplete=off autocorrect=off spellcheck=false type=search class=form-control aria-label=搜索...></div></section><section class=section-search-results><div id=search-hits></div></section></div></aside><div class=page-header><nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main><div class=container-xl><div class="d-none d-lg-inline-flex" style=width:35%><a class=navbar-brand href=/>忐忑の博客</a></div><div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none"><a class=navbar-brand href=/>忐忑の博客</a></div><div class="navbar-collapse main-menu-item collapse justify-content-center" id=navbar-content><ul class="navbar-nav d-md-inline-flex"><li class=nav-item><a class=nav-link href=/#hero><span></span></a></li><li class=nav-item><a class="nav-link active" href=/post/><span></span></a></li></ul></div><ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2" style=display:block!important;text-align:right;width:35%;height:100%><li class=nav-item style=display:inline-block><a class="nav-link js-search" title=Search href=# aria-label=搜索><i class="fas fa-search big-icon" aria-hidden=true></i></a></li><li class=nav-item style=display:inline-block><a class=nav-link title="@twbworld on github" href=https://github.com/twbworld target=_blank rel=noopener><i class="fab fa-github big-icon" aria-hidden=true></i></a></li></ul></div></nav></div><div class=page-body><article class=article><div class="article-container pt-3 post-article-header-head"><h1>使用Github Actions发布docker镜像到仓库</h1><p class=page-subtitle>发布docker镜像到仓库(Docker Hub/ghcr.io/docker.pkg.github.com)</p><div class=article-metadata><span class=article-date>最近更新于
+2021-03-13</span>
+<span class=middot-divider></span><span class=article-reading-time>3 分钟阅读时长</span></div></div><div class="container-fluid docs"><div class="row flex-xl-nowrap"><div class="col-12 col-md-3 col-xl-2 docs-sidebar post-scroll"><ul class="nav toc-top"><li><a href=# id=back_to_top class=docs-toc-title>目录</a></li></ul><nav id=TableOfContents><ul><li><a href=#前文>前文</a></li><li><a href=#仓库平台区别>仓库平台区别</a><ul><li></li></ul></li><li><a href=#发布到ghcrio>发布到ghcr.io</a><ul><li><a href=#步骤一>步骤一</a></li><li><a href=#步骤二>步骤二</a></li><li><a href=#步骤三>步骤三</a></li><li><a href=#步骤三-1>步骤三</a></li><li><a href=#步骤四>步骤四</a></li><li><a href=#步骤五>步骤五</a></li></ul></li><li><a href=#发布到其他仓库>发布到其他仓库</a></li></ul></nav></div><main class="col-12 col-md-9 col-xl-10 py-md-3 pl-md-3 docs-content" role=main><div class="article-container post-article-container"><div class=article-style><h2 id=前文>前文</h2><p>关于发布Docker镜像到仓库, 思路有不少, 比如:</p><ol><li>本地生成Docker镜像后, 使用 <code>docker login</code> 登录, 然后再 <code>docker push</code> 发布到仓库(Docker Hub等)</li><li>Docker仓库平台(Docker Hub等) 关联 <code>Github项目</code> , <code>git push</code> 后, 仓库平台会获取 <code>Github项目</code> 下的 <code>Dockerfile</code> 等相关文件, 自动构建Docker镜像</li></ol><p>本文要讲的是第3种思路, 利用 <code>Github Actions</code> 自动化构建和发布, 与 <code>Github</code> 更高度的结合</p><h2 id=仓库平台区别>仓库平台区别</h2><p><code>Docker Hub</code> 再熟悉不过, 它是Docker的官方平台, 不作多介绍</p><p>对于 <code>Github</code> 下却有两个发布Docker镜像的平台, <code>ghcr.io</code> 和 <code>docker.pkg.github.com</code></p><h4 id=区别1>区别1</h4><p>前者发布的镜像在 <code>用户</code> 之下, 地址格式 : <code>https://ghcr.io/[用户名]/[镜像名]</code></p><p>后者发布的镜像在 <code>项目</code> 之下, 地址格式 : <code>https://docker.pkg.github.com/[用户名]/[项目名]/[镜像名]</code></p><h4 id=区别2>区别2</h4><p>前者下的镜像可选择公开, 任何人都可 <code>docker pull</code></p><p>后者却只能用户授权才能 <code>docker pull</code></p><p><em><strong>本文重点讲如何发布到 <code>ghcr.io</code></strong></em></p><h2 id=发布到ghcrio>发布到ghcr.io</h2><h3 id=步骤一>步骤一</h3><p>想要在 <code>GitHub</code> 使用 <code>ghcr.io</code> , 首先要 <a href=https://docs.github.com/cn/packages/guides/enabling-improved-container-support target=_blank rel=noopener>启用改进的容器支持</a></p><h3 id=步骤二>步骤二</h3><p>需要生成 GitHub账号 的 <code>Token</code> ; 用于 <code>GitHub-Actions</code> 有权限操作 <code>GitHub账号</code> 下的项目 ;<br>登录 <code>GitHub</code> , 右上角点击用户头像, 找到 <code>settings > Developer settings > Personal access tokens</code> , 点击 <code>Generate new token</code> , <a href=https://github.com/settings/tokens/new target=_blank rel=noopener>传送门直达</a> , 如图 :
+<img src=https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313151850.png alt>
+接着, 设置 <code>Token</code> 的权限, 选择 <code>write:packages</code> (这样,连同 <code>repo</code> 都一起勾选了), 如图 :
+<img src=https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313152515.png alt>
+最后生成了一个 <code>Token</code> , 一定要记录下来, 下一步要用到</p><h3 id=步骤三>步骤三</h3><p>把生成的 <code>Token</code> 添加到您的GitHub项目 <code>secrets</code> 下 ; 找到项目下 <code>Setting > secrets</code> , 右上角点击 <code>New repository secret</code> , 如图
+<img src=https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313153743.png alt></p><p>如图<br><code>Name</code> 值填写 <code>PACKAGES_TOKEN</code> (可自定义, 但下一步用到的 <code>secrets.PACKAGES_TOKEN</code> 同步要改)<br><code>Value</code> 值填写 上一步获得的 <code>Token</code> , 最后点击 <code>Add secret</code> ;<br><code>GitHub-Actions</code> 就可通过<code>secrets.PACKAGES_TOKEN</code> 获取 <code>Token</code> , 用于发布镜像到 <code>ghcr.io</code> 了
+<img src=https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313154015.png alt></p><h3 id=步骤三-1>步骤三</h3><p>如何使用 <code>GitHub-Actions</code> 在此不过多简释, 直接贴出代码 :</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=color:#f92672>name</span>: <span style=color:#ae81ff>ci</span>
+<span style=color:#f92672>on</span>:
+  <span style=color:#f92672>workflow_dispatch</span>: <span style=color:#75715e>#github页面手动触发</span>
+  <span style=color:#f92672>push</span>:
+    <span style=color:#f92672>tags</span>:
+      - <span style=color:#e6db74>&#34;v*.*&#34;</span>
+<span style=color:#f92672>env</span>:
+  <span style=color:#f92672>IMAGE_NAME</span>: <span style=color:#ae81ff>test</span> <span style=color:#75715e>#这是您的镜像名</span>
+<span style=color:#f92672>jobs</span>:
+  <span style=color:#f92672>get-tags</span>:
+    <span style=color:#f92672>runs-on</span>: <span style=color:#ae81ff>ubuntu-20.04</span>
+    <span style=color:#f92672>env</span>:
+      <span style=color:#f92672>TZ</span>: <span style=color:#ae81ff>Asia/Shanghai</span>
+    <span style=color:#f92672>outputs</span>:
+      <span style=color:#f92672>tags</span>: <span style=color:#ae81ff>${{ steps.set-output-id.outputs.tags }}</span>
+    <span style=color:#f92672>steps</span>:
+      - <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/checkout@v2</span>
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>set-output</span>
+        <span style=color:#f92672>id</span>: <span style=color:#ae81ff>set-output-id</span>
+        <span style=color:#f92672>run</span>: |<span style=color:#e6db74>
+</span><span style=color:#e6db74>          VERSION=edge
+</span><span style=color:#e6db74>          if [[ $GITHUB_REF == refs/tags/* ]]; then
+</span><span style=color:#e6db74>            VERSION=${GITHUB_REF#refs/tags/v}
+</span><span style=color:#e6db74>          fi
+</span><span style=color:#e6db74>          echo ::set-output name=tags::${VERSION}</span>          
+  <span style=color:#f92672>push-ghcr</span>:
+    <span style=color:#f92672>runs-on</span>: <span style=color:#ae81ff>ubuntu-20.04</span>
+    <span style=color:#f92672>env</span>:
+      <span style=color:#f92672>TZ</span>: <span style=color:#ae81ff>Asia/Shanghai</span>
+      <span style=color:#f92672>REGISTRY</span>: <span style=color:#ae81ff>ghcr.io</span>
+    <span style=color:#f92672>steps</span>:
+      - <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/checkout@v2</span>
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Login</span>
+        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>docker/login-action@v1</span>
+        <span style=color:#f92672>with</span>:
+          <span style=color:#f92672>registry</span>: <span style=color:#ae81ff>${{ env.REGISTRY }}</span>
+          <span style=color:#f92672>username</span>: <span style=color:#ae81ff>${{ github.repository_owner }}</span>
+          <span style=color:#f92672>password</span>: <span style=color:#ae81ff>${{ secrets.PACKAGES_TOKEN }}</span>
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Build &amp;&amp; Push</span>
+        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>docker/build-push-action@v2</span>
+        <span style=color:#f92672>with</span>:
+          <span style=color:#f92672>context</span>: <span style=color:#ae81ff>.</span>
+          <span style=color:#f92672>file</span>: <span style=color:#ae81ff>./Dockerfile</span>
+          <span style=color:#f92672>push</span>: <span style=color:#66d9ef>true</span>
+          <span style=color:#f92672>tags</span>: |<span style=color:#e6db74>
+</span><span style=color:#e6db74>            ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ needs.get-tags.outputs.tags }}
+</span><span style=color:#e6db74>            ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest</span>            
+</code></pre></div><blockquote><p><a href=https://github.com/metcalfc/docker-action-examples/blob/main/.github/workflows/release.yml target=_blank rel=noopener>借鉴代码</a></p></blockquote><p>如图, <code>GitHub-Actions</code> 运行成功后, 在用户首页下的 <code>Packages</code> 模块下, 新增了一个 <code>Packages</code>
+<img src=https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313162701.png alt>
+但是, 可看到 <code>Private</code> 标签, 也就是说, 这个Docker镜像默认不公开的 ; 如需要公开, 请往下看</p><h3 id=步骤四>步骤四</h3><p>公开 <code>Packages</code> 下的Docker镜像 ; 进入需要公开的镜像后, 点击右上角 <code>Package Settings</code> , 进入配置页面
+<img src=https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313163101.png alt>
+拉到低, 点击 <code>Change visibility</code> , 就可设置为公开 ;<br>在任何地方, 都可以下载镜像: <code>docker pull ghcr.io/[用户名]/[镜像名]:[标签]</code>
+<img src=https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313163237.png alt></p><h3 id=步骤五>步骤五</h3><p>虽然这个镜像是通过您的GitHub项目发布的, 但默认是不会关联到对应GitHub项目的 ;<br>在上文 <a href=#%e4%bb%93%e5%ba%93%e5%b9%b3%e5%8f%b0%e5%8c%ba%e5%88%ab>仓库平台区别</a> 已经知道, <code>ghcr.io</code> 下的镜像是对应账号, 而不是 <code>项目</code> 的 ;<br>如果需要将该镜像关联到对应项目, 也很简单 :<br>如图 , 进入该镜像的页面, 在页面下就可以看到 <code>Connect Repository</code> 按钮, 点击关联对应的项目 ; 项目下的 <code>README.md</code> 也会加载进来
+<img src=https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313164825.png alt></p><p>来到对应的GitHub项目下, 也可以看到关联的Docker镜像, 如图 :
+<img src=https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313165559.png alt></p><h2 id=发布到其他仓库>发布到其他仓库</h2><p>给出全部代码, 同时发布到 <code>Docker Hub</code> / <code>ghcr.io</code> / <code>docker.pkg.github.com</code></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=color:#f92672>name</span>: <span style=color:#ae81ff>ci</span>
+<span style=color:#f92672>on</span>:
+  <span style=color:#f92672>workflow_dispatch</span>: <span style=color:#75715e>#github页面手动触发</span>
+  <span style=color:#f92672>push</span>:
+    <span style=color:#f92672>tags</span>:
+      - <span style=color:#e6db74>&#34;v*.*&#34;</span>
+<span style=color:#f92672>env</span>:
+  <span style=color:#f92672>IMAGE_NAME</span>: <span style=color:#ae81ff>test</span> <span style=color:#75715e>#这是您的镜像名</span>
+<span style=color:#f92672>jobs</span>:
+  <span style=color:#f92672>get-tags</span>:
+    <span style=color:#f92672>runs-on</span>: <span style=color:#ae81ff>ubuntu-20.04</span>
+    <span style=color:#f92672>env</span>:
+      <span style=color:#f92672>TZ</span>: <span style=color:#ae81ff>Asia/Shanghai</span>
+    <span style=color:#f92672>outputs</span>:
+      <span style=color:#f92672>tags</span>: <span style=color:#ae81ff>${{ steps.set-output-id.outputs.tags }}</span>
+    <span style=color:#f92672>steps</span>:
+      - <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/checkout@v2</span>
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>set-output</span>
+        <span style=color:#f92672>id</span>: <span style=color:#ae81ff>set-output-id</span>
+        <span style=color:#f92672>run</span>: |<span style=color:#e6db74>
+</span><span style=color:#e6db74>          VERSION=edge
+</span><span style=color:#e6db74>          if [[ $GITHUB_REF == refs/tags/* ]]; then
+</span><span style=color:#e6db74>            VERSION=${GITHUB_REF#refs/tags/v}
+</span><span style=color:#e6db74>          fi
+</span><span style=color:#e6db74>          echo ::set-output name=tags::${VERSION}</span>          
+  <span style=color:#f92672>push-ghcr</span>:
+    <span style=color:#f92672>needs</span>: <span style=color:#ae81ff>get-tags</span>
+    <span style=color:#f92672>runs-on</span>: <span style=color:#ae81ff>ubuntu-20.04</span>
+    <span style=color:#f92672>env</span>:
+      <span style=color:#f92672>TZ</span>: <span style=color:#ae81ff>Asia/Shanghai</span>
+      <span style=color:#f92672>REGISTRY</span>: <span style=color:#ae81ff>ghcr.io</span>
+    <span style=color:#f92672>steps</span>:
+      - <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/checkout@v2</span>
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Login</span>
+        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>docker/login-action@v1</span>
+        <span style=color:#f92672>with</span>:
+          <span style=color:#f92672>registry</span>: <span style=color:#ae81ff>${{ env.REGISTRY }}</span>
+          <span style=color:#f92672>username</span>: <span style=color:#ae81ff>${{ github.repository_owner }}</span>
+          <span style=color:#f92672>password</span>: <span style=color:#ae81ff>${{ secrets.PACKAGES_TOKEN }}</span>
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Build &amp;&amp; Push</span>
+        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>docker/build-push-action@v2</span>
+        <span style=color:#f92672>with</span>:
+          <span style=color:#f92672>context</span>: <span style=color:#ae81ff>.</span>
+          <span style=color:#f92672>file</span>: <span style=color:#ae81ff>./Dockerfile</span>
+          <span style=color:#f92672>push</span>: <span style=color:#66d9ef>true</span>
+          <span style=color:#f92672>tags</span>: |<span style=color:#e6db74>
+</span><span style=color:#e6db74>            ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ needs.get-tags.outputs.tags }}
+</span><span style=color:#e6db74>            ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest</span>            
+  <span style=color:#f92672>push-docker-hub</span>:
+    <span style=color:#f92672>needs</span>: <span style=color:#ae81ff>get-tags</span>
+    <span style=color:#f92672>runs-on</span>: <span style=color:#ae81ff>ubuntu-20.04</span>
+    <span style=color:#f92672>env</span>:
+      <span style=color:#f92672>TZ</span>: <span style=color:#ae81ff>Asia/Shanghai</span>
+    <span style=color:#f92672>steps</span>:
+      - <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/checkout@v2</span>
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Login</span>
+        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>docker/login-action@v1</span>
+        <span style=color:#f92672>with</span>:
+          <span style=color:#f92672>username</span>: <span style=color:#ae81ff>${{ secrets.DOCKERHUB_USERNAME }}</span>
+          <span style=color:#f92672>password</span>: <span style=color:#ae81ff>${{ secrets.DOCKERHUB_TOKEN }}</span>
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Build &amp;&amp; Push</span>
+        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>docker/build-push-action@v2</span>
+        <span style=color:#f92672>with</span>:
+          <span style=color:#f92672>context</span>: <span style=color:#ae81ff>.</span>
+          <span style=color:#f92672>file</span>: <span style=color:#ae81ff>./Dockerfile</span>
+          <span style=color:#f92672>push</span>: <span style=color:#66d9ef>true</span>
+          <span style=color:#f92672>tags</span>: |<span style=color:#e6db74>
+</span><span style=color:#e6db74>            ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ needs.get-tags.outputs.tags }}
+</span><span style=color:#e6db74>            ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest</span>            
+  <span style=color:#f92672>push-docker-pkg-github</span>:
+    <span style=color:#f92672>needs</span>: <span style=color:#ae81ff>get-tags</span>
+    <span style=color:#f92672>runs-on</span>: <span style=color:#ae81ff>ubuntu-20.04</span>
+    <span style=color:#f92672>env</span>:
+      <span style=color:#f92672>REGISTRY</span>: <span style=color:#ae81ff>docker.pkg.github.com</span>
+      <span style=color:#f92672>TZ</span>: <span style=color:#ae81ff>Asia/Shanghai</span>
+    <span style=color:#f92672>steps</span>:
+      - <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/checkout@v2</span>
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Login</span>
+        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>docker/login-action@v1</span>
+        <span style=color:#f92672>with</span>:
+          <span style=color:#f92672>registry</span>: <span style=color:#ae81ff>${{ env.REGISTRY }}</span>
+          <span style=color:#f92672>username</span>: <span style=color:#ae81ff>${{ github.actor }}</span>
+          <span style=color:#f92672>password</span>: <span style=color:#ae81ff>${{ secrets.PACKAGES_TOKEN }}</span>
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Build &amp;&amp; Push</span>
+        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>docker/build-push-action@v2</span>
+        <span style=color:#f92672>with</span>:
+          <span style=color:#f92672>context</span>: <span style=color:#ae81ff>.</span>
+          <span style=color:#f92672>file</span>: <span style=color:#ae81ff>./Dockerfile</span>
+          <span style=color:#f92672>push</span>: <span style=color:#66d9ef>true</span>
+          <span style=color:#f92672>tags</span>: |<span style=color:#e6db74>
+</span><span style=color:#e6db74>            ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.IMAGE_NAME }}:${{ needs.get-tags.outputs.tags }}
+</span><span style=color:#e6db74>            ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.IMAGE_NAME }}:latest</span>            
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Delete Package</span>
+        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/delete-package-versions@v1</span>
+        <span style=color:#f92672>with</span>:
+          <span style=color:#f92672>package-name</span>: <span style=color:#ae81ff>${{ env.IMAGE_NAME }}</span>
+          <span style=color:#f92672>num-old-versions-to-delete</span>: <span style=color:#ae81ff>1</span> <span style=color:#75715e>#删除最旧的一个包</span>
+
+</code></pre></div><blockquote><p>GitHub-Actions 真香 !</p></blockquote></div><div class=article-tags><a class="badge badge-light" href=/tags/github/>Github</a></div><section id=comments><div id=container></div><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css><script src=https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js></script><script>const myTheme={render(state,instance){const container=document.createElement('div');container.lang="en-US";container.className='gitment-container gitment-root-container';container.appendChild(instance.renderSomething(state,instance));container.appendChild(instance.renderHeader(state,instance));container.appendChild(instance.renderEditor(state,instance));container.appendChild(instance.renderComments(state,instance));container.appendChild(instance.renderFooter(state,instance));return container;},renderSomething(state,instance){const container=document.createElement('div');container.lang="en-US";if(state.user.login){container.innerText=`Hello, ${state.user.login}`;}
+return container;}};var gitment=new Gitment({id:window.location.pathname.match(/\w+/g).pop().slice(-50),owner:"twbworld",repo:"twbworld.GitHub.io",oauth:{client_id:"21184f6e00f998440f3a",client_secret:"de270706bf4c583ee94665dc8a3ae08ac446a450"},theme:myTheme});gitment.render('container');</script></section><div class="article-widget content-widget-hr"><h3>相关</h3><ul><li><a href=/post/github_actions_invalid/>GitHub Actions无法触发</a></li><li><a href=/post/blog_ready/>搭建博客的准备</a></li></ul></div></div></main></div></div></article></div><div class=page-footer><div class="home-section bg-image parallax" style=background-color:transparent><footer class=site-footer><ul class="network-icon powered-by" style=text-align:center;display:block aria-hidden=true><li style=display:inline-block><a href=https://github.com/twbworld title=github target=_blank rel=noopener><i class="fab fa-github big-icon"></i></a></li><li style=display:inline-block><a href=https://twitter.com/twbworld title=twitter target=_blank rel=noopener><i class="fab fa-twitter big-icon"></i></a></li><li style=display:inline-block><a href=https://www.instagram.com/twbworld title=instagram target=_blank rel=noopener><i class="fab fa-instagram big-icon"></i></a></li><li style=display:inline-block><a href=http://weibo.com/u/2646212535 title=weibo target=_blank rel=noopener><i class="fab fa-weibo big-icon"></i></a></li><li style=display:inline-block><a href=https://www.zhihu.com/people/tan-te-41 title=zhihu target=_blank rel=noopener><i class="fab fa-zhihu big-icon"></i></a></li></ul><p class=powered-by><a href=/authors/admin/><img src=https://img.shields.io/badge/%C2%A9-2020%20%2D-%202021_%E5%BF%90%E5%BF%91-yellow alt=忐忑的博客></a> <a href=javascript:void(0) id=shields-views></a><br><a href=https://github.com/twbworld/twbworld.GitHub.io><img src="https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github" alt=忐忑的博客></a> <a href=https://gohugo.io/><img src="https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo" alt=Hugo></a> <a href=https://wowchemy.com/><img src=https://img.shields.io/badge/theme-wowchemy-00d1b2 alt=wowchemy></a></p><p class=powered-by><span class=float-right aria-hidden=true><a href=# class=back-to-top><span class=button_icon><i class="fas fa-chevron-up fa-2x"></i></span></a></span></p></footer></div></div><div id=modal class="modal fade" role=dialog><div class=modal-dialog><div class=modal-content><div class=modal-header><h5 class=modal-title>引用</h5><button type=button class=close data-dismiss=modal aria-label=Close>
+<span aria-hidden=true>&#215;</span></button></div><div class=modal-body><pre><code class="tex hljs"></code></pre></div><div class=modal-footer><a class="btn btn-outline-primary my-1 js-copy-cite" href=# target=_blank><i class="fas fa-copy"></i>复制</a>
+<a class="btn btn-outline-primary my-1 js-download-cite" href=# target=_blank><i class="fas fa-download"></i>下载</a><div id=modal-error></div></div></div></div></div><script src=https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script><script src=https://cdn.staticfile.org/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script><script src=https://cdn.staticfile.org/jquery.isotope/3.0.6/isotope.pkgd.min.js integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script><script src=https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script><script src=https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin=anonymous></script><script src=https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js integrity></script><script type=text/javascript>window.onload=function(){const views=document.getElementById("busuanzi_value_site_pv").innerHTML,imgNode=document.createElement('img');imgNode.alt='Hi !';imgNode.title='Hi !';imgNode.src='https://img.shields.io/badge/views-'+views+'-purple';document.getElementById('shields-views').appendChild(imgNode);};</script><span id=busuanzi_container_site_pv><span id=busuanzi_value_site_pv style=display:none!important>*</span></span>
+<script src=https://cdn.staticfile.org/mermaid/8.8.4/mermaid.min.js integrity="sha512-as1BF4+iHZ3BVO6LLDQ7zrbvTXM+c/1iZ1qII/c3c4L8Rn5tHLpFUtpaEtBNS92f+xGsCzsD7b62XP3XYap6oA==" crossorigin=anonymous title=mermaid></script><script src=https://cdn.staticfile.org/highlight.js/10.2.0/highlight.min.js integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin=anonymous></script><script src=https://cdn.staticfile.org/highlight.js/10.2.0/languages/r.min.js></script><script src=https://cdn.staticfile.org/highlight.js/10.2.0/languages/php.min.js></script><script src=https://cdn.staticfile.org/leaflet/1.7.1/leaflet.min.js integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin=anonymous></script><script id=search-hit-fuse-template type=text/x-template>
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script><script src=https://cdn.staticfile.org/fuse.js/3.2.1/fuse.min.js integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin=anonymous></script><script src=https://cdn.staticfile.org/mark.js/8.11.1/jquery.mark.min.js integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin=anonymous></script><script src=/js/_vendor/bootstrap.bundle.min.29d2abb07db775505d3a2efc824e7b29.js></script><script src=/zh/js/wowchemy.min.607f1780e67cfe303675f23f83bc1f28.js></script></body></html>
