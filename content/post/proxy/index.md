@@ -1,13 +1,13 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "关于机场"
+title: "订阅"
 subtitle: ""
 summary: "proxy"
 
 # 标签
 tags: 
-# - 关于机场
+# - 订阅
 
 #关键字
 keywords:
@@ -18,8 +18,6 @@ categories:
 
 # 自定义url,如果为空则按配置选项"permalinks"
 url: ""
-# 分类排序权重
-tags_weight: 9999
 # 文章排序权重
 weight: 99999
 # 是否精选文章,显示在首页
@@ -36,8 +34,6 @@ date: 2021-02-23T00:00:00+08:00
 # lastmod: 2020-05-03T19:54:10+08:00
 # 定时发布时间
 # publishDate: 2020-05-03T00:00:00+08:00
-# cjk语言,用于兼容特殊的文章,一般没用(config.toml有类似设置"hasCJKLanguage")
-isCJKLanguage: true
 # markdown文档
 markup: "md"
 # 显示"阅读时长"(params.toml也有统一的设置)
@@ -108,7 +104,7 @@ image:
 
 
 
-## 1#收费
+## 1#费用
 
 ### 月付
 
@@ -134,9 +130,9 @@ image:
 * 如果月底前就把流量用光了, 联系可免费续10%流量
 * 如果觉得可以, 把我推荐给身边的朋友哟, 可适当奖励哟
 * 每月1号流量重新开始算, 所以请在1号前续费
-* [`fq`后,可做啥?](https://fanqianghou.com/)
+* [`Fq` 后,可做啥?](https://fanqianghou.com/)
 
-### 2#联系
+## 2#联系
 
 +wx: ***`twbhub`***
 

@@ -2,7 +2,7 @@
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
 title: "使用Github Actions发布docker镜像到仓库"
-subtitle: "发布docker镜像到仓库(Docker Hub/ghcr.io/docker.pkg.github.com)"
+subtitle: "Docker Hub / ghcr.io / docker.pkg.github.com"
 summary: "使用GitHub Actions实现对docker包的自动化构建及发布"
 
 # 标签
@@ -11,21 +11,16 @@ tags:
 
 #关键字
 keywords:
-- github actions
-- docker
 - Docker Hub
 - ghcr.io
 - docker.pkg.github.com
 - github Packages
-- github
 
 # 文章分类,在列表页显示(暂时使用tags)
 categories: 
 
 # 自定义url,如果为空则按配置选项"permalinks"
 url: ""
-# 分类排序权重
-tags_weight: 100
 # 文章排序权重
 weight: 100
 # 是否精选文章,显示在首页
@@ -42,10 +37,6 @@ date: 2021-03-13T14:00:00+08:00
 # lastmod: 2020-05-03T19:54:10+08:00
 # 定时发布时间
 # publishDate: 2020-05-03T00:00:00+08:00
-# cjk语言,用于兼容特殊的文章,一般没用(config.toml有类似设置"hasCJKLanguage")
-isCJKLanguage: true
-# markdown文档
-markup: "md"
 # 显示"阅读时长"(params.toml也有统一的设置)
 reading_time: true
 # 底部显示社交链接(params.toml总开关post_share)

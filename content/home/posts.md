@@ -31,6 +31,11 @@ subtitle = ""
   # Default filter index (e.g. 0 corresponds to the first `[[filter_button]]` instance below).
   filter_default = 0
 
+  [content.archive]
+      enable = true
+      text = "查看全部"
+      link = "/post"
+
   # Filter posts by a taxonomy term.
   [content.filters]
     tag = ""
@@ -51,6 +56,7 @@ subtitle = ""
   #   2 = Compact
   #   3 = Card
   #   4 = Citation (publication only)
+  #   5 = Showcase (large images), only available for projects
   view = 3
   
 [design.background]

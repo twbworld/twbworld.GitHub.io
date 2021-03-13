@@ -10,4 +10,5 @@ Disallow: /slides/
 Disallow: /talk/
 
 Allow: /post/
+Allow: /sitemap.xml
 Disallow: /post/proxy

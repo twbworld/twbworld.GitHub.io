@@ -13,18 +13,13 @@ tags:
 keywords:
 - 学习笔记
 - 笔记
-
 - Linux
-- Shell
-- PHP
 
 # 文章分类,在列表页显示(暂时使用tags)
 categories:
 
 # 自定义url
 url: ""
-# 分类排序权重
-tags_weight: 100
 # 文章排序权重
 weight: 100
 # 是否精选文章,显示在首页
@@ -41,8 +36,6 @@ date: 2020-10-04
 # lastmod: 2020-05-03T19:54:10+08:00
 # 定时发布时间
 # publishDate: 2020-05-03T00:00:00+08:00
-# cjk语言,用于兼容特殊的文章,一般没用(config.toml有类似设置"hasCJKLanguage")
-isCJKLanguage: true
 # markdown文档
 markup: "md"
 # 显示"阅读时长"(params.toml也有统一的设置)

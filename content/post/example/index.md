@@ -3,7 +3,7 @@
 
 title: "这是标题"
 subtitle: "这是副标题,详情页显示"
-summary: "这是标题的简介,在文章列表页的文章标题下显示(如果为空,将会自动摘取)"
+summary: "这是标题的简介,在文章列表页的文章标题下显示(如果为空,将会自动摘取),在头部的meta显示, 用于SEO"
 
 # 标签
 tags: 
@@ -13,15 +13,15 @@ tags:
 #关键字
 keywords:
 - 这是关键字
-- 用于SEO,在头部的meta显示
+- 在头部的meta显示
+- 用于SEO
+- 四个就够了
 
 # 文章分类,在列表页显示(暂时使用tags)
 categories: 
 
 # 自定义url,如果为空则按配置选项"permalinks"
 url: "/example"
-# 分类排序权重
-tags_weight: 100
 # 文章排序权重
 weight: 100
 # 是否精选文章,显示在首页
@@ -38,8 +38,6 @@ date: 2021-01-01T00:00:00+08:00
 # lastmod: 2020-05-03T19:54:10+08:00
 # 定时发布时间
 # publishDate: 2020-05-03T00:00:00+08:00
-# cjk语言,用于兼容特殊的文章,一般没用(config.toml有类似设置"hasCJKLanguage")
-isCJKLanguage: true
 # markdown文档
 markup: "md"
 # 显示"阅读时长"(params.toml也有统一的设置)
@@ -93,7 +91,7 @@ image:
   preview_only: true
   alt_text: "这是图片的alt属性"
 
-# 文章页最头部的图片,如果当前目录下没有featured.jpg/png文件,且,三方image没设置image,则列表页也会显示这图片(image如设置了image,此处无效)
+# 文章页最头部的图片,如果当前目录下没有featured.jpg/png文件,且,上方image没设置image,则列表页也会显示这图片(image如设置了image,此处无效)
 header:
   placement: 3
   image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200503220558.jpg"

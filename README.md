@@ -13,7 +13,7 @@
 
 
 ## 外部临时浏览本地
-例: `hugo server --i18n-warnings --disableFastRender -D --bind 127.0.0.1 -p 1314 --baseURL=http://127.0.0.1:1314`
+例: `hugo server -D --i18n-warnings --bind 127.0.0.1 -p 1314 --baseURL=http://127.0.0.1:1314`
 > 在内网上访问`http://127.0.0.1:1314`浏览  
   1313端口,是hugo本地localhost默认的端口,所以这里另用了1314
 
@@ -31,4 +31,5 @@
 
 ## PS
 - robots.txt等文件位于static下
+- sitemap.xml会自动生成
 - 在 `.github/workflows` 下存在 `CI/CD` 配置 , 可自动化发布

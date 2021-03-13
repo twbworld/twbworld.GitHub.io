@@ -49,6 +49,15 @@
   {{ end }}
   <meta name="description" content="{{ $desc }}" />
 
+  {{ with .Params.keywords }}
+    {{ $keywords := slice }}
+    {{ range . }}
+      {{ $keywords = $keywords | append . }}
+    {{ end }}
+    <meta name="keywords" content='{{ delimit $keywords "," }}'>
+  {{ end }}
+  {{/* 不知为何,直接使用{{delimit .Params.keywords ","}}会报错 */}}
+
   {{ range .Translations }}
     <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}" />
   {{ end }}

@@ -1,0 +1,121 @@
+#参考https://skyao.io/learning-hugo/theme/academic.html
+#Hugo模板语法:https://github.com/heartnn/hugo-theme-test
+
+# Configuration of Hugo
+# Guide: https://sourcethemes.com/academic/docs/get-started/
+# Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
+#
+# This file is formatted using TOML syntax - learn more at https://learnxinyminutes.com/docs/toml/
+# Each configuration section is defined by a name in square brackets (e.g. `[outputs]`).
+
+# Title of your site
+title: 忐忑の博客
+
+# The URL of your site.
+# End your URL with a `/` trailing slash, e.g. `https://example.com`.
+baseurl: 'https://twbworld.github.io/'
+
+# Enter a copyright notice to display in the site footer.
+# To display a copyright symbol, type `&copy;`. For current year, type `{year}`.
+copyright: '[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%20{year}_忐忑-yellow)](/authors/admin/) <a href="javascript:void(0)" id="shields-views"></a> <br/> [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)'
+#&copy; 2020-{year} [忐忑](/authors/admin/) Powered by the [wowchemy theme](https://wowchemy.com/) for [Hugo](https://gohugo.io).
+# [![备案号](https://img.shields.io/badge/粤ICP备-20059599号-eb0500)](http://www.beian.miit.gov.cn/)
+# <a href="javascript:void(0)" class="ghbtns-a"><iframe src="https://ghbtns.com/github-btn.html?user=twbworld&repo=hugo-blog&type=star&count=false&size=none" frameborder="0" scrolling="0" width="60" height="20" title="GitHub"></iframe></a>
+
+
+############################
+## Advanced options below ##
+############################
+
+# 写文章不需要手动输入时间,借助git) Get last modified date for content from Git?
+enableGitInfo: true
+
+# Default language to use (if you setup multilingual support)
+defaultContentLanguage: zh
+
+# 关系到summaryLength)Set `true` for Chinese/Japanese/Korean languages.
+hasCJKLanguage: true
+
+defaultContentLanguageInSubdir: false
+
+# Workaround for https://github.com/gohugoio/hugo/issues/5687
+removePathAccents: true
+
+# 文章列表的简介字数限制)Listing summary length in words. Also, see `abstract_length` in `params.toml`.
+summaryLength: 30
+
+# Number of items per page in paginated lists.(分页)
+paginate: 10
+enableEmoji: true
+enableRobotsTXT: true
+footnotereturnlinkcontents: <sup>^</sup>
+ignoreFiles: ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
+# Disable aliases when `redirects` is added to the `outputs` below.
+disableAliases: true
+
+# Workaround Hugo publishing taxonomy URLs as plurals - consistently use singular across wowchemy.
+# 如果index.md没有设置slug,那么默认slug等于title,由于title是文章标题可能是中文,中文不利于 用在url 以及 SEO;其次文章标题可能多变,而目录名不多变以及url和目录名恰好要求是唯一的;所以这里干脆用filename,即目录名(程序员一般不会起中文名的目录)
+# 也可以在index.md设置"url"参数,自定义url
+permalinks:
+  post: '/post/:filename'
+  # post : '/post/:year/:month/:day/:filename'
+  event: '/talk/:slug/'
+  tags: '/tags/:title/'
+  authors: '/authors/:title/'
+  categories: '/categorys/:title/'
+  publication_types: '/publication-types/:filename/'
+outputs:
+  home: ["HTML", "RSS", "JSON", "WebAppManifest", "headers", "redirects" ]
+  section: [HTML, RSS]
+
+# Configure the Markdown renderer.
+markup:
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    renderer:
+      unsafe: true # Enable user to embed HTML snippets in Markdown content.
+  highlight:
+    codeFences: true # Disable Hugo's code highlighter as it conflicts with wowchemy's highligher.
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+    ordered: false # 有序列表
+
+imaging:
+  resampleFilter: lanczos
+  quality: 90
+  anchor: smart # Anchor for cropping. Options include Smart and Center.
+
+# Taxonomies
+taxonomies:
+  tag: tags
+  #category : categories
+  #publication_type : publication_types
+  #author : authors
+
+# 文章底部的"相关"
+related:
+  threshold: 80
+  includeNewer: true
+  toLower: true
+  indices:
+    - name: keywords
+      weight: 200
+    - name: tags
+      weight: 160
+    - name: date
+      weight: 10
+      pattern: '2006'
+    - name: title
+      weight: 60
+    - name: summary
+      weight: 50
+
+module:
+  hugoVersion:
+    extended: true
+    min: '0.80'
+  imports:
+    - path: github.com/wowchemy/wowchemy-hugo-modules/wowchemy-cms
+    - path: github.com/wowchemy/wowchemy-hugo-modules/wowchemy

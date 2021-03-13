@@ -34,6 +34,8 @@
   {{ $query = $query | intersect $archive_page.Pages }}
 {{ end }}
 
+{{ $count := len $query }}
+
 {{/* Sort */}}
 {{ $sort_by := "Date" }}
 {{ $query = sort $query $sort_by $items_sort }}
@@ -100,27 +102,32 @@
 
 
 
-    {{ if $st.Params.content.link_to_archive }}
-      <div class="see-all">
-        <a href="{{ $archive_page.RelPermalink }}">
-          {{ i18n $i18n | default "See all" }}
-          <i class="fas fa-angle-right"></i>
-        </a>
-      </div>
+  {{/* Archive link */}}
+  {{ $show_archive_link := $st.Params.content.archive.enable | default (gt $count $items_count) }}
+  {{ if $show_archive_link }}
+
+    {{ $archive_link := "" }}
+    {{ if $st.Params.content.archive.link }}
+      {{ $archive_link = $st.Params.content.archive.link | relLangURL }}
+    {{ else }}
+      {{ $archive_link = $archive_page.RelPermalink }}
     {{ end }}
+
+    {{ $archive_text := $st.Params.content.archive.text | default (i18n $i18n) | default "See all" }}
+
+    <div class="see-all">
+      <a href="{{ $archive_link }}">
+        {{ $archive_text | emojify }}
+        <i class="fas fa-angle-right"></i>
+      </a>
+    </div>
+  {{ end }}
 
 
 
 
 
     <div class="{{ if or $st.Params.content.filter_button (eq $st.Params.design.view 3) }}isotope projects-container{{end}} {{if eq $st.Params.design.view 3}}js-layout-masonry{{else}}row js-layout-row{{end}} {{ if eq $st.Params.design.view 5 }}project-showcase mt-5{{end}}">
-
-    {{ $query := "" }}
-    {{ if $st.Params.content.filters.tags }}
-      {{ $query = where site.Pages "Params.tags" "intersect" $st.Params.content.filters.tags }}
-    {{ else }}
-      {{ $query = where site.RegularPages "Type" $items_type }}
-    {{ end }}
 
     {{ range $idx, $item := $query }}<!-- 此处有修改 -->
 
