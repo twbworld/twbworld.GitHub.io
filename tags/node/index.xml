@@ -594,6 +594,10 @@
 &lt;td>Ctrl+u&lt;/td>
 &lt;td>html源码&lt;/td>
 &lt;/tr>
+&lt;tr>
+&lt;td>chrome://net-internals/#dns&lt;/td>
+&lt;td>清除DNS&lt;/td>
+&lt;/tr>
 &lt;/tbody>
 &lt;/table>
 &lt;h3 id="windows">windows&lt;/h3>
@@ -1143,6 +1147,14 @@ keepalive&lt;span style="color:#f92672">=&lt;/span>true
 &lt;li>
 &lt;p>免密码登录
 &lt;code>skip-grant-tables&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>性能测试
+&lt;code>explain select * from dnname&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>性能测试工具(mysql自带)
+&lt;code>mysqlslap ...&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>数据库导出
