@@ -121,8 +121,13 @@
 }
 
 .dark .btn-primary i:hover {
-  color: #bbdefb !important;
+  color: #11539e !important;
   transition: color 0.3s ease !important;
+}
+
+.dark .btn-primary:hover{
+  background-color: #1565c0;
+  border-color: #1565c0;
 }
 
 .card h4 {
@@ -247,6 +252,16 @@ ul.toc-top {
 }
 
 
+/* 首页文章标题 */
+#top .home-section.light .card-text a:hover {
+  color: #2962ff;
+}
+
+.home-section.light a{
+  color: #fff;
+}
+
+
 /* post列表页文章 */
 .universal-wrapper {
   padding: 2%
@@ -273,7 +288,10 @@ ul.toc-top {
   max-width: none;
 }
 .projects-container h3.article-title a:hover{
-  /*color: #2962ff*/
+  color: #2962ff
+}
+.projects-container div.article-style:hover{
+  color: #fff;
 }
 
 

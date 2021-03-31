@@ -19,7 +19,7 @@ Add Live2D widget to web page. Compatible with PJAX.
 
 在[米米的博客](https://zhangshuqiao.org)的左下角可查看效果。（注：以下人物模型仅供展示之用，本仓库并不包含任何模型。）
 
-<img src="assets/screenshot-1.png"><img src="assets/screenshot-2.png" width="300"><img src="assets/screenshot-3.png" width="300">
+<img src="assets/screenshot-2.png" width="280"><img src="assets/screenshot-3.png" width="280"><img src="assets/screenshot-1.png" width="270">
 
 你也可以在允许的范围内进行二次开发，这里有一些示例
 
@@ -55,7 +55,7 @@ Font Awesome (v4 or v5) is required for this plugin. Take Font Awesome v4 as an 
 ```xml
 <script src="https://cdn.jsdelivr.net/gh/username/live2d-widget@latest/autoload.js"></script>
 ```
-将此处的 `username` 替换为你的 GitHub 用户名。为了使 CDN 的内容正常刷新，需要创建新的 git tag 和/或在 GitHub 仓库中创建 release，否则此处的 `@latest` 仍然指向更新前的文件。此外 CDN 本身存在缓存，因此改动可能需要一定的时间生效。相关文档：
+将此处的 `username` 替换为你的 GitHub 用户名。为了使 CDN 的内容正常刷新，需要创建新的 git tag 并推送至 GitHub 仓库中，否则此处的 `@latest` 仍然指向更新前的文件。此外 CDN 本身存在缓存，因此改动可能需要一定的时间生效。相关文档：
 - [Git Basics - Tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)
 - [Managing releases in a repository](https://help.github.com/en/github/administering-a-repository/managing-releases-in-a-repository)
 
@@ -70,24 +70,28 @@ Font Awesome (v4 or v5) is required for this plugin. Take Font Awesome v4 as an 
   git clone https://github.com/stevenjoezhang/live2d-widget.git
   ```
 - 如果你的主机无法用 `ssh` 连接（例如一般的虚拟主机），请选择 `Download ZIP`，然后通过 `ftp` 等方式上传到主机上，再解压到网站的目录下。
-- 如果你是通过 Hexo 等工具部署的静态博客，请在本地的博客目录中（例如 `source` 下与 `_posts` 同级的目录），执行前述的 `git clone` 命令。重新部署博客时，相关文件就会自动上传到对应的路径下。为了避免这些文件被 Hexo 插件错误地修改，可能需要设置 `skip_render`。
+- 如果你是通过 Hexo 等工具部署的静态博客，请在博客源文件（即 `source`）目录下，执行前述的 `git clone` 命令。重新部署博客时，相关文件就会自动上传到对应的路径下。为了避免这些文件被 Hexo 插件错误地修改，可能需要设置 `skip_render`。
 
 这样，整个项目就可以通过你的服务器 IP 或者域名从公网访问了。不妨试试能否正常地通过浏览器打开 `autoload.js` 和 `live2d.min.js` 等文件，并确认这些文件的内容是完整和正确的。  
 一切正常的话，接下来修改一些配置就行了。（需要通过服务器上的文本编辑器修改；你也可以先在本地完成这一步骤，再上传到服务器上）  
-修改 `autoload.js` 中的常量 `live2d_path` 为 `live2d-widget` 这一文件夹在公网上的路径。比如说，如果你能够通过
+修改 `autoload.js` 中的常量 `live2d_path` 为 `live2d-widget` 这一目录的 URL。比如说，如果你能够通过
 ```
-https://www.example.com/path/to/live2d-widget/live2d.min.js
+https://example.com/path/to/live2d-widget/live2d.min.js
 ```
 访问到 `live2d.min.js`，那么就把 `live2d_path` 的值修改为
 ```
-https://www.example.com/path/to/live2d-widget/
+https://example.com/path/to/live2d-widget/
 ```
 路径末尾的 `/` 一定要加上。具体可以参考 `autoload.js` 内的注释。  
 完成后，在你要添加看板娘的界面加入
 ```xml
-<script src="https://www.example.com/path/to/live2d-widget/autoload.js"></script>
+<script src="https://example.com/path/to/live2d-widget/autoload.js"></script>
 ```
 就可以加载了。
+
+## 后端 API
+
+`initWidget` 方法接受名为 `apiPath` 和 `cdnPath` 的参数，两者设置其中一项即可。其中 `apiPath` 为后端 API 的 URL，可以自行搭建，并增加模型（需要修改的内容比较多，此处不再赘述）。而 `cdnPath` 则是通过 jsDelivr 这样的 CDN 服务加载资源，更加稳定。
 
 ## 目录结构 Files
 
@@ -95,19 +99,22 @@ https://www.example.com/path/to/live2d-widget/
 - `waifu-tips.json` 中定义了触发条件（`selector`，CSS 选择器）和触发时显示的文字（`text`）；
 - `waifu.css` 是看板娘的样式表。
 
-源文件是对 Hexo 的 [NexT 主题](http://github.com/hexo-next/hexo-theme-next)有效的，为了适用于你自己的网页，可能需要自行修改，或增加新内容。  
+源文件是对 Hexo 的 [NexT 主题](http://github.com/next-theme/hexo-theme-next)有效的，为了适用于你自己的网页，可能需要自行修改，或增加新内容。  
 **警告：作者不对包括但不限于 `waifu-tips.js` 和 `waifu-tips.json` 文件中的内容负责，请自行确保它们是合适的。**
 
 如果有任何疑问，欢迎提 Issue。如果有任何修改建议，欢迎提 Pull Request。
 
 ## 鸣谢 Thanks
 
-<a href="https://www.browserstack.com/">
-  <img src="https://live.browserstack.com/images/opensource/browserstack-logo.svg" alt="BrowserStack Logo" width="300">
-</a>
+<a href="https://www.browserstack.com/"><img height="80" src="https://live.browserstack.com/images/opensource/browserstack-logo.svg" alt="BrowserStack Logo"></a>
 
-感谢 BrowserStack 容许我们在真实的浏览器中测试此项目。  
-Thanks to [BrowserStack](https://www.browserstack.com/) for providing the infrastructure that allows us to test in real browsers!
+> 感谢 BrowserStack 容许我们在真实的浏览器中测试此项目。  
+> Thanks to [BrowserStack](https://www.browserstack.com/) for providing the infrastructure that allows us to test in real browsers!
+
+<a href="https://www.jsdelivr.com"><img height="80" src="https://raw.githubusercontent.com/jsdelivr/jsdelivr-media/master/default/svg/jsdelivr-logo-horizontal.svg"></a>
+
+> 感谢 jsDelivr 提供的 CDN 服务。  
+> Thanks jsDelivr for providing public CDN service.
 
 代码自这篇博文魔改而来：  
 https://www.fghrsh.net/post/123.html
@@ -121,21 +128,26 @@ https://imjad.cn/archives/lab/add-dynamic-poster-girl-with-live2d-to-your-blog-0
 https://github.com/xiazeyu/live2d-widget.js  
 https://github.com/summerscar/live2dDemo
 
-还可以自行搭建后端 API，并增加模型（需要修改的内容比较多，此处不再赘述）：  
+关于后端 API 模型：  
 https://github.com/fghrsh/live2d_api  
 https://github.com/xiazeyu/live2d-widget-models  
 https://github.com/xiaoski/live2d_models_collection
 
 除此之外，还有桌面版本：  
 https://github.com/amorist/platelet  
-https://github.com/akiroz/Live2D-Widget
+https://github.com/akiroz/Live2D-Widget  
+https://github.com/zenghongtu/PPet  
+https://github.com/LikeNeko/L2dPetForMac
+
+以及 Wallpaper Engine：
+https://github.com/guansss/nep-live2d
 
 ## 许可证 License
 
 Released under the GNU General Public License v3  
 http://www.gnu.org/licenses/gpl-3.0.html
 
-本仓库中涉及的所有 Live2D 模型、图片、动作数据等版权均属于其原作者，仅供研究学习，不得用于商业用途。
+本仓库并不包含任何模型，用作展示的所有 Live2D 模型、图片、动作数据等版权均属于其原作者，仅供研究学习，不得用于商业用途。
 
 Live2D 官方网站：  
 https://www.live2d.com/en/  

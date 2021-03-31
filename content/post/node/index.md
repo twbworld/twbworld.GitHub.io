@@ -285,6 +285,7 @@ image:
 | Ctrl+j | 下载页 |
 | Ctrl+Shift+Delete | 清除数据 |
 | Ctrl+u |  html源码 |
+| chrome://net-internals/#dns | 清除DNS |
 
 
 ### windows
@@ -783,6 +784,10 @@ keepalive=true
     <http://www.jb51.net/article/55853.htm>
 * 免密码登录
     `skip-grant-tables`
+* 性能测试
+    `explain select * from dnname`
+* 性能测试工具(mysql自带)
+    `mysqlslap ...`
 * 数据库导出
     `mysqldump -uroot -p dbname > dbname.sql`
 * 新建数据库

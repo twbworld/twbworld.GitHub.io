@@ -59,15 +59,21 @@ description: 忐忑的个人技术博客网站
 highlight: true
 
 # Add support for highlighting additional languages
+# https://www.staticfile.org/
 highlight_languages:
-  - r
   - php
-  - css
-  - js
-  - vue
-  - html
-  - golang
+  - php-template
+  - go
   - python
+  - css
+  - javascript
+  - shell
+  - bash
+  - json
+  - yaml
+  - xml
+  - nginx
+  - sql
 
 # 代码高亮主题-For supported styles, see https://cdnjs.com/libraries/highlight.js/
 highlight_style: dracula
@@ -241,6 +247,9 @@ plugins_js: []
 
 #文章底部是否显示访问量;与config.copyright配置协同
 site_views: true
+
+#静态资源使用的cdn地址,如https://cdn.jsdelivr.net/gh/twbworld/twbworld.GitHub.io@gh-pages/
+cdn_site: 'https://cdn.jsdelivr.net/gh/twbworld/twbworld.GitHub.io@gh-pages'
 
 # Avatars.
 # An avatar is an image that appears next to a user's name.

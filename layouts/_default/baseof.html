@@ -68,7 +68,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   {{- if hugo.IsProduction -}}
     {{ $js_bundle = $js_bundle | minify }}
   {{- end -}}
-  <script src="{{ $js_bundle.RelPermalink }}"></script>
+  <script src="{{if hugo.IsProduction }}{{ site.Params.cdn_site }}{{ end }}{{ $js_bundle.RelPermalink }}"></script>
 
 
   {{ partial "search" . }}

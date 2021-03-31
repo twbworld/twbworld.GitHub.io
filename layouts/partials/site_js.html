@@ -113,7 +113,7 @@
     {{- if hugo.IsProduction -}}
       {{ $js_bootstrap = $js_bootstrap | minify | fingerprint "md5" }}
     {{- end -}}
-    <script src="{{ $js_bootstrap.RelPermalink }}"></script>
+    <script src="{{if hugo.IsProduction }}{{ site.Params.cdn_site }}{{ end }}{{ $js_bootstrap.RelPermalink }}"></script>
 
     {{ $js_search_params := dict }}
     {{ if in (slice "wowchemy" "algolia") $search_provider }}
@@ -151,6 +151,6 @@
     {{- if hugo.IsProduction -}}
       {{- $js_bundle = $js_bundle | fingerprint "md5" -}}
     {{- end -}}
-    <script src="{{ $js_bundle.RelPermalink }}"></script>
+    <script src="{{if hugo.IsProduction }}{{ site.Params.cdn_site }}{{ end }}{{ $js_bundle.RelPermalink }}"></script>
 
     {{ partial "custom_js" . }}
