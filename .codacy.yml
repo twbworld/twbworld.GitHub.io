@@ -1,0 +1,11 @@
+---
+engines:
+  phpcs:
+    php_version: 7.3
+exclude_paths:
+  - "vendor/**"
+  - "assets/**"
+  - "layouts/**"
+  - "public/**"
+  - "resources/**"
+  - "static/**"
