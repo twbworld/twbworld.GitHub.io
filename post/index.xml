@@ -237,7 +237,7 @@
 如果 &lt;code>workflows&lt;/code> 目录下有多个yml, GitHub-Actions默认是并行触发的, 如果想实现按顺序触发, 请使用 &lt;a href="https://docs.github.com/cn/actions/reference/events-that-trigger-workflows#workflow_run" target="_blank" rel="noopener">&lt;code>workflow_run&lt;/code>&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>GitHub-Actions 真香 !&lt;/p>
-&lt;/blockquote></description></item><item><title>学习笔记</title><link>https://twbworld.github.io/post/node/</link><pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate><guid>https://twbworld.github.io/post/node/</guid><description>&lt;h2 id="扩展知识">扩展知识&lt;/h2>
+&lt;/blockquote></description></item><item><title>学习笔记</title><link>https://twbworld.github.io/post/note/</link><pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate><guid>https://twbworld.github.io/post/note/</guid><description>&lt;h2 id="扩展知识">扩展知识&lt;/h2>
 &lt;h3 id="双系统制作">双系统制作&lt;/h3>
 &lt;blockquote>
 &lt;p>&lt;a href="https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103">https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103&lt;/a>&lt;/p>
@@ -419,7 +419,7 @@
 &lt;td>永久关闭后重启&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>ln&lt;/td>
+&lt;td>ln -s&lt;/td>
 &lt;td>软连接&lt;/td>
 &lt;/tr>
 &lt;tr>
@@ -437,6 +437,10 @@
 &lt;tr>
 &lt;td>unzip -O cp936&lt;/td>
 &lt;td>zip文件解压避免乱码&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>scp -r /var &lt;a href="mailto:root@127.0.0.1">root@127.0.0.1&lt;/a>:/var/&lt;/td>
+&lt;td>目录传输&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>find / -type f -name &amp;ldquo;*.txt&amp;rdquo; | xargs grep &amp;ldquo;hello&amp;rdquo;&lt;/td>
