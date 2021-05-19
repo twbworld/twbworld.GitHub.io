@@ -166,6 +166,7 @@ image:
 | chkconfig iptables off            | 永久关闭防火墙 |
 | chkconfig iptables on             | 永久关闭后重启 |
 | ln -s                                | 软连接 |
+| composer dump-autoload           | 可解决加载失败 |
 | nohup <shell\>                     | 在后台运行shell命令 |
 | tree -LNFC 2                       | tree软件常用命令 |
 | tar -xaf                        | 识别压缩文件类型,进行解压(-caf) |
@@ -335,8 +336,8 @@ image:
 ![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210404165626.jpg)
 
 
-* ubuntu环境安装流程 :
-    ``` txt
+* Linux环境安装流程 :
+    ``` sh
     .bashrc命令别名
     ufw防火墙关闭
     静态ip
@@ -359,6 +360,36 @@ image:
     node安装
     php安装
     mysql安装
+
+    ~/.vimrc配置
+    syntax on
+    set autoindent
+    set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+    set enc=utf8
+    set fencs=utf8,gbk,gb2312,gb18030
+    set nu!
+
+    ~/.bashrc配置
+    alias gs='git status'
+    alias lg='git log --color --graph --all --oneline  --decorate --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+    alias hugo1314='hugo server --i18n-warnings --disableFastRender -D --bind 192.168.2.222 -p 1314 --baseURL=http://192.168.2.222:1314'
+    alias d='docker'
+    alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}"'
+    alias de='docker exec -it'
+    alias tree='tree -NFC'
+    alias lt='tree -aNFCL'
+    alias ll='ls -alF'
+    alias la='ls -A'
+    alias l='ls -CF'
+    alias rm='rm -i'
+    alias cp='cp -i'
+    alias mv='mv -i'
+
+    开启BBR
+    echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+    echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+    sysctl -p
+    lsmod | grep bbr
     ```
 
 
