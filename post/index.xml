@@ -1,4 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>忐忑の博客</title><link>https://twbworld.github.io/post/</link><atom:link href="https://twbworld.github.io/post/index.xml" rel="self" type="application/rss+xml"/><description>忐忑の博客</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202021_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><image><url>https://twbworld.github.io/media/avatar.jpg</url><title>忐忑の博客</title><link>https://twbworld.github.io/post/</link></image><item><title>使用Github Actions发布docker镜像到仓库</title><link>https://twbworld.github.io/post/github-actions_publish_images/</link><pubDate>Sat, 13 Mar 2021 14:00:00 +0800</pubDate><guid>https://twbworld.github.io/post/github-actions_publish_images/</guid><description>&lt;h2 id="前文">前文&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>忐忑の博客</title><link>https://twbworld.github.io/post/</link><atom:link href="https://twbworld.github.io/post/index.xml" rel="self" type="application/rss+xml"/><description>忐忑の博客</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202021_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><image><url>https://twbworld.github.io/media/avatar.jpg</url><title>忐忑の博客</title><link>https://twbworld.github.io/post/</link></image><item><title>Postman无法抓包Chrome</title><link>https://twbworld.github.io/post/postman_cannot_connection_chrome/</link><pubDate>Thu, 20 May 2021 23:00:00 +0800</pubDate><guid>https://twbworld.github.io/post/postman_cannot_connection_chrome/</guid><description>&lt;h2 id="原因">原因&lt;/h2>
+&lt;p>Mac安装了两个版本(我的是正式版和&lt;code>Dev&lt;/code>版)的 &lt;code>Chrome&lt;/code> ,一个正常, 另一个版本无法与 &lt;code>Postman&lt;/code> 连接, 无法被抓包(Windows不会出现这样的情况)&lt;br>
+原因是不正常的版本缺少了一个 &lt;code>Interceptor&lt;/code> 插件的配置文件, 按&lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/interceptor/#how-it-works" target="_blank" rel="noopener">文档&lt;/a>所述,正常文件位于 &lt;code>/Users/&amp;lt;username&amp;gt;/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.postman.postmanapp.json&lt;/code>&lt;/p>
+&lt;h2 id="解决">解决&lt;/h2>
+&lt;p>也简单,配置文件位于 正式版的 &lt;code>Chrome&lt;/code> 下, 解决方法就是复制一份到对应的版本的 &lt;code>Chrome&lt;/code> 的对应目录下
+如复制文件到Dev版的 &lt;code>Chrome&lt;/code>对应目录: &lt;code>/Users/&amp;lt;username&amp;gt;/Library/Application Support/Google/Chrome Dev/NativeMessagingHosts/com.postman.postmanapp.json&lt;/code>&lt;/p></description></item><item><title>Postman抓包https</title><link>https://twbworld.github.io/post/postman_capture_https/</link><pubDate>Thu, 20 May 2021 22:00:00 +0800</pubDate><guid>https://twbworld.github.io/post/postman_capture_https/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+&lt;blockquote>
+&lt;p>虽然会使用 &lt;code>Charles&lt;/code>(花瓶) , 但如果 &lt;code>Postman&lt;/code> 也可以实相同的功能, 少用一个工具, 那谁能不爱呢, 借 &lt;code>Postman&lt;/code> 强大的发包功能, 就更方便了&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>今天要展示的是, 抓取iOS的https包(Android7以后, 只能获取Root权限才能安装并信任CA证书, 所以就不以Android为例了)&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="安装并信任证书">安装并信任证书&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>安装Postman后, 根据&lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#macos" target="_blank" rel="noopener">文档&lt;/a>的指示, Postman的CA证书位于&lt;br>
+Mac: &lt;code>~/Library/Application Support/Postman/proxy/postman-proxy-ca.crt&lt;/code>&lt;br>
+Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/postman-proxy-ca.crt&lt;/code>&lt;br>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520225920.png" alt="">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>找到证书后,想办法把证书传到iOS, 并打开, iOS会识别并提示&lt;br>
+打开 &lt;code>设置=&amp;gt;通用=&amp;gt;描述文件&lt;/code> , 可以看到一个 &lt;code>已下载&lt;/code> 但未安装的证书, 安装就好&lt;br>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520230353.jpeg" alt="">&lt;br>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520230534.jpeg" alt="">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>安装完证书,还要让iOS信任该证书&lt;br>
+打开 &lt;code>设置=&amp;gt;通用=&amp;gt;关于本机=&amp;gt;证书信任设置&lt;/code> 找到对应的Postman证书并开启信任&lt;br>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520231655.png" alt="">&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="设置代理并抓包">设置代理并抓包&lt;/h2>
+&lt;p>到此,后面的步骤就也就不难了,网上也有不少教程,在此不详解&lt;/p>
+&lt;ol>
+&lt;li>在Mac或Windows上的Postman开启代理,设置端口&lt;/li>
+&lt;li>iOS与Mac或Windows连接同一个网络(WIFI)&lt;/li>
+&lt;li>打开iOS的WiFI页, &lt;code>配置手动代理&lt;/code>, 填写Mac或Windows的IP地址和前一步设置的端口&lt;/li>
+&lt;li>不出意外, Postman就可以抓取到https的数据包了,位于左侧的 &lt;code>History&lt;/code> 栏下&lt;/li>
+&lt;/ol>
+&lt;p>官方操作传送门 &lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#using-postmans-proxy-example">https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#using-postmans-proxy-example&lt;/a>&lt;/p></description></item><item><title>使用Github Actions发布docker镜像到仓库</title><link>https://twbworld.github.io/post/github-actions_publish_images/</link><pubDate>Sat, 13 Mar 2021 14:00:00 +0800</pubDate><guid>https://twbworld.github.io/post/github-actions_publish_images/</guid><description>&lt;h2 id="前文">前文&lt;/h2>
 &lt;p>关于发布Docker镜像到仓库, 思路有不少, 比如:&lt;/p>
 &lt;ol>
 &lt;li>本地生成Docker镜像后, 使用 &lt;code>docker login&lt;/code> 登录, 然后再 &lt;code>docker push&lt;/code> 发布到仓库(Docker Hub等)&lt;/li>
@@ -2166,7 +2206,7 @@ $a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&am
 &lt;p>但是,这样制作的多分区启动硬盘, &lt;code>BIOS&lt;/code> 只能使用 &lt;code>Legacy&lt;/code> 启动模式来启动硬盘(新型的 &lt;code>UEFI&lt;/code> 无法启动PE), 如下图例子(华硕的BIOS)&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929015346.png" alt="">&lt;/p>
-&lt;p>&lt;strong>&amp;hellip; 以上&lt;/strong>&lt;/p></description></item><item><title>SSH隧道连接局域网下的虚拟机</title><link>https://twbworld.github.io/post/use_tunnel_to_connect_to_virtual_machines_in_the_lan/</link><pubDate>Sun, 12 Jul 2020 18:18:13 +0800</pubDate><guid>https://twbworld.github.io/post/use_tunnel_to_connect_to_virtual_machines_in_the_lan/</guid><description>&lt;blockquote>
+&lt;p>&lt;strong>&amp;hellip; 以上&lt;/strong>&lt;/p></description></item><item><title>SSH隧道连接局域网下的虚拟机</title><link>https://twbworld.github.io/post/tunnel_connect/</link><pubDate>Sun, 12 Jul 2020 18:18:13 +0800</pubDate><guid>https://twbworld.github.io/post/tunnel_connect/</guid><description>&lt;blockquote>
 &lt;p>连接局域网下的虚拟机,在网上找到的做法通常是:在VMware配置端口转发&lt;br>
 最近了解隧道技术,突发奇想:能不能使用SSH隧道连接局域网下的虚拟机呢?&lt;br>
 在网上找到的相关资料不多,经过自己摸索,终于实现了&lt;br>
