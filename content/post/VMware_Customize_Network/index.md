@@ -7,7 +7,7 @@ summary: "VMware创建设置虚拟网卡,可更好的了解和定制虚拟机的
 
 # 标签
 tags: 
-- VMware
+- Network
 
 #关键字
 keywords:
@@ -176,11 +176,3 @@ image:
 5. 同时还可以在虚拟机里设置固定的IP,IP地址要根据"起始IP"和结束"IP"设置; 例如,我在Centos8系统上, 设置了IP:"192.168.2.2"
 
 ![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531171957.png)
-
-
-
-
-
-
-
-

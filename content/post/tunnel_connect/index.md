@@ -7,7 +7,7 @@ summary: "使用SSH隧道技术,连接局域网下的VMware linux虚拟机"
 
 # 标签
 tags: 
-- Tunnel
+- Network
 
 #关键字
 keywords:
