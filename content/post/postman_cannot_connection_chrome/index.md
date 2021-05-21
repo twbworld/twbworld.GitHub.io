@@ -74,7 +74,8 @@ image:
 ## 原因
 
 Mac安装了两个版本(我的是正式版和`Dev`版)的 `Chrome` ,一个正常, 另一个版本无法与 `Postman` 连接, 无法被抓包(Windows不会出现这样的情况)  
-原因是不正常的版本缺少了一个 `Interceptor` 插件的配置文件, 按[文档](https://learning.postman.com/docs/sending-requests/capturing-request-data/interceptor/#how-it-works)所述,正常文件位于  `/Users/<username>/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.postman.postmanapp.json`
+原因是不正常的版本缺少了一个 `Interceptor` 插件的配置文件, 据官方[文档](https://learning.postman.com/docs/sending-requests/capturing-request-data/interceptor/#how-it-works)所述,文件位于  
+`/Users/<username>/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.postman.postmanapp.json`
 
 ## 解决
 

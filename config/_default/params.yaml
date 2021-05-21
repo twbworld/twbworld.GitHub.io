@@ -320,7 +320,7 @@ comments:
     owner: twbworld #GitHub用户名或用户ID,ID获取: https://api.github.com/users/[GitHub用户名]
     repo: twbworld.GitHub.io #repositories仓库名称
     client_id: 21184f6e00f998440f3a
-    client_secret: de270706bf4c583ee94665dc8a3ae08ac446a450
+    client_secret: 8f062db04079fdc954a43b6ab98b2ce2efdd4866
 
 ############################
 ## Search
