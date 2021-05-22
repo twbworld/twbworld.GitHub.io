@@ -205,7 +205,7 @@
   {{ end }}
 
   {{ if site.Home.OutputFormats.Get "WebAppManifest" }}
-    <link rel="manifest" href="{{if hugo.IsProduction }}{{ site.Params.cdn_site }}{{ end }}{{ "index.webmanifest" | relLangURL }}" />
+    <link rel="manifest" href="{{ "index.webmanifest" | relLangURL }}" />
   {{ end }}
 
   <link rel="icon" type="image/png" href="{{ (partial "functions/get_icon" 32).RelPermalink }}" />

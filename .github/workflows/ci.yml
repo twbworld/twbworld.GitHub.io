@@ -1,6 +1,5 @@
 name: ci
 on:
-  workflow_dispatch: #github页面手动触发
   push: #push即触发
     branches:
       - master
@@ -13,21 +12,9 @@ on:
       - '.editorconfig'
       - '.gitattributes'
       - '.gitmodules'
-  pull_request:
-    branches:
-      - master
-    paths-ignore:
-      - 'docs/**'
-      - 'bin'
-      - 'README.md'
-      - '.env'
-      - '.gitignore'
-      - '.editorconfig'
-      - '.gitattributes'
-      - '.gitmodules'
 jobs:
-  ci:
-    runs-on: ubuntu-20.04 #虚拟环境(github提供)
+  hugo-Deploy:
+    runs-on: ubuntu-latest #虚拟环境(github提供)
     steps:
 
       - uses: actions/checkout@v2.3.4 #官方Action, pull当前git项目
@@ -54,31 +41,6 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }} #github会自动生成含有秘钥的环境变量
           publish_dir: ./public
-          publish_branch: gh-pages #新建分支
-
-  # review:
-  #   needs: ci
-  #   runs-on: ubuntu-20.04 #虚拟环境(github提供)
-  #   env:
-  #     TZ: Asia/Shanghai
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     # 运行Codacy,可使用.codacy.yml配置
-  #     - name: Codacy
-  #       uses: codacy/codacy-analysis-cli-action@master
-  #       with:
-  #         # tool: PHP_CodeSniffer,PHP Mess Detector,PHPCPD,PHP Depend,phpmd,phpcs #参考: https://docs.codacy.com/getting-started/supported-languages-and-tools/
-  #         project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-  #         upload: true #上传"代码质量"报告到Codacy(因为本地审查代码,要关闭远程Codacy的审查功能(Repository analysis开启))
-  #         format: sarif
-  #         output: ../results.sarif #要求干净的环境,把文件放在项目外,否则会报错
-  #         gh-code-scanning-compat: true #兼容Github的报错等级
-  #         verbose: true #列出详情
-  #         max-allowed-issues: 2147483647 #允许最大的"问题数"
-  #     # 对接Github的Security菜单
-  #     - name: Upload-github-sarif-reporter
-  #       uses: github/codeql-action/upload-sarif@v1
-  #       with:
-  #         sarif_file: ../results.sarif
+          publish_branch: gh-pages

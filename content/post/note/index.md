@@ -323,7 +323,6 @@ image:
 * `Linux`的共享:`NFS`协议
 * `windows`与`linux`共享:`SMB`协议(`Samba`软件)
 
-
 | 权限 | 符号 | 描述 |
 | ---- | ---- | ---- |
 | 可执行       | x | 可以进入该目录,无法读取该目录中的内容 |
@@ -424,20 +423,17 @@ image:
         <http://kongfangyu.com/2016/02/12/git-deploy>
 
 * 备注规范 :
-    > * feat: 新功能
-    > * fix: 修复 bug
-    > * perf: 提升性能的改动
-    > * refactor: bug 修复和添加新功能之外的代码改动,重构大改动
-    > * chore: 其他修改,构建过程或辅助工具和库（如文档生成）的更改
-    > * docs: 文档变动
-    > * style: 格式调整 , 对代码实际运行没有改动 , 例如添加空行、格式化等
-    > * test: 添加或修正测试代码
-    > * ci: 持续集成相关文件修改
-    > * release: 发布新版本
-    > * revert: 恢复上一次提交
-
-* Git工作流
-    > ![来源:https://nvie.com/posts/a-successful-git-branching-model/](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210404170704.png)
+  > * feat: 新功能
+  > * fix: 修复 bug
+  > * perf: 提升性能的改动
+  > * refactor: bug 修复和添加新功能之外的代码改动,重构大改动
+  > * chore: 其他修改,构建过程或辅助工具和库（如文档生成）的更改
+  > * docs: 文档变动
+  > * style: 格式调整，对代码实际运行没有改动，例如添加空行、格式化等
+  > * test: 添加或修正测试代码
+  > * ci: 持续集成相关文件修改
+  > * release: 发布新版本
+  > * revert: 恢复上一次提交
 
 
 
@@ -487,13 +483,13 @@ systemctl status nginx.service
 ## 网络
 
 * `TCP` :需要三次握手,建立了 `TCP` 虚拟通道,之后, `TCP` 运输 `HTTP流`
-* `SSL` : 位于 `TCP` 与 `HTTP` 之间,作为 `HTTP` 的安全供应商 , 全权负责 `HTTP` 的安全加密工作。
-* `TLS` : 在 `SSL3.0` 版本的基础上 , 重新设计并命名了这个协议 , 其全新的名字为 `TLS` ,形成: `TCP连接时间` + `TLS 连接时间` + `HTTP交易时间`
-* `HTTPS` : 通常将 `TLS` 安全保护的 `HTTP` 通信 , 称之为 `HTTPS`  , 以区别于没有 `TLS` 安全防护的 `HTTP` 明文通信。
+* `SSL` : 位于 `TCP` 与 `HTTP` 之间,作为 `HTTP` 的安全供应商，全权负责 `HTTP` 的安全加密工作。
+* `TLS` : 在 `SSL3.0` 版本的基础上，重新设计并命名了这个协议，其全新的名字为 `TLS` ,形成: `TCP连接时间` + `TLS 连接时间` + `HTTP交易时间`
+* `HTTPS` : 通常将 `TLS` 安全保护的 `HTTP` 通信，称之为 `HTTPS` ，以区别于没有 `TLS` 安全防护的 `HTTP` 明文通信。
 * `HTTP/2` : 第一次页面与第二次页面都是同一个网站服务器,重用第一个页面 `TCP` 连接
 * `QUIC` : `http/2` 去掉 `TCP` ,改用不需要连接的 `UDP` ,形成: `UDP / QUIC` ,第一次 `2.5RTT` ,完成 `QUIC` 交易的连接的 `Session ID` 会缓存在浏览器内存里,第二次,使用 `Session ID` ,重连 `TLS` 连接是一个 `0 RTT` 事件
 * `HTTP/3` : 把 `QUIC` 与 `HTTP` 分离,形成: `UDP / QUIC / HTTP`
-* 使用 `IPv4` 进行路由 , 使用 `TCP` 进行连接层面的流量控制 , 使用 `SSL/TLS` 协议实现传输安全 , 使用 `DNS` 进行域名解析 , 使用 `HTTP` 进行应用数据的传输。
+* 使用 `IPv4` 进行路由，使用 `TCP` 进行连接层面的流量控制，使用 `SSL/TLS` 协议实现传输安全，使用 `DNS` 进行域名解析，使用 `HTTP` 进行应用数据的传输。
 
 * `IP` 是网络层
 * `TCP` 是传输层
@@ -501,16 +497,6 @@ systemctl status nginx.service
 
 * `TCP/IP` 连接 + `http` 传输 --> 网卡 --> 内核(通过资源包的四元组信息,信息的其中之二是访问的 `IP+端口` ) --> `socket`(它是文件系统,是资源,储存着端对端的四元组信息,被进程使用) --> 进程
 * `socket` 是网络与进程的中介
-* https大致流程 :
-    1. 网站发送自己的 `公钥(网站)` 到 信任机构, 机构用自己的 `私钥(机构)` 对 `公钥(网站)` 进行加盐加密, 生成 `签名` , 与其他的信息组合成 `证书`, 向网站颁发 这个`证书`
-    2. 客户端浏览器建立 https 链接 , 接收到网站给的 `证书` + `公钥(网站)` ; 浏览器用自带的 信任机构 的 `公钥(机构)`, 对 `证书` 内的 `签名` 进行 解密, 解密后对比 `公钥(网站)` 是否正确
-    3. https验证成功, 即 `非对称加密` 结束; 接下来 , 双方约定一个 `对称加密` , 用于对接下来的数据进行加密
-        > 因为 `非对称加密` 非常耗资源, 所以为了速度, 使用 `对称加密` 而不是 `非对称加密`
-* 加密种类 :
-    * base64 : 可逆, 可理解为 编码 而不是 真正的加密
-    * 散列 : 又称hash(哈希), 不可逆 , 包含 MD5, SHA(SHA-256,SHA-512)
-    * 对称加密 : 加密和解密共用秘钥
-    * 非对称加密 : 一对一对存在(私钥+公钥), 公钥用于加密, 私钥用于解密
 
 
 
@@ -830,12 +816,8 @@ keepalive=true
 * 出现用户不能登录的情况,可能是默认登录了 `匿名用户` , 要把用户名为 `''` 的用户清除
 * `MyISAM` 存储引擎偏向于大量查询和插入事件,表锁
 * `InnoDB` 存储引擎偏向于增删改事件,支持事务,支持索引行锁
-* 索引才用 行锁
-* `悲观锁` 常用两种 `排它锁` (FOR UPDATE) 和 `共享锁` (LOCK IN SHARE MODE)
-* `乐观锁` 通过设置version字段, 用业务判断
-* 事务并发会出现 `脏读` `不可重复读` `幻读` ; 数据库隔离等级可解决
-* 通过建立 `联合索引` , 从而出现 `索引覆盖` 和 `索引下推`, 达到减少 `回表` 的目的  
-<br/>
+* 索引才用 `for update` 锁库
+
 * 数据库类型
     <http://www.jb51.net/article/55853.htm>
 * 免密码登录
@@ -916,8 +898,6 @@ keepalive=true
   json_encode($a);
   0.55 * 100 == 55; //为false
   ```
-* 单点登录使用 `jwt` 标准进行用户验证
-* `PSR` 是php编码规范, `Restful` 是API规范
 * json_encode((array)$array, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT)
 * 有时候exec命令执行失败,却没有报错,请这样使用:`exec('ls 2>&1', $a, $b)`
 * `fastcgi`就是执行 `cgi协议` 的,用于定义 `Nginx` 调用 `php` 时的数据格式,并减少对 `php.ini` 的读取
@@ -926,6 +906,7 @@ keepalive=true
 * `|||nochange|||`表示 `input` 输入框为空
 * `htmlentities` / `htmlspecialchars` 可以过滤成 `html格式` , 防止 `XSS`
 * `addslashes` 防止 `sql注入`
+* `explain` 用于测试 `sql语句` 性能
 * 引用字符串方式: `Nowdoc` / `Heredoc`
 * 中文简体格式
     `header('Content-type:text/html;charset=utf-8')`
@@ -940,7 +921,7 @@ keepalive=true
         <li><?php echo $y['z'] ?></li>
     <?php } ?>
     ```
-* 解决ajax跨域(CORS)
+* 解决ajax夸域
     ``` php
     header('Access-Control-Allow-Origin:demain.com'); //可以用*允许所有
     header('Content-Type:application/json; charset=utf-8');

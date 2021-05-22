@@ -10,7 +10,6 @@
 [![](https://img.shields.io/badge/theme-wowchemy-00d1b2?logo=github)](https://github.com/wowchemy/wowchemy-hugo-modules)
 [![](https://img.shields.io/badge/fork-starter%20academic-00d1b2?logo=github)](https://github.com/wowchemy/starter-academic)
 [![](https://img.shields.io/github/license/twbworld/twbworld.GitHub.io)](https://github.com/twbworld/twbworld.GitHub.io/blob/master/LICENSE)
-[![](https://app.codacy.com/project/badge/Grade/007cc23910f045029f737021c039702f)](https://www.codacy.com/gh/twbworld/twbworld.GitHub.io/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=twbworld/twbworld.GitHub.io&amp;utm_campaign=Badge_Grade)
 
 
 ## 外部临时浏览本地

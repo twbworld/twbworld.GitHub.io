@@ -248,7 +248,7 @@ ul.toc-top {
 }
 
 #top .see-all a:hover {
-  color: #2962ff;
+  color: #bbdefb;
 }
 
 
@@ -292,6 +292,15 @@ ul.toc-top {
 }
 .projects-container div.article-style:hover{
   color: #fff;
+}
+.projects-container nav.isotope-item{
+  margin-top: 100px;
+  display: block;
+  width: 96%;
+}
+.projects-container nav.isotope-item ul li a:hover{
+  color: #2962ff;
+  border: 1px solid #2962ff;
 }
 
 
