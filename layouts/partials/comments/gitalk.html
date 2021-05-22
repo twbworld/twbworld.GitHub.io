@@ -1,0 +1,22 @@
+{{ if site.Params.comments.gitalk.owner | and site.Params.comments.gitalk.repo | and site.Params.comments.gitalk.client_id | and site.Params.comments.gitalk.client_secret }}
+
+<div id="container"></div>
+
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script> -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css" integrity="sha512-0hsIlRjJbiUWaKMhXXNDmjWI2qPvUlhNBLHMhqeF5jIma+bedec27N5FoT2JEeHz5TUmOGCsm1Y89EsX/P0wOg==" crossorigin="anonymous">
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js" integrity="sha512-EcTCcXV46teiNwe0VcnM5A038tcY+BaQYO4nW6Gh2i7v4/HjBVg7xx3+JBLl9WofDds//INJAiEGAtdgr8PWyA==" crossorigin="anonymous"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    repo:  "{{ site.Params.comments.gitalk.repo }}", //存放评论的github仓库
+    owner: "{{ site.Params.comments.gitalk.owner }}", //仓库的创建者,GitHub用户名或github id
+    admin: ["{{ site.Params.comments.gitalk.owner }}"], //可操作仓库的人
+    id: window.location.pathname.match(/\w+/g).pop().slice(-50), //页面唯一标记,长度小于50
+    clientID: "{{ site.Params.comments.gitalk.client_id }}",
+    clientSecret: "{{ site.Params.comments.gitalk.client_secret }}",
+  });
+  gitalk.render('container'); //渲染
+</script>
+
+{{end}}

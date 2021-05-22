@@ -177,61 +177,41 @@ ul.toc-top {
 }
 
 
-/* 文章详情gitment评论 */
-#container .gitment-container,
-#container a.gitment-header-issue-link,
-#container a.gitment-header-issue-link:visited,
-#container .gitment-editor-tab,
-#container a.gitment-editor-footer-tip,
-#container a.gitment-editor-logout-link,
-#container a.gitment-editor-logout-link:visited,
-#container .gitment-comment-header,
-#container .gitment-comment-header .gitment-comment-name {
-  color: rgba(255, 255, 255, 0.68);
+/* 文章详情gitalk评论 */
+#comments #container .gt-container .gt-header-textarea, #comments #container .gt-popup .is--active, #comments #container .gt-container .gt-btn-preview, #comments #container .gt-container .gt-header-preview, #comments #container .gt-container .gt-comment-body{
+  color: #fff !important;
 }
-#container .gitment-container{
-  color: rgba(255, 255, 255, 0.68) !important;
+#comments #container .gt-container .gt-header-textarea, #comments #container .gt-container .gt-btn-preview, #comments #container .gt-container .gt-header-preview{
+  background: rgb(73, 74, 79);
 }
-
-#container .gitment-comment-header{
-  background-color: rgba(0, 0, 0, 0) !important;
+#comments #container .gt-popup{
+  background: rgb(40, 42, 54);
 }
-
-#container .gitment-comments-init-btn:disabled,
-#container .gitment-editor-submit:disabled,
-#container .gitment-editor-submit,
-#container .gitment-comments-init-btn {
-  background-color: #2962ff;
-  border-radius: 3px;
+#comments #container .gt-container .gt-comment-admin .gt-comment-content{
+  background: #11539e;
+}
+#comments #container .gt-container .gt-comment-content:hover{
+  -webkit-box-shadow: 0 0.4em 1em 0 #2962ff;
+  box-shadow: 0 0.4em 1em 0 #2962ff;
+}
+#comments #container .gt-container .gt-header-controls .gt-btn-public, #comments #container .gt-container .gt-header-controls  .gt-btn-login{
+  border: #2962ff;
+  background: #2962ff;
+}
+#comments #container .gt-container .gt-header-controls .gt-btn-preview{
+  border: rgb(73, 74, 79);
+  background: rgb(73, 74, 79);
 }
 
-#container a.gitment-footer-project-link,
-#container a.gitment-footer-project-link:visited,
-#container a.gitment-editor-login-link,
-#container a.gitment-editor-login-link:visited {
-  color: #2962ff
+#comments #container .gt-container .gt-header-controls-tip .gt-ico-text, #comments #container .gt-container  .gt-popup a{
+  color: #2962ff;
 }
 
-#container .gitment-selected {
-  color: rgb(40, 42, 54);
+#comments #container .gt-container .gt-comment-header .gt-svg svg{
+  fill: #ff0000;
 }
-
-#container .gitment-header-like-btn svg,
-#container .gitment-comment-like-btn svg {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-#container .gitment-header-like-btn svg {
-  border-radius: 5px;
-}
-
-#container .gitment-comment-like-btn svg {
-  border-radius: 3px;
-}
-
-#container .gitment-markdown {
-  background-color: rgba(0, 0, 0, 0);
-  color: rgba(255, 255, 255, 0.68)
+#comments #container .gt-container .gt-avatar-github .gt-svg svg{
+  fill: #2962ff;
 }
 
 

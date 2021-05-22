@@ -173,7 +173,7 @@ image:
 | unzip -O cp936                  | zip文件解压避免乱码 |
 | scp -r /var root@127.0.0.1:/var/ | 目录传输 |
 | find / -type f -name "*.txt" \| xargs grep "hello" | 查找文件内容 |
-| cat <filename\> \| openssl dgst -sha256 -binary \| openssl base64 -A | 计算文件sha256校验值(css校验方法:`<link href="filename.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=">`) |
+| cat <filename\> \| openssl dgst -sha256 -binary \| openssl enc -base64 -A | 计算文件sha256校验值(css校验方法:`<link href="filename.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=">`) |
 | sha256sum filename | 计算文件md5校验值 |
 | docker container list -aq \|xargs docker container rm | docker清理容器(同样效果 `docker container prune`) |
 | docker volume ls -q \|xargs docker volume rm | docker清理卷(同样效果 `docker volume prune`) |

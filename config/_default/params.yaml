@@ -292,8 +292,8 @@ comments:
   #   "": Disabled
   #   "disqus": Disqus (https://disqus.com)
   #   "commento": Commento (https://commento.io)
-  #   "gitment": Gitment (https://github.com/imsun/gitment)
-  provider: gitment
+  #   "gitalk": gitalk (https://github.com/gitalk/gitalk)
+  provider: gitalk
 
   # Which page types are commentable?
   commentable:
@@ -313,14 +313,14 @@ comments:
     # If self-hosting Commento, enter its URL here (e.g. "https://commento.?.com"), otherwise leave empty.
     url: ''
 
-  # Configuration of gitment.
-  # https://github.com/imsun/gitment
+  # Configuration of gitalk.
+  # https://github.com/gitalk/gitalk
   # 登录账号,填写"认证回调地址"要注意,填写的是重定向后的域名
-  gitment:
+  gitalk:
     owner: twbworld #GitHub用户名或用户ID,ID获取: https://api.github.com/users/[GitHub用户名]
     repo: twbworld.GitHub.io #repositories仓库名称
-    client_id: 21184f6e00f998440f3a
-    client_secret: 8f062db04079fdc954a43b6ab98b2ce2efdd4866
+    client_id: a8bef379318b69f91ee5
+    client_secret: efdbcdaea767631fb232dd600e8f593d7652403c
 
 ############################
 ## Search
