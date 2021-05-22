@@ -177,64 +177,6 @@ ul.toc-top {
 }
 
 
-/* 文章详情gitment评论 */
-#container .gitment-container,
-#container a.gitment-header-issue-link,
-#container a.gitment-header-issue-link:visited,
-#container .gitment-editor-tab,
-#container a.gitment-editor-footer-tip,
-#container a.gitment-editor-logout-link,
-#container a.gitment-editor-logout-link:visited,
-#container .gitment-comment-header,
-#container .gitment-comment-header .gitment-comment-name {
-  color: rgba(255, 255, 255, 0.68);
-}
-#container .gitment-container{
-  color: rgba(255, 255, 255, 0.68) !important;
-}
-
-#container .gitment-comment-header{
-  background-color: rgba(0, 0, 0, 0) !important;
-}
-
-#container .gitment-comments-init-btn:disabled,
-#container .gitment-editor-submit:disabled,
-#container .gitment-editor-submit,
-#container .gitment-comments-init-btn {
-  background-color: #2962ff;
-  border-radius: 3px;
-}
-
-#container a.gitment-footer-project-link,
-#container a.gitment-footer-project-link:visited,
-#container a.gitment-editor-login-link,
-#container a.gitment-editor-login-link:visited {
-  color: #2962ff
-}
-
-#container .gitment-selected {
-  color: rgb(40, 42, 54);
-}
-
-#container .gitment-header-like-btn svg,
-#container .gitment-comment-like-btn svg {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-#container .gitment-header-like-btn svg {
-  border-radius: 5px;
-}
-
-#container .gitment-comment-like-btn svg {
-  border-radius: 3px;
-}
-
-#container .gitment-markdown {
-  background-color: rgba(0, 0, 0, 0);
-  color: rgba(255, 255, 255, 0.68)
-}
-
-
 
 
 /* 首页查看更多 */
@@ -248,7 +190,7 @@ ul.toc-top {
 }
 
 #top .see-all a:hover {
-  color: #2962ff;
+  color: #bbdefb;
 }
 
 
@@ -292,6 +234,15 @@ ul.toc-top {
 }
 .projects-container div.article-style:hover{
   color: #fff;
+}
+.projects-container nav.isotope-item{
+  margin-top: 100px;
+  display: block;
+  width: 96%;
+}
+.projects-container nav.isotope-item ul li a:hover{
+  color: #2962ff;
+  border: 1px solid #2962ff;
 }
 
 

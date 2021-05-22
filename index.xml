@@ -1082,18 +1082,12 @@ lsmod | grep bbr
 &lt;li>refactor: bug 修复和添加新功能之外的代码改动,重构大改动&lt;/li>
 &lt;li>chore: 其他修改,构建过程或辅助工具和库（如文档生成）的更改&lt;/li>
 &lt;li>docs: 文档变动&lt;/li>
-&lt;li>style: 格式调整 , 对代码实际运行没有改动 , 例如添加空行、格式化等&lt;/li>
+&lt;li>style: 格式调整，对代码实际运行没有改动，例如添加空行、格式化等&lt;/li>
 &lt;li>test: 添加或修正测试代码&lt;/li>
 &lt;li>ci: 持续集成相关文件修改&lt;/li>
 &lt;li>release: 发布新版本&lt;/li>
 &lt;li>revert: 恢复上一次提交&lt;/li>
 &lt;/ul>
-&lt;/blockquote>
-&lt;/li>
-&lt;li>
-&lt;p>Git工作流&lt;/p>
-&lt;blockquote>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210404170704.png" alt="来源:https://nvie.com/posts/a-successful-git-branching-model/">&lt;/p>
 &lt;/blockquote>
 &lt;/li>
 &lt;/ul>
@@ -1128,13 +1122,13 @@ systemctl status nginx.service
 &lt;p>&lt;code>TCP&lt;/code> :需要三次握手,建立了 &lt;code>TCP&lt;/code> 虚拟通道,之后, &lt;code>TCP&lt;/code> 运输 &lt;code>HTTP流&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;code>SSL&lt;/code> : 位于 &lt;code>TCP&lt;/code> 与 &lt;code>HTTP&lt;/code> 之间,作为 &lt;code>HTTP&lt;/code> 的安全供应商 , 全权负责 &lt;code>HTTP&lt;/code> 的安全加密工作。&lt;/p>
+&lt;p>&lt;code>SSL&lt;/code> : 位于 &lt;code>TCP&lt;/code> 与 &lt;code>HTTP&lt;/code> 之间,作为 &lt;code>HTTP&lt;/code> 的安全供应商，全权负责 &lt;code>HTTP&lt;/code> 的安全加密工作。&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;code>TLS&lt;/code> : 在 &lt;code>SSL3.0&lt;/code> 版本的基础上 , 重新设计并命名了这个协议 , 其全新的名字为 &lt;code>TLS&lt;/code> ,形成: &lt;code>TCP连接时间&lt;/code> + &lt;code>TLS 连接时间&lt;/code> + &lt;code>HTTP交易时间&lt;/code>&lt;/p>
+&lt;p>&lt;code>TLS&lt;/code> : 在 &lt;code>SSL3.0&lt;/code> 版本的基础上，重新设计并命名了这个协议，其全新的名字为 &lt;code>TLS&lt;/code> ,形成: &lt;code>TCP连接时间&lt;/code> + &lt;code>TLS 连接时间&lt;/code> + &lt;code>HTTP交易时间&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;code>HTTPS&lt;/code> : 通常将 &lt;code>TLS&lt;/code> 安全保护的 &lt;code>HTTP&lt;/code> 通信 , 称之为 &lt;code>HTTPS&lt;/code> , 以区别于没有 &lt;code>TLS&lt;/code> 安全防护的 &lt;code>HTTP&lt;/code> 明文通信。&lt;/p>
+&lt;p>&lt;code>HTTPS&lt;/code> : 通常将 &lt;code>TLS&lt;/code> 安全保护的 &lt;code>HTTP&lt;/code> 通信，称之为 &lt;code>HTTPS&lt;/code> ，以区别于没有 &lt;code>TLS&lt;/code> 安全防护的 &lt;code>HTTP&lt;/code> 明文通信。&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;code>HTTP/2&lt;/code> : 第一次页面与第二次页面都是同一个网站服务器,重用第一个页面 &lt;code>TCP&lt;/code> 连接&lt;/p>
@@ -1146,7 +1140,7 @@ systemctl status nginx.service
 &lt;p>&lt;code>HTTP/3&lt;/code> : 把 &lt;code>QUIC&lt;/code> 与 &lt;code>HTTP&lt;/code> 分离,形成: &lt;code>UDP / QUIC / HTTP&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>使用 &lt;code>IPv4&lt;/code> 进行路由 , 使用 &lt;code>TCP&lt;/code> 进行连接层面的流量控制 , 使用 &lt;code>SSL/TLS&lt;/code> 协议实现传输安全 , 使用 &lt;code>DNS&lt;/code> 进行域名解析 , 使用 &lt;code>HTTP&lt;/code> 进行应用数据的传输。&lt;/p>
+&lt;p>使用 &lt;code>IPv4&lt;/code> 进行路由，使用 &lt;code>TCP&lt;/code> 进行连接层面的流量控制，使用 &lt;code>SSL/TLS&lt;/code> 协议实现传输安全，使用 &lt;code>DNS&lt;/code> 进行域名解析，使用 &lt;code>HTTP&lt;/code> 进行应用数据的传输。&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;code>IP&lt;/code> 是网络层&lt;/p>
@@ -1162,27 +1156,6 @@ systemctl status nginx.service
 &lt;/li>
 &lt;li>
 &lt;p>&lt;code>socket&lt;/code> 是网络与进程的中介&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>https大致流程 :&lt;/p>
-&lt;ol>
-&lt;li>网站发送自己的 &lt;code>公钥(网站)&lt;/code> 到 信任机构, 机构用自己的 &lt;code>私钥(机构)&lt;/code> 对 &lt;code>公钥(网站)&lt;/code> 进行加盐加密, 生成 &lt;code>签名&lt;/code> , 与其他的信息组合成 &lt;code>证书&lt;/code>, 向网站颁发 这个&lt;code>证书&lt;/code>&lt;/li>
-&lt;li>客户端浏览器建立 https 链接 , 接收到网站给的 &lt;code>证书&lt;/code> + &lt;code>公钥(网站)&lt;/code> ; 浏览器用自带的 信任机构 的 &lt;code>公钥(机构)&lt;/code>, 对 &lt;code>证书&lt;/code> 内的 &lt;code>签名&lt;/code> 进行 解密, 解密后对比 &lt;code>公钥(网站)&lt;/code> 是否正确&lt;/li>
-&lt;li>https验证成功, 即 &lt;code>非对称加密&lt;/code> 结束; 接下来 , 双方约定一个 &lt;code>对称加密&lt;/code> , 用于对接下来的数据进行加密
-&lt;blockquote>
-&lt;p>因为 &lt;code>非对称加密&lt;/code> 非常耗资源, 所以为了速度, 使用 &lt;code>对称加密&lt;/code> 而不是 &lt;code>非对称加密&lt;/code>&lt;/p>
-&lt;/blockquote>
-&lt;/li>
-&lt;/ol>
-&lt;/li>
-&lt;li>
-&lt;p>加密种类 :&lt;/p>
-&lt;ul>
-&lt;li>base64 : 可逆, 可理解为 编码 而不是 真正的加密&lt;/li>
-&lt;li>散列 : 又称hash(哈希), 不可逆 , 包含 MD5, SHA(SHA-256,SHA-512)&lt;/li>
-&lt;li>对称加密 : 加密和解密共用秘钥&lt;/li>
-&lt;li>非对称加密 : 一对一对存在(私钥+公钥), 公钥用于加密, 私钥用于解密&lt;/li>
-&lt;/ul>
 &lt;/li>
 &lt;/ul>
 &lt;h2 id="隧道">隧道&lt;/h2>
@@ -1487,20 +1460,7 @@ keepalive&lt;span style="color:#f92672">=&lt;/span>true
 &lt;p>&lt;code>InnoDB&lt;/code> 存储引擎偏向于增删改事件,支持事务,支持索引行锁&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>索引才用 行锁&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;code>悲观锁&lt;/code> 常用两种 &lt;code>排它锁&lt;/code> (FOR UPDATE) 和 &lt;code>共享锁&lt;/code> (LOCK IN SHARE MODE)&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;code>乐观锁&lt;/code> 通过设置version字段, 用业务判断&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>事务并发会出现 &lt;code>脏读&lt;/code> &lt;code>不可重复读&lt;/code> &lt;code>幻读&lt;/code> ; 数据库隔离等级可解决&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>通过建立 &lt;code>联合索引&lt;/code> , 从而出现 &lt;code>索引覆盖&lt;/code> 和 &lt;code>索引下推&lt;/code>, 达到减少 &lt;code>回表&lt;/code> 的目的&lt;br>
-&lt;br/>&lt;/p>
+&lt;p>索引才用 &lt;code>for update&lt;/code> 锁库&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>数据库类型
@@ -1620,8 +1580,6 @@ $a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&am
 &lt;span style="color:#a6e22e">json_encode&lt;/span>($a);
 &lt;span style="color:#ae81ff">0.55&lt;/span> &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">100&lt;/span> &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">55&lt;/span>; &lt;span style="color:#75715e">//为false
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>单点登录使用 &lt;code>jwt&lt;/code> 标准进行用户验证&lt;/li>
-&lt;li>&lt;code>PSR&lt;/code> 是php编码规范, &lt;code>Restful&lt;/code> 是API规范&lt;/li>
 &lt;li>json_encode((array)$array, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT)&lt;/li>
 &lt;li>有时候exec命令执行失败,却没有报错,请这样使用:&lt;code>exec('ls 2&amp;gt;&amp;amp;1', $a, $b)&lt;/code>&lt;/li>
 &lt;li>&lt;code>fastcgi&lt;/code>就是执行 &lt;code>cgi协议&lt;/code> 的,用于定义 &lt;code>Nginx&lt;/code> 调用 &lt;code>php&lt;/code> 时的数据格式,并减少对 &lt;code>php.ini&lt;/code> 的读取&lt;/li>
@@ -1630,6 +1588,7 @@ $a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&am
 &lt;li>&lt;code>|||nochange|||&lt;/code>表示 &lt;code>input&lt;/code> 输入框为空&lt;/li>
 &lt;li>&lt;code>htmlentities&lt;/code> / &lt;code>htmlspecialchars&lt;/code> 可以过滤成 &lt;code>html格式&lt;/code> , 防止 &lt;code>XSS&lt;/code>&lt;/li>
 &lt;li>&lt;code>addslashes&lt;/code> 防止 &lt;code>sql注入&lt;/code>&lt;/li>
+&lt;li>&lt;code>explain&lt;/code> 用于测试 &lt;code>sql语句&lt;/code> 性能&lt;/li>
 &lt;li>引用字符串方式: &lt;code>Nowdoc&lt;/code> / &lt;code>Heredoc&lt;/code>&lt;/li>
 &lt;li>中文简体格式
 &lt;code>header('Content-type:text/html;charset=utf-8')&lt;/code>&lt;/li>
@@ -1643,7 +1602,7 @@ $a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&am
 &lt;/span>&lt;span style="color:#960050;background-color:#1e0010"> &amp;lt;li&amp;gt;&amp;lt;?php echo $y[&amp;#39;z&amp;#39;] ?&amp;gt;&amp;lt;/li&amp;gt;
 &lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&amp;lt;?php } ?&amp;gt;
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>解决ajax跨域(CORS)
+&lt;li>解决ajax夸域
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-php" data-lang="php">&lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Access-Control-Allow-Origin:demain.com&amp;#39;&lt;/span>); &lt;span style="color:#75715e">//可以用*允许所有
 &lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Content-Type:application/json; charset=utf-8&amp;#39;&lt;/span>);
 &lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Access-Control-Allow-Methods: GET, POST, DELETE&amp;#39;&lt;/span>);
