@@ -212,7 +212,7 @@
 &lt;td>查找文件内容&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>cat &amp;lt;filename&amp;gt; | openssl dgst -sha256 -binary | openssl base64 -A&lt;/td>
+&lt;td>cat &amp;lt;filename&amp;gt; | openssl dgst -sha256 -binary | openssl enc -base64 -A&lt;/td>
 &lt;td>计算文件sha256校验值(css校验方法:&lt;code>&amp;lt;link href=&amp;quot;filename.css&amp;quot; integrity=&amp;quot;sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=&amp;quot;&amp;gt;&lt;/code>)&lt;/td>
 &lt;/tr>
 &lt;tr>
