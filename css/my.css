@@ -179,7 +179,7 @@ ul.toc-top {
 
 /* 文章详情gitalk评论 */
 #comments #container .gt-container .gt-header-textarea, #comments #container .gt-popup .is--active, #comments #container .gt-popup .is--active, #comments #container .gt-container .gt-btn-preview, #comments #container .gt-container .gt-header-preview, #comments #container .gt-container .gt-comment-body{
-  color: #fff;
+  color: #fff !important;
 }
 #comments #container .gt-container .gt-header-textarea, #comments #container .gt-container .gt-btn-preview{
   background: rgb(73, 74, 79) !important;
@@ -204,15 +204,16 @@ ul.toc-top {
 #comments #container .gt-container .gt-header-preview{
   background-color: rgb(35, 38, 54);
 }
-#comments #container .gt-container .gt-ico-text{
+#comments #container .gt-container .gt-header-controls-tip .gt-ico-text{
   color: #2962ff;
 }
-#comments #container .gt-container .gt-svg svg{
+#comments #container .gt-container .gt-comment-header .gt-svg svg{
   fill: #ff0000;
 }
-#comments #container .gt-container .gt-ico-text{
-  color: #ff0000;
+#comments #container .gt-container .gt-avatar-github .gt-svg svg{
+  fill: #2962ff;
 }
+
 
 
 
