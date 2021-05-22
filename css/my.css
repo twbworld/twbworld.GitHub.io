@@ -178,7 +178,7 @@ ul.toc-top {
 
 
 /* 文章详情gitalk评论 */
-#comments #container .gt-container .gt-header-textarea, #comments #container .gt-popup .is--active, #comments #container .gt-popup .is--active, #comments #container .gt-container .gt-btn-preview, #comments #container .gt-container .gt-header-preview, #comments #container .gt-container .gt-comment-body{
+#comments #container .gt-container .gt-header-textarea, #comments #container .gt-popup .is--active, #comments #container .gt-container .gt-btn-preview, #comments #container .gt-container .gt-header-preview, #comments #container .gt-container .gt-comment-body{
   color: #fff !important;
 }
 #comments #container .gt-container .gt-header-textarea, #comments #container .gt-container .gt-btn-preview, #comments #container .gt-container .gt-header-preview{
@@ -194,17 +194,19 @@ ul.toc-top {
   -webkit-box-shadow: 0 0.4em 1em 0 #2962ff;
   box-shadow: 0 0.4em 1em 0 #2962ff;
 }
-#comments #container .gt-container .gt-btn{
+#comments #container .gt-container .gt-header-controls .gt-btn-public, #comments #container .gt-container .gt-header-controls  .gt-btn-login{
   border: #2962ff;
   background: #2962ff;
 }
-#comments #container .gt-container .gt-btn-preview{
+#comments #container .gt-container .gt-header-controls .gt-btn-preview{
   border: rgb(73, 74, 79);
+  background: rgb(73, 74, 79);
 }
 
-#comments #container .gt-container .gt-header-controls-tip .gt-ico-text{
+#comments #container .gt-container .gt-header-controls-tip .gt-ico-text, #comments #container .gt-container  .gt-popup a{
   color: #2962ff;
 }
+
 #comments #container .gt-container .gt-comment-header .gt-svg svg{
   fill: #ff0000;
 }
