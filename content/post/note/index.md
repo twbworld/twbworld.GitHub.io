@@ -335,7 +335,7 @@ image:
 ![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210404165626.jpg)
 
 
-* Linux环境安装流程 :
+* Linux配置流程 :
     ``` sh
     .bashrc命令别名
     ufw防火墙关闭
@@ -347,6 +347,7 @@ image:
     传项目文件
     python升级
     net-tools安装
+    iftop安装
     htop安装
     git安装及配置
     tig安装
