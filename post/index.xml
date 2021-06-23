@@ -979,6 +979,12 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;/tbody>
 &lt;/table>
 &lt;ul>
+&lt;li>opessl自签名&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openssl genrsa -out server.key &lt;span style="color:#ae81ff">1024&lt;/span>
+openssl req -new -key server.key -out server.csr &lt;span style="color:#75715e">#Common Name填写(泛)域名&lt;/span>
+openssl x509 -req -in server.csr -out server.crt -signkey server.key -days &lt;span style="color:#ae81ff">3650&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>目录描述 :&lt;/li>
 &lt;/ul>
 &lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210404165626.jpg" alt="">&lt;/p>
