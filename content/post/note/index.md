@@ -330,6 +330,18 @@ image:
 | 可执行可写   | xw | 可以创建文件但是不能读取 |
 
 
+* opessl自签名
+
+```sh
+openssl genrsa -out server.key 1024
+
+openssl req -new -key server.key -out server.csr #Common Name填写(泛)域名
+
+openssl x509 -req -in server.csr -out server.crt -signkey server.key -days 3650
+
+```
+
+
 * 目录描述 :
 
 ![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210404165626.jpg)
