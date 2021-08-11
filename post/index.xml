@@ -658,6 +658,14 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;td>&lt;code>git config --global color.ui true&lt;/code>&lt;/td>
 &lt;td>彩色显示&lt;/td>
 &lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git config --global core.autocrlf input&lt;/code>&lt;/td>
+&lt;td>add时转换为LF&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git config --global core.safecrlf true&lt;/code>&lt;/td>
+&lt;td>发现多种换行符拒绝add&lt;/td>
+&lt;/tr>
 &lt;/tbody>
 &lt;/table>
 &lt;h3 id="vim">Vim&lt;/h3>
