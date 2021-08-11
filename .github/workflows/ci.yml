@@ -2,7 +2,7 @@ name: ci
 on:
   push: #push即触发
     branches:
-      - master
+      - main
     paths-ignore:
       - 'docs/**'
       - 'bin'

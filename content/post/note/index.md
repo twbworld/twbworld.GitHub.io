@@ -218,6 +218,8 @@ image:
 | `git config --global core.filemode false`            | 关闭git对文件权限的监视 |
 | `git config --global core.quotepath false`        | 正常显示中文文件名 |
 | `git config --global color.ui true`               | 彩色显示 |
+| `git config --global core.autocrlf input`               | add时转换为LF |
+| `git config --global core.safecrlf true`               | 发现多种换行符拒绝add |
 
 
 ### Vim
