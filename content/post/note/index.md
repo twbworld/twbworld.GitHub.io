@@ -406,6 +406,42 @@ openssl x509 -req -in server.csr -out server.crt -signkey server.key -days 3650
     lsmod | grep bbr
     ```
 
+* SSL证书申请 :
+
+    详细说明:<https://github.com/acmesh-official/acme.sh/wiki/说明>
+
+    1. 到[cloudflare](https://dash.cloudflare.com/profile)获取"更新dns"得权限码,[教程](https://github.com/acmesh-official/acme.sh/wiki/dnsapi)
+        ``` sh
+        export CF_Key="xxxxxxxxxxxxxx"
+        export CF_Email="1174865138@qq.com"
+        ```
+    2. 安装acme.sh
+        ``` sh
+        curl https://get.acme.sh | sh -s email=1174865138@qq.com
+        ```
+    3. 获取证书
+        ``` sh
+        acme.sh --issue --dns dns_cf -d twbhub.top -d *.twbhub.top -d twbhub.com -d *.twbhub.com \
+        --yes-I-know-dns-manual-mode-enough-go-ahead-please
+        ```
+    4. 验证证书
+        ``` sh
+        acme.sh --renew -d twbhub.top -d *.twbhub.top -d twbhub.com -d *.twbhub.com \
+        --yes-I-know-dns-manual-mode-enough-go-ahead-please --force
+        ```
+    5. 安装证书到别的位置
+        ``` sh
+        acme.sh --install-cert -d twbhub.top -d *.twbhub.top -d twbhub.com -d *.twbhub.com \
+        --key-file /var/www/html/docker/data/cert/twbhub.com_top/key.pem \
+        --fullchain-file /var/www/html/docker/data/cert/twbhub.com_top/cert.pem \
+        --reloadcmd "docker exec trojan /bin/bash -c 'systemctl restart trojan && exit' && docker exec nginx /bin/bash -c 'service nginx force-reload && exit'"
+        ```
+    6. 自动更新acme.sh版本
+        ``` sh
+        acme.sh --upgrade --auto-upgrade
+        ```
+
+
 
 
 
