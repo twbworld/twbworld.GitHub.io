@@ -9,32 +9,32 @@
 &lt;p>虽然会使用 &lt;code>Charles&lt;/code>(花瓶) , 但如果 &lt;code>Postman&lt;/code> 也可以实相同的功能, 少用一个工具, 那谁能不爱呢, 借 &lt;code>Postman&lt;/code> 强大的发包功能, 就更方便了&lt;/p>
 &lt;/blockquote>
 &lt;blockquote>
-&lt;p>今天要展示的是, 抓取iOS的https包(Android7以后, 只能获取Root权限才能安装并信任CA证书, 所以就不以Android为例了)&lt;/p>
+&lt;p>今天要讲的是, 抓取iOS的https包(Android7以后, 只能获取Root权限才能安装并信任CA证书, 所以就不以Android为例了)&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="安装并信任证书">安装并信任证书&lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>安装Postman后, 根据&lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#macos" target="_blank" rel="noopener">文档&lt;/a>的指示, Postman的CA证书位于&lt;br>
-Mac: &lt;code>~/Library/Application Support/Postman/proxy/postman-proxy-ca.crt&lt;/code>&lt;br>
-Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/postman-proxy-ca.crt&lt;/code>&lt;br>
+&lt;p>安装Postman后, 根据&lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#macos" target="_blank" rel="noopener">文档&lt;/a>的指示, Postman的CA证书位于
+Mac: &lt;code>~/Library/Application Support/Postman/proxy/postman-proxy-ca.crt&lt;/code>
+Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/postman-proxy-ca.crt&lt;/code>
 &lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520225920.png" alt="">&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>找到证书后,想办法把证书传到iOS, 并打开, iOS会识别并提示&lt;br>
-打开 &lt;code>设置=&amp;gt;通用=&amp;gt;描述文件&lt;/code> , 可以看到一个 &lt;code>已下载&lt;/code> 但未安装的证书, 安装就好&lt;br>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520230353.jpeg" alt="">&lt;br>
+&lt;p>找到证书后,想办法把证书传到iOS, 并打开, iOS会识别并提示
+打开 &lt;code>设置=&amp;gt;通用=&amp;gt;描述文件&lt;/code> , 可以看到一个 &lt;code>已下载&lt;/code> 但未安装的证书, 安装就好
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520230353.jpeg" alt="">
 &lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520230534.jpeg" alt="">&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>安装完证书,还要让iOS信任该证书&lt;br>
-打开 &lt;code>设置=&amp;gt;通用=&amp;gt;关于本机=&amp;gt;证书信任设置&lt;/code> 找到对应的Postman证书并开启信任&lt;br>
+&lt;p>安装完证书,还要让iOS信任该证书
+打开 &lt;code>设置=&amp;gt;通用=&amp;gt;关于本机=&amp;gt;证书信任设置&lt;/code> 找到对应的Postman证书并开启信任
 &lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520231655.png" alt="">&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;h2 id="设置代理并抓包">设置代理并抓包&lt;/h2>
 &lt;p>到此,后面的步骤就也就不难了,网上也有不少教程,在此不详解&lt;/p>
 &lt;ol>
-&lt;li>在Mac或Windows上的Postman开启代理,设置端口&lt;/li>
+&lt;li>在Mac或Windows上的Postman开启代理,设置端口(Windows需安装openSSL)&lt;/li>
 &lt;li>iOS与Mac或Windows连接同一个网络(WIFI)&lt;/li>
 &lt;li>打开iOS的WiFI页, &lt;code>配置手动代理&lt;/code>, 填写Mac或Windows的IP地址和前一步设置的端口&lt;/li>
 &lt;li>不出意外, Postman就可以抓取到https的数据包了,位于左侧的 &lt;code>History&lt;/code> 栏下&lt;/li>

@@ -719,11 +719,9 @@ openssl x509 -req -in server.csr -out server.crt -signkey server.key -days &lt;s
 &lt;ul>
 &lt;li>
 &lt;p>Linux配置流程 :&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">.bashrc命令别名
-ufw防火墙关闭
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ufw防火墙关闭
 静态ip
 ali源
-vim安装及.vimrc解决乱码
 ssh安装及配置
 samba安装及配置;用户:root;密码:root;
 传项目文件
@@ -750,6 +748,14 @@ set enc&lt;span style="color:#f92672">=&lt;/span>utf8
 set fencs&lt;span style="color:#f92672">=&lt;/span>utf8,gbk,gb2312,gb18030
 set nu!
 ~/.bashrc配置
+stty ixany
+stty ixoff -ixon
+alias l&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;ls -CF&amp;#39;&lt;/span>
+alias ll&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;ls -alF&amp;#39;&lt;/span>
+alias la&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;ls -A&amp;#39;&lt;/span>
+alias rm&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;rm -i&amp;#39;&lt;/span>
+alias cp&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;cp -i&amp;#39;&lt;/span>
+alias mv&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;mv -i&amp;#39;&lt;/span>
 alias gs&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;git status&amp;#39;&lt;/span>
 alias lg&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;git log --color --graph --all --oneline --decorate --pretty=format:&amp;#34;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&amp;lt;%an&amp;gt;%Creset&amp;#34; --abbrev-commit&amp;#39;&lt;/span>
 alias hugo1314&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;hugo server --i18n-warnings --disableFastRender -D --bind 192.168.2.222 -p 1314 --baseURL=http://192.168.2.222:1314&amp;#39;&lt;/span>
@@ -758,12 +764,6 @@ alias dps&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74
 alias de&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;docker exec -it&amp;#39;&lt;/span>
 alias tree&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;tree -NFC&amp;#39;&lt;/span>
 alias lt&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;tree -aNFCL&amp;#39;&lt;/span>
-alias ll&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;ls -alF&amp;#39;&lt;/span>
-alias la&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;ls -A&amp;#39;&lt;/span>
-alias l&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;ls -CF&amp;#39;&lt;/span>
-alias rm&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;rm -i&amp;#39;&lt;/span>
-alias cp&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;cp -i&amp;#39;&lt;/span>
-alias mv&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;mv -i&amp;#39;&lt;/span>
 开启BBR
 echo &lt;span style="color:#e6db74">&amp;#34;net.core.default_qdisc=fq&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
 echo &lt;span style="color:#e6db74">&amp;#34;net.ipv4.tcp_congestion_control=bbr&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
