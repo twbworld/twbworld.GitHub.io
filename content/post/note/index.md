@@ -418,20 +418,21 @@ openssl x509 -req -in server.csr -out server.crt -signkey server.key -days 3650
     2. 安装acme.sh
         ``` sh
         curl https://get.acme.sh | sh -s email=1174865138@qq.com
+        source ~/.bashrc
         ```
     3. 获取证书
         ``` sh
-        acme.sh --issue --dns dns_cf -d twbhub.top -d *.twbhub.top -d twbhub.com -d *.twbhub.com \
+        acme.sh --issue --dns dns_cf -d twbhub.com -d *.twbhub.com -d twbhub.top -d *.twbhub.top \
         --yes-I-know-dns-manual-mode-enough-go-ahead-please
         ```
     4. 验证证书
         ``` sh
-        acme.sh --renew -d twbhub.top -d *.twbhub.top -d twbhub.com -d *.twbhub.com \
+        acme.sh --renew -d twbhub.com -d *.twbhub.com -d twbhub.top -d *.twbhub.top \
         --yes-I-know-dns-manual-mode-enough-go-ahead-please --force
         ```
     5. 安装证书到别的位置
         ``` sh
-        acme.sh --install-cert -d twbhub.top -d *.twbhub.top -d twbhub.com -d *.twbhub.com \
+        acme.sh --install-cert -d twbhub.com -d *.twbhub.com -d twbhub.top -d *.twbhub.top \
         --key-file /var/www/html/docker/data/cert/twbhub.com_top/key.pem \
         --fullchain-file /var/www/html/docker/data/cert/twbhub.com_top/cert.pem \
         --reloadcmd "docker exec trojan /bin/bash -c 'systemctl restart trojan && exit' && docker exec nginx /bin/bash -c 'service nginx force-reload && exit'"
