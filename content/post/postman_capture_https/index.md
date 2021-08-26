@@ -6,7 +6,7 @@ subtitle: ""
 summary: "使用Postman抓取iOS的https流量"
 
 # 标签
-tags: 
+tags:
 - Network
 
 #关键字
@@ -19,7 +19,7 @@ keywords:
 - 抓包
 
 # 文章分类,在列表页显示(暂时使用tags)
-categories: 
+categories:
 
 # 自定义url,如果为空则按配置选项"permalinks"
 url: ""
@@ -77,30 +77,30 @@ image:
 
 > 虽然会使用 `Charles`(花瓶) , 但如果 `Postman` 也可以实相同的功能, 少用一个工具, 那谁能不爱呢, 借 `Postman` 强大的发包功能, 就更方便了
 
-> 今天要展示的是, 抓取iOS的https包(Android7以后, 只能获取Root权限才能安装并信任CA证书, 所以就不以Android为例了)
+> 今天要讲的是, 抓取iOS的https包(Android7以后, 只能获取Root权限才能安装并信任CA证书, 所以就不以Android为例了)
 
 ## 安装并信任证书
 
-1. 安装Postman后, 根据[文档](https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#macos)的指示, Postman的CA证书位于  
-Mac: `~/Library/Application Support/Postman/proxy/postman-proxy-ca.crt`  
-Windows: `C:\Users<user>\AppData\Roaming\Postman\proxy/postman-proxy-ca.crt`  
+1. 安装Postman后, 根据[文档](https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#macos)的指示, Postman的CA证书位于
+Mac: `~/Library/Application Support/Postman/proxy/postman-proxy-ca.crt`
+Windows: `C:\Users<user>\AppData\Roaming\Postman\proxy/postman-proxy-ca.crt`
 ![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520225920.png)
 
 
-1. 找到证书后,想办法把证书传到iOS, 并打开, iOS会识别并提示  
-打开 `设置=>通用=>描述文件` , 可以看到一个 `已下载` 但未安装的证书, 安装就好  
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520230353.jpeg)  
+1. 找到证书后,想办法把证书传到iOS, 并打开, iOS会识别并提示
+打开 `设置=>通用=>描述文件` , 可以看到一个 `已下载` 但未安装的证书, 安装就好
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520230353.jpeg)
 ![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520230534.jpeg)
 
-1. 安装完证书,还要让iOS信任该证书  
-打开 `设置=>通用=>关于本机=>证书信任设置` 找到对应的Postman证书并开启信任  
+1. 安装完证书,还要让iOS信任该证书
+打开 `设置=>通用=>关于本机=>证书信任设置` 找到对应的Postman证书并开启信任
 ![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520231655.png)
 
 ## 设置代理并抓包
 
 到此,后面的步骤就也就不难了,网上也有不少教程,在此不详解
 
-1. 在Mac或Windows上的Postman开启代理,设置端口
+1. 在Mac或Windows上的Postman开启代理,设置端口(Windows需安装openSSL)
 2. iOS与Mac或Windows连接同一个网络(WIFI)
 3. 打开iOS的WiFI页, `配置手动代理`, 填写Mac或Windows的IP地址和前一步设置的端口
 4. 不出意外, Postman就可以抓取到https的数据包了,位于左侧的 `History` 栏下

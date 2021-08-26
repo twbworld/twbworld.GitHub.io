@@ -351,11 +351,9 @@ openssl x509 -req -in server.csr -out server.crt -signkey server.key -days 3650
 
 * Linux配置流程 :
     ``` sh
-    .bashrc命令别名
     ufw防火墙关闭
     静态ip
     ali源
-    vim安装及.vimrc解决乱码
     ssh安装及配置
     samba安装及配置;用户:root;密码:root;
     传项目文件
@@ -384,6 +382,14 @@ openssl x509 -req -in server.csr -out server.crt -signkey server.key -days 3650
     set nu!
 
     ~/.bashrc配置
+    stty ixany
+    stty ixoff -ixon
+    alias l='ls -CF'
+    alias ll='ls -alF'
+    alias la='ls -A'
+    alias rm='rm -i'
+    alias cp='cp -i'
+    alias mv='mv -i'
     alias gs='git status'
     alias lg='git log --color --graph --all --oneline  --decorate --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
     alias hugo1314='hugo server --i18n-warnings --disableFastRender -D --bind 192.168.2.222 -p 1314 --baseURL=http://192.168.2.222:1314'
@@ -392,12 +398,6 @@ openssl x509 -req -in server.csr -out server.crt -signkey server.key -days 3650
     alias de='docker exec -it'
     alias tree='tree -NFC'
     alias lt='tree -aNFCL'
-    alias ll='ls -alF'
-    alias la='ls -A'
-    alias l='ls -CF'
-    alias rm='rm -i'
-    alias cp='cp -i'
-    alias mv='mv -i'
 
     开启BBR
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
