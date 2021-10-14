@@ -986,6 +986,25 @@ keepalive=true
     echo "Hello"; //输出
     ob_end_flush(); //输出全部内容到浏览器,包括echo
     ```
+* php数组排序
+    ``` php
+    array_multisort(array_column($array,'create_time'),SORT_DESC,$array)
+    ```
+* 跨域
+    ``` php
+    $origin         = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
+    $originsAllowed = [
+        'http://cc.cc:8080',
+    ];
+    if (in_array($origin, $originsAllowed)) {
+        defined('CORS_ORIGIN') || define('CORS_ORIGIN', $origin);
+
+        header('Access-Control-Allow-Origin: ' . $origin);
+        header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT");
+        header('Access-Control-Allow-Headers: X-Requested-With, X_Requested_With, content-type');
+        header("Access-Control-Allow-Credentials: true");
+    }
+    ```
 
 | 函数 | 描述 |
 | ---- | ---- |
