@@ -140,10 +140,10 @@ image:
 | mkdir/mv/cp/rm                    | 文件名操作 |
 | \cp                               | 当有同名文件,不需要输"Y"即可覆盖 |
 | useradd                           | 创建新用户 |
-| which                             | 查找命令 |
+| which                             | 查找命令的位置 |
 | chown                             | 设置文件拥有者 |
-| chmod                             | 设置u/g/o权限 |
-| setfacl -R -m u:apache:rwx /var   | 设置单独用户的权限(getfacl查看) |
+| chmod 775                              | 设置u/g/o权限 |
+| setfacl -R -m u:www-data:rwx /var   | 设置单独用户的权限(getfacl查看) |
 | chattr                            | 设置文件属性,如设置成禁止删除文件 |
 | ps -ef(ps aux)                    | 查看所有进程 |
 | pstree -p                         | 查看进程树 |
@@ -151,7 +151,7 @@ image:
 | uptime                            | 计算机负载 |
 | top                               | 实时负载(可安装htop加强版) |
 | df -h                             | 磁盘占用 |
-| du -h --max-depth=0 \* (du -sh \*) | 目录下各个文件大小 |
+| du -sh \*                          | 目录下各个文件大小(或 du -h --max-depth=0 \*) |
 | pkill -kill -t pts/1              | 强退指定用户 |
 | who                               | 在线用户(或缩写w) |
 | last                              | 用户登录历史记录 |
@@ -379,6 +379,7 @@ openssl x509 -req -in server.csr -out server.crt -signkey server.key -days 3650
     set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
     set enc=utf8
     set fencs=utf8,gbk,gb2312,gb18030
+    set paste
     set nu!
 
     ~/.bashrc配置
