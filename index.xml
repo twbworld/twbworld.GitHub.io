@@ -361,18 +361,18 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;/tr>
 &lt;tr>
 &lt;td>which&lt;/td>
-&lt;td>查找命令&lt;/td>
+&lt;td>查找命令的位置&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>chown&lt;/td>
 &lt;td>设置文件拥有者&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>chmod&lt;/td>
+&lt;td>chmod 775&lt;/td>
 &lt;td>设置u/g/o权限&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>setfacl -R -m u:apache:rwx /var&lt;/td>
+&lt;td>setfacl -R -m u:www-data:rwx /var&lt;/td>
 &lt;td>设置单独用户的权限(getfacl查看)&lt;/td>
 &lt;/tr>
 &lt;tr>
@@ -404,8 +404,8 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;td>磁盘占用&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>du -h &amp;ndash;max-depth=0 * (du -sh *)&lt;/td>
-&lt;td>目录下各个文件大小&lt;/td>
+&lt;td>du -sh *&lt;/td>
+&lt;td>目录下各个文件大小(或 du -h &amp;ndash;max-depth=0 *)&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>pkill -kill -t pts/1&lt;/td>
@@ -1026,6 +1026,7 @@ set autoindent
 set fileencodings&lt;span style="color:#f92672">=&lt;/span>utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 set enc&lt;span style="color:#f92672">=&lt;/span>utf8
 set fencs&lt;span style="color:#f92672">=&lt;/span>utf8,gbk,gb2312,gb18030
+set paste
 set nu!
 ~/.bashrc配置
 stty ixany
