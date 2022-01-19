@@ -396,6 +396,7 @@ openssl x509 -req -in server.csr -out server.crt -signkey server.key -days 3650
     alias hugo1314='hugo server --i18n-warnings --disableFastRender -D --bind 192.168.2.222 -p 1314 --baseURL=http://192.168.2.222:1314'
     alias d='docker'
     alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}"'
+    alias ds='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}} / {{.MemUsage}}"'
     alias de='docker exec -it'
     alias tree='tree -NFC'
     alias lt='tree -aNFCL'
@@ -478,9 +479,9 @@ openssl x509 -req -in server.csr -out server.crt -signkey server.key -days 3650
 * 备注规范 :
   > * feat: 新功能
   > * fix: 修复 bug
-  > * perf: 提升性能的改动
-  > * refactor: bug 修复和添加新功能之外的代码改动,重构大改动
   > * chore: 其他修改,构建过程或辅助工具和库（如文档生成）的更改
+  > * refactor: bug 修复和添加新功能之外的代码改动,重构大改动
+  > * perf: 提升性能的改动
   > * docs: 文档变动
   > * style: 格式调整，对代码实际运行没有改动，例如添加空行、格式化等
   > * test: 添加或修正测试代码
