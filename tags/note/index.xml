@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Note | 忐忑の博客</title><link>https://twbworld.github.io/tags/note/</link><atom:link href="https://twbworld.github.io/tags/note/index.xml" rel="self" type="application/rss+xml"/><description>Note</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202021_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><image><url>https://twbworld.github.io/media/avatar.jpg</url><title>Note</title><link>https://twbworld.github.io/tags/note/</link></image><item><title>学习笔记</title><link>https://twbworld.github.io/post/note/</link><pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate><guid>https://twbworld.github.io/post/note/</guid><description>&lt;h2 id="扩展知识">扩展知识&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Note | 忐忑の博客</title><link>https://twbhub.com/tags/note/</link><atom:link href="https://twbhub.com/tags/note/index.xml" rel="self" type="application/rss+xml"/><description>Note</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202022_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><image><url>https://twbhub.com/media/avatar.jpg</url><title>Note</title><link>https://twbhub.com/tags/note/</link></image><item><title>学习笔记</title><link>https://twbhub.com/post/note/</link><pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate><guid>https://twbhub.com/post/note/</guid><description>&lt;h2 id="扩展知识">扩展知识&lt;/h2>
 &lt;h3 id="双系统制作">双系统制作&lt;/h3>
 &lt;blockquote>
 &lt;p>&lt;a href="https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103">https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103&lt;/a>&lt;/p>
@@ -762,6 +762,7 @@ alias lg&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74"
 alias hugo1314&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;hugo server --i18n-warnings --disableFastRender -D --bind 192.168.2.222 -p 1314 --baseURL=http://192.168.2.222:1314&amp;#39;&lt;/span>
 alias d&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;docker&amp;#39;&lt;/span>
 alias dps&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;docker ps --format &amp;#34;table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}&amp;#34;&amp;#39;&lt;/span>
+alias ds&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;docker stats --format &amp;#34;table {{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}} / {{.MemUsage}}&amp;#34;&amp;#39;&lt;/span>
 alias de&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;docker exec -it&amp;#39;&lt;/span>
 alias tree&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;tree -NFC&amp;#39;&lt;/span>
 alias lt&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;tree -aNFCL&amp;#39;&lt;/span>
@@ -846,9 +847,9 @@ source ~/.bashrc
 &lt;ul>
 &lt;li>feat: 新功能&lt;/li>
 &lt;li>fix: 修复 bug&lt;/li>
-&lt;li>perf: 提升性能的改动&lt;/li>
-&lt;li>refactor: bug 修复和添加新功能之外的代码改动,重构大改动&lt;/li>
 &lt;li>chore: 其他修改,构建过程或辅助工具和库（如文档生成）的更改&lt;/li>
+&lt;li>refactor: bug 修复和添加新功能之外的代码改动,重构大改动&lt;/li>
+&lt;li>perf: 提升性能的改动&lt;/li>
 &lt;li>docs: 文档变动&lt;/li>
 &lt;li>style: 格式调整，对代码实际运行没有改动，例如添加空行、格式化等&lt;/li>
 &lt;li>test: 添加或修正测试代码&lt;/li>
