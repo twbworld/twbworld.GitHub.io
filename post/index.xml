@@ -440,24 +440,12 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;td>查看公网ip&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>rpm -qa|grep&lt;/td>
-&lt;td>查看应用程序&lt;/td>
-&lt;/tr>
-&lt;tr>
 &lt;td>pkill -HUP nginx&lt;/td>
 &lt;td>系统级别重载配置文件&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>systemctl status nginx.service&lt;/td>
 &lt;td>查看状态(或service nginx status)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>chkconfig iptables off&lt;/td>
-&lt;td>永久关闭防火墙&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>chkconfig iptables on&lt;/td>
-&lt;td>永久关闭后重启&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>ln -s&lt;/td>
@@ -468,7 +456,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;td>可解决加载失败&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>nohup &amp;lt;shell&amp;gt;&lt;/td>
+&lt;td>nohup &amp;lt;shell&amp;gt; &amp;amp;&lt;/td>
 &lt;td>在后台运行shell命令&lt;/td>
 &lt;/tr>
 &lt;tr>
@@ -484,7 +472,11 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;td>zip文件解压避免乱码&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>scp -r /var &lt;a href="mailto:root@127.0.0.1">root@127.0.0.1&lt;/a>:/var/&lt;/td>
+&lt;td>tail -f file.txt&lt;/td>
+&lt;td>查看文件变化&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>scp -r /var &lt;a href="mailto:root@192.168.1.1">root@192.168.1.1&lt;/a>:/var/&lt;/td>
 &lt;td>目录传输&lt;/td>
 &lt;/tr>
 &lt;tr>
@@ -1158,14 +1150,7 @@ vim /etc/init.d/nginx &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span
 chkconfig --add /etc/init.d/nginx
 chkconfig nginx on
 systemctl status nginx.service
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="centos指定版本安装">CentOS指定版本安装&lt;/h2>
-&lt;pre>&lt;code>1. 到官网找到对应版本的rpm包,如:http://nginx.org/packages
-2. 下载rpm包:wget http://nginx.org/packages/.../xxx.rpm
-3. 安装:yum install -y xxx.rpm
-4. /etc/rc.d/rc.local是系统启动后执行的文件,可在里添加自启的命令(但不推荐用这方式)
-5. /etc/profile是系统变量的文件
-&lt;/code>&lt;/pre>
-&lt;h2 id="网络">网络&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="网络">网络&lt;/h2>
 &lt;ul>
 &lt;li>
 &lt;p>&lt;code>TCP&lt;/code> :需要三次握手,建立了 &lt;code>TCP&lt;/code> 虚拟通道,之后, &lt;code>TCP&lt;/code> 运输 &lt;code>HTTP流&lt;/code>&lt;/p>
@@ -1192,19 +1177,13 @@ systemctl status nginx.service
 &lt;p>使用 &lt;code>IPv4&lt;/code> 进行路由，使用 &lt;code>TCP&lt;/code> 进行连接层面的流量控制，使用 &lt;code>SSL/TLS&lt;/code> 协议实现传输安全，使用 &lt;code>DNS&lt;/code> 进行域名解析，使用 &lt;code>HTTP&lt;/code> 进行应用数据的传输。&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;code>IP&lt;/code> 是网络层&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;code>TCP&lt;/code> 是传输层&lt;/p>
+&lt;p>&lt;code>IP&lt;/code> 是网络层 ; &lt;code>TCP&lt;/code> 是传输层&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>网络层 &lt;code>ARP&lt;/code> : 保存 &lt;code>IP&lt;/code> 与 &lt;code>mac&lt;/code> 地址的映射列表,没有则会广播&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;code>TCP/IP&lt;/code> 连接 + &lt;code>http&lt;/code> 传输 &amp;ndash;&amp;gt; 网卡 &amp;ndash;&amp;gt; 内核(通过资源包的四元组信息,信息的其中之二是访问的 &lt;code>IP+端口&lt;/code> ) &amp;ndash;&amp;gt; &lt;code>socket&lt;/code>(它是文件系统,是资源,储存着端对端的四元组信息,被进程使用) &amp;ndash;&amp;gt; 进程&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;code>socket&lt;/code> 是网络与进程的中介&lt;/p>
+&lt;p>&lt;code>TCP/IP&lt;/code> 连接 + &lt;code>http&lt;/code> 传输 &amp;ndash;&amp;gt; 网卡 &amp;ndash;&amp;gt; 内核(通过资源包的四元组信息,信息的其中之二是访问的 &lt;code>IP+端口&lt;/code> ) &amp;ndash;&amp;gt; &lt;code>socket&lt;/code>(它是文件系统,是资源,是网络与进程的中介,储存着端对端的四元组信息,被进程使用) &amp;ndash;&amp;gt; 进程&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h2 id="隧道">隧道&lt;/h2>
@@ -1311,28 +1290,7 @@ allow_writeable_chroot&lt;span style="color:#f92672">=&lt;/span>YES
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="nginx">Nginx&lt;/h2>
 &lt;ul>
 &lt;li>
-&lt;p>&lt;code>Nginx&lt;/code> (web服务器)偏向于 &lt;code>静态资源&lt;/code> ,处理高并发,可用 &lt;code>反向代理&lt;/code> 从而实现 &lt;code>负载均衡&lt;/code> (类似 &lt;code>dns&lt;/code> )&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;code>Apache&lt;/code> 偏向于&lt;code> PHP&lt;/code> 的动态资源,bug少稳定&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;code>负载均衡&lt;/code> 实现思路: &lt;code>动静态资源分离&lt;/code> ,主服务器使用 &lt;code>Nginx&lt;/code> ,动态资源则 &lt;code>反向代理&lt;/code> 到本机或集群的 &lt;code>Apache&lt;/code> 服务器(一台服务器安装两个 &lt;code>Apache&lt;/code> 服务可防止 &lt;code>宕机&lt;/code> )&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;code>linux&lt;/code> 有端口复用(套接字端口共享)功能( &lt;code>nginx&lt;/code> 开启 &lt;code>reuseport&lt;/code> );从内核层面做 &lt;code>负载均衡&lt;/code> ,避免 &lt;code>锁竞争&lt;/code> ( &lt;code>惊群效应&lt;/code> ): &lt;a href="https://www.zhihu.com/question/51618274">https://www.zhihu.com/question/51618274&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;code>Nginx&lt;/code> 启用 &lt;code>PHP&lt;/code> 需要配置文件&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;code>Nginx&lt;/code> 等软件自启,需要参考官方的启动代码,添加到 &lt;code>/etc/init.d/&lt;/code> 下&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;code>Nginx&lt;/code> 支持缓存&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;code>Nginx&lt;/code> 支持 &lt;code>gzip&lt;/code>&lt;/p>
+&lt;p>&lt;code>linux&lt;/code> 支持 缓存/gzip/端口复用(套接字端口共享)功能( &lt;code>nginx&lt;/code> 开启 &lt;code>reuseport&lt;/code> );从内核层面做 &lt;code>负载均衡&lt;/code> ,避免 &lt;code>锁竞争&lt;/code> ( &lt;code>惊群效应&lt;/code> ): &lt;a href="https://www.zhihu.com/question/51618274">https://www.zhihu.com/question/51618274&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>Nginx实现负载均衡需要源码的同步, 使用 &lt;code>rsync&lt;/code> (或+ &lt;code>sersync&lt;/code> )实现集群服务器源码同步,源服务器执行的命令:
@@ -1651,12 +1609,6 @@ $a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&am
 &lt;/span>&lt;span style="color:#960050;background-color:#1e0010"> &amp;lt;li&amp;gt;&amp;lt;?php echo $y[&amp;#39;z&amp;#39;] ?&amp;gt;&amp;lt;/li&amp;gt;
 &lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&amp;lt;?php } ?&amp;gt;
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>解决ajax夸域
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-php" data-lang="php">&lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Access-Control-Allow-Origin:demain.com&amp;#39;&lt;/span>); &lt;span style="color:#75715e">//可以用*允许所有
-&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Content-Type:application/json; charset=utf-8&amp;#39;&lt;/span>);
-&lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Access-Control-Allow-Methods: GET, POST, DELETE&amp;#39;&lt;/span>);
-&lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept&amp;#39;&lt;/span>);
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>内容返回
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-php" data-lang="php">&lt;span style="color:#a6e22e">ob_start&lt;/span>(); &lt;span style="color:#75715e">//开启echo缓存区
 &lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">echo&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Hello&amp;#34;&lt;/span>; &lt;span style="color:#75715e">//输出
@@ -1672,8 +1624,8 @@ $originsAllowed &lt;span style="color:#f92672">=&lt;/span> [
 ];
 &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">in_array&lt;/span>($origin, $originsAllowed)) {
 &lt;span style="color:#a6e22e">defined&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;CORS_ORIGIN&amp;#39;&lt;/span>) &lt;span style="color:#f92672">||&lt;/span> &lt;span style="color:#a6e22e">define&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;CORS_ORIGIN&amp;#39;&lt;/span>, $origin);
-&lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Access-Control-Allow-Origin: &amp;#39;&lt;/span> &lt;span style="color:#f92672">.&lt;/span> $origin);
-&lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT&amp;#34;&lt;/span>);
+&lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Access-Control-Allow-Origin: &amp;#39;&lt;/span> &lt;span style="color:#f92672">.&lt;/span> $origin); &lt;span style="color:#75715e">//可以用*允许所有
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT&amp;#34;&lt;/span>);
 &lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Access-Control-Allow-Headers: X-Requested-With, X_Requested_With, content-type&amp;#39;&lt;/span>);
 &lt;span style="color:#a6e22e">header&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Access-Control-Allow-Credentials: true&amp;#34;&lt;/span>);
 }
