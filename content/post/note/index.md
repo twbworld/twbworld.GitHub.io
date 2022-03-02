@@ -160,18 +160,16 @@ image:
 | netstat -antup \| grep nginx       | 查看进程或端口等 |
 | man                               | 命令帮助(可安装中文软件) |
 | curl ifconfig.me                  | 查看公网ip |
-| rpm -qa\|grep                      | 查看应用程序 |
 | pkill -HUP nginx                  | 系统级别重载配置文件 |
 | systemctl status nginx.service    | 查看状态(或service nginx status) |
-| chkconfig iptables off            | 永久关闭防火墙 |
-| chkconfig iptables on             | 永久关闭后重启 |
 | ln -s                                | 软连接 |
 | composer dump-autoload           | 可解决加载失败 |
-| nohup <shell\>                     | 在后台运行shell命令 |
+| nohup <shell\> &                     | 在后台运行shell命令 |
 | tree -LNFC 2                       | tree软件常用命令 |
 | tar -xaf                        | 识别压缩文件类型,进行解压(-caf) |
 | unzip -O cp936                  | zip文件解压避免乱码 |
-| scp -r /var root@127.0.0.1:/var/ | 目录传输 |
+| tail -f file.txt                  | 查看文件变化 |
+| scp -r /var root@192.168.1.1:/var/ | 目录传输 |
 | find / -type f -name "*.txt" \| xargs grep "hello" | 查找文件内容 |
 | cat <filename\> \| openssl dgst -sha256 -binary \| openssl enc -base64 -A | 计算文件sha256校验值(css校验方法:`<link href="filename.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=">`) |
 | sha256sum filename | 计算文件md5校验值 |
@@ -522,18 +520,6 @@ systemctl status nginx.service
 
 
 
-## CentOS指定版本安装
-
-    1. 到官网找到对应版本的rpm包,如:http://nginx.org/packages
-    2. 下载rpm包:wget http://nginx.org/packages/.../xxx.rpm
-    3. 安装:yum install -y xxx.rpm
-    4. /etc/rc.d/rc.local是系统启动后执行的文件,可在里添加自启的命令(但不推荐用这方式)
-    5. /etc/profile是系统变量的文件
-
-
-
-
-
 ## 网络
 
 * `TCP` :需要三次握手,建立了 `TCP` 虚拟通道,之后, `TCP` 运输 `HTTP流`
@@ -545,12 +531,10 @@ systemctl status nginx.service
 * `HTTP/3` : 把 `QUIC` 与 `HTTP` 分离,形成: `UDP / QUIC / HTTP`
 * 使用 `IPv4` 进行路由，使用 `TCP` 进行连接层面的流量控制，使用 `SSL/TLS` 协议实现传输安全，使用 `DNS` 进行域名解析，使用 `HTTP` 进行应用数据的传输。
 
-* `IP` 是网络层
-* `TCP` 是传输层
+* `IP` 是网络层 ; `TCP` 是传输层
 * 网络层 `ARP` : 保存 `IP` 与 `mac` 地址的映射列表,没有则会广播
 
-* `TCP/IP` 连接 + `http` 传输 --> 网卡 --> 内核(通过资源包的四元组信息,信息的其中之二是访问的 `IP+端口` ) --> `socket`(它是文件系统,是资源,储存着端对端的四元组信息,被进程使用) --> 进程
-* `socket` 是网络与进程的中介
+* `TCP/IP` 连接 + `http` 传输 --> 网卡 --> 内核(通过资源包的四元组信息,信息的其中之二是访问的 `IP+端口` ) --> `socket`(它是文件系统,是资源,是网络与进程的中介,储存着端对端的四元组信息,被进程使用) --> 进程
 
 
 
@@ -681,17 +665,7 @@ allow_writeable_chroot=YES
 
 ## Nginx
 
-
-* `Nginx` (web服务器)偏向于 `静态资源` ,处理高并发,可用 `反向代理` 从而实现 `负载均衡` (类似 `dns` )
-* `Apache` 偏向于` PHP` 的动态资源,bug少稳定
-* `负载均衡` 实现思路: `动静态资源分离` ,主服务器使用 `Nginx` ,动态资源则 `反向代理` 到本机或集群的 `Apache` 服务器(一台服务器安装两个 `Apache` 服务可防止 `宕机` )
-* `linux` 有端口复用(套接字端口共享)功能( `nginx` 开启 `reuseport` );从内核层面做 `负载均衡` ,避免 `锁竞争` ( `惊群效应` ): <https://www.zhihu.com/question/51618274>
-* `Nginx` 启用 `PHP` 需要配置文件
-* `Nginx` 等软件自启,需要参考官方的启动代码,添加到 `/etc/init.d/` 下
-* `Nginx` 支持缓存
-* `Nginx` 支持 `gzip`
-
-
+* `linux` 支持 缓存/gzip/端口复用(套接字端口共享)功能( `nginx` 开启 `reuseport` );从内核层面做 `负载均衡` ,避免 `锁竞争` ( `惊群效应` ): <https://www.zhihu.com/question/51618274>
 
 * Nginx实现负载均衡需要源码的同步, 使用 `rsync` (或+ `sersync` )实现集群服务器源码同步,源服务器执行的命令:
 `rsync -avH --progress --delete --exclude-from=/etc/exclude.txt --password-file=/etc/pw.txt /var/www/html/ username@192.168.43.175::module1`
@@ -975,13 +949,6 @@ keepalive=true
         <li><?php echo $y['z'] ?></li>
     <?php } ?>
     ```
-* 解决ajax夸域
-    ``` php
-    header('Access-Control-Allow-Origin:demain.com'); //可以用*允许所有
-    header('Content-Type:application/json; charset=utf-8');
-    header('Access-Control-Allow-Methods: GET, POST, DELETE');
-    header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
-    ```
 * 内容返回
     ``` php
     ob_start(); //开启echo缓存区
@@ -1001,7 +968,7 @@ keepalive=true
     if (in_array($origin, $originsAllowed)) {
         defined('CORS_ORIGIN') || define('CORS_ORIGIN', $origin);
 
-        header('Access-Control-Allow-Origin: ' . $origin);
+        header('Access-Control-Allow-Origin: ' . $origin); //可以用*允许所有
         header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT");
         header('Access-Control-Allow-Headers: X-Requested-With, X_Requested_With, content-type');
         header("Access-Control-Allow-Credentials: true");
