@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>忐忑の博客</title><link>https://twbhub.com/</link><atom:link href="https://twbhub.com/index.xml" rel="self" type="application/rss+xml"/><description>忐忑の博客</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202022_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Thu, 20 May 2021 23:00:00 +0800</lastBuildDate><image><url>https://twbhub.com/media/avatar.jpg</url><title>忐忑の博客</title><link>https://twbhub.com/</link></image><item><title>Postman无法抓包Chrome</title><link>https://twbhub.com/post/postman_cannot_connection_chrome/</link><pubDate>Thu, 20 May 2021 23:00:00 +0800</pubDate><guid>https://twbhub.com/post/postman_cannot_connection_chrome/</guid><description>&lt;h2 id="原因">原因&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>忐忑の博客</title><link>https://twbhub.com/</link><atom:link href="https://twbhub.com/index.xml" rel="self" type="application/rss+xml"/><description>忐忑の博客</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202022_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Fri, 04 Mar 2022 00:00:00 +0800</lastBuildDate><image><url>https://twbhub.com/media/avatar.jpg</url><title>忐忑の博客</title><link>https://twbhub.com/</link></image><item><title>Postman无法抓包Chrome</title><link>https://twbhub.com/post/postman_cannot_connection_chrome/</link><pubDate>Thu, 20 May 2021 23:00:00 +0800</pubDate><guid>https://twbhub.com/post/postman_cannot_connection_chrome/</guid><description>&lt;h2 id="原因">原因&lt;/h2>
 &lt;p>Mac安装了两个版本(我的是正式版和&lt;code>Dev&lt;/code>版)的 &lt;code>Chrome&lt;/code> ,一个正常, 另一个版本无法与 &lt;code>Postman&lt;/code> 连接, 无法被抓包(Windows不会出现这样的情况)&lt;br>
 原因是不正常的版本缺少了一个 &lt;code>Interceptor&lt;/code> 插件的配置文件, 据官方&lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/interceptor/#how-it-works" target="_blank" rel="noopener">文档&lt;/a>所述,文件位于&lt;br>
 &lt;code>/Users/&amp;lt;username&amp;gt;/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.postman.postmanapp.json&lt;/code>&lt;/p>
@@ -278,7 +278,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 如果 &lt;code>workflows&lt;/code> 目录下有多个yml, GitHub-Actions默认是并行触发的, 如果想实现按顺序触发, 请使用 &lt;a href="https://docs.github.com/cn/actions/reference/events-that-trigger-workflows#workflow_run" target="_blank" rel="noopener">&lt;code>workflow_run&lt;/code>&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>GitHub-Actions 真香 !&lt;/p>
-&lt;/blockquote></description></item><item><title>学习笔记</title><link>https://twbhub.com/post/note/</link><pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate><guid>https://twbhub.com/post/note/</guid><description>&lt;h2 id="扩展知识">扩展知识&lt;/h2>
+&lt;/blockquote></description></item><item><title>学习笔记</title><link>https://twbhub.com/note/</link><pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate><guid>https://twbhub.com/note/</guid><description>&lt;h2 id="扩展知识">扩展知识&lt;/h2>
 &lt;h3 id="双系统制作">双系统制作&lt;/h3>
 &lt;blockquote>
 &lt;p>&lt;a href="https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103">https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103&lt;/a>&lt;/p>
@@ -2831,7 +2831,12 @@ cp support-files/mysql.server /etc/init.d/mysql.server
 &lt;p>缺点:&lt;/p>
 &lt;ul>
 &lt;li>虽然全球用户量庞大,但缺乏中文文档, 国内用户群体少, Hugo的相关中文文章也就少; Hugo会不会是在国内的一支&amp;quot;潜力股&amp;quot; ?&lt;/li>
-&lt;/ul></description></item><item><title>订阅</title><link>https://twbhub.com/post/proxy/</link><pubDate>Tue, 23 Feb 2021 00:00:00 +0800</pubDate><guid>https://twbhub.com/post/proxy/</guid><description>&lt;h2 id="1费用">1#费用&lt;/h2>
+&lt;/ul></description></item><item><title>站点导航</title><link>https://twbhub.com/nav/</link><pubDate>Fri, 04 Mar 2022 00:00:00 +0800</pubDate><guid>https://twbhub.com/nav/</guid><description>&lt;h2 id="导航">导航&lt;/h2>
+&lt;p>&lt;a href="https://twbhub.com/" target="_blank" style="">博客&lt;/a>
+&lt;a href="https://twbhub.com/note" target="_blank" style="">笔记&lt;/a>
+&lt;a href="https://ql.twbhub.com/" target="_blank" style="">青龙面板&lt;/a>
+&lt;a href="https://oneindex.twbhub.com/" target="_blank" style="">个人网盘&lt;/a>
+&lt;a href="https://admin.twbhub.com/" target="_blank" style="">TP后台&lt;/a>&lt;/p></description></item><item><title>订阅</title><link>https://twbhub.com/proxy/</link><pubDate>Tue, 23 Feb 2021 00:00:00 +0800</pubDate><guid>https://twbhub.com/proxy/</guid><description>&lt;h2 id="1费用">1#费用&lt;/h2>
 &lt;h3 id="月付">月付&lt;/h3>
 &lt;blockquote>
 &lt;p>如想要更低的价 , 或者 担心每月忘记续费 , 可选择 &lt;em>&lt;strong>年付&lt;/strong>&lt;/em>&lt;/p>
@@ -2864,7 +2869,7 @@ cp support-files/mysql.server /etc/init.d/mysql.server
 &lt;/table>
 &lt;h3 id="年付">年付&lt;/h3>
 &lt;h4 id="年付8折计算">年付8折计算&lt;/h4>
-&lt;p>以 &lt;code>100G/月&lt;/code> 为例计算 :&lt;br>
+&lt;p>以 &lt;code>100G/月&lt;/code> 为例计算 :
 &lt;code>15(元/月) X 12(月) X 0.8(折扣) = 144(元/年)&lt;/code>&lt;/p>
 &lt;h3 id="ps">PS&lt;/h3>
 &lt;ul>
