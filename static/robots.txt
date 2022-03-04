@@ -8,7 +8,10 @@ Disallow: .gif$
 Disallow: /publication/
 Disallow: /slides/
 Disallow: /talk/
+Disallow: /nav/
 
 Allow: /post/
 Allow: /sitemap.xml
 Disallow: /post/proxy
+
+Sitemap: https://twbhub.com/sitemap.xml

@@ -1,9 +1,9 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "订阅"
+title: "站点导航"
 subtitle: ""
-summary: "proxy"
+summary: "nav"
 
 # 标签
 tags:
@@ -11,13 +11,14 @@ tags:
 
 #关键字
 keywords:
-- proxy
+- nav
+- navigation
 
 # 文章分类,在列表页显示(暂时使用tags)
 categories:
 
 # 自定义url,如果为空则按配置选项"permalinks"
-url: "/proxy"
+url: "/nav"
 # 文章排序权重
 weight: 99999
 # 是否精选文章,显示在首页
@@ -29,7 +30,7 @@ toc: true
 # 类型,默认是目录名,所以"post",也可以写"widget_page","dosc"等
 type: post
 # 文章添加时间
-date: 2021-02-23T00:00:00+08:00
+date: 2022-03-04T00:00:00+08:00
 # 文章更新时间,可开启 自动使用git时间
 # lastmod: 2020-05-03T19:54:10+08:00
 # 定时发布时间
@@ -104,53 +105,10 @@ image:
 
 
 
-## 1#费用
+## 导航
 
-### 月付
-
-> 如想要更低的价 , 或者 担心每月忘记续费 , 可选择 ***年付***
-
-|  流量(G/月)   | 价格(￥)  |
-|  ----  | ----  |
-| 50  | 9 |
-| 100  | 15 |
-| 250  | 29 |
-| 500  | 49 |
-
-### 年付
-
-
-#### 年付8折计算
-以 `100G/月` 为例计算 :
-`15(元/月) X 12(月) X 0.8(折扣) = 144(元/年)`
-
-### PS
-
-* 现在 , 可免费试用1个月, 50-100g不等 (亏本吖)
-* 如果月底前就把流量用光了, 联系可免费续10%流量
-* 如果觉得可以, 把我推荐给身边的朋友哟, 可适当奖励哟
-* 每月1号流量重新开始算, 所以请在1号前续费
-* [`Fq` 后,可做啥?](https://fanqianghou.com/)
-
-## 2#联系
-
-+wx: ***`twbhub`***
-
-
-## 3#教程
-
-#### Android
-
-点击<a href="http://oneindex.twbhub.com/0/?/oneindex_share/Android.docx" target="_blank" style="">下载</a>
-
-#### iOS
-
-点击<a href="http://oneindex.twbhub.com/0/?/oneindex_share/iOS.docx" target="_blank" style="">下载</a>
-
-#### Windows
-
-点击<a href="http://oneindex.twbhub.com/0/?/oneindex_share/Windows.docx" target="_blank" style="">下载</a>
-
-#### macOS
-
-点击<a href="http://oneindex.twbhub.com/0/?/oneindex_share/macOS.docx" target="_blank" style="">下载</a>
+<a href="https://twbhub.com/" target="_blank" style="">博客</a>
+<a href="https://twbhub.com/note" target="_blank" style="">笔记</a>
+<a href="https://ql.twbhub.com/" target="_blank" style="">青龙面板</a>
+<a href="https://oneindex.twbhub.com/" target="_blank" style="">个人网盘</a>
+<a href="https://admin.twbhub.com/" target="_blank" style="">TP后台</a>

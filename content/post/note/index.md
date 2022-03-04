@@ -19,7 +19,7 @@ keywords:
 categories:
 
 # 自定义url
-url: ""
+url: "/note"
 # 文章排序权重
 weight: 100
 # 是否精选文章,显示在首页
