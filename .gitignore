@@ -1,0 +1,6 @@
+!.gitignore
+!.gitkeep
+
+# IDEs
+.idea/
+.vs/
