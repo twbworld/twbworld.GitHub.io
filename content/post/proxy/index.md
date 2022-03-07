@@ -126,7 +126,7 @@ image:
 
 ### PS
 
-* 现在 , 可免费试用1个月, 50-100g不等 (亏本吖)
+* 现在 , 可免费试用1个月, 50-100g不等
 * 如果月底前就把流量用光了, 联系可免费续10%流量
 * 如果觉得可以, 把我推荐给身边的朋友哟, 可适当奖励哟
 * 每月1号流量重新开始算, 所以请在1号前续费
@@ -141,16 +141,16 @@ image:
 
 #### Android
 
-点击<a href="http://oneindex.twbhub.com/0/?/oneindex_share/Android.docx" target="_blank" style="">下载</a>
+点击<a href="https://oneindex.twbhub.com/oneindex_share/Android.docx" target="_blank" style="">下载</a>
 
 #### iOS
 
-点击<a href="http://oneindex.twbhub.com/0/?/oneindex_share/iOS.docx" target="_blank" style="">下载</a>
+点击<a href="https://oneindex.twbhub.com/oneindex_share/iOS.docx" target="_blank" style="">下载</a>
 
 #### Windows
 
-点击<a href="http://oneindex.twbhub.com/0/?/oneindex_share/Windows.docx" target="_blank" style="">下载</a>
+点击<a href="https://oneindex.twbhub.com/oneindex_share/Windows.docx" target="_blank" style="">下载</a>
 
 #### macOS
 
-点击<a href="http://oneindex.twbhub.com/0/?/oneindex_share/macOS.docx" target="_blank" style="">下载</a>
+点击<a href="https://oneindex.twbhub.com/oneindex_share/macOS.docx" target="_blank" style="">下载</a>
