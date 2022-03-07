@@ -2832,11 +2832,11 @@ cp support-files/mysql.server /etc/init.d/mysql.server
 &lt;ul>
 &lt;li>虽然全球用户量庞大,但缺乏中文文档, 国内用户群体少, Hugo的相关中文文章也就少; Hugo会不会是在国内的一支&amp;quot;潜力股&amp;quot; ?&lt;/li>
 &lt;/ul></description></item><item><title>站点导航</title><link>https://twbhub.com/nav/</link><pubDate>Fri, 04 Mar 2022 00:00:00 +0800</pubDate><guid>https://twbhub.com/nav/</guid><description>&lt;h2 id="导航">导航&lt;/h2>
-&lt;p>&lt;a href="https://twbhub.com/" target="_blank" style="">博客&lt;/a>
-&lt;a href="https://twbhub.com/note" target="_blank" style="">笔记&lt;/a>
-&lt;a href="https://ql.twbhub.com/" target="_blank" style="">青龙面板&lt;/a>
-&lt;a href="https://oneindex.twbhub.com/" target="_blank" style="">个人网盘&lt;/a>
-&lt;a href="https://admin.twbhub.com/" target="_blank" style="">TP后台&lt;/a>&lt;/p></description></item><item><title>订阅</title><link>https://twbhub.com/proxy/</link><pubDate>Tue, 23 Feb 2021 00:00:00 +0800</pubDate><guid>https://twbhub.com/proxy/</guid><description>&lt;h2 id="1费用">1#费用&lt;/h2>
+&lt;p>&lt;a href="https://twbhub.com/" target="_blank" style="">博客&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://twbhub.com/note" target="_blank" style="">笔记&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://ql.twbhub.com/" target="_blank" style="">青龙面板&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://oneindex.twbhub.com/" target="_blank" style="">个人网盘&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://admin.twbhub.com/" target="_blank" style="">TP后台&lt;/a>&lt;/p></description></item><item><title>订阅</title><link>https://twbhub.com/proxy/</link><pubDate>Tue, 23 Feb 2021 00:00:00 +0800</pubDate><guid>https://twbhub.com/proxy/</guid><description>&lt;h2 id="1费用">1#费用&lt;/h2>
 &lt;h3 id="月付">月付&lt;/h3>
 &lt;blockquote>
 &lt;p>如想要更低的价 , 或者 担心每月忘记续费 , 可选择 &lt;em>&lt;strong>年付&lt;/strong>&lt;/em>&lt;/p>
@@ -2873,7 +2873,7 @@ cp support-files/mysql.server /etc/init.d/mysql.server
 &lt;code>15(元/月) X 12(月) X 0.8(折扣) = 144(元/年)&lt;/code>&lt;/p>
 &lt;h3 id="ps">PS&lt;/h3>
 &lt;ul>
-&lt;li>现在 , 可免费试用1个月, 50-100g不等 (亏本吖)&lt;/li>
+&lt;li>现在 , 可免费试用1个月, 50-100g不等&lt;/li>
 &lt;li>如果月底前就把流量用光了, 联系可免费续10%流量&lt;/li>
 &lt;li>如果觉得可以, 把我推荐给身边的朋友哟, 可适当奖励哟&lt;/li>
 &lt;li>每月1号流量重新开始算, 所以请在1号前续费&lt;/li>
@@ -2883,10 +2883,10 @@ cp support-files/mysql.server /etc/init.d/mysql.server
 &lt;p>+wx: &lt;em>&lt;strong>&lt;code>twbhub&lt;/code>&lt;/strong>&lt;/em>&lt;/p>
 &lt;h2 id="3教程">3#教程&lt;/h2>
 &lt;h4 id="android">Android&lt;/h4>
-&lt;p>点击&lt;a href="http://oneindex.twbhub.com/0/?/oneindex_share/Android.docx" target="_blank" style="">下载&lt;/a>&lt;/p>
+&lt;p>点击&lt;a href="https://oneindex.twbhub.com/oneindex_share/Android.docx" target="_blank" style="">下载&lt;/a>&lt;/p>
 &lt;h4 id="ios">iOS&lt;/h4>
-&lt;p>点击&lt;a href="http://oneindex.twbhub.com/0/?/oneindex_share/iOS.docx" target="_blank" style="">下载&lt;/a>&lt;/p>
+&lt;p>点击&lt;a href="https://oneindex.twbhub.com/oneindex_share/iOS.docx" target="_blank" style="">下载&lt;/a>&lt;/p>
 &lt;h4 id="windows">Windows&lt;/h4>
-&lt;p>点击&lt;a href="http://oneindex.twbhub.com/0/?/oneindex_share/Windows.docx" target="_blank" style="">下载&lt;/a>&lt;/p>
+&lt;p>点击&lt;a href="https://oneindex.twbhub.com/oneindex_share/Windows.docx" target="_blank" style="">下载&lt;/a>&lt;/p>
 &lt;h4 id="macos">macOS&lt;/h4>
-&lt;p>点击&lt;a href="http://oneindex.twbhub.com/0/?/oneindex_share/macOS.docx" target="_blank" style="">下载&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;p>点击&lt;a href="https://oneindex.twbhub.com/oneindex_share/macOS.docx" target="_blank" style="">下载&lt;/a>&lt;/p></description></item></channel></rss>

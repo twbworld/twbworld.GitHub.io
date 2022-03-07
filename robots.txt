@@ -1,3 +1,17 @@
 User-agent: *
 
+Disallow: .png$
+Disallow: .jpg$
+Disallow: .jpeg$
+Disallow: .gif$
+
+Disallow: /publication/
+Disallow: /slides/
+Disallow: /talk/
+Disallow: /nav/
+
+Allow: /post/
+Allow: /sitemap.xml
+Disallow: /post/proxy
+
 Sitemap: https://twbhub.com/sitemap.xml
