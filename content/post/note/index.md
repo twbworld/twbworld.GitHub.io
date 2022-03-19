@@ -166,7 +166,7 @@ image:
 | composer dump-autoload           | 可解决加载失败 |
 | nohup <shell\> &                     | 在后台运行shell命令 |
 | tree -LNFC 2                       | tree软件常用命令 |
-| tar -xaf                        | 识别压缩文件类型,进行解压(-caf) |
+| tar -xaf -C ./folder             | 识别压缩文件类型,进行解压(-caf) |
 | unzip -O cp936                  | zip文件解压避免乱码 |
 | tail -f file.txt                  | 查看文件变化 |
 | scp -r /var root@192.168.1.1:/var/ | 目录传输 |

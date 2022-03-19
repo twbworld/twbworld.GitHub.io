@@ -116,3 +116,7 @@ image:
 <a href="https://oneindex.twbhub.com/" target="_blank" style="">个人网盘</a>
 
 <a href="https://admin.twbhub.com/" target="_blank" style="">TP后台</a>
+
+<a href="https://jd.twbhub.com/" target="_blank" style="">京东抢购</a>
+
+> 修改config.ini文件的凭证
