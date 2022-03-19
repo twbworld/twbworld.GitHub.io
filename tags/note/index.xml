@@ -184,7 +184,7 @@
 &lt;td>tree软件常用命令&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>tar -xaf&lt;/td>
+&lt;td>tar -xaf -C ./folder&lt;/td>
 &lt;td>识别压缩文件类型,进行解压(-caf)&lt;/td>
 &lt;/tr>
 &lt;tr>
