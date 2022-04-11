@@ -168,11 +168,11 @@ image:
 | tree -LNFC 2                       | tree软件常用命令 |
 | tar -xaf -C ./folder             | 识别压缩文件类型,进行解压(-caf) |
 | unzip -O cp936                  | zip文件解压避免乱码 |
-| tail -f file.txt                  | 查看文件变化 |
+| tail -f <filename\>                  | 查看文件变化 |
 | scp -r /var root@192.168.1.1:/var/ | 目录传输 |
 | find / -type f -name "*.txt" \| xargs grep "hello" | 查找文件内容 |
 | cat <filename\> \| openssl dgst -sha256 -binary \| openssl enc -base64 -A | 计算文件sha256校验值(css校验方法:`<link href="filename.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=">`) |
-| sha256sum filename | 计算文件md5校验值 |
+| sha256sum <filename\> | 计算文件md5校验值 |
 | docker container list -aq \|xargs docker container rm | docker清理容器(同样效果 `docker container prune`) |
 | docker volume ls -q \|xargs docker volume rm | docker清理卷(同样效果 `docker volume prune`) |
 
@@ -213,6 +213,7 @@ image:
 | `git remote show origin`                      | 详细的远程分支的信息 |
 | `git log --oneline --graph --decorate --all -9`   | 可视化显示版本树 |
 | `git config --global alias.lg "log --color --graph --all --oneline  --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"` | 可视化显示版本树配置别名 |
+| `git config --global credential.helper store`            | http免密 |
 | `git config --global core.filemode false`            | 关闭git对文件权限的监视 |
 | `git config --global core.quotepath false`        | 正常显示中文文件名 |
 | `git config --global color.ui true`               | 彩色显示 |
