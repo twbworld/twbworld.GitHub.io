@@ -472,7 +472,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;td>zip文件解压避免乱码&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>tail -f file.txt&lt;/td>
+&lt;td>tail -f &amp;lt;filename&amp;gt;&lt;/td>
 &lt;td>查看文件变化&lt;/td>
 &lt;/tr>
 &lt;tr>
@@ -488,7 +488,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;td>计算文件sha256校验值(css校验方法:&lt;code>&amp;lt;link href=&amp;quot;filename.css&amp;quot; integrity=&amp;quot;sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=&amp;quot;&amp;gt;&lt;/code>)&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>sha256sum filename&lt;/td>
+&lt;td>sha256sum &amp;lt;filename&amp;gt;&lt;/td>
 &lt;td>计算文件md5校验值&lt;/td>
 &lt;/tr>
 &lt;tr>
@@ -637,6 +637,10 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;tr>
 &lt;td>&lt;code>git config --global alias.lg &amp;quot;log --color --graph --all --oneline --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&amp;lt;%an&amp;gt;%Creset' --abbrev-commit&amp;quot;&lt;/code>&lt;/td>
 &lt;td>可视化显示版本树配置别名&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git config --global credential.helper store&lt;/code>&lt;/td>
+&lt;td>http免密&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;code>git config --global core.filemode false&lt;/code>&lt;/td>
