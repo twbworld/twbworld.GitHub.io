@@ -792,7 +792,7 @@ source ~/.bashrc
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --install-cert -d twbhub.com -d *.twbhub.com -d twbhub.top -d *.twbhub.top &lt;span style="color:#ae81ff">\
 &lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--key-file /var/www/html/docker/data/cert/twbhub.com_top/key.pem &lt;span style="color:#ae81ff">\
 &lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--fullchain-file /var/www/html/docker/data/cert/twbhub.com_top/cert.pem &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--reloadcmd &lt;span style="color:#e6db74">&amp;#34;docker exec trojan /bin/bash -c &amp;#39;systemctl restart trojan &amp;amp;&amp;amp; exit&amp;#39; &amp;amp;&amp;amp; docker exec nginx /bin/bash -c &amp;#39;service nginx force-reload &amp;amp;&amp;amp; exit&amp;#39;&amp;#34;&lt;/span>
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--reloadcmd &lt;span style="color:#e6db74">&amp;#34;docker exec nginx nginx -t &amp;amp;&amp;amp; docker exec trojan /bin/bash -c &amp;#39;systemctl restart trojan &amp;amp;&amp;amp; exit&amp;#39; &amp;amp;&amp;amp; docker exec nginx /bin/bash -c &amp;#39;service nginx force-reload &amp;amp;&amp;amp; exit&amp;#39;&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>自动更新acme.sh版本
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --upgrade --auto-upgrade
@@ -889,7 +889,7 @@ systemctl status nginx.service
 &lt;p>&lt;code>HTTPS&lt;/code> : 通常将 &lt;code>TLS&lt;/code> 安全保护的 &lt;code>HTTP&lt;/code> 通信，称之为 &lt;code>HTTPS&lt;/code> ，以区别于没有 &lt;code>TLS&lt;/code> 安全防护的 &lt;code>HTTP&lt;/code> 明文通信。&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;code>HTTP/2&lt;/code> : 第一次页面与第二次页面都是同一个网站服务器,重用第一个页面 &lt;code>TCP&lt;/code> 连接&lt;/p>
+&lt;p>&lt;code>HTTP/2&lt;/code> : 第一次页面与第二次页面都是同一个网站服务器,重用第一个页面 &lt;code>TCP&lt;/code> 连接(多路复用)&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;code>QUIC&lt;/code> : &lt;code>http/2&lt;/code> 去掉 &lt;code>TCP&lt;/code> ,改用不需要连接的 &lt;code>UDP&lt;/code> ,形成: &lt;code>UDP / QUIC&lt;/code> ,第一次 &lt;code>2.5RTT&lt;/code> ,完成 &lt;code>QUIC&lt;/code> 交易的连接的 &lt;code>Session ID&lt;/code> 会缓存在浏览器内存里,第二次,使用 &lt;code>Session ID&lt;/code> ,重连 &lt;code>TLS&lt;/code> 连接是一个 &lt;code>0 RTT&lt;/code> 事件&lt;/p>
