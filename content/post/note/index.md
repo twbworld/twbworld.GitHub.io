@@ -436,7 +436,7 @@ openssl x509 -req -in server.csr -out server.crt -signkey server.key -days 3650
         acme.sh --install-cert -d twbhub.com -d *.twbhub.com -d twbhub.top -d *.twbhub.top \
         --key-file /var/www/html/docker/data/cert/twbhub.com_top/key.pem \
         --fullchain-file /var/www/html/docker/data/cert/twbhub.com_top/cert.pem \
-        --reloadcmd "docker exec trojan /bin/bash -c 'systemctl restart trojan && exit' && docker exec nginx /bin/bash -c 'service nginx force-reload && exit'"
+        --reloadcmd "docker exec nginx nginx -t && docker exec trojan /bin/bash -c 'systemctl restart trojan && exit' && docker exec nginx /bin/bash -c 'service nginx force-reload && exit'"
         ```
     6. 自动更新acme.sh版本
         ``` sh
@@ -527,7 +527,7 @@ systemctl status nginx.service
 * `SSL` : 位于 `TCP` 与 `HTTP` 之间,作为 `HTTP` 的安全供应商，全权负责 `HTTP` 的安全加密工作。
 * `TLS` : 在 `SSL3.0` 版本的基础上，重新设计并命名了这个协议，其全新的名字为 `TLS` ,形成: `TCP连接时间` + `TLS 连接时间` + `HTTP交易时间`
 * `HTTPS` : 通常将 `TLS` 安全保护的 `HTTP` 通信，称之为 `HTTPS` ，以区别于没有 `TLS` 安全防护的 `HTTP` 明文通信。
-* `HTTP/2` : 第一次页面与第二次页面都是同一个网站服务器,重用第一个页面 `TCP` 连接
+* `HTTP/2` : 第一次页面与第二次页面都是同一个网站服务器,重用第一个页面 `TCP` 连接(多路复用)
 * `QUIC` : `http/2` 去掉 `TCP` ,改用不需要连接的 `UDP` ,形成: `UDP / QUIC` ,第一次 `2.5RTT` ,完成 `QUIC` 交易的连接的 `Session ID` 会缓存在浏览器内存里,第二次,使用 `Session ID` ,重连 `TLS` 连接是一个 `0 RTT` 事件
 * `HTTP/3` : 把 `QUIC` 与 `HTTP` 分离,形成: `UDP / QUIC / HTTP`
 * 使用 `IPv4` 进行路由，使用 `TCP` 进行连接层面的流量控制，使用 `SSL/TLS` 协议实现传输安全，使用 `DNS` 进行域名解析，使用 `HTTP` 进行应用数据的传输。

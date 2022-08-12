@@ -141,16 +141,16 @@ image:
 
 #### Android
 
-点击<a href="https://oneindex.twbhub.com/oneindex_share/Android.docx" target="_blank" style="">下载</a>
+点击<a href="https://pan.twbhub.com/Android.docx?download=1" target="_blank" style="">下载</a>
 
 #### iOS
 
-点击<a href="https://oneindex.twbhub.com/oneindex_share/iOS.docx" target="_blank" style="">下载</a>
+点击<a href="https://pan.twbhub.com/iOS.docx?download=1" target="_blank" style="">下载</a>
 
 #### Windows
 
-点击<a href="https://oneindex.twbhub.com/oneindex_share/Windows.docx" target="_blank" style="">下载</a>
+点击<a href="https://pan.twbhub.com/Windows.docx?download=1" target="_blank" style="">下载</a>
 
 #### macOS
 
-点击<a href="https://oneindex.twbhub.com/oneindex_share/macOS.docx" target="_blank" style="">下载</a>
+点击<a href="https://pan.twbhub.com/macOS.docx?download=1" target="_blank" style="">下载</a>
