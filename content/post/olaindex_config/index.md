@@ -1,7 +1,3 @@
-<!--
- * @Date         : 2022-09-05T17:17:45+0800
- * @FilePath     : \gzh-platformz:\var\www\git\twbworld.GitHub.io\wowchemy\content\post\olaindex_config\index.md
--->
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
@@ -66,7 +62,7 @@ image:
   caption: "图片来源: [**hub.docker.com**](https://hub.docker.com/r/80x86/olaindex)"
   focal_point: "Center"
   preview_only: true
-  alt_text: "github-actions"
+  alt_text: "olaindex"
 
 
 ---
