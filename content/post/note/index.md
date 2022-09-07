@@ -212,9 +212,9 @@ image:
 | `git worktree add ../folder master`           | 关联某分支到目录 |
 | `git remote show origin`                      | 详细的远程分支的信息 |
 | `git log --oneline --graph --decorate --all -9`   | 可视化显示版本树 |
+| `git branch --set-upstream-to=origin/main main`            | 设置默认分支 |
 | `git config --global alias.lg "log --color --graph --all --oneline  --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"` | 可视化显示版本树配置别名 |
 | `git config --global credential.helper store`            | http免密 |
-| `git config --global core.filemode false`            | 关闭git对文件权限的监视 |
 | `git config --global core.quotepath false`        | 正常显示中文文件名 |
 | `git config --global color.ui true`               | 彩色显示 |
 | `git config --global core.autocrlf input`               | add时转换为LF |
