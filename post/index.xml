@@ -1,4 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>忐忑の博客</title><link>https://twbhub.com/post/</link><atom:link href="https://twbhub.com/post/index.xml" rel="self" type="application/rss+xml"/><description>忐忑の博客</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202022_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><image><url>https://twbhub.com/media/avatar.jpg</url><title>忐忑の博客</title><link>https://twbhub.com/post/</link></image><item><title>Postman无法抓包Chrome</title><link>https://twbhub.com/post/postman_cannot_connection_chrome/</link><pubDate>Thu, 20 May 2021 23:00:00 +0800</pubDate><guid>https://twbhub.com/post/postman_cannot_connection_chrome/</guid><description>&lt;h2 id="原因">原因&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>忐忑の博客</title><link>https://twbhub.com/post/</link><atom:link href="https://twbhub.com/post/index.xml" rel="self" type="application/rss+xml"/><description>忐忑の博客</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202022_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><image><url>https://twbhub.com/media/avatar.jpg</url><title>忐忑の博客</title><link>https://twbhub.com/post/</link></image><item><title>olaindex配置安装</title><link>https://twbhub.com/post/olaindex_config/</link><pubDate>Mon, 05 Sep 2022 19:00:00 +0800</pubDate><guid>https://twbhub.com/post/olaindex_config/</guid><description>&lt;h2 id="关于环境的安装不做详细教程">关于环境的安装,不做详细教程&lt;/h2>
+&lt;h3 id="olainde隐藏后台地址">&lt;code>olainde&lt;/code>隐藏后台地址&lt;/h3>
+&lt;p>因为olaindex默认是以&lt;code>/admin&lt;/code>为默认地址的,我们需要做适当修改&lt;/p>
+&lt;h4 id="修改routeswebphp">修改routes/web.php&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-php" data-lang="php">&lt;span style="color:#a6e22e">Route&lt;/span>&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#a6e22e">get&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;login&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Auth\LoginController@showLoginForm&amp;#39;&lt;/span>)&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">name&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;login&amp;#39;&lt;/span>);
+&lt;span style="color:#75715e">// 改为
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">Route&lt;/span>&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#a6e22e">get&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;mylogin&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Auth\LoginController@showLoginForm&amp;#39;&lt;/span>)&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">name&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;login&amp;#39;&lt;/span>);
+&lt;span style="color:#a6e22e">Route&lt;/span>&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#a6e22e">post&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;login&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Auth\LoginController@login&amp;#39;&lt;/span>);
+&lt;span style="color:#75715e">//改为
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">Route&lt;/span>&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#a6e22e">post&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;mylogin&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Auth\LoginController@login&amp;#39;&lt;/span>);
+&lt;span style="color:#a6e22e">Route&lt;/span>&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#a6e22e">prefix&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;admin&amp;#39;&lt;/span>)&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">middleware&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;auth&amp;#39;&lt;/span>)&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">group&lt;/span>(&lt;span style="color:#66d9ef">function&lt;/span> () {})
+&lt;span style="color:#75715e">//改为
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">Route&lt;/span>&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#a6e22e">prefix&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;myadmin&amp;#39;&lt;/span>)&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">middleware&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;auth&amp;#39;&lt;/span>)&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">group&lt;/span>(&lt;span style="color:#66d9ef">function&lt;/span> () {})
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="修改nginx配置">修改nginx配置&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json"> &lt;span style="color:#960050;background-color:#1e0010">location&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">/admin/account&lt;/span> {
+&lt;span style="color:#960050;background-color:#1e0010">rewrite&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">^/admin/(.*)$&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">/myadmin/$1&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">last;&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="配置凭证">配置凭证&lt;/h3>
+&lt;ol>
+&lt;li>如图按&lt;code>申请&lt;/code>自动创建应用:
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/202005172127497432198.png" alt="">&lt;/li>
+&lt;li>登录&lt;a href="https://www.azure.microsoft.com/" target="_blank" rel="noopener">Microsoft Azure&lt;/a>&lt;/li>
+&lt;li>进入了&lt;code>应用注册&lt;/code>,选择对应的应用(我的是&amp;quot;Graph PHP quick start&amp;quot;)&lt;/li>
+&lt;li>记录下&lt;code>应用程序(客户端) ID&lt;/code>的编码,后面要用&lt;/li>
+&lt;li>进入&lt;code>证书和密码&lt;/code>, 创建&lt;code>新客户端密码&lt;/code>, 记录下&lt;code>值&lt;/code>的编码,后面要用&lt;/li>
+&lt;li>进入&lt;code>身份验证&lt;/code>,在&lt;code>web&lt;/code>模块配置重定向的url, 如图所示:
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/2020051721274936122.png" alt="">&lt;/li>
+&lt;li>如图进入&lt;code>API权限&lt;/code>,增加对应权限
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/2020051721274930989089.png" alt="">&lt;/li>
+&lt;li>把前面所记录下的&lt;code>client_id&lt;/code>和&lt;code>client_secret&lt;/code>填入, 保存
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200517212749307398210.png" alt="">&lt;/li>
+&lt;/ol></description></item><item><title>Postman无法抓包Chrome</title><link>https://twbhub.com/post/postman_cannot_connection_chrome/</link><pubDate>Thu, 20 May 2021 23:00:00 +0800</pubDate><guid>https://twbhub.com/post/postman_cannot_connection_chrome/</guid><description>&lt;h2 id="原因">原因&lt;/h2>
 &lt;p>Mac安装了两个版本(我的是正式版和&lt;code>Dev&lt;/code>版)的 &lt;code>Chrome&lt;/code> ,一个正常, 另一个版本无法与 &lt;code>Postman&lt;/code> 连接, 无法被抓包(Windows不会出现这样的情况)&lt;br>
 原因是不正常的版本缺少了一个 &lt;code>Interceptor&lt;/code> 插件的配置文件, 据官方&lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/interceptor/#how-it-works" target="_blank" rel="noopener">文档&lt;/a>所述,文件位于&lt;br>
 &lt;code>/Users/&amp;lt;username&amp;gt;/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.postman.postmanapp.json&lt;/code>&lt;/p>
@@ -635,16 +666,16 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;td>可视化显示版本树&lt;/td>
 &lt;/tr>
 &lt;tr>
+&lt;td>&lt;code>git branch --set-upstream-to=origin/main main&lt;/code>&lt;/td>
+&lt;td>设置默认分支&lt;/td>
+&lt;/tr>
+&lt;tr>
 &lt;td>&lt;code>git config --global alias.lg &amp;quot;log --color --graph --all --oneline --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&amp;lt;%an&amp;gt;%Creset' --abbrev-commit&amp;quot;&lt;/code>&lt;/td>
 &lt;td>可视化显示版本树配置别名&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;code>git config --global credential.helper store&lt;/code>&lt;/td>
 &lt;td>http免密&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>git config --global core.filemode false&lt;/code>&lt;/td>
-&lt;td>关闭git对文件权限的监视&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;code>git config --global core.quotepath false&lt;/code>&lt;/td>
