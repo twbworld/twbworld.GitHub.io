@@ -7,7 +7,7 @@ subtitle: ""
 summary: "最近想建立自己的博客网站,面临了抉择的问题,到底选择那个平台,用什么方式写技术博客"
 
 # 标签
-tags: 
+tags:
 - Github
 
 #关键字
@@ -18,7 +18,7 @@ keywords:
 - 搭建博客准备
 
 # 文章分类,在列表页显示(暂时使用tags)
-categories: 
+categories:
 
 # 自定义url
 url: ""
@@ -51,13 +51,13 @@ commentable: true
 # 是否允许编辑(跳到github,前提是github有权限)
 editable: false
 # 作者
-authors: 
+authors:
 - admin
 
 
 image:
   placement: 3
-  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210120180315.jpg"
+  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210120180315.jpg"
   caption: "图片来源: [**courseit**](https://courseit.com.ar/blog/github-pages-subiendo-nuestro-portfolio/)"
   focal_point: "Center"
   preview_only: true
@@ -78,7 +78,7 @@ image:
 
 
 
-> 最近想建立自己的博客网站,便于在开发过程中写一些笔记;  
+> 最近想建立自己的博客网站,便于在开发过程中写一些笔记;
 但进入了未知领域,面临了怎么抉择的问题; 毕竟谁也不情愿一开始就因选择了自己不适合的,最后半途而悔
 
 ## 平台的选择
@@ -95,12 +95,12 @@ image:
 
 ### WordPress
 
-优点: 
+优点:
 * 自己搭建的博客,自由度非常高
 * 历经多年,插件丰富
 * 对phper友好PHP
 
-缺点: 
+缺点:
 * 浪费大量 时间 / 精力 / 金钱 去维护网站(服务器的维护,域名,SEO,还有服务器安全方面的考虑,等等)
 
 > 时间宝贵,老子只想静静的写文章,不愿在无意义的事上浪费有限的时间
@@ -163,7 +163,7 @@ image:
 先讲结论,经一番思想斗争,本人选择了Hugo
 
 ### Jekyll
-Jekyll是GitHub创始人使用Ruby写的,同时也是gh-Pages默认的静态网站生成器  
+Jekyll是GitHub创始人使用Ruby写的,同时也是gh-Pages默认的静态网站生成器
 但其速度较慢,特别是文章多的时候,特别明显
 
 ### Hexo
@@ -177,7 +177,7 @@ Hexo是js写的,js的用户群体较大,Hexo中文文档比较齐全,国内获�
 * 天下武功唯快不破,使用golang开发; 即使应对庞大的文章生成量,速度是用秒来计算的,简直秒杀对手
 * "Google出品,必属精品",相信Hugo会随着go的影响力在国内越走越远(本人也正有学go的想法)
 * 一个技巧(专治"选择困难症"),利用了搜索引擎来对比了Hexo和Hugo的搜索热度,Hugo的相关文章数是Hexo的100多倍,全球用户量庞大,Hugo所可选的博客模板也不少
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200517212636.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200517212636.png)
 
 缺点:
 * 虽然全球用户量庞大,但缺乏中文文档, 国内用户群体少, Hugo的相关中文文章也就少; Hugo会不会是在国内的一支"潜力股" ?

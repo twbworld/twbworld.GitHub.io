@@ -11,7 +11,7 @@ subtitle = ""
 [content]
   # Choose the taxonomy from `config.toml` to display (e.g. tags, categories)
   taxonomy = "tags"
-  
+
   # Choose how many tags you would like to display (0 = all tags)
   count = 20
 
@@ -25,7 +25,7 @@ subtitle = ""
 #   Uncomment (by removing `#`) an option to apply it.
 #   Choose a light or dark text color by setting `text_color_light`.
 #   Any HTML color name or Hex value is valid.
-  
+
 # Background color.
 # color = "navy"
 
@@ -34,7 +34,7 @@ subtitle = ""
 # gradient_end = "SkyBlue"
 
 # Background image.
-image = "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200505231535.jpg"  # Name of image in `static/img/`.
+image = "https://cdn.jsdelivr.net/gh/twbworld/main@main/img/20200505231535.jpg"  # Name of image in `static/img/`.
 image_darken = 0.4  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
 image_size = "cover"  #  Options are `cover` (default), `contain`, or `actual` size.
 image_position = "center"  # Options include `left`, `center` (default), or `right`.

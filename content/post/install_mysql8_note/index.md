@@ -6,7 +6,7 @@ subtitle: ""
 summary: "最近试着安装做新版的mysql,过程中出现一些坎坷,所以记录下来"
 
 # 标签
-tags: 
+tags:
 - Mysql
 
 #关键字
@@ -17,7 +17,7 @@ keywords:
 - centos
 
 # 文章分类,在列表页显示(暂时使用tags)
-categories: 
+categories:
 
 # 自定义url
 url: ""
@@ -50,7 +50,7 @@ commentable: true
 # 是否允许编辑(跳到github,前提是github有权限)
 editable: false
 # 作者
-authors: 
+authors:
 - admin
 
 # Markdown Slides (optional).
@@ -84,7 +84,7 @@ projects: []
 # 控文章列表页图片,也可以在当前目录下放置featured.jpg/png文件
 image:
   placement: 3
-  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200530205723.png"
+  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200530205723.png"
   caption: "图片来源: [**github**](https://mengxu2018.github.io/2019/03/09/mysql8-centos7-setup/)"
   focal_point: "Center"
   preview_only: true
@@ -93,7 +93,7 @@ image:
 # 文章页最头部的图片,如果当前目录下没有featured.jpg/png文件,且,三方image没设置image,则列表页也会显示这图片(image如设置了image,此处无效)
 #header:
 #  placement: 3
-#  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200530205723.png"
+#  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200530205723.png"
 #  caption: "图片来源: [**github**](https://mengxu2018.github.io/2019/03/09/mysql8-centos7-setup/)"
 #  focal_point: "Center"
 #  preview_only: false
@@ -170,7 +170,7 @@ cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local/mysql8 \
 [client]
 port = 3306
 # 默认情况下，socket文件应为/usr/local/mysql/mysql.socket,所以可以ln -s xx  /tmp/mysql.sock
-socket = /tmp/mysql.sock 
+socket = /tmp/mysql.sock
 
 # 服务端设置
 [mysqld]
@@ -245,10 +245,10 @@ open_files_limit = 65535
 
 # MySQL默认的wait_timeout  值为8个小时, interactive_timeout参数需要同时配置才能生效
 # MySQL连接闲置超过一定时间后(单位：秒，此处为1800秒)将会被强行关闭
-interactive_timeout = 1800 
-wait_timeout = 1800 
+interactive_timeout = 1800
+wait_timeout = 1800
 
-# 在MySQL暂时停止响应新请求之前的短时间内多少个请求可以被存在堆栈中 
+# 在MySQL暂时停止响应新请求之前的短时间内多少个请求可以被存在堆栈中
 # 官方建议back_log = 50 + (max_connections / 5),封顶数为900
 back_log = 900
 
@@ -290,11 +290,11 @@ binlog_cache_size = 1M
 # 默认值 8M，建议值：对于内存在4GB左右的服务器该参数可设置为256M或384M。注意：该参数值设置的过大反而会是服务器整体效率降低！
 key_buffer_size = 64M
 
-# 为每个扫描MyISAM的线程分配参数设置的内存大小缓冲区。 
+# 为每个扫描MyISAM的线程分配参数设置的内存大小缓冲区。
 # 默认值128kb，建议值：16G内存建议1M，4G：128kb或者256kb吧
 # 注意，该缓冲区是每个连接独占的，所以总缓冲区大小为 128kb*连接数；极端情况128kb*maxconnectiosns，会超级大，所以要考虑日常平均连接数。
 # 一般不需要太关心该数值，稍微增大就可以了，
-read_buffer_size = 262144 
+read_buffer_size = 262144
 
 # 支持任何存储引擎
 # MySQL的随机读缓冲区大小，适当增大，可以提高性能。
@@ -302,7 +302,7 @@ read_buffer_size = 262144
 # 注意，该缓冲区是每个连接独占的，所以总缓冲区大小为128kb*连接数；极端情况128kb*maxconnectiosns，会超级大，所以要考虑日常平均连接数。
 read_rnd_buffer_size = 1M
 
-# order by或group by时用到 
+# order by或group by时用到
 # 支持所有引擎，innodb和myisam有自己的innodb_sort_buffer_size和myisam_sort_buffer_size设置
 # 默认值256kb；建议值：得参考连接数，16G内存，有人推荐8M.
 # 注意，该缓冲区是每个连接独占的，所以总缓冲区大小为 1M*连接数；极端情况1M*maxconnectiosns，会超级大。所以要考虑日常平均连接数。
@@ -381,7 +381,7 @@ max_binlog_size = 1000M
 # 关于binlog日志格式问题，请查阅网络资料
 binlog_format = row
 # 默认值N=1，使binlog在每N次binlog写入后与硬盘同步，ps：1最慢
-# sync_binlog = 1 
+# sync_binlog = 1
 
 ##########################################################################################################
 # innodb选项
@@ -408,7 +408,7 @@ innodb_buffer_pool_instances = 1
 # 说明：mysql 5.7 新特性，defines the chunk size for online InnoDB buffer pool resizing operations.
 # 实际缓冲区大小必须为innodb_buffer_pool_chunk_size*innodb_buffer_pool_instances*倍数，取略大于innodb_buffer_pool_size
 # 默认值128M，建议值：默认值就好，乱改反而容易出问题，它会影响实际buffer pool大小。
-innodb_buffer_pool_chunk_size = 128M 
+innodb_buffer_pool_chunk_size = 128M
 
 # 在启动时把热数据加载到内存。默认值为on，不修改
 innodb_buffer_pool_load_at_startup = 1
@@ -486,7 +486,7 @@ innodb_write_io_threads = 4
 # 默认设置为 0,表示不限制并发数，这里推荐设置为0，更好去发挥CPU多核处理能力，提高并发量
 innodb_thread_concurrency = 0
 # 默认值为4，建议不变。InnoDB中的清除操作是一类定期回收无用数据的操作。mysql 5.5之后，支持多线程清除操作。
-innodb_purge_threads = 4 
+innodb_purge_threads = 4
 
 # 说明：mysql缓冲区分为new blocks和old blocks；此参数表示old blocks占比；
 # 默认值：37，建议值，一般不动
@@ -610,6 +610,3 @@ ln -s /usr/local/mysql8/bin/* /usr/local/bin/
 cp support-files/mysql.server /etc/init.d/mysql.server
 
 ```
-
-
-

@@ -58,7 +58,7 @@ authors:
 # 控文章列表页图片,也可以在当前目录下放置featured.jpg/png文件
 image:
   placement: 3
-  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200517212749283437.jpg"
+  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200517212749283437.jpg"
   caption: "图片来源: [**hub.docker.com**](https://hub.docker.com/r/80x86/olaindex)"
   focal_point: "Center"
   preview_only: true
@@ -100,14 +100,14 @@ Route::prefix('myadmin')->middleware('auth')->group(function () {})
 
 ### 配置凭证
 1. 如图按`申请`自动创建应用:
-  ![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/202005172127497432198.png)
+  ![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202005172127497432198.png)
 2. 登录[Microsoft Azure](https://www.azure.microsoft.com/)
 3. 进入了`应用注册`,选择对应的应用(我的是"Graph PHP quick start")
 4. 记录下`应用程序(客户端) ID`的编码,后面要用
 5. 进入`证书和密码`, 创建`新客户端密码`, 记录下`值`的编码,后面要用
 6. 进入`身份验证`,在`web`模块配置重定向的url, 如图所示:
-   ![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/2020051721274936122.png)
+   ![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/2020051721274936122.png)
 7. 如图进入`API权限`,增加对应权限
-  ![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/2020051721274930989089.png)
+  ![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/2020051721274930989089.png)
 8. 把前面所记录下的`client_id`和`client_secret`填入, 保存
-  ![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200517212749307398210.png)
+  ![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200517212749307398210.png)

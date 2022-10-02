@@ -6,7 +6,7 @@ subtitle: ""
 summary: "Mac在Chrome安装了Interceptor插件, 奈何Postman无法与Interceptor连接,也就无法抓包"
 
 # 标签
-tags: 
+tags:
 - Network
 
 #关键字
@@ -17,7 +17,7 @@ keywords:
 - Interceptor
 
 # 文章分类,在列表页显示(暂时使用tags)
-categories: 
+categories:
 
 # 自定义url,如果为空则按配置选项"permalinks"
 url: ""
@@ -60,7 +60,7 @@ authors:
 # 控文章列表页图片,也可以在当前目录下放置featured.jpg/png文件
 image:
   placement: 3
-  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520215326.jpeg"
+  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210520215326.jpeg"
   caption: "图片来源: [**blog.qualys.com**](https://blog.qualys.com/product-tech/2019/10/07/enhanced-api-scanning-with-postman-support-in-qualys-was)"
   focal_point: "Center"
   preview_only: true
@@ -73,8 +73,8 @@ image:
 
 ## 原因
 
-Mac安装了两个版本(我的是正式版和`Dev`版)的 `Chrome` ,一个正常, 另一个版本无法与 `Postman` 连接, 无法被抓包(Windows不会出现这样的情况)  
-原因是不正常的版本缺少了一个 `Interceptor` 插件的配置文件, 据官方[文档](https://learning.postman.com/docs/sending-requests/capturing-request-data/interceptor/#how-it-works)所述,文件位于  
+Mac安装了两个版本(我的是正式版和`Dev`版)的 `Chrome` ,一个正常, 另一个版本无法与 `Postman` 连接, 无法被抓包(Windows不会出现这样的情况)
+原因是不正常的版本缺少了一个 `Interceptor` 插件的配置文件, 据官方[文档](https://learning.postman.com/docs/sending-requests/capturing-request-data/interceptor/#how-it-works)所述,文件位于
 `/Users/<username>/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.postman.postmanapp.json`
 
 ## 解决

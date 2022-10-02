@@ -6,7 +6,7 @@ subtitle: ""
 summary: "刚刚接触GitHub Actions实现CI/CD, 遇到了一个yml文件触发失败的问题"
 
 # 标签
-tags: 
+tags:
 - Github
 
 #关键字
@@ -17,7 +17,7 @@ keywords:
 - github
 
 # 文章分类,在列表页显示(暂时使用tags)
-categories: 
+categories:
 
 # 自定义url,如果为空则按配置选项"permalinks"
 url: ""
@@ -60,7 +60,7 @@ authors:
 # 控文章列表页图片,也可以在当前目录下放置featured.jpg/png文件
 image:
   placement: 3
-  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210123192853.jpg"
+  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210123192853.jpg"
   caption: "图片来源: [**devato.com**](https://devato.com/post/github-actions-for-phoenix)"
   focal_point: "Center"
   preview_only: true
@@ -101,7 +101,7 @@ jobs:
           script: |
             ls ./
 ```
-当使用 `git pull` 时, 却没有触发该yml文件(在github项目的Actions的选项卡下不存在任务)  
+当使用 `git pull` 时, 却没有触发该yml文件(在github项目的Actions的选项卡下不存在任务)
 但是,当把触发条件 `pull_request` 改成 `push` , 再push到Github 却意外的成功了触发了Actions
 
 ## 解决
@@ -112,7 +112,7 @@ jobs:
 
 > 都怪没认真看[文档](https://docs.github.com/cn/actions/reference/events-that-trigger-workflows)
 
-另外再做个笔记 :  
+另外再做个笔记 :
 如果 `workflows` 目录下有多个yml, GitHub-Actions默认是并行触发的, 如果想实现按顺序触发, 请使用 [`workflow_run`](https://docs.github.com/cn/actions/reference/events-that-trigger-workflows#workflow_run)
 
 > GitHub-Actions 真香 !

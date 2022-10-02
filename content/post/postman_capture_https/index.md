@@ -62,7 +62,7 @@ authors:
 # 控文章列表页图片,也可以在当前目录下放置featured.jpg/png文件
 image:
   placement: 3
-  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520215326.jpeg"
+  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210520215326.jpeg"
   caption: "图片来源: [**blog.qualys.com**](https://blog.qualys.com/product-tech/2019/10/07/enhanced-api-scanning-with-postman-support-in-qualys-was)"
   focal_point: "Center"
   preview_only: true
@@ -84,17 +84,17 @@ image:
 1. 安装Postman后, 根据[文档](https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#macos)的指示, Postman的CA证书位于
 Mac: `~/Library/Application Support/Postman/proxy/postman-proxy-ca.crt`
 Windows: `C:\Users<user>\AppData\Roaming\Postman\proxy/postman-proxy-ca.crt`
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520225920.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210520225920.png)
 
 
 1. 找到证书后,想办法把证书传到iOS, 并打开, iOS会识别并提示
 打开 `设置=>通用=>描述文件` , 可以看到一个 `已下载` 但未安装的证书, 安装就好
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520230353.jpeg)
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520230534.jpeg)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210520230353.jpeg)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210520230534.jpeg)
 
 1. 安装完证书,还要让iOS信任该证书
 打开 `设置=>通用=>关于本机=>证书信任设置` 找到对应的Postman证书并开启信任
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520231655.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210520231655.png)
 
 ## 设置代理并抓包
 

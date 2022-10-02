@@ -6,7 +6,7 @@ subtitle: ""
 summary: "使用SSH隧道技术,连接局域网下的VMware linux虚拟机"
 
 # 标签
-tags: 
+tags:
 - Network
 
 #关键字
@@ -17,7 +17,7 @@ keywords:
 - 端口转发
 
 # 文章分类,在列表页显示(暂时使用tags)
-categories: 
+categories:
 
 # 自定义url
 url: ""
@@ -50,7 +50,7 @@ commentable: true
 # 是否允许编辑(跳到github,前提是github有权限)
 editable: false
 # 作者
-authors: 
+authors:
 - admin
 
 # Markdown Slides (optional).
@@ -84,7 +84,7 @@ projects: []
 # 控文章列表页图片,也可以在当前目录下放置featured.jpg/png文件
 image:
   placement: 3
-  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712191744.png"
+  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712191744.png"
   caption: ""
   focal_point: "Center"
   preview_only: true
@@ -112,14 +112,14 @@ image:
 
 
 
-> 连接局域网下的虚拟机,在网上找到的做法通常是:在VMware配置端口转发  
-> 最近了解隧道技术,突发奇想:能不能使用SSH隧道连接局域网下的虚拟机呢?  
-> 在网上找到的相关资料不多,经过自己摸索,终于实现了  
-> 使用SSH隧道连接局域网下的虚拟机,主要有两种方式可以实现  
+> 连接局域网下的虚拟机,在网上找到的做法通常是:在VMware配置端口转发
+> 最近了解隧道技术,突发奇想:能不能使用SSH隧道连接局域网下的虚拟机呢?
+> 在网上找到的相关资料不多,经过自己摸索,终于实现了
+> 使用SSH隧道连接局域网下的虚拟机,主要有两种方式可以实现
 > 1: 本地端口转发; 2: 动态端口转发
 
 首先,假设网络图如下,A和B在同一局域网下,我们的目的是: 实现 A 连接到 C 的SSH服务
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712191744.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712191744.png)
 
 
 
@@ -128,7 +128,7 @@ image:
 
 ## 方法一 : 本地端口转发
 
-> 大体思路: 在A下创建 `A --> C` 的SSH隧道,就可以访问A下的指定端口,通过隧道转发,访问到C的22端口了  
+> 大体思路: 在A下创建 `A --> C` 的SSH隧道,就可以访问A下的指定端口,通过隧道转发,访问到C的22端口了
 > 具体实现如下 :
 
 
@@ -141,15 +141,15 @@ image:
 
 (1) Win10打开 设置(`Win + I`) ==> 应用 ==> 应用和功能 ==> 可选功能 => 添加功能 => OpenSSH服务器(点击安装)
 
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712195856.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712195856.png)
 
 (2) 打开 任务管理器(`Shift + Ctrl + Esc`) ==> 任务 ==> 左下角点击"打开服务"; 找到两个OpenSSH服务,右键开启
 
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712200951.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712200951.png)
 
 (3) 打开 控制面板 ==> 系统和安全  ==> `Windows Defender` 防火墙 ==> 启用或关闭`windows defender`防火墙;选择关闭防火墙; (或者在入站规则添加允许22端口)
 
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712202126.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712202126.png)
 
 > 到此, B已经配置完成
 
@@ -164,7 +164,7 @@ image:
 
 在 A 上配置(基于文章开头假设的网络图) :
 
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712204730.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712204730.png)
 
 * 点击open,会出现登录,注意:这里登录的是 B 电脑,也就是要输入B的windows的用户名和密码;
 
@@ -177,7 +177,7 @@ image:
 
 * 终于到最后一步了, 很简单, 在 A 电脑开启新的`PuTTY`窗口, 请求 A 本地的 刚才自定义的 6666端口就可以啦
 
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712210036.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712210036.png)
 
 
 * 恭喜你, 成功通过SSH隧道连接到 C ;因为隧道是 `A --> C` 的且加密的, B 不会监听到流量
@@ -190,7 +190,7 @@ image:
 ## 方法二 : 动态端口转发
 
 
-> 大体思路: 在A下创建 `A --> B` 的SSH隧道,把 B 作为代理(Proxy), 就可以实现 : A 使用`SOCKS5`协议通过 B 来访问到 C 的22端口   
+> 大体思路: 在A下创建 `A --> B` 的SSH隧道,把 B 作为代理(Proxy), 就可以实现 : A 使用`SOCKS5`协议通过 B 来访问到 C 的22端口
 > 具体实现如下 :
 
 
@@ -206,7 +206,7 @@ image:
 
 在 A 上配置(基于文章开头假设的网络图) :
 
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712215702.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712215702.png)
 
 * 点击open,会出现登录,注意:这里登录的是 B 电脑,也就是要输入B的windows的用户名和密码;
 
@@ -219,7 +219,7 @@ image:
 
 * 终于到最后一步了, 很简单, 在 A 电脑上开启新的`PuTTY`窗口, 设置 A 本地的 刚才自定义的 6666端口为代理端口, 请求 C 就可以啦
 
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712214629.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712214629.png)
 
 
 
@@ -229,27 +229,27 @@ image:
 
 ## 方法三 : VMware配置端口转发
 
-> 这是一个比较普遍的做法, 在网上也容易找到相关文章  
-> 大体思路: 在`VMware`上配置 监听父windows的端口X,把A端口转发到VMware下的虚拟机端口Y, 局域网的电脑只有访问windows的端口X就相当于访问虚拟机的端口Y啦, 是不是很容易  
+> 这是一个比较普遍的做法, 在网上也容易找到相关文章
+> 大体思路: 在`VMware`上配置 监听父windows的端口X,把A端口转发到VMware下的虚拟机端口Y, 局域网的电脑只有访问windows的端口X就相当于访问虚拟机的端口Y啦, 是不是很容易
 > 具体实现如下 :
 
 
 ### 1#B配置VMware
 
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712220946.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712220946.png)
 
 ### 2#B配置防火墙
 
 * 打开 控制面板 ==> 系统和安全  ==> `Windows Defender` 防火墙 ==> 启用或关闭`windows defender`防火墙;选择关闭防火墙; (或者在 入站规则 添加允许 上一步自定义的6666端口)
 
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712202126.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712202126.png)
 
 
 ### 3#A通过 B 连接 C 电脑
 
 * 终于到最后一步了, 很简单, 在 A 电脑直接用`PuTTY`请求 B 的 6666端口, 就可以登录 C 啦
 
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712222247.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712222247.png)
 
 
 **... 以上**

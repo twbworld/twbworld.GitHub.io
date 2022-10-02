@@ -91,7 +91,7 @@ image:
 # 文章页最头部的图片,如果当前目录下没有featured.jpg/png文件,且,三方image没设置image,则列表页也会显示这图片(image如设置了image,此处无效)
 # header:
 #   placement: 3
-#   image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200503220558.jpg"
+#   image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200503220558.jpg"
 #   caption: "图片来源: [**Weibo**](http://weibo.com/u/2646212535)"
 #   focal_point: "Center"
 #   preview_only: false

@@ -6,7 +6,7 @@ subtitle: "Docker Hub / ghcr.io / docker.pkg.github.com"
 summary: "使用GitHub Actions实现对docker包的自动化构建及发布"
 
 # 标签
-tags: 
+tags:
 - Github
 
 #关键字
@@ -17,7 +17,7 @@ keywords:
 - github Packages
 
 # 文章分类,在列表页显示(暂时使用tags)
-categories: 
+categories:
 
 # 自定义url,如果为空则按配置选项"permalinks"
 url: ""
@@ -58,7 +58,7 @@ authors:
 # 控文章列表页图片,也可以在当前目录下放置featured.jpg/png文件
 image:
   placement: 3
-  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313140218.png"
+  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313140218.png"
   caption: "图片来源: [**medium.com**](https://andersro93.medium.com/using-github-actions-with-docker-9ba1cc481ae1)"
   focal_point: "Center"
   preview_only: true
@@ -104,25 +104,25 @@ image:
 想要在 `GitHub` 使用 `ghcr.io` , 首先要 [启用改进的容器支持](https://docs.github.com/cn/packages/guides/enabling-improved-container-support)
 
 ### 步骤二
-需要生成 GitHub账号 的 `Token` ; 用于 `GitHub-Actions` 有权限操作 `GitHub账号` 下的项目 ;  
+需要生成 GitHub账号 的 `Token` ; 用于 `GitHub-Actions` 有权限操作 `GitHub账号` 下的项目 ;
 登录 `GitHub` , 右上角点击用户头像, 找到 `settings > Developer settings > Personal access tokens` , 点击 `Generate new token` , [传送门直达](https://github.com/settings/tokens/new) , 如图 :
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313151850.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313151850.png)
 接着, 设置 `Token` 的权限, 选择 `write:packages` (这样,连同 `repo` 都一起勾选了), 如图 :
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313152515.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313152515.png)
 最后生成了一个 `Token` , 一定要记录下来, 下一步要用到
 
 ### 步骤三
 把生成的 `Token` 添加到您的GitHub项目 `secrets` 下 ; 找到项目下 `Setting > secrets` , 右上角点击 `New repository secret` , 如图
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313153743.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313153743.png)
 
-如图  
-`Name` 值填写 `PACKAGES_TOKEN` (可自定义, 但下一步用到的 `secrets.PACKAGES_TOKEN` 同步要改)  
-`Value` 值填写 上一步获得的 `Token` , 最后点击 `Add secret` ;  
+如图
+`Name` 值填写 `PACKAGES_TOKEN` (可自定义, 但下一步用到的 `secrets.PACKAGES_TOKEN` 同步要改)
+`Value` 值填写 上一步获得的 `Token` , 最后点击 `Add secret` ;
 `GitHub-Actions` 就可通过`secrets.PACKAGES_TOKEN` 获取 `Token` , 用于发布镜像到 `ghcr.io` 了
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313154015.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313154015.png)
 
 ### 步骤三
-如何使用 `GitHub-Actions` 在此不过多简释, 直接贴出代码 :  
+如何使用 `GitHub-Actions` 在此不过多简释, 直接贴出代码 :
 ``` yml
 name: ci
 on:
@@ -175,26 +175,26 @@ jobs:
 > [借鉴代码](https://github.com/metcalfc/docker-action-examples/blob/main/.github/workflows/release.yml)
 
 如图, `GitHub-Actions` 运行成功后, 在用户首页下的 `Packages` 模块下, 新增了一个 `Packages`
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313162701.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313162701.png)
 但是, 可看到 `Private` 标签, 也就是说, 这个Docker镜像默认不公开的 ; 如需要公开, 请往下看
 
 ### 步骤四
 
 公开 `Packages` 下的Docker镜像 ; 进入需要公开的镜像后, 点击右上角 `Package Settings` , 进入配置页面
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313163101.png)
-拉到低, 点击 `Change visibility` , 就可设置为公开 ;  
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313163101.png)
+拉到低, 点击 `Change visibility` , 就可设置为公开 ;
 在任何地方, 都可以下载镜像: `docker pull ghcr.io/[用户名]/[镜像名]:[标签]`
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313163237.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313163237.png)
 
 ### 步骤五
-虽然这个镜像是通过您的GitHub项目发布的, 但默认是不会关联到对应GitHub项目的 ;  
-在上文 [仓库平台区别](#仓库平台区别) 已经知道, `ghcr.io` 下的镜像是对应账号, 而不是 `项目` 的 ;  
-如果需要将该镜像关联到对应项目, 也很简单 :  
+虽然这个镜像是通过您的GitHub项目发布的, 但默认是不会关联到对应GitHub项目的 ;
+在上文 [仓库平台区别](#仓库平台区别) 已经知道, `ghcr.io` 下的镜像是对应账号, 而不是 `项目` 的 ;
+如果需要将该镜像关联到对应项目, 也很简单 :
 如图 , 进入该镜像的页面, 在页面下就可以看到 `Connect Repository` 按钮, 点击关联对应的项目 ; 项目下的 `README.md` 也会加载进来
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313164825.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313164825.png)
 
 来到对应的GitHub项目下, 也可以看到关联的Docker镜像, 如图 :
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313165559.png)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313165559.png)
 
 
 ## 发布到其他仓库

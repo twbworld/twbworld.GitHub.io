@@ -83,7 +83,7 @@ projects: []
 # 控文章列表页图片,也可以在当前目录下放置featured.jpg/png文件
 image:
   placement: 3
-  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20201004235821.jpg"
+  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20201004235821.jpg"
   caption: "图片来源: [**wikihow**](https://www.wikihow.com/)"
   focal_point: "Center"
   preview_only: true
@@ -346,7 +346,7 @@ openssl x509 -req -in server.csr -out server.crt -signkey server.key -days 3650
 
 * 目录描述 :
 
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210404165626.jpg)
+![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210404165626.jpg)
 
 
 * Linux配置流程 :

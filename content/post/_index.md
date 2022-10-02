@@ -1,5 +1,5 @@
 ---
-title: 
+title:
 
 # View.
 #   1 = List
@@ -11,7 +11,7 @@ view: 2
 header:
   caption: ""
   image: ""
-#image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200506002156.jpg"
+#image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200506002156.jpg"
 
 
 content:
