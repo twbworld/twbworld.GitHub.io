@@ -80,7 +80,7 @@ image:
 
 > 一备一主`Nginx`都需要类似配置 :
 
-``` json
+``` bash
 stream {
     upstream web_server {
         server 172.1.1.11:8080 weight=1 max_fails=3 fail_timeout=10s;
@@ -105,7 +105,7 @@ http {
 
 > 一备一主`keepalived`都需要相同配置`/etc/keepalived/keepalived.conf` :
 
-``` json
+``` bash
 global_defs {
    router_id LVS_DEVEL
 }
@@ -167,14 +167,14 @@ Redis不同于Nginx,Redis需要实现多个服务器的redis数据同步,所以�
 
 > 添加配置到从库的`redis.conf`,实现复制主库(172.1.1.11)的数据
 
-``` json
+``` bash
 replicaof 172.1.1.11 6379
 ```
 
 
 > 一备一主的哨兵都需要相同配置`sentinel.conf` :
 
-```json
+``` bash
 port 26379
 
 daemonize yes
@@ -199,9 +199,9 @@ redis-cli -p 26379
 ```
 
 
-> 一备一主`keepalived`都需要相同配置,添加到上文的同一份配置文件`/etc/keepalived/keepalived.conf` :
+> 一备一主`keepalived`都需要相同配置,添加到[上文](#Nginx+keepalived)的同一份配置文件`/etc/keepalived/keepalived.conf` :
 
-``` json
+``` bash
 vrrp_script check_redis {
     script "/etc/keepalived/check_redis.sh"
     interval 2

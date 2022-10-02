@@ -91,7 +91,7 @@ Route::prefix('myadmin')->middleware('auth')->group(function () {})
 
 ```
 #### 修改nginx配置
-``` json
+``` bash
     location /admin/account {
         rewrite ^/admin/(.*)$ /myadmin/$1 last;
     }
