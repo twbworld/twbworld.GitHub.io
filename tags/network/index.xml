@@ -229,50 +229,50 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;blockquote>
 &lt;p>一备一主&lt;code>Nginx&lt;/code>都需要类似配置 :&lt;/p>
 &lt;/blockquote>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#960050;background-color:#1e0010">stream&lt;/span> {
-&lt;span style="color:#960050;background-color:#1e0010">upstream&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">web_server&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">{&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">server&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">172.1.1.11:8080&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">weight=1&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">max_fails=3&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">fail_timeout=10s;&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">server&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">172.1.1.12:8080&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">weight=1&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">max_fails=3&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">fail_timeout=10s;&lt;/span>
-}
-&lt;span style="color:#960050;background-color:#1e0010">server&lt;/span> {
-&lt;span style="color:#960050;background-color:#1e0010">listen&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">80&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">reuseport;&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">proxy_pass&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">web_server;&lt;/span>
-}
-&lt;span style="color:#960050;background-color:#1e0010">}&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">http&lt;/span> {
-&lt;span style="color:#960050;background-color:#1e0010">server&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">{&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">listen&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">172.1.1.11:8080;&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#使用本机ip;stream和http不能监听相同端口,所以另用端口,除非指定不同的ip:port&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">...&lt;/span>
-}
-&lt;span style="color:#960050;background-color:#1e0010">}&lt;/span>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">stream &lt;span style="color:#f92672">{&lt;/span>
+upstream web_server &lt;span style="color:#f92672">{&lt;/span>
+server 172.1.1.11:8080 weight&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> max_fails&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span> fail_timeout&lt;span style="color:#f92672">=&lt;/span>10s;
+server 172.1.1.12:8080 weight&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> max_fails&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span> fail_timeout&lt;span style="color:#f92672">=&lt;/span>10s;
+&lt;span style="color:#f92672">}&lt;/span>
+server &lt;span style="color:#f92672">{&lt;/span>
+listen &lt;span style="color:#ae81ff">80&lt;/span> reuseport;
+proxy_pass web_server;
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
+http &lt;span style="color:#f92672">{&lt;/span>
+server &lt;span style="color:#f92672">{&lt;/span>
+listen 172.1.1.11:8080; &lt;span style="color:#75715e">#使用本机ip;stream和http不能监听相同端口,所以另用端口,除非指定不同的ip:port&lt;/span>
+&lt;span style="color:#75715e"># ...&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>一备一主&lt;code>keepalived&lt;/code>都需要相同配置&lt;code>/etc/keepalived/keepalived.conf&lt;/code> :&lt;/p>
 &lt;/blockquote>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#960050;background-color:#1e0010">global_defs&lt;/span> {
-&lt;span style="color:#960050;background-color:#1e0010">router_id&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">LVS_DEVEL&lt;/span>
-}
-&lt;span style="color:#960050;background-color:#1e0010">vrrp_script&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">check_nginx&lt;/span> {
-&lt;span style="color:#960050;background-color:#1e0010">script&lt;/span> &lt;span style="color:#f92672">&amp;#34;/etc/keepalived/check_nginx.sh&amp;#34;&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">interval&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#检测时间&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">fall&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#检测失败次数&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">rise&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#检测成功次数&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">weight&lt;/span> &lt;span style="color:#ae81ff">-20&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#sh脚本执行了&lt;/span>&lt;span style="color:#e6db74">&amp;#34;exit 1&amp;#34;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">后的权重变化&lt;/span>
-}
-&lt;span style="color:#960050;background-color:#1e0010">vrrp_instance&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">VI_&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> {
-&lt;span style="color:#960050;background-color:#1e0010">state&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">BACKUP&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">interface&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">eth0&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#网卡&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">virtual_router_id&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">70&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#组唯一id&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">priority&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">100&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#权重&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">#nopreempt&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#非抢占模式,对BACKUP生效,宕机恢复后,不会抢占vip&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">advert_int&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">1&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#MASTER与BACKUP之间检查的时间&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">virtual_ipaddress&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">{&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">#飘移的vip&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">172.1.1.100/24&lt;/span>
-}
-&lt;span style="color:#960050;background-color:#1e0010">track_script&lt;/span> {
-&lt;span style="color:#960050;background-color:#1e0010">check_nginx&lt;/span>
-}
-&lt;span style="color:#960050;background-color:#1e0010">}&lt;/span>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">global_defs &lt;span style="color:#f92672">{&lt;/span>
+router_id LVS_DEVEL
+&lt;span style="color:#f92672">}&lt;/span>
+vrrp_script check_nginx &lt;span style="color:#f92672">{&lt;/span>
+script &lt;span style="color:#e6db74">&amp;#34;/etc/keepalived/check_nginx.sh&amp;#34;&lt;/span>
+interval &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#75715e">#检测时间&lt;/span>
+fall &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#75715e">#检测失败次数&lt;/span>
+rise &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#75715e">#检测成功次数&lt;/span>
+weight -20 &lt;span style="color:#75715e">#sh脚本执行了&amp;#34;exit 1&amp;#34;后的权重变化&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
+vrrp_instance VI_1 &lt;span style="color:#f92672">{&lt;/span>
+state BACKUP
+interface eth0 &lt;span style="color:#75715e">#网卡&lt;/span>
+virtual_router_id &lt;span style="color:#ae81ff">70&lt;/span> &lt;span style="color:#75715e">#组唯一id&lt;/span>
+priority &lt;span style="color:#ae81ff">100&lt;/span> &lt;span style="color:#75715e">#权重&lt;/span>
+&lt;span style="color:#75715e">#nopreempt #非抢占模式,对BACKUP生效,宕机恢复后,不会抢占vip&lt;/span>
+advert_int &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#75715e">#MASTER与BACKUP之间检查的时间&lt;/span>
+virtual_ipaddress &lt;span style="color:#f92672">{&lt;/span>
+&lt;span style="color:#75715e">#飘移的vip&lt;/span>
+172.1.1.100/24
+&lt;span style="color:#f92672">}&lt;/span>
+track_script &lt;span style="color:#f92672">{&lt;/span>
+check_nginx
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>一备一主都需要添加 检测nginx状态 的脚本&lt;code>/etc/keepalived/check_nginx.sh&lt;/code> :&lt;/p>
 &lt;/blockquote>
@@ -297,44 +297,44 @@ exit &lt;span style="color:#ae81ff">0&lt;/span>
 &lt;blockquote>
 &lt;p>添加配置到从库的&lt;code>redis.conf&lt;/code>,实现复制主库(172.1.1.11)的数据&lt;/p>
 &lt;/blockquote>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#960050;background-color:#1e0010">replicaof&lt;/span> &lt;span style="color:#ae81ff">172.1&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">.&lt;/span>&lt;span style="color:#ae81ff">1.11&lt;/span> &lt;span style="color:#ae81ff">6379&lt;/span>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">replicaof 172.1.1.11 &lt;span style="color:#ae81ff">6379&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>一备一主的哨兵都需要相同配置&lt;code>sentinel.conf&lt;/code> :&lt;/p>
 &lt;/blockquote>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#960050;background-color:#1e0010">port&lt;/span> &lt;span style="color:#ae81ff">26379&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">daemonize&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">yes&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">protected-mode&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">no&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">pidfile&lt;/span> &lt;span style="color:#e6db74">&amp;#34;/var/run/sentinel/redis-sentinel.pid&amp;#34;&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">logfile&lt;/span> &lt;span style="color:#e6db74">&amp;#34;/var/log/redis/redis-sentinel.log&amp;#34;&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">dir&lt;/span> &lt;span style="color:#e6db74">&amp;#34;/tmp&amp;#34;&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">sentinel&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">myid&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">db&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">f&lt;/span>&lt;span style="color:#ae81ff">6&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">c&lt;/span>&lt;span style="color:#ae81ff">96877303e3&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">aa&lt;/span>&lt;span style="color:#ae81ff">393481&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">d&lt;/span>&lt;span style="color:#ae81ff">00359&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">abae&lt;/span>&lt;span style="color:#ae81ff">6&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">b&lt;/span>&lt;span style="color:#ae81ff">2e7&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">d&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">sentinel&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">deny-scripts-reconfig&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">yes&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">sentinel&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">monitor&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">mymaster&lt;/span> &lt;span style="color:#ae81ff">172.1&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">.&lt;/span>&lt;span style="color:#ae81ff">1.11&lt;/span> &lt;span style="color:#ae81ff">6379&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">port &lt;span style="color:#ae81ff">26379&lt;/span>
+daemonize yes
+protected-mode no
+pidfile &lt;span style="color:#e6db74">&amp;#34;/var/run/sentinel/redis-sentinel.pid&amp;#34;&lt;/span>
+logfile &lt;span style="color:#e6db74">&amp;#34;/var/log/redis/redis-sentinel.log&amp;#34;&lt;/span>
+dir &lt;span style="color:#e6db74">&amp;#34;/tmp&amp;#34;&lt;/span>
+sentinel myid db1f6c96877303e3aa393481d00359abae6b2e7d
+sentinel deny-scripts-reconfig yes
+sentinel monitor mymaster 172.1.1.11 &lt;span style="color:#ae81ff">6379&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#75715e">#查看主从状态&lt;/span>
 redis-cli -p &lt;span style="color:#ae81ff">26379&lt;/span>
 &amp;gt;sentinel master mymaster
 &amp;gt;SENTINEL get-master-addr-by-name mymaster
 &lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
-&lt;p>一备一主&lt;code>keepalived&lt;/code>都需要相同配置,添加到上文的同一份配置文件&lt;code>/etc/keepalived/keepalived.conf&lt;/code> :&lt;/p>
+&lt;p>一备一主&lt;code>keepalived&lt;/code>都需要相同配置,添加到&lt;a href="#Nginx&amp;#43;keepalived">上文&lt;/a>的同一份配置文件&lt;code>/etc/keepalived/keepalived.conf&lt;/code> :&lt;/p>
 &lt;/blockquote>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#960050;background-color:#1e0010">vrrp_script&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">check_redis&lt;/span> {
-&lt;span style="color:#960050;background-color:#1e0010">script&lt;/span> &lt;span style="color:#f92672">&amp;#34;/etc/keepalived/check_redis.sh&amp;#34;&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">interval&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">weight&lt;/span> &lt;span style="color:#ae81ff">-30&lt;/span>
-}
-&lt;span style="color:#960050;background-color:#1e0010">vrrp_instance&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">VI_&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span> {
-&lt;span style="color:#960050;background-color:#1e0010">state&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">BACKUP&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">interface&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">eth0&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">virtual_router_id&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">80&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">priority&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">100&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">advert_int&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">1&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">virtual_ipaddress&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">{&lt;/span>
-&lt;span style="color:#960050;background-color:#1e0010">172.1.1.101/24&lt;/span>
-}
-&lt;span style="color:#960050;background-color:#1e0010">track_script&lt;/span> {
-&lt;span style="color:#960050;background-color:#1e0010">check_redis&lt;/span>
-}
-&lt;span style="color:#960050;background-color:#1e0010">}&lt;/span>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">vrrp_script check_redis &lt;span style="color:#f92672">{&lt;/span>
+script &lt;span style="color:#e6db74">&amp;#34;/etc/keepalived/check_redis.sh&amp;#34;&lt;/span>
+interval &lt;span style="color:#ae81ff">2&lt;/span>
+weight -30
+&lt;span style="color:#f92672">}&lt;/span>
+vrrp_instance VI_2 &lt;span style="color:#f92672">{&lt;/span>
+state BACKUP
+interface eth0
+virtual_router_id &lt;span style="color:#ae81ff">80&lt;/span>
+priority &lt;span style="color:#ae81ff">100&lt;/span>
+advert_int &lt;span style="color:#ae81ff">1&lt;/span>
+virtual_ipaddress &lt;span style="color:#f92672">{&lt;/span>
+172.1.1.101/24
+&lt;span style="color:#f92672">}&lt;/span>
+track_script &lt;span style="color:#f92672">{&lt;/span>
+check_redis
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>一备一主都需要添加 检测Redis状态 的脚本&lt;code>/etc/keepalived/check_redis.sh&lt;/code> :&lt;/p>
 &lt;/blockquote>
