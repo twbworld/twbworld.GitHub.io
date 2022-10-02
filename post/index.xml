@@ -1,4 +1,131 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>忐忑の博客</title><link>https://twbhub.com/post/</link><atom:link href="https://twbhub.com/post/index.xml" rel="self" type="application/rss+xml"/><description>忐忑の博客</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202022_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><image><url>https://twbhub.com/media/avatar.jpg</url><title>忐忑の博客</title><link>https://twbhub.com/post/</link></image><item><title>olaindex配置安装</title><link>https://twbhub.com/post/olaindex_config/</link><pubDate>Mon, 05 Sep 2022 19:00:00 +0800</pubDate><guid>https://twbhub.com/post/olaindex_config/</guid><description>&lt;h2 id="关于环境的安装不做详细教程">关于环境的安装,不做详细教程&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>忐忑の博客</title><link>https://twbhub.com/post/</link><atom:link href="https://twbhub.com/post/index.xml" rel="self" type="application/rss+xml"/><description>忐忑の博客</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202022_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><image><url>https://twbhub.com/media/avatar.jpg</url><title>忐忑の博客</title><link>https://twbhub.com/post/</link></image><item><title>keepalived高可用配置</title><link>https://twbhub.com/post/keepalived_ha/</link><pubDate>Mon, 05 Sep 2022 19:00:00 +0800</pubDate><guid>https://twbhub.com/post/keepalived_ha/</guid><description>&lt;blockquote>
+&lt;p>&lt;code>keepalived&lt;/code>需要一个&lt;code>vip&lt;/code>;如果用的是云服务,那么得在后台申请一个高可用ip,才能实现&lt;code>vip飘移&lt;/code>;如果是自建服务器,那么一台服务器得使用两个网卡;只是为了测试,那么使用&lt;code>docker容器&lt;/code>模拟集群是最合适的了&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="nginxkeepalived">Nginx+keepalived&lt;/h2>
+&lt;p>&lt;code>Nginx&lt;/code>一主(172.1.1.11)一备(172.1.1.12),那么备服务器也太浪费了,所以除了&lt;code>keepalived高可用&lt;/code>还涉及到四层网络的负载均衡;一般主备都需要配置&lt;code>haproxy&lt;/code>,它是Linux内核自带的;为了方便,&lt;code>Nginx&lt;/code>的&lt;code>stream模块&lt;/code>也能实现四层负载均衡&lt;/p>
+&lt;blockquote>
+&lt;p>一备一主&lt;code>Nginx&lt;/code>都需要类似配置 :&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#960050;background-color:#1e0010">stream&lt;/span> {
+&lt;span style="color:#960050;background-color:#1e0010">upstream&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">web_server&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">{&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">server&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">172.1.1.11:8080&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">weight=1&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">max_fails=3&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">fail_timeout=10s;&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">server&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">172.1.1.12:8080&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">weight=1&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">max_fails=3&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">fail_timeout=10s;&lt;/span>
+}
+&lt;span style="color:#960050;background-color:#1e0010">server&lt;/span> {
+&lt;span style="color:#960050;background-color:#1e0010">listen&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">80&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">reuseport;&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">proxy_pass&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">web_server;&lt;/span>
+}
+&lt;span style="color:#960050;background-color:#1e0010">}&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">http&lt;/span> {
+&lt;span style="color:#960050;background-color:#1e0010">server&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">{&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">listen&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">172.1.1.11:8080;&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#使用本机ip;stream和http不能监听相同端口,所以另用端口,除非指定不同的ip:port&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">...&lt;/span>
+}
+&lt;span style="color:#960050;background-color:#1e0010">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>一备一主&lt;code>keepalived&lt;/code>都需要相同配置&lt;code>/etc/keepalived/keepalived.conf&lt;/code> :&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#960050;background-color:#1e0010">global_defs&lt;/span> {
+&lt;span style="color:#960050;background-color:#1e0010">router_id&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">LVS_DEVEL&lt;/span>
+}
+&lt;span style="color:#960050;background-color:#1e0010">vrrp_script&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">check_nginx&lt;/span> {
+&lt;span style="color:#960050;background-color:#1e0010">script&lt;/span> &lt;span style="color:#f92672">&amp;#34;/etc/keepalived/check_nginx.sh&amp;#34;&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">interval&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#检测时间&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">fall&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#检测失败次数&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">rise&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#检测成功次数&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">weight&lt;/span> &lt;span style="color:#ae81ff">-20&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#sh脚本执行了&lt;/span>&lt;span style="color:#e6db74">&amp;#34;exit 1&amp;#34;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">后的权重变化&lt;/span>
+}
+&lt;span style="color:#960050;background-color:#1e0010">vrrp_instance&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">VI_&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> {
+&lt;span style="color:#960050;background-color:#1e0010">state&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">BACKUP&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">interface&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">eth0&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#网卡&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">virtual_router_id&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">70&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#组唯一id&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">priority&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">100&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#权重&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">#nopreempt&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#非抢占模式,对BACKUP生效,宕机恢复后,不会抢占vip&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">advert_int&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">1&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">#MASTER与BACKUP之间检查的时间&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">virtual_ipaddress&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">{&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">#飘移的vip&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">172.1.1.100/24&lt;/span>
+}
+&lt;span style="color:#960050;background-color:#1e0010">track_script&lt;/span> {
+&lt;span style="color:#960050;background-color:#1e0010">check_nginx&lt;/span>
+}
+&lt;span style="color:#960050;background-color:#1e0010">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>一备一主都需要添加 检测nginx状态 的脚本&lt;code>/etc/keepalived/check_nginx.sh&lt;/code> :&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#75715e">#!/bin/bash
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>A&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">`&lt;/span>ps -C nginx --no-header | wc -l&lt;span style="color:#e6db74">`&lt;/span>
+&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">[&lt;/span> $A -eq &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">]&lt;/span>;&lt;span style="color:#66d9ef">then&lt;/span>
+&lt;span style="color:#75715e">#/usr/sbin/nginx #重启nginx&lt;/span>
+sleep &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">[&lt;/span> $A -eq &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">]&lt;/span>;&lt;span style="color:#66d9ef">then&lt;/span>
+&lt;span style="color:#75715e">#pkill keepalived&lt;/span>
+exit &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#66d9ef">fi&lt;/span>
+&lt;span style="color:#66d9ef">fi&lt;/span>
+exit &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="rediskeepalived">Redis+keepalived&lt;/h2>
+&lt;p>Redis不同于Nginx,Redis需要实现多个服务器的redis数据同步,所以配置分为三步:&lt;/p>
+&lt;ol>
+&lt;li>配置Redis集群主从库复制&lt;/li>
+&lt;li>配置Redis的集群哨兵模式,用于检测Redis状态,宕机及时切换主数据库,数据恢复&lt;/li>
+&lt;li>配置keepalived,负责Redis切换主库后的飘移vip&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>添加配置到从库的&lt;code>redis.conf&lt;/code>,实现复制主库(172.1.1.11)的数据&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#960050;background-color:#1e0010">replicaof&lt;/span> &lt;span style="color:#ae81ff">172.1&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">.&lt;/span>&lt;span style="color:#ae81ff">1.11&lt;/span> &lt;span style="color:#ae81ff">6379&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>一备一主的哨兵都需要相同配置&lt;code>sentinel.conf&lt;/code> :&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#960050;background-color:#1e0010">port&lt;/span> &lt;span style="color:#ae81ff">26379&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">daemonize&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">yes&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">protected-mode&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">no&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">pidfile&lt;/span> &lt;span style="color:#e6db74">&amp;#34;/var/run/sentinel/redis-sentinel.pid&amp;#34;&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">logfile&lt;/span> &lt;span style="color:#e6db74">&amp;#34;/var/log/redis/redis-sentinel.log&amp;#34;&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">dir&lt;/span> &lt;span style="color:#e6db74">&amp;#34;/tmp&amp;#34;&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">sentinel&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">myid&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">db&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">f&lt;/span>&lt;span style="color:#ae81ff">6&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">c&lt;/span>&lt;span style="color:#ae81ff">96877303e3&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">aa&lt;/span>&lt;span style="color:#ae81ff">393481&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">d&lt;/span>&lt;span style="color:#ae81ff">00359&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">abae&lt;/span>&lt;span style="color:#ae81ff">6&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">b&lt;/span>&lt;span style="color:#ae81ff">2e7&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">d&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">sentinel&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">deny-scripts-reconfig&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">yes&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">sentinel&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">monitor&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">mymaster&lt;/span> &lt;span style="color:#ae81ff">172.1&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">.&lt;/span>&lt;span style="color:#ae81ff">1.11&lt;/span> &lt;span style="color:#ae81ff">6379&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#75715e">#查看主从状态&lt;/span>
+redis-cli -p &lt;span style="color:#ae81ff">26379&lt;/span>
+&amp;gt;sentinel master mymaster
+&amp;gt;SENTINEL get-master-addr-by-name mymaster
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>一备一主&lt;code>keepalived&lt;/code>都需要相同配置,添加到上文的同一份配置文件&lt;code>/etc/keepalived/keepalived.conf&lt;/code> :&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#960050;background-color:#1e0010">vrrp_script&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">check_redis&lt;/span> {
+&lt;span style="color:#960050;background-color:#1e0010">script&lt;/span> &lt;span style="color:#f92672">&amp;#34;/etc/keepalived/check_redis.sh&amp;#34;&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">interval&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">weight&lt;/span> &lt;span style="color:#ae81ff">-30&lt;/span>
+}
+&lt;span style="color:#960050;background-color:#1e0010">vrrp_instance&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">VI_&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span> {
+&lt;span style="color:#960050;background-color:#1e0010">state&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">BACKUP&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">interface&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">eth0&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">virtual_router_id&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">80&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">priority&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">100&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">advert_int&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">1&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">virtual_ipaddress&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">{&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">172.1.1.101/24&lt;/span>
+}
+&lt;span style="color:#960050;background-color:#1e0010">track_script&lt;/span> {
+&lt;span style="color:#960050;background-color:#1e0010">check_redis&lt;/span>
+}
+&lt;span style="color:#960050;background-color:#1e0010">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>一备一主都需要添加 检测Redis状态 的脚本&lt;code>/etc/keepalived/check_redis.sh&lt;/code> :&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#75715e">#!/bin/bash
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">#检测是否master主库(redis-sentinel推举出主库)&lt;/span>
+A&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">`&lt;/span>redis-cli info|grep role:master&lt;span style="color:#e6db74">`&lt;/span>
+&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">[&lt;/span> -z $A &lt;span style="color:#f92672">]&lt;/span>; &lt;span style="color:#66d9ef">then&lt;/span>
+sleep &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">[&lt;/span> -z $A &lt;span style="color:#f92672">]&lt;/span>; &lt;span style="color:#66d9ef">then&lt;/span>
+exit &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#66d9ef">fi&lt;/span>
+&lt;span style="color:#66d9ef">fi&lt;/span>
+exit &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>olaindex配置安装</title><link>https://twbhub.com/post/olaindex_config/</link><pubDate>Mon, 05 Sep 2022 19:00:00 +0800</pubDate><guid>https://twbhub.com/post/olaindex_config/</guid><description>&lt;h2 id="关于环境的安装不做详细教程">关于环境的安装,不做详细教程&lt;/h2>
 &lt;h3 id="olainde隐藏后台地址">&lt;code>olainde&lt;/code>隐藏后台地址&lt;/h3>
 &lt;p>因为olaindex默认是以&lt;code>/admin&lt;/code>为默认地址的,我们需要做适当修改&lt;/p>
 &lt;h4 id="修改routeswebphp">修改routes/web.php&lt;/h4>
