@@ -45,7 +45,7 @@ removePathAccents: true
 summaryLength: 30
 
 # Number of items per page in paginated lists.(分页)
-paginate: 10
+paginate: 100
 enableEmoji: true
 enableRobotsTXT: true
 footnotereturnlinkcontents: <sup>^</sup>
