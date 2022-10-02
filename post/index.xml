@@ -18,20 +18,20 @@
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="配置凭证">配置凭证&lt;/h3>
 &lt;ol>
 &lt;li>如图按&lt;code>申请&lt;/code>自动创建应用:
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/202005172127497432198.png" alt="">&lt;/li>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202005172127497432198.png" alt="">&lt;/li>
 &lt;li>登录&lt;a href="https://www.azure.microsoft.com/" target="_blank" rel="noopener">Microsoft Azure&lt;/a>&lt;/li>
 &lt;li>进入了&lt;code>应用注册&lt;/code>,选择对应的应用(我的是&amp;quot;Graph PHP quick start&amp;quot;)&lt;/li>
 &lt;li>记录下&lt;code>应用程序(客户端) ID&lt;/code>的编码,后面要用&lt;/li>
 &lt;li>进入&lt;code>证书和密码&lt;/code>, 创建&lt;code>新客户端密码&lt;/code>, 记录下&lt;code>值&lt;/code>的编码,后面要用&lt;/li>
 &lt;li>进入&lt;code>身份验证&lt;/code>,在&lt;code>web&lt;/code>模块配置重定向的url, 如图所示:
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/2020051721274936122.png" alt="">&lt;/li>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/2020051721274936122.png" alt="">&lt;/li>
 &lt;li>如图进入&lt;code>API权限&lt;/code>,增加对应权限
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/2020051721274930989089.png" alt="">&lt;/li>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/2020051721274930989089.png" alt="">&lt;/li>
 &lt;li>把前面所记录下的&lt;code>client_id&lt;/code>和&lt;code>client_secret&lt;/code>填入, 保存
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200517212749307398210.png" alt="">&lt;/li>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200517212749307398210.png" alt="">&lt;/li>
 &lt;/ol></description></item><item><title>Postman无法抓包Chrome</title><link>https://twbhub.com/post/postman_cannot_connection_chrome/</link><pubDate>Thu, 20 May 2021 23:00:00 +0800</pubDate><guid>https://twbhub.com/post/postman_cannot_connection_chrome/</guid><description>&lt;h2 id="原因">原因&lt;/h2>
-&lt;p>Mac安装了两个版本(我的是正式版和&lt;code>Dev&lt;/code>版)的 &lt;code>Chrome&lt;/code> ,一个正常, 另一个版本无法与 &lt;code>Postman&lt;/code> 连接, 无法被抓包(Windows不会出现这样的情况)&lt;br>
-原因是不正常的版本缺少了一个 &lt;code>Interceptor&lt;/code> 插件的配置文件, 据官方&lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/interceptor/#how-it-works" target="_blank" rel="noopener">文档&lt;/a>所述,文件位于&lt;br>
+&lt;p>Mac安装了两个版本(我的是正式版和&lt;code>Dev&lt;/code>版)的 &lt;code>Chrome&lt;/code> ,一个正常, 另一个版本无法与 &lt;code>Postman&lt;/code> 连接, 无法被抓包(Windows不会出现这样的情况)
+原因是不正常的版本缺少了一个 &lt;code>Interceptor&lt;/code> 插件的配置文件, 据官方&lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/interceptor/#how-it-works" target="_blank" rel="noopener">文档&lt;/a>所述,文件位于
 &lt;code>/Users/&amp;lt;username&amp;gt;/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.postman.postmanapp.json&lt;/code>&lt;/p>
 &lt;h2 id="解决">解决&lt;/h2>
 &lt;p>也简单,配置文件位于 正式版的 &lt;code>Chrome&lt;/code> 下, 解决方法就是复制一份到对应的版本的 &lt;code>Chrome&lt;/code> 的对应目录下
@@ -48,18 +48,18 @@
 &lt;p>安装Postman后, 根据&lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#macos" target="_blank" rel="noopener">文档&lt;/a>的指示, Postman的CA证书位于
 Mac: &lt;code>~/Library/Application Support/Postman/proxy/postman-proxy-ca.crt&lt;/code>
 Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/postman-proxy-ca.crt&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520225920.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210520225920.png" alt="">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>找到证书后,想办法把证书传到iOS, 并打开, iOS会识别并提示
 打开 &lt;code>设置=&amp;gt;通用=&amp;gt;描述文件&lt;/code> , 可以看到一个 &lt;code>已下载&lt;/code> 但未安装的证书, 安装就好
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520230353.jpeg" alt="">
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520230534.jpeg" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210520230353.jpeg" alt="">
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210520230534.jpeg" alt="">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>安装完证书,还要让iOS信任该证书
 打开 &lt;code>设置=&amp;gt;通用=&amp;gt;关于本机=&amp;gt;证书信任设置&lt;/code> 找到对应的Postman证书并开启信任
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520231655.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210520231655.png" alt="">&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;h2 id="设置代理并抓包">设置代理并抓包&lt;/h2>
@@ -91,20 +91,20 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;h3 id="步骤一">步骤一&lt;/h3>
 &lt;p>想要在 &lt;code>GitHub&lt;/code> 使用 &lt;code>ghcr.io&lt;/code> , 首先要 &lt;a href="https://docs.github.com/cn/packages/guides/enabling-improved-container-support" target="_blank" rel="noopener">启用改进的容器支持&lt;/a>&lt;/p>
 &lt;h3 id="步骤二">步骤二&lt;/h3>
-&lt;p>需要生成 GitHub账号 的 &lt;code>Token&lt;/code> ; 用于 &lt;code>GitHub-Actions&lt;/code> 有权限操作 &lt;code>GitHub账号&lt;/code> 下的项目 ;&lt;br>
+&lt;p>需要生成 GitHub账号 的 &lt;code>Token&lt;/code> ; 用于 &lt;code>GitHub-Actions&lt;/code> 有权限操作 &lt;code>GitHub账号&lt;/code> 下的项目 ;
 登录 &lt;code>GitHub&lt;/code> , 右上角点击用户头像, 找到 &lt;code>settings &amp;gt; Developer settings &amp;gt; Personal access tokens&lt;/code> , 点击 &lt;code>Generate new token&lt;/code> , &lt;a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener">传送门直达&lt;/a> , 如图 :
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313151850.png" alt="">
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313151850.png" alt="">
 接着, 设置 &lt;code>Token&lt;/code> 的权限, 选择 &lt;code>write:packages&lt;/code> (这样,连同 &lt;code>repo&lt;/code> 都一起勾选了), 如图 :
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313152515.png" alt="">
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313152515.png" alt="">
 最后生成了一个 &lt;code>Token&lt;/code> , 一定要记录下来, 下一步要用到&lt;/p>
 &lt;h3 id="步骤三">步骤三&lt;/h3>
 &lt;p>把生成的 &lt;code>Token&lt;/code> 添加到您的GitHub项目 &lt;code>secrets&lt;/code> 下 ; 找到项目下 &lt;code>Setting &amp;gt; secrets&lt;/code> , 右上角点击 &lt;code>New repository secret&lt;/code> , 如图
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313153743.png" alt="">&lt;/p>
-&lt;p>如图&lt;br>
-&lt;code>Name&lt;/code> 值填写 &lt;code>PACKAGES_TOKEN&lt;/code> (可自定义, 但下一步用到的 &lt;code>secrets.PACKAGES_TOKEN&lt;/code> 同步要改)&lt;br>
-&lt;code>Value&lt;/code> 值填写 上一步获得的 &lt;code>Token&lt;/code> , 最后点击 &lt;code>Add secret&lt;/code> ;&lt;br>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313153743.png" alt="">&lt;/p>
+&lt;p>如图
+&lt;code>Name&lt;/code> 值填写 &lt;code>PACKAGES_TOKEN&lt;/code> (可自定义, 但下一步用到的 &lt;code>secrets.PACKAGES_TOKEN&lt;/code> 同步要改)
+&lt;code>Value&lt;/code> 值填写 上一步获得的 &lt;code>Token&lt;/code> , 最后点击 &lt;code>Add secret&lt;/code> ;
 &lt;code>GitHub-Actions&lt;/code> 就可通过&lt;code>secrets.PACKAGES_TOKEN&lt;/code> 获取 &lt;code>Token&lt;/code> , 用于发布镜像到 &lt;code>ghcr.io&lt;/code> 了
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313154015.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313154015.png" alt="">&lt;/p>
 &lt;h3 id="步骤三-1">步骤三&lt;/h3>
 &lt;p>如何使用 &lt;code>GitHub-Actions&lt;/code> 在此不过多简释, 直接贴出代码 :&lt;/p>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yml" data-lang="yml">&lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">ci&lt;/span>
@@ -158,22 +158,22 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;p>&lt;a href="https://github.com/metcalfc/docker-action-examples/blob/main/.github/workflows/release.yml" target="_blank" rel="noopener">借鉴代码&lt;/a>&lt;/p>
 &lt;/blockquote>
 &lt;p>如图, &lt;code>GitHub-Actions&lt;/code> 运行成功后, 在用户首页下的 &lt;code>Packages&lt;/code> 模块下, 新增了一个 &lt;code>Packages&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313162701.png" alt="">
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313162701.png" alt="">
 但是, 可看到 &lt;code>Private&lt;/code> 标签, 也就是说, 这个Docker镜像默认不公开的 ; 如需要公开, 请往下看&lt;/p>
 &lt;h3 id="步骤四">步骤四&lt;/h3>
 &lt;p>公开 &lt;code>Packages&lt;/code> 下的Docker镜像 ; 进入需要公开的镜像后, 点击右上角 &lt;code>Package Settings&lt;/code> , 进入配置页面
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313163101.png" alt="">
-拉到低, 点击 &lt;code>Change visibility&lt;/code> , 就可设置为公开 ;&lt;br>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313163101.png" alt="">
+拉到低, 点击 &lt;code>Change visibility&lt;/code> , 就可设置为公开 ;
 在任何地方, 都可以下载镜像: &lt;code>docker pull ghcr.io/[用户名]/[镜像名]:[标签]&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313163237.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313163237.png" alt="">&lt;/p>
 &lt;h3 id="步骤五">步骤五&lt;/h3>
-&lt;p>虽然这个镜像是通过您的GitHub项目发布的, 但默认是不会关联到对应GitHub项目的 ;&lt;br>
-在上文 &lt;a href="#%e4%bb%93%e5%ba%93%e5%b9%b3%e5%8f%b0%e5%8c%ba%e5%88%ab">仓库平台区别&lt;/a> 已经知道, &lt;code>ghcr.io&lt;/code> 下的镜像是对应账号, 而不是 &lt;code>项目&lt;/code> 的 ;&lt;br>
-如果需要将该镜像关联到对应项目, 也很简单 :&lt;br>
+&lt;p>虽然这个镜像是通过您的GitHub项目发布的, 但默认是不会关联到对应GitHub项目的 ;
+在上文 &lt;a href="#%e4%bb%93%e5%ba%93%e5%b9%b3%e5%8f%b0%e5%8c%ba%e5%88%ab">仓库平台区别&lt;/a> 已经知道, &lt;code>ghcr.io&lt;/code> 下的镜像是对应账号, 而不是 &lt;code>项目&lt;/code> 的 ;
+如果需要将该镜像关联到对应项目, 也很简单 :
 如图 , 进入该镜像的页面, 在页面下就可以看到 &lt;code>Connect Repository&lt;/code> 按钮, 点击关联对应的项目 ; 项目下的 &lt;code>README.md&lt;/code> 也会加载进来
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313164825.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313164825.png" alt="">&lt;/p>
 &lt;p>来到对应的GitHub项目下, 也可以看到关联的Docker镜像, 如图 :
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210313165559.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313165559.png" alt="">&lt;/p>
 &lt;h2 id="发布到其他仓库">发布到其他仓库&lt;/h2>
 &lt;p>给出全部代码, 同时发布到 &lt;code>Docker Hub&lt;/code> / &lt;code>ghcr.io&lt;/code> / &lt;code>docker.pkg.github.com&lt;/code>&lt;/p>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yml" data-lang="yml">&lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">ci&lt;/span>
@@ -297,7 +297,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;span style="color:#f92672">port&lt;/span>: &lt;span style="color:#ae81ff">${{ secrets.PORT }}&lt;/span>
 &lt;span style="color:#f92672">script&lt;/span>: |&lt;span style="color:#e6db74">
 &lt;/span>&lt;span style="color:#e6db74"> &lt;/span> &lt;span style="color:#ae81ff">ls ./&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>当使用 &lt;code>git pull&lt;/code> 时, 却没有触发该yml文件(在github项目的Actions的选项卡下不存在任务)&lt;br>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>当使用 &lt;code>git pull&lt;/code> 时, 却没有触发该yml文件(在github项目的Actions的选项卡下不存在任务)
 但是,当把触发条件 &lt;code>pull_request&lt;/code> 改成 &lt;code>push&lt;/code> , 再push到Github 却意外的成功了触发了Actions&lt;/p>
 &lt;h2 id="解决">解决&lt;/h2>
 &lt;p>最后多次尝试,才发现问题 :&lt;/p>
@@ -305,7 +305,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;blockquote>
 &lt;p>都怪没认真看&lt;a href="https://docs.github.com/cn/actions/reference/events-that-trigger-workflows" target="_blank" rel="noopener">文档&lt;/a>&lt;/p>
 &lt;/blockquote>
-&lt;p>另外再做个笔记 :&lt;br>
+&lt;p>另外再做个笔记 :
 如果 &lt;code>workflows&lt;/code> 目录下有多个yml, GitHub-Actions默认是并行触发的, 如果想实现按顺序触发, 请使用 &lt;a href="https://docs.github.com/cn/actions/reference/events-that-trigger-workflows#workflow_run" target="_blank" rel="noopener">&lt;code>workflow_run&lt;/code>&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>GitHub-Actions 真香 !&lt;/p>
@@ -1026,7 +1026,7 @@ openssl x509 -req -in server.csr -out server.crt -signkey server.key -days &lt;s
 &lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>目录描述 :&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210404165626.jpg" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210404165626.jpg" alt="">&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>Linux配置流程 :&lt;/p>
@@ -2134,11 +2134,11 @@ $originsAllowed &lt;span style="color:#f92672">=&lt;/span> [
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;strong>&amp;hellip; 以上&lt;/strong>&lt;/p></description></item><item><title>制作多分区启动盘</title><link>https://twbhub.com/post/multi_partition_startup_disk/</link><pubDate>Mon, 28 Sep 2020 22:20:13 +0800</pubDate><guid>https://twbhub.com/post/multi_partition_startup_disk/</guid><description>&lt;blockquote>
-&lt;p>有些小伙伴手里有上百G甚至上T移动硬盘&lt;br>
-平时制作启动硬盘,除了启动分区,都是只剩一个分区提供自己使用的&lt;br>
-那么问题来了:怎么保留启动盘的功能,又能把硬盘分成多个分区呢?&lt;br>
-搜索引擎也很少有相关文章&lt;br>
-那么,今天就带大家制作一个多分区启动盘&lt;br>
+&lt;p>有些小伙伴手里有上百G甚至上T移动硬盘
+平时制作启动硬盘,除了启动分区,都是只剩一个分区提供自己使用的
+那么问题来了:怎么保留启动盘的功能,又能把硬盘分成多个分区呢?
+搜索引擎也很少有相关文章
+那么,今天就带大家制作一个多分区启动盘
 作者尝试了无数次才成功的,呕心沥血之作&lt;/p>
 &lt;/blockquote>
 &lt;p>所使用到的:&lt;/p>
@@ -2167,36 +2167,36 @@ $originsAllowed &lt;span style="color:#f92672">=&lt;/span> [
 &lt;/blockquote>
 &lt;h2 id="1获取微pe的系统iso">1#获取&lt;code>微PE&lt;/code>的系统ISO&lt;/h2>
 &lt;p>(1) 双击打开下载好的 &lt;code>微PE&lt;/code> 安装包,看到以下界面,单击右下角的光盘图标
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929001640.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929001640.png" alt="">&lt;/p>
 &lt;p>(2) 接下来,要把 &lt;code>微PE&lt;/code> 自带的ISO镜像保存到电脑,选择保存的位置, &lt;code>光盘卷标&lt;/code> 也就是盘符的名称,也建议改成喜欢的名称,如&amp;quot;pe盘&amp;quot;,最后点击 &lt;code>立即生成ISO&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929003752.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929003752.png" alt="">&lt;/p>
 &lt;h2 id="2写入iso到硬盘">2#写入ISO到硬盘&lt;/h2>
 &lt;p>(1) 插入硬盘,准备格式化&lt;/p>
 &lt;blockquote>
 &lt;p>PS: 备份数据!!!!!备份数据!!!!!备份数据!!!!!&lt;/p>
 &lt;/blockquote>
 &lt;p>(2) 打开安装好的 &lt;code>UltraISO&lt;/code> ,菜单栏依次点击 &lt;code>文件-&amp;gt;打开&lt;/code> ; 选择上一步保存好的ISO文件&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929003225.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929003225.png" alt="">&lt;/p>
 &lt;p>(3) 可以看到,左侧栏出现的ISO文件&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929003656.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929003656.png" alt="">&lt;/p>
 &lt;p>(4) 接着,菜单栏依次点击 &lt;code>启动-&amp;gt;写入硬盘映像&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929003959.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929003959.png" alt="">&lt;/p>
 &lt;p>(5) 出现一个弹窗, &lt;code>硬盘驱动器&lt;/code> 选择正确的硬盘,首先,需要把硬盘格式化,点击&lt;code>格式化&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929004608.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929004608.png" alt="">&lt;/p>
 &lt;p>(6) 最后,正式把ISO文件写入硬盘,点击 &lt;code>写入&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929004749.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929004749.png" alt="">&lt;/p>
 &lt;h2 id="3备份启动分区">3#备份启动分区&lt;/h2>
 &lt;p>(1) 打开安装好的 &lt;code>DiskGenius&lt;/code> ,在左侧栏找到对应的硬盘,单击选中上一步生成的盘
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929010004.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929010004.png" alt="">&lt;/p>
 &lt;p>(2) 菜单栏依次点击 &lt;code>工具-&amp;gt;备份分区到镜像文件&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929010254.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929010254.png" alt="">&lt;/p>
 &lt;p>(3) 出现一个弹窗, 点击 &lt;code>选择文件路径&lt;/code> ,选择一个目录,输入自定义的&lt;code>pmf&lt;/code>文件的名称,点击 &lt;code>打开&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929010619.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929010619.png" alt="">&lt;/p>
 &lt;p>(4) 点击 &lt;code>开始&lt;/code> ,成功后,会生成一个&lt;code>.pmf&lt;/code>后缀文件,这个文件就是你的启动盘备份文件
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929011108.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929011108.png" alt="">&lt;/p>
 &lt;h2 id="4硬盘分区">4#硬盘分区&lt;/h2>
 &lt;p>(1) &lt;code>DiskGenius&lt;/code> 左侧栏选中对应的硬盘,点击 &lt;code>快速分区&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929011443.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929011443.png" alt="">&lt;/p>
 &lt;p>(2) 可以看到一个弹窗;这一步是成功的关键,要严格按照以下的规定(作者经过无数次的尝试,得出来的结论) :&lt;/p>
 &lt;blockquote>
 &lt;ol>
@@ -2205,35 +2205,35 @@ $originsAllowed &lt;span style="color:#f92672">=&lt;/span> [
 &lt;li>&lt;code>高级设置&lt;/code> 以第一个作为启动分区,所以第一个分区选择 &lt;code>FAT32&lt;/code>, 其余为 &lt;code>NTFS&lt;/code> ; 不要问为什么,我也不知道&lt;/li>
 &lt;li>&lt;code>高级设置&lt;/code> 把所有的 &lt;code>主分区&lt;/code> 勾上; 不要问为什么,我也不知道&lt;/li>
 &lt;li>至于各分区的容量,卷标名称等,请自定义
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929013018.png" alt="">&lt;/li>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929013018.png" alt="">&lt;/li>
 &lt;/ol>
 &lt;/blockquote>
 &lt;p>(3) 分区后,可以看到作为启动分区已经显示 &lt;code>活动&lt;/code> 了
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929013528.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929013528.png" alt="">&lt;/p>
 &lt;h2 id="5恢复启动分区">5#恢复启动分区&lt;/h2>
 &lt;p>(1) &lt;code>DiskGenius&lt;/code> ,在左侧栏找到对应的硬盘,单击选中上一步作为启动的分区
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929013709.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929013709.png" alt="">&lt;/p>
 &lt;p>(2) 菜单栏依次点击 &lt;code>工具-&amp;gt;从镜像文件还原分区&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929014447.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929014447.png" alt="">&lt;/p>
 &lt;p>(3) 出现弹窗, 点击 &lt;code>选择文件&lt;/code> , 选择在 &lt;code>第三步&lt;/code> 生成的 &lt;code>pmf&lt;/code> 文件
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929014834.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929014834.png" alt="">&lt;/p>
 &lt;p>(4) 到此为止,成功制作了一个 多分区启动硬盘&lt;/p>
 &lt;blockquote>
 &lt;p>但是,这样制作的多分区启动硬盘, &lt;code>BIOS&lt;/code> 只能使用 &lt;code>Legacy&lt;/code> 启动模式来启动硬盘(新型的 &lt;code>UEFI&lt;/code> 无法启动PE), 如下图例子(华硕的BIOS)&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929015346.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929015346.png" alt="">&lt;/p>
 &lt;p>&lt;strong>&amp;hellip; 以上&lt;/strong>&lt;/p></description></item><item><title>SSH隧道连接局域网下的虚拟机</title><link>https://twbhub.com/post/tunnel_connect/</link><pubDate>Sun, 12 Jul 2020 18:18:13 +0800</pubDate><guid>https://twbhub.com/post/tunnel_connect/</guid><description>&lt;blockquote>
-&lt;p>连接局域网下的虚拟机,在网上找到的做法通常是:在VMware配置端口转发&lt;br>
-最近了解隧道技术,突发奇想:能不能使用SSH隧道连接局域网下的虚拟机呢?&lt;br>
-在网上找到的相关资料不多,经过自己摸索,终于实现了&lt;br>
-使用SSH隧道连接局域网下的虚拟机,主要有两种方式可以实现&lt;br>
+&lt;p>连接局域网下的虚拟机,在网上找到的做法通常是:在VMware配置端口转发
+最近了解隧道技术,突发奇想:能不能使用SSH隧道连接局域网下的虚拟机呢?
+在网上找到的相关资料不多,经过自己摸索,终于实现了
+使用SSH隧道连接局域网下的虚拟机,主要有两种方式可以实现
 1: 本地端口转发; 2: 动态端口转发&lt;/p>
 &lt;/blockquote>
 &lt;p>首先,假设网络图如下,A和B在同一局域网下,我们的目的是: 实现 A 连接到 C 的SSH服务
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712191744.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712191744.png" alt="">&lt;/p>
 &lt;h2 id="方法一--本地端口转发">方法一 : 本地端口转发&lt;/h2>
 &lt;blockquote>
-&lt;p>大体思路: 在A下创建 &lt;code>A --&amp;gt; C&lt;/code> 的SSH隧道,就可以访问A下的指定端口,通过隧道转发,访问到C的22端口了&lt;br>
+&lt;p>大体思路: 在A下创建 &lt;code>A --&amp;gt; C&lt;/code> 的SSH隧道,就可以访问A下的指定端口,通过隧道转发,访问到C的22端口了
 具体实现如下 :&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="1b安装ssh服务">1#B安装SSH服务&lt;/h3>
@@ -2249,11 +2249,11 @@ $originsAllowed &lt;span style="color:#f92672">=&lt;/span> [
 &lt;/li>
 &lt;/ul>
 &lt;p>(1) Win10打开 设置(&lt;code>Win + I&lt;/code>) ==&amp;gt; 应用 ==&amp;gt; 应用和功能 ==&amp;gt; 可选功能 =&amp;gt; 添加功能 =&amp;gt; OpenSSH服务器(点击安装)&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712195856.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712195856.png" alt="">&lt;/p>
 &lt;p>(2) 打开 任务管理器(&lt;code>Shift + Ctrl + Esc&lt;/code>) ==&amp;gt; 任务 ==&amp;gt; 左下角点击&amp;quot;打开服务&amp;quot;; 找到两个OpenSSH服务,右键开启&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712200951.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712200951.png" alt="">&lt;/p>
 &lt;p>(3) 打开 控制面板 ==&amp;gt; 系统和安全 ==&amp;gt; &lt;code>Windows Defender&lt;/code> 防火墙 ==&amp;gt; 启用或关闭&lt;code>windows defender&lt;/code>防火墙;选择关闭防火墙; (或者在入站规则添加允许22端口)&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712202126.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712202126.png" alt="">&lt;/p>
 &lt;blockquote>
 &lt;p>到此, B已经配置完成&lt;/p>
 &lt;/blockquote>
@@ -2270,7 +2270,7 @@ $originsAllowed &lt;span style="color:#f92672">=&lt;/span> [
 &lt;/li>
 &lt;/ul>
 &lt;p>在 A 上配置(基于文章开头假设的网络图) :&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712204730.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712204730.png" alt="">&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>点击open,会出现登录,注意:这里登录的是 B 电脑,也就是要输入B的windows的用户名和密码;&lt;/p>
@@ -2286,13 +2286,13 @@ $originsAllowed &lt;span style="color:#f92672">=&lt;/span> [
 &lt;ul>
 &lt;li>终于到最后一步了, 很简单, 在 A 电脑开启新的&lt;code>PuTTY&lt;/code>窗口, 请求 A 本地的 刚才自定义的 6666端口就可以啦&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712210036.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712210036.png" alt="">&lt;/p>
 &lt;ul>
 &lt;li>恭喜你, 成功通过SSH隧道连接到 C ;因为隧道是 &lt;code>A --&amp;gt; C&lt;/code> 的且加密的, B 不会监听到流量&lt;/li>
 &lt;/ul>
 &lt;h2 id="方法二--动态端口转发">方法二 : 动态端口转发&lt;/h2>
 &lt;blockquote>
-&lt;p>大体思路: 在A下创建 &lt;code>A --&amp;gt; B&lt;/code> 的SSH隧道,把 B 作为代理(Proxy), 就可以实现 : A 使用&lt;code>SOCKS5&lt;/code>协议通过 B 来访问到 C 的22端口&lt;br>
+&lt;p>大体思路: 在A下创建 &lt;code>A --&amp;gt; B&lt;/code> 的SSH隧道,把 B 作为代理(Proxy), 就可以实现 : A 使用&lt;code>SOCKS5&lt;/code>协议通过 B 来访问到 C 的22端口
 具体实现如下 :&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="1b安装ssh服务-1">1#B安装SSH服务&lt;/h3>
@@ -2307,7 +2307,7 @@ $originsAllowed &lt;span style="color:#f92672">=&lt;/span> [
 &lt;/li>
 &lt;/ul>
 &lt;p>在 A 上配置(基于文章开头假设的网络图) :&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712215702.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712215702.png" alt="">&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>点击open,会出现登录,注意:这里登录的是 B 电脑,也就是要输入B的windows的用户名和密码;&lt;/p>
@@ -2323,25 +2323,25 @@ $originsAllowed &lt;span style="color:#f92672">=&lt;/span> [
 &lt;ul>
 &lt;li>终于到最后一步了, 很简单, 在 A 电脑上开启新的&lt;code>PuTTY&lt;/code>窗口, 设置 A 本地的 刚才自定义的 6666端口为代理端口, 请求 C 就可以啦&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712214629.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712214629.png" alt="">&lt;/p>
 &lt;h2 id="方法三--vmware配置端口转发">方法三 : VMware配置端口转发&lt;/h2>
 &lt;blockquote>
-&lt;p>这是一个比较普遍的做法, 在网上也容易找到相关文章&lt;br>
-大体思路: 在&lt;code>VMware&lt;/code>上配置 监听父windows的端口X,把A端口转发到VMware下的虚拟机端口Y, 局域网的电脑只有访问windows的端口X就相当于访问虚拟机的端口Y啦, 是不是很容易&lt;br>
+&lt;p>这是一个比较普遍的做法, 在网上也容易找到相关文章
+大体思路: 在&lt;code>VMware&lt;/code>上配置 监听父windows的端口X,把A端口转发到VMware下的虚拟机端口Y, 局域网的电脑只有访问windows的端口X就相当于访问虚拟机的端口Y啦, 是不是很容易
 具体实现如下 :&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="1b配置vmware">1#B配置VMware&lt;/h3>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712220946.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712220946.png" alt="">&lt;/p>
 &lt;h3 id="2b配置防火墙">2#B配置防火墙&lt;/h3>
 &lt;ul>
 &lt;li>打开 控制面板 ==&amp;gt; 系统和安全 ==&amp;gt; &lt;code>Windows Defender&lt;/code> 防火墙 ==&amp;gt; 启用或关闭&lt;code>windows defender&lt;/code>防火墙;选择关闭防火墙; (或者在 入站规则 添加允许 上一步自定义的6666端口)&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712202126.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712202126.png" alt="">&lt;/p>
 &lt;h3 id="3a通过-b-连接-c-电脑">3#A通过 B 连接 C 电脑&lt;/h3>
 &lt;ul>
 &lt;li>终于到最后一步了, 很简单, 在 A 电脑直接用&lt;code>PuTTY&lt;/code>请求 B 的 6666端口, 就可以登录 C 啦&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712222247.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712222247.png" alt="">&lt;/p>
 &lt;p>&lt;strong>&amp;hellip; 以上&lt;/strong>&lt;/p></description></item><item><title>VMware自定义虚拟网卡(添加网络)</title><link>https://twbhub.com/post/vmware_customize_network/</link><pubDate>Sun, 31 May 2020 14:07:40 +0800</pubDate><guid>https://twbhub.com/post/vmware_customize_network/</guid><description>&lt;blockquote>
 &lt;p>我的VMware版本: 15.5.2&lt;/p>
 &lt;/blockquote>
@@ -2349,15 +2349,15 @@ $originsAllowed &lt;span style="color:#f92672">=&lt;/span> [
 &lt;ol>
 &lt;li>VMware菜单==&amp;gt;编辑==&amp;gt;虚拟网络编辑器&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531154440.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531154440.png" alt="">&lt;/p>
 &lt;ol start="2">
 &lt;li>(这一步可略过)移除所有默认的&amp;quot;网络&amp;quot;&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531154849.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531154849.png" alt="">&lt;/p>
 &lt;ol start="3">
 &lt;li>点击&amp;quot;添加网络&amp;quot;, 选择&amp;quot;VMnet8&amp;quot;&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531155509.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531155509.png" alt="">&lt;/p>
 &lt;ol start="4">
 &lt;li>
 &lt;ul>
@@ -2368,43 +2368,43 @@ $originsAllowed &lt;span style="color:#f92672">=&lt;/span> [
 &lt;/ul>
 &lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531155727.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531155727.png" alt="">&lt;/p>
 &lt;ol start="5">
 &lt;li>点击&amp;quot;NAT设置&amp;quot;;设置&amp;quot;网关IP&amp;quot;, 一般为&amp;quot;192.168.xxx.1&amp;quot;, 所以我这设置网关为&amp;quot;192.168.2.1&amp;quot;;点击&amp;quot;确定&amp;quot; (还有端口转发,一般用于局域网PC链接VMware里的虚拟机所使用)&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531160526.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531160526.png" alt="">&lt;/p>
 &lt;ol start="6">
 &lt;li>点击&amp;quot;DHCP设置&amp;quot;; 这里可以设置网关分配给VMware下的虚拟机的起始IP和结束IP; 因为网关已经占用了192.168.xxx.1,所以这自定义起始IP可以为&amp;quot;192.168.xxx.2&amp;quot;, 结束IP为&amp;quot;192.168.xxx.254&amp;quot;, 点击&amp;quot;确认&amp;quot;, 回到上一层, 再次点击&amp;quot;确认&amp;quot;;&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531161155.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531161155.png" alt="">&lt;/p>
 &lt;h2 id="二-使用虚拟网络">二 使用虚拟网络&lt;/h2>
 &lt;ol>
 &lt;li>查看 控制面板==&amp;gt;网络和Internet==&amp;gt;网络和共享中心==&amp;gt;更改适配器设置; 可看到, 虚拟网卡已创建成功;&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531162022.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531162022.png" alt="">&lt;/p>
 &lt;ol start="2">
 &lt;li>选择新添加的网卡;右键选择&amp;quot;属性&amp;quot;;双击&amp;quot;协议版本4&amp;quot;;设置IP;我这里设置了100;也可以设大一点,点击&amp;quot;确认&amp;quot;&lt;/li>
 &lt;/ol>
 &lt;blockquote>
 &lt;p>如果缺少这一步,可能会出现宿主机SSH链接不上虚拟机的情况(或者出现需要长时间才连通,连上后,短时间内又断开的情况);原因可能是因为网卡的IP占用了网关IP&amp;quot;192.168.xxx.1&amp;quot;, 导致虚拟机的数据到不了在外一层的宿主机&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531163409.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531163409.png" alt="">&lt;/p>
 &lt;ol start="3">
 &lt;li>虚拟网卡已创建成功,最后还要选择使用新创建的网卡;选择你要使用刚才新建网卡的虚拟机, 右键选择&amp;quot;设置&amp;quot;, &amp;ldquo;硬件&amp;rdquo;==&amp;gt;&amp;ldquo;网络适配器&amp;rdquo; ,右侧点击&amp;quot;自定义:特定虚拟网络&amp;quot;, 选择新建的&amp;quot;VMnet8(NAT 模式)&amp;quot;, 点击&amp;quot;确定&amp;quot;&lt;/li>
 &lt;/ol>
 &lt;blockquote>
 &lt;p>这一步非常关键,我曾经缺少这一步,导致虚拟机连不上网&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531165342.png" alt="">&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531165906.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531165342.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531165906.png" alt="">&lt;/p>
 &lt;ol start="4">
 &lt;li>到此,虚拟机应该就可以上网了,如果不行;请重启虚拟机的network; 或者VMware最右下角的&amp;quot;网络适配器&amp;quot;重新连接&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531171518.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531171518.png" alt="">&lt;/p>
 &lt;ol start="5">
 &lt;li>同时还可以在虚拟机里设置固定的IP,IP地址要根据&amp;quot;起始IP&amp;quot;和结束&amp;quot;IP&amp;quot;设置; 例如,我在Centos8系统上, 设置了IP:&amp;ldquo;192.168.2.2&amp;rdquo;&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531171957.png" alt="">&lt;/p></description></item><item><title>Centos源码安装Mysql8笔记</title><link>https://twbhub.com/post/install_mysql8_note/</link><pubDate>Sat, 30 May 2020 20:47:16 +0800</pubDate><guid>https://twbhub.com/post/install_mysql8_note/</guid><description>&lt;h2 id="笔记一-安装时发生警告">笔记一: 安装时,发生警告&lt;/h2>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531171957.png" alt="">&lt;/p></description></item><item><title>Centos源码安装Mysql8笔记</title><link>https://twbhub.com/post/install_mysql8_note/</link><pubDate>Sat, 30 May 2020 20:47:16 +0800</pubDate><guid>https://twbhub.com/post/install_mysql8_note/</guid><description>&lt;h2 id="笔记一-安装时发生警告">笔记一: 安装时,发生警告&lt;/h2>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">
 --character-set-server: &lt;span style="color:#e6db74">&amp;#39;utf8&amp;#39;&lt;/span> is currently an alias &lt;span style="color:#66d9ef">for&lt;/span> the character set UTF8MB3, but will be an alias &lt;span style="color:#66d9ef">for&lt;/span> UTF8MB4 in a future release. Please consider using UTF8MB4 in order to be unambiguous
 --collation-server: &lt;span style="color:#e6db74">&amp;#39;utf8_general_ci&amp;#39;&lt;/span> is a collation of the deprecated character set UTF8MB3. Please consider using UTF8MB4 with an appropriate collation instead
@@ -2505,7 +2505,7 @@ open_files_limit &lt;span style="color:#f92672">=&lt;/span> &lt;span style="colo
 &lt;span style="color:#75715e"># MySQL连接闲置超过一定时间后(单位：秒，此处为1800秒)将会被强行关闭&lt;/span>
 interactive_timeout &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1800&lt;/span>
 wait_timeout &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1800&lt;/span>
-&lt;span style="color:#75715e"># 在MySQL暂时停止响应新请求之前的短时间内多少个请求可以被存在堆栈中 &lt;/span>
+&lt;span style="color:#75715e"># 在MySQL暂时停止响应新请求之前的短时间内多少个请求可以被存在堆栈中&lt;/span>
 &lt;span style="color:#75715e"># 官方建议back_log = 50 + (max_connections / 5),封顶数为900&lt;/span>
 back_log &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">900&lt;/span>
 &lt;span style="color:#75715e">##########################################################################################################&lt;/span>
@@ -2533,7 +2533,7 @@ binlog_cache_size &lt;span style="color:#f92672">=&lt;/span> 1M
 &lt;span style="color:#75715e"># 甚至在你并不使用MyISAM 表的情况下, 你也需要仍旧设置起 8-64M 内存由于它同样会被内部临时磁盘表使用.&lt;/span>
 &lt;span style="color:#75715e"># 默认值 8M，建议值：对于内存在4GB左右的服务器该参数可设置为256M或384M。注意：该参数值设置的过大反而会是服务器整体效率降低！&lt;/span>
 key_buffer_size &lt;span style="color:#f92672">=&lt;/span> 64M
-&lt;span style="color:#75715e"># 为每个扫描MyISAM的线程分配参数设置的内存大小缓冲区。 &lt;/span>
+&lt;span style="color:#75715e"># 为每个扫描MyISAM的线程分配参数设置的内存大小缓冲区。&lt;/span>
 &lt;span style="color:#75715e"># 默认值128kb，建议值：16G内存建议1M，4G：128kb或者256kb吧&lt;/span>
 &lt;span style="color:#75715e"># 注意，该缓冲区是每个连接独占的，所以总缓冲区大小为 128kb*连接数；极端情况128kb*maxconnectiosns，会超级大，所以要考虑日常平均连接数。&lt;/span>
 &lt;span style="color:#75715e"># 一般不需要太关心该数值，稍微增大就可以了，&lt;/span>
@@ -2543,7 +2543,7 @@ read_buffer_size &lt;span style="color:#f92672">=&lt;/span> &lt;span style="colo
 &lt;span style="color:#75715e"># 默认值256kb；建议值：得参考连接数，16G内存，有人推荐8M&lt;/span>
 &lt;span style="color:#75715e"># 注意，该缓冲区是每个连接独占的，所以总缓冲区大小为128kb*连接数；极端情况128kb*maxconnectiosns，会超级大，所以要考虑日常平均连接数。&lt;/span>
 read_rnd_buffer_size &lt;span style="color:#f92672">=&lt;/span> 1M
-&lt;span style="color:#75715e"># order by或group by时用到 &lt;/span>
+&lt;span style="color:#75715e"># order by或group by时用到&lt;/span>
 &lt;span style="color:#75715e"># 支持所有引擎，innodb和myisam有自己的innodb_sort_buffer_size和myisam_sort_buffer_size设置&lt;/span>
 &lt;span style="color:#75715e"># 默认值256kb；建议值：得参考连接数，16G内存，有人推荐8M.&lt;/span>
 &lt;span style="color:#75715e"># 注意，该缓冲区是每个连接独占的，所以总缓冲区大小为 1M*连接数；极端情况1M*maxconnectiosns，会超级大。所以要考虑日常平均连接数。&lt;/span>
@@ -2604,7 +2604,7 @@ max_binlog_size &lt;span style="color:#f92672">=&lt;/span> 1000M
 &lt;span style="color:#75715e"># 关于binlog日志格式问题，请查阅网络资料&lt;/span>
 binlog_format &lt;span style="color:#f92672">=&lt;/span> row
 &lt;span style="color:#75715e"># 默认值N=1，使binlog在每N次binlog写入后与硬盘同步，ps：1最慢&lt;/span>
-&lt;span style="color:#75715e"># sync_binlog = 1 &lt;/span>
+&lt;span style="color:#75715e"># sync_binlog = 1&lt;/span>
 &lt;span style="color:#75715e">##########################################################################################################&lt;/span>
 &lt;span style="color:#75715e"># innodb选项&lt;/span>
 &lt;span style="color:#75715e"># 说明：该参数可以提升扩展性和刷脏页性能。&lt;/span>
@@ -2769,7 +2769,7 @@ ln -s /usr/local/mysql8/bin/* /usr/local/bin/
 &lt;span style="color:#75715e"># 启动设置&lt;/span>
 cp support-files/mysql.server /etc/init.d/mysql.server
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>搭建博客的准备</title><link>https://twbhub.com/post/blog_ready/</link><pubDate>Sun, 17 May 2020 19:06:47 +0800</pubDate><guid>https://twbhub.com/post/blog_ready/</guid><description>&lt;blockquote>
-&lt;p>最近想建立自己的博客网站,便于在开发过程中写一些笔记;&lt;br>
+&lt;p>最近想建立自己的博客网站,便于在开发过程中写一些笔记;
 但进入了未知领域,面临了怎么抉择的问题; 毕竟谁也不情愿一开始就因选择了自己不适合的,最后半途而悔&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="平台的选择">平台的选择&lt;/h2>
@@ -2853,7 +2853,7 @@ cp support-files/mysql.server /etc/init.d/mysql.server
 &lt;/ul>
 &lt;p>先讲结论,经一番思想斗争,本人选择了Hugo&lt;/p>
 &lt;h3 id="jekyll">Jekyll&lt;/h3>
-&lt;p>Jekyll是GitHub创始人使用Ruby写的,同时也是gh-Pages默认的静态网站生成器&lt;br>
+&lt;p>Jekyll是GitHub创始人使用Ruby写的,同时也是gh-Pages默认的静态网站生成器
 但其速度较慢,特别是文章多的时候,特别明显&lt;/p>
 &lt;h3 id="hexo">Hexo&lt;/h3>
 &lt;p>Hexo是js写的,js的用户群体较大,Hexo中文文档比较齐全,国内获得了较大的使用人群&lt;/p>
@@ -2865,7 +2865,7 @@ cp support-files/mysql.server /etc/init.d/mysql.server
 &lt;li>天下武功唯快不破,使用golang开发; 即使应对庞大的文章生成量,速度是用秒来计算的,简直秒杀对手&lt;/li>
 &lt;li>&amp;ldquo;Google出品,必属精品&amp;rdquo;,相信Hugo会随着go的影响力在国内越走越远(本人也正有学go的想法)&lt;/li>
 &lt;li>一个技巧(专治&amp;quot;选择困难症&amp;quot;),利用了搜索引擎来对比了Hexo和Hugo的搜索热度,Hugo的相关文章数是Hexo的100多倍,全球用户量庞大,Hugo所可选的博客模板也不少
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200517212636.png" alt="">&lt;/li>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200517212636.png" alt="">&lt;/li>
 &lt;/ul>
 &lt;p>缺点:&lt;/p>
 &lt;ul>

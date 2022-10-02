@@ -18,17 +18,17 @@
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="配置凭证">配置凭证&lt;/h3>
 &lt;ol>
 &lt;li>如图按&lt;code>申请&lt;/code>自动创建应用:
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/202005172127497432198.png" alt="">&lt;/li>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202005172127497432198.png" alt="">&lt;/li>
 &lt;li>登录&lt;a href="https://www.azure.microsoft.com/" target="_blank" rel="noopener">Microsoft Azure&lt;/a>&lt;/li>
 &lt;li>进入了&lt;code>应用注册&lt;/code>,选择对应的应用(我的是&amp;quot;Graph PHP quick start&amp;quot;)&lt;/li>
 &lt;li>记录下&lt;code>应用程序(客户端) ID&lt;/code>的编码,后面要用&lt;/li>
 &lt;li>进入&lt;code>证书和密码&lt;/code>, 创建&lt;code>新客户端密码&lt;/code>, 记录下&lt;code>值&lt;/code>的编码,后面要用&lt;/li>
 &lt;li>进入&lt;code>身份验证&lt;/code>,在&lt;code>web&lt;/code>模块配置重定向的url, 如图所示:
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/2020051721274936122.png" alt="">&lt;/li>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/2020051721274936122.png" alt="">&lt;/li>
 &lt;li>如图进入&lt;code>API权限&lt;/code>,增加对应权限
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/2020051721274930989089.png" alt="">&lt;/li>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/2020051721274930989089.png" alt="">&lt;/li>
 &lt;li>把前面所记录下的&lt;code>client_id&lt;/code>和&lt;code>client_secret&lt;/code>填入, 保存
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200517212749307398210.png" alt="">&lt;/li>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200517212749307398210.png" alt="">&lt;/li>
 &lt;/ol></description></item><item><title>学习笔记</title><link>https://twbhub.com/note/</link><pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate><guid>https://twbhub.com/note/</guid><description>&lt;h2 id="扩展知识">扩展知识&lt;/h2>
 &lt;h3 id="双系统制作">双系统制作&lt;/h3>
 &lt;blockquote>
@@ -746,7 +746,7 @@ openssl x509 -req -in server.csr -out server.crt -signkey server.key -days &lt;s
 &lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>目录描述 :&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210404165626.jpg" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210404165626.jpg" alt="">&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>Linux配置流程 :&lt;/p>

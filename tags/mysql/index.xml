@@ -99,7 +99,7 @@ open_files_limit &lt;span style="color:#f92672">=&lt;/span> &lt;span style="colo
 &lt;span style="color:#75715e"># MySQL连接闲置超过一定时间后(单位：秒，此处为1800秒)将会被强行关闭&lt;/span>
 interactive_timeout &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1800&lt;/span>
 wait_timeout &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1800&lt;/span>
-&lt;span style="color:#75715e"># 在MySQL暂时停止响应新请求之前的短时间内多少个请求可以被存在堆栈中 &lt;/span>
+&lt;span style="color:#75715e"># 在MySQL暂时停止响应新请求之前的短时间内多少个请求可以被存在堆栈中&lt;/span>
 &lt;span style="color:#75715e"># 官方建议back_log = 50 + (max_connections / 5),封顶数为900&lt;/span>
 back_log &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">900&lt;/span>
 &lt;span style="color:#75715e">##########################################################################################################&lt;/span>
@@ -127,7 +127,7 @@ binlog_cache_size &lt;span style="color:#f92672">=&lt;/span> 1M
 &lt;span style="color:#75715e"># 甚至在你并不使用MyISAM 表的情况下, 你也需要仍旧设置起 8-64M 内存由于它同样会被内部临时磁盘表使用.&lt;/span>
 &lt;span style="color:#75715e"># 默认值 8M，建议值：对于内存在4GB左右的服务器该参数可设置为256M或384M。注意：该参数值设置的过大反而会是服务器整体效率降低！&lt;/span>
 key_buffer_size &lt;span style="color:#f92672">=&lt;/span> 64M
-&lt;span style="color:#75715e"># 为每个扫描MyISAM的线程分配参数设置的内存大小缓冲区。 &lt;/span>
+&lt;span style="color:#75715e"># 为每个扫描MyISAM的线程分配参数设置的内存大小缓冲区。&lt;/span>
 &lt;span style="color:#75715e"># 默认值128kb，建议值：16G内存建议1M，4G：128kb或者256kb吧&lt;/span>
 &lt;span style="color:#75715e"># 注意，该缓冲区是每个连接独占的，所以总缓冲区大小为 128kb*连接数；极端情况128kb*maxconnectiosns，会超级大，所以要考虑日常平均连接数。&lt;/span>
 &lt;span style="color:#75715e"># 一般不需要太关心该数值，稍微增大就可以了，&lt;/span>
@@ -137,7 +137,7 @@ read_buffer_size &lt;span style="color:#f92672">=&lt;/span> &lt;span style="colo
 &lt;span style="color:#75715e"># 默认值256kb；建议值：得参考连接数，16G内存，有人推荐8M&lt;/span>
 &lt;span style="color:#75715e"># 注意，该缓冲区是每个连接独占的，所以总缓冲区大小为128kb*连接数；极端情况128kb*maxconnectiosns，会超级大，所以要考虑日常平均连接数。&lt;/span>
 read_rnd_buffer_size &lt;span style="color:#f92672">=&lt;/span> 1M
-&lt;span style="color:#75715e"># order by或group by时用到 &lt;/span>
+&lt;span style="color:#75715e"># order by或group by时用到&lt;/span>
 &lt;span style="color:#75715e"># 支持所有引擎，innodb和myisam有自己的innodb_sort_buffer_size和myisam_sort_buffer_size设置&lt;/span>
 &lt;span style="color:#75715e"># 默认值256kb；建议值：得参考连接数，16G内存，有人推荐8M.&lt;/span>
 &lt;span style="color:#75715e"># 注意，该缓冲区是每个连接独占的，所以总缓冲区大小为 1M*连接数；极端情况1M*maxconnectiosns，会超级大。所以要考虑日常平均连接数。&lt;/span>
@@ -198,7 +198,7 @@ max_binlog_size &lt;span style="color:#f92672">=&lt;/span> 1000M
 &lt;span style="color:#75715e"># 关于binlog日志格式问题，请查阅网络资料&lt;/span>
 binlog_format &lt;span style="color:#f92672">=&lt;/span> row
 &lt;span style="color:#75715e"># 默认值N=1，使binlog在每N次binlog写入后与硬盘同步，ps：1最慢&lt;/span>
-&lt;span style="color:#75715e"># sync_binlog = 1 &lt;/span>
+&lt;span style="color:#75715e"># sync_binlog = 1&lt;/span>
 &lt;span style="color:#75715e">##########################################################################################################&lt;/span>
 &lt;span style="color:#75715e"># innodb选项&lt;/span>
 &lt;span style="color:#75715e"># 说明：该参数可以提升扩展性和刷脏页性能。&lt;/span>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Network | 忐忑の博客</title><link>https://twbhub.com/tags/network/</link><atom:link href="https://twbhub.com/tags/network/index.xml" rel="self" type="application/rss+xml"/><description>Network</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202022_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Thu, 20 May 2021 23:00:00 +0800</lastBuildDate><image><url>https://twbhub.com/media/avatar.jpg</url><title>Network</title><link>https://twbhub.com/tags/network/</link></image><item><title>Postman无法抓包Chrome</title><link>https://twbhub.com/post/postman_cannot_connection_chrome/</link><pubDate>Thu, 20 May 2021 23:00:00 +0800</pubDate><guid>https://twbhub.com/post/postman_cannot_connection_chrome/</guid><description>&lt;h2 id="原因">原因&lt;/h2>
-&lt;p>Mac安装了两个版本(我的是正式版和&lt;code>Dev&lt;/code>版)的 &lt;code>Chrome&lt;/code> ,一个正常, 另一个版本无法与 &lt;code>Postman&lt;/code> 连接, 无法被抓包(Windows不会出现这样的情况)&lt;br>
-原因是不正常的版本缺少了一个 &lt;code>Interceptor&lt;/code> 插件的配置文件, 据官方&lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/interceptor/#how-it-works" target="_blank" rel="noopener">文档&lt;/a>所述,文件位于&lt;br>
+&lt;p>Mac安装了两个版本(我的是正式版和&lt;code>Dev&lt;/code>版)的 &lt;code>Chrome&lt;/code> ,一个正常, 另一个版本无法与 &lt;code>Postman&lt;/code> 连接, 无法被抓包(Windows不会出现这样的情况)
+原因是不正常的版本缺少了一个 &lt;code>Interceptor&lt;/code> 插件的配置文件, 据官方&lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/interceptor/#how-it-works" target="_blank" rel="noopener">文档&lt;/a>所述,文件位于
 &lt;code>/Users/&amp;lt;username&amp;gt;/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.postman.postmanapp.json&lt;/code>&lt;/p>
 &lt;h2 id="解决">解决&lt;/h2>
 &lt;p>也简单,配置文件位于 正式版的 &lt;code>Chrome&lt;/code> 下, 解决方法就是复制一份到对应的版本的 &lt;code>Chrome&lt;/code> 的对应目录下
@@ -17,18 +17,18 @@
 &lt;p>安装Postman后, 根据&lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#macos" target="_blank" rel="noopener">文档&lt;/a>的指示, Postman的CA证书位于
 Mac: &lt;code>~/Library/Application Support/Postman/proxy/postman-proxy-ca.crt&lt;/code>
 Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/postman-proxy-ca.crt&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520225920.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210520225920.png" alt="">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>找到证书后,想办法把证书传到iOS, 并打开, iOS会识别并提示
 打开 &lt;code>设置=&amp;gt;通用=&amp;gt;描述文件&lt;/code> , 可以看到一个 &lt;code>已下载&lt;/code> 但未安装的证书, 安装就好
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520230353.jpeg" alt="">
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520230534.jpeg" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210520230353.jpeg" alt="">
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210520230534.jpeg" alt="">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>安装完证书,还要让iOS信任该证书
 打开 &lt;code>设置=&amp;gt;通用=&amp;gt;关于本机=&amp;gt;证书信任设置&lt;/code> 找到对应的Postman证书并开启信任
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20210520231655.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210520231655.png" alt="">&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;h2 id="设置代理并抓包">设置代理并抓包&lt;/h2>
@@ -40,17 +40,17 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;li>不出意外, Postman就可以抓取到https的数据包了,位于左侧的 &lt;code>History&lt;/code> 栏下&lt;/li>
 &lt;/ol>
 &lt;p>官方操作传送门 &lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#using-postmans-proxy-example">https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#using-postmans-proxy-example&lt;/a>&lt;/p></description></item><item><title>SSH隧道连接局域网下的虚拟机</title><link>https://twbhub.com/post/tunnel_connect/</link><pubDate>Sun, 12 Jul 2020 18:18:13 +0800</pubDate><guid>https://twbhub.com/post/tunnel_connect/</guid><description>&lt;blockquote>
-&lt;p>连接局域网下的虚拟机,在网上找到的做法通常是:在VMware配置端口转发&lt;br>
-最近了解隧道技术,突发奇想:能不能使用SSH隧道连接局域网下的虚拟机呢?&lt;br>
-在网上找到的相关资料不多,经过自己摸索,终于实现了&lt;br>
-使用SSH隧道连接局域网下的虚拟机,主要有两种方式可以实现&lt;br>
+&lt;p>连接局域网下的虚拟机,在网上找到的做法通常是:在VMware配置端口转发
+最近了解隧道技术,突发奇想:能不能使用SSH隧道连接局域网下的虚拟机呢?
+在网上找到的相关资料不多,经过自己摸索,终于实现了
+使用SSH隧道连接局域网下的虚拟机,主要有两种方式可以实现
 1: 本地端口转发; 2: 动态端口转发&lt;/p>
 &lt;/blockquote>
 &lt;p>首先,假设网络图如下,A和B在同一局域网下,我们的目的是: 实现 A 连接到 C 的SSH服务
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712191744.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712191744.png" alt="">&lt;/p>
 &lt;h2 id="方法一--本地端口转发">方法一 : 本地端口转发&lt;/h2>
 &lt;blockquote>
-&lt;p>大体思路: 在A下创建 &lt;code>A --&amp;gt; C&lt;/code> 的SSH隧道,就可以访问A下的指定端口,通过隧道转发,访问到C的22端口了&lt;br>
+&lt;p>大体思路: 在A下创建 &lt;code>A --&amp;gt; C&lt;/code> 的SSH隧道,就可以访问A下的指定端口,通过隧道转发,访问到C的22端口了
 具体实现如下 :&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="1b安装ssh服务">1#B安装SSH服务&lt;/h3>
@@ -66,11 +66,11 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;/li>
 &lt;/ul>
 &lt;p>(1) Win10打开 设置(&lt;code>Win + I&lt;/code>) ==&amp;gt; 应用 ==&amp;gt; 应用和功能 ==&amp;gt; 可选功能 =&amp;gt; 添加功能 =&amp;gt; OpenSSH服务器(点击安装)&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712195856.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712195856.png" alt="">&lt;/p>
 &lt;p>(2) 打开 任务管理器(&lt;code>Shift + Ctrl + Esc&lt;/code>) ==&amp;gt; 任务 ==&amp;gt; 左下角点击&amp;quot;打开服务&amp;quot;; 找到两个OpenSSH服务,右键开启&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712200951.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712200951.png" alt="">&lt;/p>
 &lt;p>(3) 打开 控制面板 ==&amp;gt; 系统和安全 ==&amp;gt; &lt;code>Windows Defender&lt;/code> 防火墙 ==&amp;gt; 启用或关闭&lt;code>windows defender&lt;/code>防火墙;选择关闭防火墙; (或者在入站规则添加允许22端口)&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712202126.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712202126.png" alt="">&lt;/p>
 &lt;blockquote>
 &lt;p>到此, B已经配置完成&lt;/p>
 &lt;/blockquote>
@@ -87,7 +87,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;/li>
 &lt;/ul>
 &lt;p>在 A 上配置(基于文章开头假设的网络图) :&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712204730.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712204730.png" alt="">&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>点击open,会出现登录,注意:这里登录的是 B 电脑,也就是要输入B的windows的用户名和密码;&lt;/p>
@@ -103,13 +103,13 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;ul>
 &lt;li>终于到最后一步了, 很简单, 在 A 电脑开启新的&lt;code>PuTTY&lt;/code>窗口, 请求 A 本地的 刚才自定义的 6666端口就可以啦&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712210036.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712210036.png" alt="">&lt;/p>
 &lt;ul>
 &lt;li>恭喜你, 成功通过SSH隧道连接到 C ;因为隧道是 &lt;code>A --&amp;gt; C&lt;/code> 的且加密的, B 不会监听到流量&lt;/li>
 &lt;/ul>
 &lt;h2 id="方法二--动态端口转发">方法二 : 动态端口转发&lt;/h2>
 &lt;blockquote>
-&lt;p>大体思路: 在A下创建 &lt;code>A --&amp;gt; B&lt;/code> 的SSH隧道,把 B 作为代理(Proxy), 就可以实现 : A 使用&lt;code>SOCKS5&lt;/code>协议通过 B 来访问到 C 的22端口&lt;br>
+&lt;p>大体思路: 在A下创建 &lt;code>A --&amp;gt; B&lt;/code> 的SSH隧道,把 B 作为代理(Proxy), 就可以实现 : A 使用&lt;code>SOCKS5&lt;/code>协议通过 B 来访问到 C 的22端口
 具体实现如下 :&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="1b安装ssh服务-1">1#B安装SSH服务&lt;/h3>
@@ -124,7 +124,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;/li>
 &lt;/ul>
 &lt;p>在 A 上配置(基于文章开头假设的网络图) :&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712215702.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712215702.png" alt="">&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>点击open,会出现登录,注意:这里登录的是 B 电脑,也就是要输入B的windows的用户名和密码;&lt;/p>
@@ -140,25 +140,25 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;ul>
 &lt;li>终于到最后一步了, 很简单, 在 A 电脑上开启新的&lt;code>PuTTY&lt;/code>窗口, 设置 A 本地的 刚才自定义的 6666端口为代理端口, 请求 C 就可以啦&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712214629.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712214629.png" alt="">&lt;/p>
 &lt;h2 id="方法三--vmware配置端口转发">方法三 : VMware配置端口转发&lt;/h2>
 &lt;blockquote>
-&lt;p>这是一个比较普遍的做法, 在网上也容易找到相关文章&lt;br>
-大体思路: 在&lt;code>VMware&lt;/code>上配置 监听父windows的端口X,把A端口转发到VMware下的虚拟机端口Y, 局域网的电脑只有访问windows的端口X就相当于访问虚拟机的端口Y啦, 是不是很容易&lt;br>
+&lt;p>这是一个比较普遍的做法, 在网上也容易找到相关文章
+大体思路: 在&lt;code>VMware&lt;/code>上配置 监听父windows的端口X,把A端口转发到VMware下的虚拟机端口Y, 局域网的电脑只有访问windows的端口X就相当于访问虚拟机的端口Y啦, 是不是很容易
 具体实现如下 :&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="1b配置vmware">1#B配置VMware&lt;/h3>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712220946.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712220946.png" alt="">&lt;/p>
 &lt;h3 id="2b配置防火墙">2#B配置防火墙&lt;/h3>
 &lt;ul>
 &lt;li>打开 控制面板 ==&amp;gt; 系统和安全 ==&amp;gt; &lt;code>Windows Defender&lt;/code> 防火墙 ==&amp;gt; 启用或关闭&lt;code>windows defender&lt;/code>防火墙;选择关闭防火墙; (或者在 入站规则 添加允许 上一步自定义的6666端口)&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712202126.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712202126.png" alt="">&lt;/p>
 &lt;h3 id="3a通过-b-连接-c-电脑">3#A通过 B 连接 C 电脑&lt;/h3>
 &lt;ul>
 &lt;li>终于到最后一步了, 很简单, 在 A 电脑直接用&lt;code>PuTTY&lt;/code>请求 B 的 6666端口, 就可以登录 C 啦&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200712222247.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712222247.png" alt="">&lt;/p>
 &lt;p>&lt;strong>&amp;hellip; 以上&lt;/strong>&lt;/p></description></item><item><title>VMware自定义虚拟网卡(添加网络)</title><link>https://twbhub.com/post/vmware_customize_network/</link><pubDate>Sun, 31 May 2020 14:07:40 +0800</pubDate><guid>https://twbhub.com/post/vmware_customize_network/</guid><description>&lt;blockquote>
 &lt;p>我的VMware版本: 15.5.2&lt;/p>
 &lt;/blockquote>
@@ -166,15 +166,15 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;ol>
 &lt;li>VMware菜单==&amp;gt;编辑==&amp;gt;虚拟网络编辑器&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531154440.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531154440.png" alt="">&lt;/p>
 &lt;ol start="2">
 &lt;li>(这一步可略过)移除所有默认的&amp;quot;网络&amp;quot;&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531154849.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531154849.png" alt="">&lt;/p>
 &lt;ol start="3">
 &lt;li>点击&amp;quot;添加网络&amp;quot;, 选择&amp;quot;VMnet8&amp;quot;&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531155509.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531155509.png" alt="">&lt;/p>
 &lt;ol start="4">
 &lt;li>
 &lt;ul>
@@ -185,40 +185,40 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;/ul>
 &lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531155727.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531155727.png" alt="">&lt;/p>
 &lt;ol start="5">
 &lt;li>点击&amp;quot;NAT设置&amp;quot;;设置&amp;quot;网关IP&amp;quot;, 一般为&amp;quot;192.168.xxx.1&amp;quot;, 所以我这设置网关为&amp;quot;192.168.2.1&amp;quot;;点击&amp;quot;确定&amp;quot; (还有端口转发,一般用于局域网PC链接VMware里的虚拟机所使用)&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531160526.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531160526.png" alt="">&lt;/p>
 &lt;ol start="6">
 &lt;li>点击&amp;quot;DHCP设置&amp;quot;; 这里可以设置网关分配给VMware下的虚拟机的起始IP和结束IP; 因为网关已经占用了192.168.xxx.1,所以这自定义起始IP可以为&amp;quot;192.168.xxx.2&amp;quot;, 结束IP为&amp;quot;192.168.xxx.254&amp;quot;, 点击&amp;quot;确认&amp;quot;, 回到上一层, 再次点击&amp;quot;确认&amp;quot;;&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531161155.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531161155.png" alt="">&lt;/p>
 &lt;h2 id="二-使用虚拟网络">二 使用虚拟网络&lt;/h2>
 &lt;ol>
 &lt;li>查看 控制面板==&amp;gt;网络和Internet==&amp;gt;网络和共享中心==&amp;gt;更改适配器设置; 可看到, 虚拟网卡已创建成功;&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531162022.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531162022.png" alt="">&lt;/p>
 &lt;ol start="2">
 &lt;li>选择新添加的网卡;右键选择&amp;quot;属性&amp;quot;;双击&amp;quot;协议版本4&amp;quot;;设置IP;我这里设置了100;也可以设大一点,点击&amp;quot;确认&amp;quot;&lt;/li>
 &lt;/ol>
 &lt;blockquote>
 &lt;p>如果缺少这一步,可能会出现宿主机SSH链接不上虚拟机的情况(或者出现需要长时间才连通,连上后,短时间内又断开的情况);原因可能是因为网卡的IP占用了网关IP&amp;quot;192.168.xxx.1&amp;quot;, 导致虚拟机的数据到不了在外一层的宿主机&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531163409.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531163409.png" alt="">&lt;/p>
 &lt;ol start="3">
 &lt;li>虚拟网卡已创建成功,最后还要选择使用新创建的网卡;选择你要使用刚才新建网卡的虚拟机, 右键选择&amp;quot;设置&amp;quot;, &amp;ldquo;硬件&amp;rdquo;==&amp;gt;&amp;ldquo;网络适配器&amp;rdquo; ,右侧点击&amp;quot;自定义:特定虚拟网络&amp;quot;, 选择新建的&amp;quot;VMnet8(NAT 模式)&amp;quot;, 点击&amp;quot;确定&amp;quot;&lt;/li>
 &lt;/ol>
 &lt;blockquote>
 &lt;p>这一步非常关键,我曾经缺少这一步,导致虚拟机连不上网&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531165342.png" alt="">&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531165906.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531165342.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531165906.png" alt="">&lt;/p>
 &lt;ol start="4">
 &lt;li>到此,虚拟机应该就可以上网了,如果不行;请重启虚拟机的network; 或者VMware最右下角的&amp;quot;网络适配器&amp;quot;重新连接&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531171518.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531171518.png" alt="">&lt;/p>
 &lt;ol start="5">
 &lt;li>同时还可以在虚拟机里设置固定的IP,IP地址要根据&amp;quot;起始IP&amp;quot;和结束&amp;quot;IP&amp;quot;设置; 例如,我在Centos8系统上, 设置了IP:&amp;ldquo;192.168.2.2&amp;rdquo;&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200531171957.png" alt="">&lt;/p></description></item></channel></rss>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531171957.png" alt="">&lt;/p></description></item></channel></rss>

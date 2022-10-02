@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>System | 忐忑の博客</title><link>https://twbhub.com/tags/system/</link><atom:link href="https://twbhub.com/tags/system/index.xml" rel="self" type="application/rss+xml"/><description>System</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202022_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Mon, 28 Sep 2020 22:20:13 +0800</lastBuildDate><image><url>https://twbhub.com/media/avatar.jpg</url><title>System</title><link>https://twbhub.com/tags/system/</link></image><item><title>制作多分区启动盘</title><link>https://twbhub.com/post/multi_partition_startup_disk/</link><pubDate>Mon, 28 Sep 2020 22:20:13 +0800</pubDate><guid>https://twbhub.com/post/multi_partition_startup_disk/</guid><description>&lt;blockquote>
-&lt;p>有些小伙伴手里有上百G甚至上T移动硬盘&lt;br>
-平时制作启动硬盘,除了启动分区,都是只剩一个分区提供自己使用的&lt;br>
-那么问题来了:怎么保留启动盘的功能,又能把硬盘分成多个分区呢?&lt;br>
-搜索引擎也很少有相关文章&lt;br>
-那么,今天就带大家制作一个多分区启动盘&lt;br>
+&lt;p>有些小伙伴手里有上百G甚至上T移动硬盘
+平时制作启动硬盘,除了启动分区,都是只剩一个分区提供自己使用的
+那么问题来了:怎么保留启动盘的功能,又能把硬盘分成多个分区呢?
+搜索引擎也很少有相关文章
+那么,今天就带大家制作一个多分区启动盘
 作者尝试了无数次才成功的,呕心沥血之作&lt;/p>
 &lt;/blockquote>
 &lt;p>所使用到的:&lt;/p>
@@ -32,36 +32,36 @@
 &lt;/blockquote>
 &lt;h2 id="1获取微pe的系统iso">1#获取&lt;code>微PE&lt;/code>的系统ISO&lt;/h2>
 &lt;p>(1) 双击打开下载好的 &lt;code>微PE&lt;/code> 安装包,看到以下界面,单击右下角的光盘图标
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929001640.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929001640.png" alt="">&lt;/p>
 &lt;p>(2) 接下来,要把 &lt;code>微PE&lt;/code> 自带的ISO镜像保存到电脑,选择保存的位置, &lt;code>光盘卷标&lt;/code> 也就是盘符的名称,也建议改成喜欢的名称,如&amp;quot;pe盘&amp;quot;,最后点击 &lt;code>立即生成ISO&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929003752.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929003752.png" alt="">&lt;/p>
 &lt;h2 id="2写入iso到硬盘">2#写入ISO到硬盘&lt;/h2>
 &lt;p>(1) 插入硬盘,准备格式化&lt;/p>
 &lt;blockquote>
 &lt;p>PS: 备份数据!!!!!备份数据!!!!!备份数据!!!!!&lt;/p>
 &lt;/blockquote>
 &lt;p>(2) 打开安装好的 &lt;code>UltraISO&lt;/code> ,菜单栏依次点击 &lt;code>文件-&amp;gt;打开&lt;/code> ; 选择上一步保存好的ISO文件&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929003225.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929003225.png" alt="">&lt;/p>
 &lt;p>(3) 可以看到,左侧栏出现的ISO文件&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929003656.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929003656.png" alt="">&lt;/p>
 &lt;p>(4) 接着,菜单栏依次点击 &lt;code>启动-&amp;gt;写入硬盘映像&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929003959.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929003959.png" alt="">&lt;/p>
 &lt;p>(5) 出现一个弹窗, &lt;code>硬盘驱动器&lt;/code> 选择正确的硬盘,首先,需要把硬盘格式化,点击&lt;code>格式化&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929004608.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929004608.png" alt="">&lt;/p>
 &lt;p>(6) 最后,正式把ISO文件写入硬盘,点击 &lt;code>写入&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929004749.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929004749.png" alt="">&lt;/p>
 &lt;h2 id="3备份启动分区">3#备份启动分区&lt;/h2>
 &lt;p>(1) 打开安装好的 &lt;code>DiskGenius&lt;/code> ,在左侧栏找到对应的硬盘,单击选中上一步生成的盘
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929010004.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929010004.png" alt="">&lt;/p>
 &lt;p>(2) 菜单栏依次点击 &lt;code>工具-&amp;gt;备份分区到镜像文件&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929010254.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929010254.png" alt="">&lt;/p>
 &lt;p>(3) 出现一个弹窗, 点击 &lt;code>选择文件路径&lt;/code> ,选择一个目录,输入自定义的&lt;code>pmf&lt;/code>文件的名称,点击 &lt;code>打开&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929010619.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929010619.png" alt="">&lt;/p>
 &lt;p>(4) 点击 &lt;code>开始&lt;/code> ,成功后,会生成一个&lt;code>.pmf&lt;/code>后缀文件,这个文件就是你的启动盘备份文件
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929011108.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929011108.png" alt="">&lt;/p>
 &lt;h2 id="4硬盘分区">4#硬盘分区&lt;/h2>
 &lt;p>(1) &lt;code>DiskGenius&lt;/code> 左侧栏选中对应的硬盘,点击 &lt;code>快速分区&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929011443.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929011443.png" alt="">&lt;/p>
 &lt;p>(2) 可以看到一个弹窗;这一步是成功的关键,要严格按照以下的规定(作者经过无数次的尝试,得出来的结论) :&lt;/p>
 &lt;blockquote>
 &lt;ol>
@@ -70,21 +70,21 @@
 &lt;li>&lt;code>高级设置&lt;/code> 以第一个作为启动分区,所以第一个分区选择 &lt;code>FAT32&lt;/code>, 其余为 &lt;code>NTFS&lt;/code> ; 不要问为什么,我也不知道&lt;/li>
 &lt;li>&lt;code>高级设置&lt;/code> 把所有的 &lt;code>主分区&lt;/code> 勾上; 不要问为什么,我也不知道&lt;/li>
 &lt;li>至于各分区的容量,卷标名称等,请自定义
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929013018.png" alt="">&lt;/li>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929013018.png" alt="">&lt;/li>
 &lt;/ol>
 &lt;/blockquote>
 &lt;p>(3) 分区后,可以看到作为启动分区已经显示 &lt;code>活动&lt;/code> 了
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929013528.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929013528.png" alt="">&lt;/p>
 &lt;h2 id="5恢复启动分区">5#恢复启动分区&lt;/h2>
 &lt;p>(1) &lt;code>DiskGenius&lt;/code> ,在左侧栏找到对应的硬盘,单击选中上一步作为启动的分区
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929013709.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929013709.png" alt="">&lt;/p>
 &lt;p>(2) 菜单栏依次点击 &lt;code>工具-&amp;gt;从镜像文件还原分区&lt;/code>
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929014447.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929014447.png" alt="">&lt;/p>
 &lt;p>(3) 出现弹窗, 点击 &lt;code>选择文件&lt;/code> , 选择在 &lt;code>第三步&lt;/code> 生成的 &lt;code>pmf&lt;/code> 文件
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929014834.png" alt="">&lt;/p>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929014834.png" alt="">&lt;/p>
 &lt;p>(4) 到此为止,成功制作了一个 多分区启动硬盘&lt;/p>
 &lt;blockquote>
 &lt;p>但是,这样制作的多分区启动硬盘, &lt;code>BIOS&lt;/code> 只能使用 &lt;code>Legacy&lt;/code> 启动模式来启动硬盘(新型的 &lt;code>UEFI&lt;/code> 无法启动PE), 如下图例子(华硕的BIOS)&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@master/img/20200929015346.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929015346.png" alt="">&lt;/p>
 &lt;p>&lt;strong>&amp;hellip; 以上&lt;/strong>&lt;/p></description></item></channel></rss>
