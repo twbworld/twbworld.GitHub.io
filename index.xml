@@ -2977,21 +2977,17 @@ server 172.1.1.101:6379 weight&lt;span style="color:#f92672">=&lt;/span>&lt;span
 &lt;span style="color:#f92672">}&lt;/span>
 &lt;span style="color:#75715e">#redis读&lt;/span>
 server &lt;span style="color:#f92672">{&lt;/span>
-listen &lt;span style="color:#ae81ff">6379&lt;/span> reuseport;
-ssl_preread on;
+listen &lt;span style="color:#ae81ff">6389&lt;/span> reuseport;
 proxy_pass redis_r;
 proxy_connect_timeout 3s;
 proxy_timeout 60s;
-proxy_protocol on;
 &lt;span style="color:#f92672">}&lt;/span>
 &lt;span style="color:#75715e">#redis写&lt;/span>
 server &lt;span style="color:#f92672">{&lt;/span>
-listen &lt;span style="color:#ae81ff">6389&lt;/span> reuseport;
-ssl_preread on;
+listen &lt;span style="color:#ae81ff">6399&lt;/span> reuseport;
 proxy_pass redis_w;
 proxy_connect_timeout 3s;
 proxy_timeout 60s;
-proxy_protocol on;
 &lt;span style="color:#f92672">}&lt;/span>
 &lt;span style="color:#f92672">}&lt;/span>
 http &lt;span style="color:#f92672">{&lt;/span>
