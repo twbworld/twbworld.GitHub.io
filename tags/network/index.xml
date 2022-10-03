@@ -292,6 +292,7 @@ exit &lt;span style="color:#ae81ff">0&lt;/span>
 &lt;ol>
 &lt;li>配置Redis集群主从库复制&lt;/li>
 &lt;li>配置Redis的集群哨兵模式,用于检测Redis状态,宕机及时切换主数据库,数据恢复&lt;/li>
+&lt;li>使用&lt;code>Nginx&lt;/code>的&lt;code>stream模块&lt;/code>实现读写分离和读的负载均衡&lt;/li>
 &lt;li>配置keepalived,负责Redis切换主库后的飘移vip&lt;/li>
 &lt;/ol>
 &lt;blockquote>
@@ -314,6 +315,39 @@ sentinel monitor mymaster 172.1.1.11 &lt;span style="color:#ae81ff">6379&lt;/spa
 redis-cli -p &lt;span style="color:#ae81ff">26379&lt;/span>
 &amp;gt;sentinel master mymaster
 &amp;gt;SENTINEL get-master-addr-by-name mymaster
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>&lt;code>Nginx&lt;/code>配置为Redis中间代理实现读写分离和负载均衡(读和写不同端口),一备一主&lt;code>Nginx&lt;/code>都需要类似配置,可添加到&lt;a href="#Nginx&amp;#43;keepalived">上文&lt;/a>的同一份配置文件 :&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">stream &lt;span style="color:#f92672">{&lt;/span>
+upstream redis_r &lt;span style="color:#f92672">{&lt;/span>
+server 172.1.1.11:6379 weight&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> max_fails&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span> fail_timeout&lt;span style="color:#f92672">=&lt;/span>10s;
+server 172.1.1.12:6379 weight&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> max_fails&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span> fail_timeout&lt;span style="color:#f92672">=&lt;/span>10s;
+&lt;span style="color:#f92672">}&lt;/span>
+upstream redis_w &lt;span style="color:#f92672">{&lt;/span>
+server 172.1.1.101:6379 weight&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> max_fails&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span> fail_timeout&lt;span style="color:#f92672">=&lt;/span>10s; &lt;span style="color:#75715e">#keepalived偏移vip&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#75715e">#redis读&lt;/span>
+server &lt;span style="color:#f92672">{&lt;/span>
+listen &lt;span style="color:#ae81ff">6379&lt;/span> reuseport;
+ssl_preread on;
+proxy_pass redis_r;
+proxy_connect_timeout 3s;
+proxy_timeout 60s;
+proxy_protocol on;
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#75715e">#redis写&lt;/span>
+server &lt;span style="color:#f92672">{&lt;/span>
+listen &lt;span style="color:#ae81ff">6389&lt;/span> reuseport;
+ssl_preread on;
+proxy_pass redis_w;
+proxy_connect_timeout 3s;
+proxy_timeout 60s;
+proxy_protocol on;
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
+http &lt;span style="color:#f92672">{&lt;/span>
+&lt;span style="color:#75715e"># ...&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>一备一主&lt;code>keepalived&lt;/code>都需要相同配置,添加到&lt;a href="#Nginx&amp;#43;keepalived">上文&lt;/a>的同一份配置文件&lt;code>/etc/keepalived/keepalived.conf&lt;/code> :&lt;/p>
 &lt;/blockquote>
