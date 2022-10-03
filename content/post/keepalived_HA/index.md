@@ -161,7 +161,8 @@ exit 0
 Redis不同于Nginx,Redis需要实现多个服务器的redis数据同步,所以配置分为三步:
 1. 配置Redis集群主从库复制
 2. 配置Redis的集群哨兵模式,用于检测Redis状态,宕机及时切换主数据库,数据恢复
-3. 配置keepalived,负责Redis切换主库后的飘移vip
+3. 使用`Nginx`的`stream模块`实现读写分离和读的负载均衡
+4. 配置keepalived,负责Redis切换主库后的飘移vip
 
 
 
@@ -197,6 +198,41 @@ redis-cli -p 26379
     >sentinel master mymaster
     >SENTINEL get-master-addr-by-name mymaster
 ```
+
+
+> `Nginx`配置为Redis中间代理实现读写分离和负载均衡(读和写不同端口),一备一主`Nginx`都需要类似配置,可添加到[上文](#Nginx+keepalived)的同一份配置文件 :
+
+``` bash
+stream {
+    upstream redis_r {
+        server 172.1.1.11:6379 weight=1 max_fails=3 fail_timeout=10s;
+        server 172.1.1.12:6379 weight=1 max_fails=3 fail_timeout=10s;
+    }
+
+    upstream redis_w {
+        server 172.1.1.101:6379 weight=1 max_fails=3 fail_timeout=10s; #keepalived偏移vip
+    }
+    #redis读
+    server {
+        listen 6389 reuseport;
+        proxy_pass redis_r;
+        proxy_connect_timeout 3s;
+        proxy_timeout 60s;
+    }
+    #redis写
+    server {
+        listen 6399 reuseport;
+        proxy_pass redis_w;
+        proxy_connect_timeout 3s;
+        proxy_timeout 60s;
+    }
+}
+
+http {
+    # ...
+}
+```
+
 
 
 > 一备一主`keepalived`都需要相同配置,添加到[上文](#Nginx+keepalived)的同一份配置文件`/etc/keepalived/keepalived.conf` :
