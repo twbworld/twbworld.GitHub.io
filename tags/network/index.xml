@@ -97,7 +97,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;/li>
 &lt;/ul>
 &lt;blockquote>
-&lt;p>&lt;code>PuTTY&lt;/code>如上设置,相当于使用命令 &lt;code>ssh -L 127.0.0.1:6666:192.168.2.2:22 192.168.1.107&lt;/code>&lt;/p>
+&lt;p>&lt;code>PuTTY&lt;/code>如上设置,相当于使用命令 &lt;code>ssh -CfNg -L 127.0.0.1:6666:192.168.2.2:22 192.168.1.107&lt;/code>&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="3a通过隧道连接-c-电脑">3#A通过隧道连接 C 电脑&lt;/h3>
 &lt;ul>
@@ -134,7 +134,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;/li>
 &lt;/ul>
 &lt;blockquote>
-&lt;p>&lt;code>PuTTY&lt;/code>如上设置,相当于使用命令 &lt;code>ssh -D 127.0.0.1:6666 192.168.1.107&lt;/code>&lt;/p>
+&lt;p>&lt;code>PuTTY&lt;/code>如上设置,相当于使用命令 &lt;code>ssh -CfNg -D 127.0.0.1:6666 192.168.1.107&lt;/code>&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="3a通过代理连接-c-电脑">3#A通过代理连接 C 电脑&lt;/h3>
 &lt;ul>
