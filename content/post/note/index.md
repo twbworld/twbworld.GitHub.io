@@ -335,11 +335,11 @@ image:
 * opessl自签名
 
 ```sh
-openssl genrsa -out server.key 1024
+openssl genrsa -out key.pem 2048
 
-openssl req -new -key server.key -out server.csr #Common Name填写(泛)域名
+openssl req -new -key key.pem -out csr.pem #Common Name填写(泛)域名
 
-openssl x509 -req -in server.csr -out server.crt -signkey server.key -days 3650
+openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
 
 ```
 
@@ -574,7 +574,7 @@ systemctl status nginx.service
     ssh -N -f -R 121.199.63.39:6666:127.0.0.1:22 root@121.199.63.39
     ```
 
-3. 通过 `121.199.63.39` 的 `22` 端口,登录 `121.199.63.39localhost` 的 `6666` 端口
+4. 通过 `121.199.63.39` 的 `22` 端口,登录 localhost 的 `6666` 端口
     ``` sh
     ssh -J root@121.199.63.39:22 -p6666 localhost
     ```
