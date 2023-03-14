@@ -1,4 +1,139 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Network | 忐忑の博客</title><link>https://twbhub.com/tags/network/</link><atom:link href="https://twbhub.com/tags/network/index.xml" rel="self" type="application/rss+xml"/><description>Network</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202022_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sun, 02 Oct 2022 17:00:00 +0800</lastBuildDate><image><url>https://twbhub.com/media/avatar.jpg</url><title>Network</title><link>https://twbhub.com/tags/network/</link></image><item><title>Postman无法抓包Chrome</title><link>https://twbhub.com/post/postman_cannot_connection_chrome/</link><pubDate>Thu, 20 May 2021 23:00:00 +0800</pubDate><guid>https://twbhub.com/post/postman_cannot_connection_chrome/</guid><description>&lt;h2 id="原因">原因&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Network | 忐忑の博客</title><link>https://twbhub.com/tags/network/</link><atom:link href="https://twbhub.com/tags/network/index.xml" rel="self" type="application/rss+xml"/><description>Network</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202023_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sun, 02 Oct 2022 17:00:00 +0800</lastBuildDate><image><url>https://twbhub.com/media/avatar.jpg</url><title>Network</title><link>https://twbhub.com/tags/network/</link></image><item><title>nginx开启stream模块获取真实ip</title><link>https://twbhub.com/post/get_real_ip/</link><pubDate>Mon, 14 Mar 2022 21:00:00 +0800</pubDate><guid>https://twbhub.com/post/get_real_ip/</guid><description>&lt;blockquote>
+&lt;p>nginx开了stream模块,无法获取想要的客户端ip,最近学习了相关知识, 顺带做笔记&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="几个重要知识点">几个重要知识点&lt;/h2>
+&lt;ol>
+&lt;li>&lt;code>X-Forwarded-For&lt;/code> 和 &lt;code>X-Real-IP&lt;/code> 是http的请求头,属于第七层网络;意味两者的数据都可伪造篡改&lt;/li>
+&lt;li>&lt;code>remote_addr&lt;/code> 是tcp发起端的ip地址, 属于第四层网络(&lt;code>Ip-Port&lt;/code>), 意味着无法伪造也不为空(否则服务器与客户端就无法传输数据了)&lt;/li>
+&lt;li>默认情况下, 发起http请求的客户端, 是不会把 本机的ip 写到 &lt;code>X-Forwarded-For&lt;/code> 和 &lt;code>X-Real-IP&lt;/code> 请求头里的, 而是把 &lt;code>remote_addr&lt;/code>(上一节点的客户端的ip地址, 没节点就为空)替换掉&lt;code>X-Real-IP&lt;/code> 和拼接到 &lt;code>X-Forwarded-For&lt;/code>后, 再发起http请求&lt;/li>
+&lt;li>根据 &lt;code>3&lt;/code> 知识点, 可看出 &lt;code>X-Real-IP&lt;/code> 是单个ip地址, &lt;code>X-Forwarded-For&lt;/code>是一串ip(&amp;quot;,&amp;ldquo;相隔)&lt;/li>
+&lt;li>服务器收到的 &lt;code>X-Forwarded-For&lt;/code> 和 &lt;code>X-Real-IP&lt;/code>, 在没有代理的情况下,值一般为空;&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="上机测试">上机测试&lt;/h2>
+&lt;h3 id="测试一">测试一&lt;/h3>
+&lt;p>假设由A发起http请求, 直接访问服务器 B; 如下 :&lt;/p>
+&lt;p>A(1.1.1.1) -&amp;gt; B(2.2.2.2)&lt;/p>
+&lt;blockquote>
+&lt;p>B nginx为什么要开启stream模块? 因为可以做四层负载均衡 和 对tls流量进行分流, 这方面相关知识不细讲了, 这里简化了配置,去掉四层负载均衡和tls分流相关配置&lt;/p>
+&lt;/blockquote>
+&lt;p>B的nginx配置如下:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-nginx" data-lang="nginx">&lt;span style="color:#75715e">#四层网络
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">stream&lt;/span> {
+&lt;span style="color:#f92672">server&lt;/span> {
+&lt;span style="color:#f92672">listen&lt;/span> 2.2.2.2:&lt;span style="color:#ae81ff">443&lt;/span>;
+&lt;span style="color:#f92672">proxy_pass&lt;/span> 127.0.0.1:&lt;span style="color:#ae81ff">443&lt;/span>; &lt;span style="color:#75715e">#代理给http层
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#f92672">ssl_preread&lt;/span> &lt;span style="color:#66d9ef">on&lt;/span>;
+}
+}
+&lt;span style="color:#75715e">#七层网络
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">http&lt;/span> {
+&lt;span style="color:#f92672">log_format&lt;/span> &lt;span style="color:#e6db74">httplog&lt;/span> &lt;span style="color:#e6db74">&amp;#39;&lt;/span>$remote_addr|$http_x_real_ip|$http_x_forwarded_for&amp;#39;;
+&lt;span style="color:#f92672">server&lt;/span> {
+&lt;span style="color:#f92672">listen&lt;/span> 127.0.0.1:&lt;span style="color:#ae81ff">443&lt;/span> &lt;span style="color:#e6db74">ssl&lt;/span>;
+&lt;span style="color:#f92672">server_name&lt;/span> &lt;span style="color:#e6db74">test.com&lt;/span>;
+&lt;span style="color:#f92672">access_log&lt;/span> &lt;span style="color:#e6db74">access.log&lt;/span> &lt;span style="color:#e6db74">httplog&lt;/span>;
+&lt;span style="color:#f92672">......&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">}&lt;/span>
+&lt;span style="color:#e6db74">......&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>A发起http请求, nginx日志:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-text" data-lang="text">127.0.0.1|-|-
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>&lt;code>X-Real-IP&lt;/code>和&lt;code>X-Forwarded-For&lt;/code>为空很好理解,因为中间没有代理; 但为何&lt;code>remote_addr&lt;/code>不是预想中的&lt;code>1.1.1.1&lt;/code>呢?&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>是因为stream配置的关系, 根据&lt;a href="#%e5%87%a0%e4%b8%aa%e9%87%8d%e8%a6%81%e7%9f%a5%e8%af%86%e7%82%b9">&lt;code>知识点2&lt;/code>&lt;/a>, remote_addr是上一节点的tcp真实ip, 而stream正是处理四层网络数据的, 换而言之&lt;code>stream&lt;/code>就相当于一层&amp;quot;代理&amp;rdquo;, 所以http获取到的remote_addr地址其实是&lt;code>stream&lt;/code>模块的ip, 即&amp;quot;127.0.0.1&amp;quot;&lt;/li>
+&lt;li>如果在stream模块下记录remote_addr日志,得到的正是&amp;quot;1.1.1.1&amp;quot;, 不信你试试&lt;/li>
+&lt;li>根据&lt;a href="#%e5%87%a0%e4%b8%aa%e9%87%8d%e8%a6%81%e7%9f%a5%e8%af%86%e7%82%b9">&lt;code>知识点1&lt;/code>&lt;/a> &lt;code>X-Real-IP&lt;/code>和&lt;code>X-Forwarded-For&lt;/code>是http请求头,那就是下阶段的http流了, stream管不着, 自然这俩像预想中一样为空了&lt;/li>
+&lt;/ul>
+&lt;p>那么怎么解决这个问题呢? 获取的remote_addr&amp;quot;127.0.0.1&amp;quot;而不是真实ip&lt;/p>
+&lt;h4 id="解决">解决&lt;/h4>
+&lt;p>配置改为如下:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-nginx" data-lang="nginx">&lt;span style="color:#75715e">#四层网络
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">stream&lt;/span> {
+&lt;span style="color:#f92672">server&lt;/span> {
+&lt;span style="color:#f92672">listen&lt;/span> 2.2.2.2:&lt;span style="color:#ae81ff">443&lt;/span>;
+&lt;span style="color:#f92672">proxy_pass&lt;/span> 127.0.0.1:&lt;span style="color:#ae81ff">443&lt;/span>; &lt;span style="color:#75715e">#代理给http层
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#f92672">ssl_preread&lt;/span> &lt;span style="color:#66d9ef">on&lt;/span>;
+&lt;span style="color:#f92672">proxy_protocol&lt;/span> &lt;span style="color:#66d9ef">on&lt;/span>; &lt;span style="color:#75715e">#开启protocol
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> }
+}
+&lt;span style="color:#75715e">#七层网络
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">http&lt;/span> {
+&lt;span style="color:#f92672">log_format&lt;/span> &lt;span style="color:#e6db74">httplog&lt;/span> &lt;span style="color:#e6db74">&amp;#39;&lt;/span>$remote_addr|$http_x_real_ip|$http_x_forwarded_for|$proxy_protocol_addr&amp;#39;;
+&lt;span style="color:#f92672">server&lt;/span> {
+&lt;span style="color:#f92672">listen&lt;/span> 127.0.0.1:&lt;span style="color:#ae81ff">443&lt;/span> &lt;span style="color:#e6db74">ssl&lt;/span> &lt;span style="color:#e6db74">proxy_protocol&lt;/span>; &lt;span style="color:#75715e">#接收protocol数据
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#f92672">server_name&lt;/span> &lt;span style="color:#e6db74">test.com&lt;/span>;
+&lt;span style="color:#75715e">#以下三行用于修改$remote_addr变量(remote_addr是不能被上一节点修改,但获得remote_addr后是可在本机(nginx)内部修改的,注意两者概念哟)
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">#别看配置名其中有&amp;#34;real_ip&amp;#34;,实质作用于remote_addr
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#f92672">real_ip_recursive&lt;/span> &lt;span style="color:#66d9ef">on&lt;/span>;
+&lt;span style="color:#f92672">real_ip_header&lt;/span> &lt;span style="color:#e6db74">proxy_protocol&lt;/span>; &lt;span style="color:#75715e">#基于stream层传来protocol数据进行后续修改
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#f92672">set_real_ip_from&lt;/span> &lt;span style="color:#ae81ff">127&lt;/span>&lt;span style="color:#e6db74">.0.0.0/24&lt;/span>; &lt;span style="color:#75715e">#从real_ip_header中删除这个ip段的ip,也可直接写具体ip;
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#f92672">access_log&lt;/span> &lt;span style="color:#e6db74">access.log&lt;/span> &lt;span style="color:#e6db74">httplog&lt;/span>;
+&lt;span style="color:#f92672">location&lt;/span> &lt;span style="color:#e6db74">/&lt;/span> {
+&lt;span style="color:#f92672">proxy_pass&lt;/span> &lt;span style="color:#e6db74">http://3.3.3.3:443&lt;/span>;
+&lt;span style="color:#f92672">proxy_set_header&lt;/span> &lt;span style="color:#e6db74">X-Real-IP&lt;/span> $remote_addr; &lt;span style="color:#75715e">#把处理后的$remote_addr赋值给http请求头X-Real-IP, 便于下一级服务获取真实ip
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#f92672">proxy_set_header&lt;/span> &lt;span style="color:#e6db74">X-Forwarded-For&lt;/span> $remote_addr;
+&lt;span style="color:#f92672">proxy_set_header&lt;/span> &lt;span style="color:#e6db74">Host&lt;/span> $host;
+&lt;span style="color:#f92672">......&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">}&lt;/span>
+&lt;span style="color:#e6db74">......&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">}&lt;/span>
+&lt;span style="color:#e6db74">......&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>A发起http请求, nginx日志:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-text" data-lang="text">1.1.1.1|-|-|1.1.1.1
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>成功获取真实ip; 可以看到$proxy_protocol_addr也能获取到A真实ip,使用&lt;code>proxy_set_header X-Real-IP $proxy_protocol_addr&lt;/code>也是可以的&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="测试二">测试二&lt;/h3>
+&lt;p>假设由A发起http请求, B作为代理, 到达服务器C; 如下 :&lt;/p>
+&lt;p>A(1.1.1.1) -&amp;gt; B(2.2.2.2) -&amp;gt; C(3.3.3.3)&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;a href="#%e6%b5%8b%e8%af%95%e4%b8%80">测试一&lt;/a>的B服务nginx配置不变; 以下测试服务C,同样开启stream(与 &lt;code>测试一&lt;/code> 配置大体不变)&lt;/p>
+&lt;/blockquote>
+&lt;p>C的nginx配置如下:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-nginx" data-lang="nginx">&lt;span style="color:#75715e">#四层网络
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">stream&lt;/span> {
+&lt;span style="color:#f92672">server&lt;/span> {
+&lt;span style="color:#f92672">listen&lt;/span> 3.3.3.3:&lt;span style="color:#ae81ff">443&lt;/span>;
+&lt;span style="color:#f92672">proxy_pass&lt;/span> 127.0.0.1:&lt;span style="color:#ae81ff">443&lt;/span>; &lt;span style="color:#75715e">#代理给http层
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#f92672">ssl_preread&lt;/span> &lt;span style="color:#66d9ef">on&lt;/span>;
+&lt;span style="color:#f92672">proxy_protocol&lt;/span> &lt;span style="color:#66d9ef">on&lt;/span>; &lt;span style="color:#75715e">#开启protocol
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> }
+}
+&lt;span style="color:#75715e">#七层网络
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">http&lt;/span> {
+&lt;span style="color:#f92672">log_format&lt;/span> &lt;span style="color:#e6db74">httplog&lt;/span> &lt;span style="color:#e6db74">&amp;#39;&lt;/span>$remote_addr|$http_x_real_ip|$http_x_forwarded_for|$proxy_protocol_addr&amp;#39;;
+&lt;span style="color:#f92672">server&lt;/span> {
+&lt;span style="color:#f92672">listen&lt;/span> 127.0.0.1:&lt;span style="color:#ae81ff">443&lt;/span> &lt;span style="color:#e6db74">ssl&lt;/span> &lt;span style="color:#e6db74">proxy_protocol&lt;/span>;
+&lt;span style="color:#f92672">server_name&lt;/span> &lt;span style="color:#e6db74">test.com&lt;/span>;
+&lt;span style="color:#f92672">real_ip_recursive&lt;/span> &lt;span style="color:#66d9ef">on&lt;/span>;
+&lt;span style="color:#f92672">real_ip_header&lt;/span> &lt;span style="color:#e6db74">proxy_protocol&lt;/span>; &lt;span style="color:#75715e">#可选值: proxy_protocol/X-Forwarded-For/CF-Connecting-IP(如用了cloudflare代理)等
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#f92672">set_real_ip_from&lt;/span> &lt;span style="color:#ae81ff">127&lt;/span>&lt;span style="color:#e6db74">.0.0.0/24&lt;/span>;
+&lt;span style="color:#f92672">set_real_ip_from&lt;/span> &lt;span style="color:#ae81ff">172&lt;/span>&lt;span style="color:#e6db74">.1.0.0/16&lt;/span>;
+&lt;span style="color:#75715e">#还可添加代理商的ip列表(官网查); 如cloudflare: https://www.cloudflare.com/ips/
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#f92672">access_log&lt;/span> &lt;span style="color:#e6db74">access.log&lt;/span> &lt;span style="color:#e6db74">httplog&lt;/span>;
+&lt;span style="color:#f92672">location&lt;/span> &lt;span style="color:#e6db74">/&lt;/span> {
+&lt;span style="color:#f92672">proxy_pass&lt;/span> &lt;span style="color:#e6db74">http://4.4.4.4:443&lt;/span>;
+&lt;span style="color:#f92672">proxy_set_header&lt;/span> &lt;span style="color:#e6db74">X-Real-IP&lt;/span> $remote_addr;
+&lt;span style="color:#f92672">proxy_set_header&lt;/span> &lt;span style="color:#e6db74">X-Forwarded-For&lt;/span> $remote_addr;
+&lt;span style="color:#f92672">proxy_set_header&lt;/span> &lt;span style="color:#e6db74">Host&lt;/span> $host;
+&lt;span style="color:#f92672">......&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">}&lt;/span>
+&lt;span style="color:#e6db74">......&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">}&lt;/span>
+&lt;span style="color:#e6db74">......&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>A发起http请求, C的nginx日志:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-text" data-lang="text">2.2.2.2|1.1.1.1|1.1.1.1|2.2.2.2
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>毫无疑问, C成功获取到A的真实ip; 其中$remote_addr为上级ip; 而$http_x_real_ip和$http_x_forwarded_for是代理B发起的http请求头传过来的; 一切预料之中&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;em>&lt;strong>举一反三, 就算后边有再多的代理节点, 也可以正常获取真实ip的&lt;/strong>&lt;/em>&lt;/p></description></item><item><title>Postman无法抓包Chrome</title><link>https://twbhub.com/post/postman_cannot_connection_chrome/</link><pubDate>Thu, 20 May 2021 23:00:00 +0800</pubDate><guid>https://twbhub.com/post/postman_cannot_connection_chrome/</guid><description>&lt;h2 id="原因">原因&lt;/h2>
 &lt;p>Mac安装了两个版本(我的是正式版和&lt;code>Dev&lt;/code>版)的 &lt;code>Chrome&lt;/code> ,一个正常, 另一个版本无法与 &lt;code>Postman&lt;/code> 连接, 无法被抓包(Windows不会出现这样的情况)
 原因是不正常的版本缺少了一个 &lt;code>Interceptor&lt;/code> 插件的配置文件, 据官方&lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/interceptor/#how-it-works" target="_blank" rel="noopener">文档&lt;/a>所述,文件位于
 &lt;code>/Users/&amp;lt;username&amp;gt;/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.postman.postmanapp.json&lt;/code>&lt;/p>

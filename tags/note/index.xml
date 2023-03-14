@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Note | 忐忑の博客</title><link>https://twbhub.com/tags/note/</link><atom:link href="https://twbhub.com/tags/note/index.xml" rel="self" type="application/rss+xml"/><description>Note</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202022_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Mon, 05 Sep 2022 19:00:00 +0800</lastBuildDate><image><url>https://twbhub.com/media/avatar.jpg</url><title>Note</title><link>https://twbhub.com/tags/note/</link></image><item><title>olaindex配置安装</title><link>https://twbhub.com/post/olaindex_config/</link><pubDate>Mon, 05 Sep 2022 19:00:00 +0800</pubDate><guid>https://twbhub.com/post/olaindex_config/</guid><description>&lt;h2 id="关于环境的安装不做详细教程">关于环境的安装,不做详细教程&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Note | 忐忑の博客</title><link>https://twbhub.com/tags/note/</link><atom:link href="https://twbhub.com/tags/note/index.xml" rel="self" type="application/rss+xml"/><description>Note</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202023_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Mon, 05 Sep 2022 19:00:00 +0800</lastBuildDate><image><url>https://twbhub.com/media/avatar.jpg</url><title>Note</title><link>https://twbhub.com/tags/note/</link></image><item><title>olaindex配置安装</title><link>https://twbhub.com/post/olaindex_config/</link><pubDate>Mon, 05 Sep 2022 19:00:00 +0800</pubDate><guid>https://twbhub.com/post/olaindex_config/</guid><description>&lt;h2 id="关于环境的安装不做详细教程">关于环境的安装,不做详细教程&lt;/h2>
 &lt;h3 id="olainde隐藏后台地址">&lt;code>olainde&lt;/code>隐藏后台地址&lt;/h3>
 &lt;p>因为olaindex默认是以&lt;code>/admin&lt;/code>为默认地址的,我们需要做适当修改&lt;/p>
 &lt;h4 id="修改routeswebphp">修改routes/web.php&lt;/h4>
@@ -740,9 +740,9 @@ rewrite ^/admin/&lt;span style="color:#f92672">(&lt;/span>.*&lt;span style="colo
 &lt;ul>
 &lt;li>opessl自签名&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openssl genrsa -out server.key &lt;span style="color:#ae81ff">1024&lt;/span>
-openssl req -new -key server.key -out server.csr &lt;span style="color:#75715e">#Common Name填写(泛)域名&lt;/span>
-openssl x509 -req -in server.csr -out server.crt -signkey server.key -days &lt;span style="color:#ae81ff">3650&lt;/span>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openssl genrsa -out key.pem &lt;span style="color:#ae81ff">2048&lt;/span>
+openssl req -new -key key.pem -out csr.pem &lt;span style="color:#75715e">#Common Name填写(泛)域名&lt;/span>
+openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days &lt;span style="color:#ae81ff">3650&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>目录描述 :&lt;/li>
 &lt;/ul>
@@ -979,7 +979,7 @@ ssh -o ProxyCommand&lt;span style="color:#f92672">=&lt;/span>&lt;span style="col
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ssh -N -f -R 121.199.63.39:6666:127.0.0.1:22 root@121.199.63.39
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
-&lt;p>通过 &lt;code>121.199.63.39&lt;/code> 的 &lt;code>22&lt;/code> 端口,登录 &lt;code>121.199.63.39localhost&lt;/code> 的 &lt;code>6666&lt;/code> 端口&lt;/p>
+&lt;p>通过 &lt;code>121.199.63.39&lt;/code> 的 &lt;code>22&lt;/code> 端口,登录 localhost 的 &lt;code>6666&lt;/code> 端口&lt;/p>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ssh -J root@121.199.63.39:22 -p6666 localhost
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol>
