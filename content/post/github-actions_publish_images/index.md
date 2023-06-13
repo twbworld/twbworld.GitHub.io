@@ -103,23 +103,11 @@ image:
 ### 步骤一
 想要在 `GitHub` 使用 `ghcr.io` , 首先要 [启用改进的容器支持](https://docs.github.com/cn/packages/guides/enabling-improved-container-support)
 
-### 步骤二
-需要生成 GitHub账号 的 `Token` ; 用于 `GitHub-Actions` 有权限操作 `GitHub账号` 下的项目 ;
-登录 `GitHub` , 右上角点击用户头像, 找到 `settings > Developer settings > Personal access tokens` , 点击 `Generate new token` , [传送门直达](https://github.com/settings/tokens/new) , 如图 :
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313151850.png)
-接着, 设置 `Token` 的权限, 选择 `write:packages` (这样,连同 `repo` 都一起勾选了), 如图 :
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313152515.png)
-最后生成了一个 `Token` , 一定要记录下来, 下一步要用到
-
-### 步骤三
-把生成的 `Token` 添加到您的GitHub项目 `secrets` 下 ; 找到项目下 `Setting > secrets` , 右上角点击 `New repository secret` , 如图
+### 步骤二(可选)
+添加一些机密数据到您的GitHub项目 `secrets`(或Variables) 下 ; 找到项目下 `Setting > secrets` , 右上角点击 `New repository secret` , 如图
 ![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313153743.png)
 
-如图
-`Name` 值填写 `PACKAGES_TOKEN` (可自定义, 但下一步用到的 `secrets.PACKAGES_TOKEN` 同步要改)
-`Value` 值填写 上一步获得的 `Token` , 最后点击 `Add secret` ;
-`GitHub-Actions` 就可通过`secrets.PACKAGES_TOKEN` 获取 `Token` , 用于发布镜像到 `ghcr.io` 了
-![](https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313154015.png)
+用于下一步编写的文件,使用 `${{ secrets.xxx }}` 或 `${{ vars.xxx }}`
 
 ### 步骤三
 如何使用 `GitHub-Actions` 在此不过多简释, 直接贴出代码 :
@@ -134,23 +122,22 @@ env:
   IMAGE_NAME: test #这是您的镜像名
 jobs:
   get-tags:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       TZ: Asia/Shanghai
     outputs:
-      tags: ${{ steps.set-output-id.outputs.tags }}
+      tags: ${{ steps.output-id.outputs.v }}
     steps:
-      - uses: actions/checkout@v2
-      - name: set-output
-        id: set-output-id
+      - uses: actions/checkout@v3
+      - id: output-id
         run: |
           VERSION=edge
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/v}
           fi
-          echo ::set-output name=tags::${VERSION}
+          echo "v=${VERSION}" >> $GITHUB_OUTPUT
   push-ghcr:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       TZ: Asia/Shanghai
       REGISTRY: ghcr.io
@@ -161,7 +148,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.PACKAGES_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }} #此值是github专为Action提供的,这就是上一步没有手动添加的原因
       - name: Build && Push
         uses: docker/build-push-action@v2
         with:
@@ -211,24 +198,23 @@ env:
   IMAGE_NAME: test #这是您的镜像名
 jobs:
   get-tags:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       TZ: Asia/Shanghai
     outputs:
-      tags: ${{ steps.set-output-id.outputs.tags }}
+      tags: ${{ steps.output-id.outputs.v }}
     steps:
-      - uses: actions/checkout@v2
-      - name: set-output
-        id: set-output-id
+      - uses: actions/checkout@v3
+      - id: output-id
         run: |
           VERSION=edge
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/v}
           fi
-          echo ::set-output name=tags::${VERSION}
+          echo "v=${VERSION}" >> $GITHUB_OUTPUT
   push-ghcr:
     needs: get-tags
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       TZ: Asia/Shanghai
       REGISTRY: ghcr.io
@@ -239,7 +225,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.PACKAGES_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build && Push
         uses: docker/build-push-action@v2
         with:
@@ -251,7 +237,7 @@ jobs:
             ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest
   push-docker-hub:
     needs: get-tags
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       TZ: Asia/Shanghai
     steps:
@@ -272,7 +258,7 @@ jobs:
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
   push-docker-pkg-github:
     needs: get-tags
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       REGISTRY: docker.pkg.github.com
       TZ: Asia/Shanghai
@@ -283,7 +269,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.PACKAGES_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build && Push
         uses: docker/build-push-action@v2
         with:
