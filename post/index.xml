@@ -225,22 +225,11 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;h2 id="发布到ghcrio">发布到ghcr.io&lt;/h2>
 &lt;h3 id="步骤一">步骤一&lt;/h3>
 &lt;p>想要在 &lt;code>GitHub&lt;/code> 使用 &lt;code>ghcr.io&lt;/code> , 首先要 &lt;a href="https://docs.github.com/cn/packages/guides/enabling-improved-container-support" target="_blank" rel="noopener">启用改进的容器支持&lt;/a>&lt;/p>
-&lt;h3 id="步骤二">步骤二&lt;/h3>
-&lt;p>需要生成 GitHub账号 的 &lt;code>Token&lt;/code> ; 用于 &lt;code>GitHub-Actions&lt;/code> 有权限操作 &lt;code>GitHub账号&lt;/code> 下的项目 ;
-登录 &lt;code>GitHub&lt;/code> , 右上角点击用户头像, 找到 &lt;code>settings &amp;gt; Developer settings &amp;gt; Personal access tokens&lt;/code> , 点击 &lt;code>Generate new token&lt;/code> , &lt;a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener">传送门直达&lt;/a> , 如图 :
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313151850.png" alt="">
-接着, 设置 &lt;code>Token&lt;/code> 的权限, 选择 &lt;code>write:packages&lt;/code> (这样,连同 &lt;code>repo&lt;/code> 都一起勾选了), 如图 :
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313152515.png" alt="">
-最后生成了一个 &lt;code>Token&lt;/code> , 一定要记录下来, 下一步要用到&lt;/p>
-&lt;h3 id="步骤三">步骤三&lt;/h3>
-&lt;p>把生成的 &lt;code>Token&lt;/code> 添加到您的GitHub项目 &lt;code>secrets&lt;/code> 下 ; 找到项目下 &lt;code>Setting &amp;gt; secrets&lt;/code> , 右上角点击 &lt;code>New repository secret&lt;/code> , 如图
+&lt;h3 id="步骤二可选">步骤二(可选)&lt;/h3>
+&lt;p>添加一些机密数据到您的GitHub项目 &lt;code>secrets&lt;/code>(或Variables) 下 ; 找到项目下 &lt;code>Setting &amp;gt; secrets&lt;/code> , 右上角点击 &lt;code>New repository secret&lt;/code> , 如图
 &lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313153743.png" alt="">&lt;/p>
-&lt;p>如图
-&lt;code>Name&lt;/code> 值填写 &lt;code>PACKAGES_TOKEN&lt;/code> (可自定义, 但下一步用到的 &lt;code>secrets.PACKAGES_TOKEN&lt;/code> 同步要改)
-&lt;code>Value&lt;/code> 值填写 上一步获得的 &lt;code>Token&lt;/code> , 最后点击 &lt;code>Add secret&lt;/code> ;
-&lt;code>GitHub-Actions&lt;/code> 就可通过&lt;code>secrets.PACKAGES_TOKEN&lt;/code> 获取 &lt;code>Token&lt;/code> , 用于发布镜像到 &lt;code>ghcr.io&lt;/code> 了
-&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20210313154015.png" alt="">&lt;/p>
-&lt;h3 id="步骤三-1">步骤三&lt;/h3>
+&lt;p>用于下一步编写的文件,使用 &lt;code>${{ secrets.xxx }}&lt;/code> 或 &lt;code>${{ vars.xxx }}&lt;/code>&lt;/p>
+&lt;h3 id="步骤三">步骤三&lt;/h3>
 &lt;p>如何使用 &lt;code>GitHub-Actions&lt;/code> 在此不过多简释, 直接贴出代码 :&lt;/p>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yml" data-lang="yml">&lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">ci&lt;/span>
 &lt;span style="color:#f92672">on&lt;/span>:
@@ -252,23 +241,22 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;span style="color:#f92672">IMAGE_NAME&lt;/span>: &lt;span style="color:#ae81ff">test&lt;/span> &lt;span style="color:#75715e">#这是您的镜像名&lt;/span>
 &lt;span style="color:#f92672">jobs&lt;/span>:
 &lt;span style="color:#f92672">get-tags&lt;/span>:
-&lt;span style="color:#f92672">runs-on&lt;/span>: &lt;span style="color:#ae81ff">ubuntu-20.04&lt;/span>
+&lt;span style="color:#f92672">runs-on&lt;/span>: &lt;span style="color:#ae81ff">ubuntu-latest&lt;/span>
 &lt;span style="color:#f92672">env&lt;/span>:
 &lt;span style="color:#f92672">TZ&lt;/span>: &lt;span style="color:#ae81ff">Asia/Shanghai&lt;/span>
 &lt;span style="color:#f92672">outputs&lt;/span>:
-&lt;span style="color:#f92672">tags&lt;/span>: &lt;span style="color:#ae81ff">${{ steps.set-output-id.outputs.tags }}&lt;/span>
+&lt;span style="color:#f92672">tags&lt;/span>: &lt;span style="color:#ae81ff">${{ steps.output-id.outputs.v }}&lt;/span>
 &lt;span style="color:#f92672">steps&lt;/span>:
-- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v2&lt;/span>
-- &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">set-output&lt;/span>
-&lt;span style="color:#f92672">id&lt;/span>: &lt;span style="color:#ae81ff">set-output-id&lt;/span>
+- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v3&lt;/span>
+- &lt;span style="color:#f92672">id&lt;/span>: &lt;span style="color:#ae81ff">output-id&lt;/span>
 &lt;span style="color:#f92672">run&lt;/span>: |&lt;span style="color:#e6db74">
 &lt;/span>&lt;span style="color:#e6db74"> VERSION=edge
 &lt;/span>&lt;span style="color:#e6db74"> if [[ $GITHUB_REF == refs/tags/* ]]; then
 &lt;/span>&lt;span style="color:#e6db74"> VERSION=${GITHUB_REF#refs/tags/v}
 &lt;/span>&lt;span style="color:#e6db74"> fi
-&lt;/span>&lt;span style="color:#e6db74"> echo ::set-output name=tags::${VERSION}&lt;/span>
+&lt;/span>&lt;span style="color:#e6db74"> echo &amp;#34;v=${VERSION}&amp;#34; &amp;gt;&amp;gt; $GITHUB_OUTPUT&lt;/span>
 &lt;span style="color:#f92672">push-ghcr&lt;/span>:
-&lt;span style="color:#f92672">runs-on&lt;/span>: &lt;span style="color:#ae81ff">ubuntu-20.04&lt;/span>
+&lt;span style="color:#f92672">runs-on&lt;/span>: &lt;span style="color:#ae81ff">ubuntu-latest&lt;/span>
 &lt;span style="color:#f92672">env&lt;/span>:
 &lt;span style="color:#f92672">TZ&lt;/span>: &lt;span style="color:#ae81ff">Asia/Shanghai&lt;/span>
 &lt;span style="color:#f92672">REGISTRY&lt;/span>: &lt;span style="color:#ae81ff">ghcr.io&lt;/span>
@@ -279,7 +267,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;span style="color:#f92672">with&lt;/span>:
 &lt;span style="color:#f92672">registry&lt;/span>: &lt;span style="color:#ae81ff">${{ env.REGISTRY }}&lt;/span>
 &lt;span style="color:#f92672">username&lt;/span>: &lt;span style="color:#ae81ff">${{ github.repository_owner }}&lt;/span>
-&lt;span style="color:#f92672">password&lt;/span>: &lt;span style="color:#ae81ff">${{ secrets.PACKAGES_TOKEN }}&lt;/span>
+&lt;span style="color:#f92672">password&lt;/span>: &lt;span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}&lt;/span> &lt;span style="color:#75715e">#此值是github专为Action提供的,这就是上一步没有手动添加的原因&lt;/span>
 - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Build &amp;amp;&amp;amp; Push&lt;/span>
 &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">docker/build-push-action@v2&lt;/span>
 &lt;span style="color:#f92672">with&lt;/span>:
@@ -321,24 +309,23 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;span style="color:#f92672">IMAGE_NAME&lt;/span>: &lt;span style="color:#ae81ff">test&lt;/span> &lt;span style="color:#75715e">#这是您的镜像名&lt;/span>
 &lt;span style="color:#f92672">jobs&lt;/span>:
 &lt;span style="color:#f92672">get-tags&lt;/span>:
-&lt;span style="color:#f92672">runs-on&lt;/span>: &lt;span style="color:#ae81ff">ubuntu-20.04&lt;/span>
+&lt;span style="color:#f92672">runs-on&lt;/span>: &lt;span style="color:#ae81ff">ubuntu-latest&lt;/span>
 &lt;span style="color:#f92672">env&lt;/span>:
 &lt;span style="color:#f92672">TZ&lt;/span>: &lt;span style="color:#ae81ff">Asia/Shanghai&lt;/span>
 &lt;span style="color:#f92672">outputs&lt;/span>:
-&lt;span style="color:#f92672">tags&lt;/span>: &lt;span style="color:#ae81ff">${{ steps.set-output-id.outputs.tags }}&lt;/span>
+&lt;span style="color:#f92672">tags&lt;/span>: &lt;span style="color:#ae81ff">${{ steps.output-id.outputs.v }}&lt;/span>
 &lt;span style="color:#f92672">steps&lt;/span>:
-- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v2&lt;/span>
-- &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">set-output&lt;/span>
-&lt;span style="color:#f92672">id&lt;/span>: &lt;span style="color:#ae81ff">set-output-id&lt;/span>
+- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v3&lt;/span>
+- &lt;span style="color:#f92672">id&lt;/span>: &lt;span style="color:#ae81ff">output-id&lt;/span>
 &lt;span style="color:#f92672">run&lt;/span>: |&lt;span style="color:#e6db74">
 &lt;/span>&lt;span style="color:#e6db74"> VERSION=edge
 &lt;/span>&lt;span style="color:#e6db74"> if [[ $GITHUB_REF == refs/tags/* ]]; then
 &lt;/span>&lt;span style="color:#e6db74"> VERSION=${GITHUB_REF#refs/tags/v}
 &lt;/span>&lt;span style="color:#e6db74"> fi
-&lt;/span>&lt;span style="color:#e6db74"> echo ::set-output name=tags::${VERSION}&lt;/span>
+&lt;/span>&lt;span style="color:#e6db74"> echo &amp;#34;v=${VERSION}&amp;#34; &amp;gt;&amp;gt; $GITHUB_OUTPUT&lt;/span>
 &lt;span style="color:#f92672">push-ghcr&lt;/span>:
 &lt;span style="color:#f92672">needs&lt;/span>: &lt;span style="color:#ae81ff">get-tags&lt;/span>
-&lt;span style="color:#f92672">runs-on&lt;/span>: &lt;span style="color:#ae81ff">ubuntu-20.04&lt;/span>
+&lt;span style="color:#f92672">runs-on&lt;/span>: &lt;span style="color:#ae81ff">ubuntu-latest&lt;/span>
 &lt;span style="color:#f92672">env&lt;/span>:
 &lt;span style="color:#f92672">TZ&lt;/span>: &lt;span style="color:#ae81ff">Asia/Shanghai&lt;/span>
 &lt;span style="color:#f92672">REGISTRY&lt;/span>: &lt;span style="color:#ae81ff">ghcr.io&lt;/span>
@@ -349,7 +336,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;span style="color:#f92672">with&lt;/span>:
 &lt;span style="color:#f92672">registry&lt;/span>: &lt;span style="color:#ae81ff">${{ env.REGISTRY }}&lt;/span>
 &lt;span style="color:#f92672">username&lt;/span>: &lt;span style="color:#ae81ff">${{ github.repository_owner }}&lt;/span>
-&lt;span style="color:#f92672">password&lt;/span>: &lt;span style="color:#ae81ff">${{ secrets.PACKAGES_TOKEN }}&lt;/span>
+&lt;span style="color:#f92672">password&lt;/span>: &lt;span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}&lt;/span>
 - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Build &amp;amp;&amp;amp; Push&lt;/span>
 &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">docker/build-push-action@v2&lt;/span>
 &lt;span style="color:#f92672">with&lt;/span>:
@@ -361,7 +348,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;/span>&lt;span style="color:#e6db74"> ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest&lt;/span>
 &lt;span style="color:#f92672">push-docker-hub&lt;/span>:
 &lt;span style="color:#f92672">needs&lt;/span>: &lt;span style="color:#ae81ff">get-tags&lt;/span>
-&lt;span style="color:#f92672">runs-on&lt;/span>: &lt;span style="color:#ae81ff">ubuntu-20.04&lt;/span>
+&lt;span style="color:#f92672">runs-on&lt;/span>: &lt;span style="color:#ae81ff">ubuntu-latest&lt;/span>
 &lt;span style="color:#f92672">env&lt;/span>:
 &lt;span style="color:#f92672">TZ&lt;/span>: &lt;span style="color:#ae81ff">Asia/Shanghai&lt;/span>
 &lt;span style="color:#f92672">steps&lt;/span>:
@@ -382,7 +369,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;/span>&lt;span style="color:#e6db74"> ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest&lt;/span>
 &lt;span style="color:#f92672">push-docker-pkg-github&lt;/span>:
 &lt;span style="color:#f92672">needs&lt;/span>: &lt;span style="color:#ae81ff">get-tags&lt;/span>
-&lt;span style="color:#f92672">runs-on&lt;/span>: &lt;span style="color:#ae81ff">ubuntu-20.04&lt;/span>
+&lt;span style="color:#f92672">runs-on&lt;/span>: &lt;span style="color:#ae81ff">ubuntu-latest&lt;/span>
 &lt;span style="color:#f92672">env&lt;/span>:
 &lt;span style="color:#f92672">REGISTRY&lt;/span>: &lt;span style="color:#ae81ff">docker.pkg.github.com&lt;/span>
 &lt;span style="color:#f92672">TZ&lt;/span>: &lt;span style="color:#ae81ff">Asia/Shanghai&lt;/span>
@@ -393,7 +380,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;span style="color:#f92672">with&lt;/span>:
 &lt;span style="color:#f92672">registry&lt;/span>: &lt;span style="color:#ae81ff">${{ env.REGISTRY }}&lt;/span>
 &lt;span style="color:#f92672">username&lt;/span>: &lt;span style="color:#ae81ff">${{ github.actor }}&lt;/span>
-&lt;span style="color:#f92672">password&lt;/span>: &lt;span style="color:#ae81ff">${{ secrets.PACKAGES_TOKEN }}&lt;/span>
+&lt;span style="color:#f92672">password&lt;/span>: &lt;span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}&lt;/span>
 - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Build &amp;amp;&amp;amp; Push&lt;/span>
 &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">docker/build-push-action@v2&lt;/span>
 &lt;span style="color:#f92672">with&lt;/span>:
