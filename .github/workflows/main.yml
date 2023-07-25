@@ -1,4 +1,4 @@
-name: ci
+name: main
 on:
   push: #push即触发
     branches:

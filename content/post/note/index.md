@@ -127,16 +127,14 @@ image:
 | ---- | ---- |
 | ..                                | 上一级目录 |
 | cd -                              | 上一次目录 |
-| ctrl+C                            | 强制中断 |
 | ctrl+U                            | 清除输入命令 |
 | !v                                | 执行上一条以'v'开头的命令 |
-| ll                                | ls -l 缩写 |
-| 2>&1                              | 输出错误 |
+| 2>&1                              | 输出错误到标准输出 |
 | \|grep                             | 过滤结果 |
+| \| xargs                           | 结果作为下个命令的参数,通常用作批量操作 |
 | ctrl+a/e                          | 命令最前/后 |
 | clear                             | 清屏(或ctrl+L) |
 | pwd                               | 当前目录 |
-| cat                               | 查看文件内容 |
 | mkdir/mv/cp/rm                    | 文件名操作 |
 | \cp                               | 当有同名文件,不需要输"Y"即可覆盖 |
 | useradd                           | 创建新用户 |
@@ -163,7 +161,6 @@ image:
 | pkill -HUP nginx                  | 系统级别重载配置文件 |
 | systemctl status nginx.service    | 查看状态(或service nginx status) |
 | ln -s                                | 软连接 |
-| composer dump-autoload           | 可解决加载失败 |
 | nohup <shell\> &                     | 在后台运行shell命令 |
 | tree -LNFC 2                       | tree软件常用命令 |
 | tar -xaf -C ./folder             | 识别压缩文件类型,进行解压(-caf) |
@@ -173,8 +170,24 @@ image:
 | find / -type f -name "*.txt" \| xargs grep "hello" | 查找文件内容 |
 | cat <filename\> \| openssl dgst -sha256 -binary \| openssl enc -base64 -A | 计算文件sha256校验值(css校验方法:`<link href="filename.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=">`) |
 | sha256sum <filename\> | 计算文件md5校验值 |
-| docker container list -aq \|xargs docker container rm | docker清理容器(同样效果 `docker container prune`) |
-| docker volume ls -q \|xargs docker volume rm | docker清理卷(同样效果 `docker volume prune`) |
+| iptables -L -t nat | 查看流量去向和端口占用 |
+| netstat -lntp | 查看流量去向和端口占用 |
+| watch -n 1 xxx | 实时查看命令结果 |
+
+
+### k8s
+
+| 命令 | 描述 |
+| ---- | ---- |
+| kubectl get -n kube-system -o wide all/po/node/deploy/svc/ep/np/plan/job/cj |  获取资源 |
+| kubectl logs pod-name    |  查看pod日志 |
+| kubectl api-resources    |  查看所有api |
+| kubectl top po/no         |  资源占用 |
+| kubectl rollout history deploy/pod-deploy --revision=1 |  镜像历史 |
+| kubectl rollout undo deploy/pod-deploy --to-revision=1  |  回滚镜像历史 |
+| kubectl port-forward mysql-sts-0 33060:3306 --address=192.168.111.111  |  端口映射 |
+| helm show values traefik/traefik > traefik_values.yml  |  导出配置 |
+| helm upgrade -f traefik_values.yml traefik traefik/traefik  |  更新配置 |
 
 
 ### Git
@@ -367,11 +380,15 @@ openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
     screen安装
     docker安装
     docker-compose安装
+    k3s安装
+    k3d安装
     golang安装
+    fresh安装
     hugo安装
     node安装
     php安装
     mysql安装
+    proxychains安装
 
     ~/.vimrc配置
     syntax on
@@ -391,15 +408,17 @@ openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
     alias rm='rm -i'
     alias cp='cp -i'
     alias mv='mv -i'
+    alias k='kubectl'
     alias gs='git status'
     alias lg='git log --color --graph --all --oneline  --decorate --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
-    alias hugo1314='hugo server --i18n-warnings --disableFastRender -D --bind 192.168.2.222 -p 1314 --baseURL=http://192.168.2.222:1314'
     alias d='docker'
     alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}"'
     alias ds='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}} / {{.MemUsage}}"'
     alias de='docker exec -it'
     alias tree='tree -NFC'
     alias lt='tree -aNFCL'
+    alias init='id'
+    alias reboot='id'
 
     开启BBR
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
@@ -424,19 +443,19 @@ openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
         ```
     3. 获取证书
         ``` sh
-        acme.sh --issue --dns dns_cf -d twbhub.com -d *.twbhub.com -d twbhub.top -d *.twbhub.top \
+        acme.sh --issue --dns dns_cf -d twbhub.top -d *.twbhub.top \
         --yes-I-know-dns-manual-mode-enough-go-ahead-please
         ```
     4. 验证证书
         ``` sh
-        acme.sh --renew -d twbhub.com -d *.twbhub.com -d twbhub.top -d *.twbhub.top \
+        acme.sh --renew -d twbhub.top -d *.twbhub.top \
         --yes-I-know-dns-manual-mode-enough-go-ahead-please --force
         ```
     5. 安装证书到别的位置
         ``` sh
-        acme.sh --install-cert -d twbhub.com -d *.twbhub.com -d twbhub.top -d *.twbhub.top \
-        --key-file /var/www/html/docker/data/cert/twbhub.com_top/key.pem \
-        --fullchain-file /var/www/html/docker/data/cert/twbhub.com_top/cert.pem \
+        acme.sh --install-cert -d twbhub.top -d *.twbhub.top \
+        --key-file /var/www/cert/key.pem \
+        --fullchain-file /var/www/cert/cert.pem \
         --reloadcmd "docker exec nginx nginx -t && docker exec trojan /bin/bash -c 'systemctl restart trojan && exit' && docker exec nginx /bin/bash -c 'service nginx force-reload && exit'"
         ```
     6. 自动更新acme.sh版本
@@ -581,206 +600,6 @@ systemctl status nginx.service
 
 
 
-## Nftables
-
-防火墙配置例子 :
-
-``` sh
-# my.nft
-table inet filter {
-    chain input {
-        type filter hook input priority 0; policy drop;
-        ct state established,related accept
-        iif "lo" accept comment "一律接受本地环回"
-        ct state invalid drop
-        ip protocol icmp icmp type echo-request ct state new accept
-        ip protocol udp ct state new jump UDP
-        ip protocol tcp tcp flags & (fin | syn | rst | ack) == syn ct state new jump TCP
-        ip protocol udp reject
-        ip protocol tcp reject with tcp reset
-        meta nfproto ipv4 counter packets 0 bytes 0 reject with icmp type prot-unreachable
-    }
-
-    chain forward {
-        type filter hook forward priority 0; policy drop;
-    }
-
-    chain output {
-        type filter hook output priority 0; policy accept;
-    }
-
-    chain TCP {
-        tcp dport ssh ct state new limit rate 15/minute accept comment "避免对SSH施加暴力"
-        tcp dport { http, https, mysql } accept comment "80,443,3306"
-        tcp dport domain accept comment "DNS:53"
-        tcp dport { netbios-ns, netbios-dgm, netbios-ssn, microsoft-ds } accept comment "Samba:137,138,139,445"
-        tcp dport { xtel, xtelw } accept comment ":Hugo:1313,1314"
-        ip saddr { 192.168.2.100 } drop
-    }
-
-    chain UDP {
-        udp dport domain accept
-    }
-}
-
-```
-
-
-
-
-
-## Ftp
-
-1. 关闭防火墙
-2. 安装 `ftp`
-3. 修改三份文件 `ftpusers` `user_list` `vsftpd.conf`
-4. 重启 `ftp`
-5. 防火墙配置文件允许 `21` 端口
-6. 开启防火墙
-7. `ftp` 限制用户访问目录思路:修改 `/etc/vsftpd/vsftpd.conf` 文件中 `chroot_local_user` , `chroot_list_enable` , `chroot_list_file` 三项; 修改用户默认进入的家目录,则修改 `/etc/passwd`
-
-`vsftpd.conf` 文件参考配置 :
-
-``` sh
-listen_ipv6=YES
-pam_service_name=vsftpd
-tcp_wrappers=YES
-write_enable=YES
-local_umask=022             #用户ftp创建目录的权限掩码,022即为755
-listen=NO                   #监听,yes可能导致无法启动ftp
-anonymous_enable=NO         #拒绝匿名用户
-local_root=/var/www/html    #本地用户初始目录
-#登录限制
-local_enable=YES
-userlist_enable=YES
-userlist_deny=NO
-userlist_file=/etc/vsftpd/user_list
-#目录限制
-chroot_local_user=YES
-chroot_list_enable=YES
-chroot_list_file=/etc/vsftpd/chroot_list
-allow_writeable_chroot=YES
-```
-
-
-
-
-## Nginx
-
-* `linux` 支持 缓存/gzip/端口复用(套接字端口共享)功能( `nginx` 开启 `reuseport` );从内核层面做 `负载均衡` ,避免 `锁竞争` ( `惊群效应` ): <https://www.zhihu.com/question/51618274>
-
-* Nginx实现负载均衡需要源码的同步, 使用 `rsync` (或+ `sersync` )实现集群服务器源码同步,源服务器执行的命令:
-`rsync -avH --progress --delete --exclude-from=/etc/exclude.txt --password-file=/etc/pw.txt /var/www/html/ username@192.168.43.175::module1`
-    >其中按顺序是:含有忽略同步列表的 `exclude.txt` 文件,含有密码的 `pw.txt` 文件,源服务器的同步目录, `username` 用户名,ip地址,对应的模块
-    > <https://blog.51cto.com/chenfei123/1707746>
-
-`负载均衡` 和 `前后端分离` 配置 :
-
-``` sh
-#后端应反向给Apache代理
-upstream proxys {
-    server 127.0.0.1:8080 weight=2;
-    server 192.168.43.175:9090 weight=3;
-    ip_hash;
-}
-#前端应反向给Nginx代理
-upstream proxys2 {
-    server 127.0.0.1:8081 weight=3;
-    server 192.168.43.175:9090 weight=2;
-}
-server {
-    listen 80;
-    server_name www.domain.top domain.top;
-    index index.html index.htm index.php;
-    location / {
-        proxy_pass http://proxys;
-        proxy_http_version 1.1;
-        proxy_set_header Host $http_host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        add_header X-Slave $upstream_addr;
-    }
-    location ~* \.(css|js|png|jpg|jpeg|gif|txt|ico)$|^~/static {
-       proxy_pass http://proxys2;
-       proxy_set_header Host $http_host;
-       proxy_set_header X-Real-IP $remote_addr;
-       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-       add_header X-Slave $upstream_addr;
-    }
-}
-#前端请求代理的配置
-server {
-    listen 8081;
-    server_name www.domain.top domain.top;
-    location / {
-       root /var/www/html/tp/public;
-    }
-}
-
-```
-
-
-`缓存` 和 `gzip` 配置 :
-
-``` sh
-http {
-
-  # 开启缓存
-  proxy_connect_timeout 10;
-  proxy_read_timeout 180;
-  proxy_send_timeout 5;
-  proxy_buffer_size 16k;
-  proxy_buffers 4 32k;
-  proxy_busy_buffers_size 96k;
-  proxy_temp_file_write_size 96k;
-  proxy_temp_path /tmp/temp_dir;
-  proxy_cache_path /tmp/cache levels=1:2 keys_zone=cache_one:100m inactive=1d max_size=10g;
-
-  server
-  {
-      listen 8081 reuseport;
-      server_name localhost;
-      root /usr/share/nginx/tp/public/;
-
-      location /
-      {
-      }
-  }
-
-
-  server
-  {
-      #开启gzip压缩资源
-      gzip  on;
-      gzip_vary on;
-      gzip_proxied any;
-      gzip_comp_level 6;
-      gzip_buffers 16 8k;
-      gzip_http_version 1.0;
-      gzip_min_length 100;
-      gzip_types text/plain text/css application/javascript application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/vnd.ms-fontobject application/x-font-ttf font/opentype image/svg+xml image/x-icon;
-
-      #资源文件缓存
-      location ~* \.(css|js|json|png|jpg|jpeg|gif|txt|ico|bmp|swf)$|^~/static/
-      {
-          proxy_pass http://127.0.0.1:8081;
-          proxy_redirect off;
-          proxy_set_header Host $host;
-          proxy_cache cache_one; #cache_one在http设置层proxy_cache_path定义
-          proxy_cache_valid 200 302 24h;
-          proxy_cache_valid 301 30d;
-          proxy_cache_valid any 5m;
-          expires 90d;
-          add_header wall  "hey!这文件进行了缓存和压缩哟!";
-      }
-  }
-
-}
-```
-
-
-
-
 ## 数据库读写分离
 
 实现 `读写分离` 分为两大步 :
@@ -796,38 +615,6 @@ http {
 > `mysql` 之间可相互主从同步,避免 `单点` ;当有主从数据库发生宕机,可使用 `percona-tooldit` 工具解决恢复宕机后主从数据不同步的问题
     <https://blog.51cto.com/moerjinrong/2352317>
 
-`Mysql-Proxy` 配置文件 `mysql-proxy.cnf` 参考 :
-
-``` sh
-[mysql-proxy]
-  #运行mysql-proxy用户
-user=root
-  #主从mysql共有的用户
-admin-username=proxy
-  #用户的密码
-admin-password=root
-  #mysql-proxy运行ip(不能是127.0.0.1)和端口,不加端口,默认4040
-proxy-address=192.168.1.1:4040
-  #slave从数据库Ip地址,默认端口3306
-proxy-read-only-backend-addresses=192.168.1.2:3306
-  #master主数据库Ip地址,默认端口3306
-proxy-backend-addresses=192.168.1.3:3306
-  #读写分离配置文件
-proxy-lua-script=/usr/lib64/mysql-proxy/lua/rw-splitting.lua
-  #管理脚本
-admin-lua-script=/usr/lib64/mysql-proxy/lua/admin.lua
-  #日志
-log-file=/var/log/mysql-proxy.log
-  #日志级别,高到低有error|warning|info|message|debug
-log-level=info
-  #以守护进程方式运行
-daemon=true
-  #崩溃时,尝试重启
-keepalive=true
-
-```
-
-
 
 ## 数据库
 
@@ -840,16 +627,11 @@ keepalive=true
 > * 用户角色管理权限
 > * `innodb_dedicated_server` 自适应参数,自动配置 `mysql`
 
-* `redis` 只做缓存使用,避免进行 `持久性` && `队列` && `事务` (总之一句话:专人专事)
-* `redis` 和 `DB` 一致性方案:只读 `redis` ,当更新 `DB` 之后把受影响的缓存全部干掉(注意:是干掉,不是更新),并且设定过期时间: <https://www.zhihu.com/question/319817091>
 * 出现不能连接数据库的情况,除了防火墙,也可能是数据库没有设置对外添加权限
 * 出现用户不能登录的情况,可能是默认登录了 `匿名用户` , 要把用户名为 `''` 的用户清除
-* `MyISAM` 存储引擎偏向于大量查询和插入事件,表锁
 * `InnoDB` 存储引擎偏向于增删改事件,支持事务,支持索引行锁
 * 索引才用 `for update` 锁库
 
-* 数据库类型
-    <http://www.jb51.net/article/55853.htm>
 * 免密码登录
     `skip-grant-tables`
 * 性能测试
@@ -976,113 +758,6 @@ keepalive=true
         header("Access-Control-Allow-Credentials: true");
     }
     ```
-
-| 函数 | 描述 |
-| ---- | ---- |
-| rand(x,y)                   | 在xy之间取随机数 |
-| implode('xx','$my_name')        | 用xx隔开my_name中每个元素 |
-| explode()                   | 把字符串打散为数组. |
-| arry_merge()                | 打散混乱数组重新排列 |
-| in_array($xy,$my_name)          | 数组$my_name是否含$xy |
-| mb_substr($my_name,x,y,'utf-8') | 截取字符串,从第x个字符开始截取y个字符 |
-| strtotime()                 | 将任何英文文本的日期或时间描述解析为 Unix 时间戳. |
-| 字符串类型 |-- |
-| addcslashes()               | 返回在指定的字符前添加反斜杠的字符串. |
-| addslashes()                | 返回在预定义的字符前添加反斜杠的字符串. |
-| chop()                      | 删除字符串右侧的空白字符或其他字符.. |
-| chunk_split()               | 把字符串分割为一系列更小的部分. |
-| html_entity_decode()        | 把 HTML 实体转换为字符. |
-| htmlentities()              | 把字符转换为 HTML 实体. |
-| htmlspecialchars_decode()   | 把一些预定义的 HTML 实体转换为字符. |
-| htmlspecialchars()          | 把一些预定义的字符转换为 HTML 实体. |
-| join()                      | implode() 的别名. |
-| ltrim()                     | 移除字符串左侧的空白字符或其他字符. |
-| md5()                       | 计算字符串的 MD5 散列. |
-| number_format()             | 以千位分组来格式化数字. |
-| parse_str()                 | 把查询字符串解析到变量中. |
-| rtrim()                     | 移除字符串右侧的空白字符或其他字符. |
-| sha1()                      | 计算字符串的 SHA-1 散列. |
-| similar_text()              | 计算两个字符串的相似度. |
-| sprintf()                   | 把格式化的字符串写入变量中. |
-| str_pad()                   | 把字符串填充为新的长度. |
-| str_repeat()                | 把字符串重复指定的次数. |
-| str_replace()               | 替换字符串中的一些字符(对大小写敏感) |
-| str_shuffle()               | 随机地打乱字符串中的所有字符. |
-| str_split()                 | 把字符串分割到数组中. |
-| strip_tags()                | 剥去字符串中的 HTML 和 PHP 标签. |
-| stripcslashes()             | 删除由 addcslashes() 函数添加的反斜杠. |
-| stripslashes()              | 删除由 addslashes() 函数添加的反斜杠. |
-| stripos()                   | 返回字符串第一次出现的位置(大小写不敏感) |
-| strpos()                    | 返回字符串第一次出现的位置(大小写敏感) |
-| stristr()                   | 查找字符串第一次出现的位置(大小写不敏感) |
-| strrchr()                   | 查找字符串最后一次出现. |
-| strripos()                  | 查找字符串最后一次出现的位置(大小写不敏感) |
-| strrpos()                   | 查找字符串最后一次出现的位置(大小写敏感) |
-| strstr()                    | 查找字符串第一次出现(大小写敏感) |
-| strchr()                    | 查找字符串第一次出现,strstr() 的别名 |
-| strrev()                    | 反转字符串. |
-| strlen()                    | 返回字符串的长度. |
-| strtolower()                | 把字符串转换为小写字母. |
-| strtoupper()                | 把字符串转换为大写字母. |
-| strtr()                     | 转换字符串中特定的字符. |
-| substr()                    | 返回字符串的一部分. |
-| substr_count()              | 计算子串在字符串中出现的次数. |
-| substr_replace()            | 把字符串的一部分替换为另一个字符串. |
-| ucfirst()                   | 把字符串中的首字符转换为大写. |
-| ucwords()                   | 把字符串中每个单词的首字符转换为大写. |
-| 数组函数 | -- |
-| array_change_key_case()     | 把数组中所有键更改为小写或大写. |
-| array_chunk()               | 把一个数组分割为新的数组块. |
-| array_column()              | 返回输入数组中某个单一列的值. |
-| array_combine()             | 通过合并两个数组来创建一个新数组. |
-| array_count_values()        | 用于统计数组中所有值出现的次数. |
-| array_diff()                | 比较数组,返回差集(只比较键值) |
-| array_fill()                | 用给定的键值填充数组. |
-| array_fill_keys()           | 用指定键名的给定键值填充数组. |
-| array_filter()              | 用回调函数过滤数组中的元素. |
-| array_flip()                | 交换数组中的键和值. |
-| array_intersect()           | 比较数组,返回交集(只比较键值) |
-| array_key_exists()          | 检查指定的键名是否存在于数组中. |
-| array_keys()                | 返回数组中所有的键名. |
-| array_map()                 | 把数组中的每个值发送到用户自定义函数,返回新的值. |
-| array_merge()               | 把一个或多个数组合并为一个数组. |
-| array_multisort()           | 对多个数组或多维数组进行排序. |
-| array_pad()                 | 用值将数组填补到指定长度. |
-| array_pop()                 | 删除数组的最后一个元素(出栈) |
-| array_push()                | 将一个或多个元素插入数组的末尾(入栈) |
-| array_replace()             | 使用后面数组的值替换第一个数组的值. |
-| array_reverse()             | 以相反的顺序返回数组. |
-| array_search()              | 搜索数组中给定的值并返回键名. |
-| array_shift()               | 删除数组中首个元素,并返回被删除元素的值. |
-| array_slice()               | 返回数组中被选定的部分. |
-| array_splice()              | 删除并替换数组中指定的元素. |
-| array_sum()                 | 返回数组中值的和. |
-| array_udiff()               | 比较数组,返回差集 |
-| array_unique()              | 删除数组中的重复值.(集合的概念) |
-| array_unshift()             | 在数组开头插入一个或多个元素. |
-| array_values()              | 返回数组中所有的值. |
-| arsort()                    | 对关联数组按照键值进行降序排序. |
-| asort()                     | 对关联数组按照键值进行升序排序. |
-| compact()                   | 创建包含变量名和它们的值的数组. |
-| count()                     | 返回数组中元素的数目. |
-| current()                   | 返回数组中的当前元素. |
-| extract()                   | 从数组中将变量导入到当前的符号表. |
-| in_array()                  | 检查数组中是否存在指定的值. |
-| key()                       | 从关联数组中取得键名. |
-| krsort()                    | 对数组按照键名逆向排序. |
-| ksort()                     | 对数组按照键名排序. |
-| list()                      | 把数组中的值赋给一些变量. |
-| range()                     | 创建包含指定范围单元的数组. |
-| rsort()                     | 对数组逆向排序. |
-| shuffle()                   | 将数组打乱. |
-| sizeof()                    | count() 的别名. |
-| sort()                      | 对数组排序. |
-| uasort()                    | 使用用户自定义的比较函数对数组中的键值进行排序. |
-| uksort()                    | 使用用户自定义的比较函数对数组中的键名进行排序. |
-| usort()                     | 使用用户自定义的比较函数对数组进行排序. |
-
-
-
 
 ## 前端
 

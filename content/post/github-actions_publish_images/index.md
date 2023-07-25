@@ -70,7 +70,7 @@ image:
 
 
 
-
+**!!!现在官方已出教程了, 请到[github-action官网](https://docs.github.com/zh/actions/publishing-packages/publishing-docker-images)学习; 此过期文章只作为参考!!!**
 
 
 ## 前文
@@ -142,7 +142,7 @@ jobs:
       TZ: Asia/Shanghai
       REGISTRY: ghcr.io
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Login
         uses: docker/login-action@v1
         with:
@@ -219,7 +219,7 @@ jobs:
       TZ: Asia/Shanghai
       REGISTRY: ghcr.io
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Login
         uses: docker/login-action@v1
         with:
@@ -241,7 +241,7 @@ jobs:
     env:
       TZ: Asia/Shanghai
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Login
         uses: docker/login-action@v1
         with:
@@ -263,7 +263,7 @@ jobs:
       REGISTRY: docker.pkg.github.com
       TZ: Asia/Shanghai
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Login
         uses: docker/login-action@v1
         with:
