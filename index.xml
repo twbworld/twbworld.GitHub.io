@@ -205,7 +205,8 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;li>打开iOS的WiFI页, &lt;code>配置手动代理&lt;/code>, 填写Mac或Windows的IP地址和前一步设置的端口&lt;/li>
 &lt;li>不出意外, Postman就可以抓取到https的数据包了,位于左侧的 &lt;code>History&lt;/code> 栏下&lt;/li>
 &lt;/ol>
-&lt;p>官方操作传送门 &lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#using-postmans-proxy-example">https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#using-postmans-proxy-example&lt;/a>&lt;/p></description></item><item><title>使用Github Actions发布docker镜像到仓库</title><link>https://twbhub.com/post/github-actions_publish_images/</link><pubDate>Sat, 13 Mar 2021 14:00:00 +0800</pubDate><guid>https://twbhub.com/post/github-actions_publish_images/</guid><description>&lt;h2 id="前文">前文&lt;/h2>
+&lt;p>官方操作传送门 &lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#using-postmans-proxy-example">https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#using-postmans-proxy-example&lt;/a>&lt;/p></description></item><item><title>使用Github Actions发布docker镜像到仓库</title><link>https://twbhub.com/post/github-actions_publish_images/</link><pubDate>Sat, 13 Mar 2021 14:00:00 +0800</pubDate><guid>https://twbhub.com/post/github-actions_publish_images/</guid><description>&lt;p>&lt;strong>!!!现在官方已出教程了, 请到&lt;a href="https://docs.github.com/zh/actions/publishing-packages/publishing-docker-images" target="_blank" rel="noopener">github-action官网&lt;/a>学习; 此过期文章只作为参考!!!&lt;/strong>&lt;/p>
+&lt;h2 id="前文">前文&lt;/h2>
 &lt;p>关于发布Docker镜像到仓库, 思路有不少, 比如:&lt;/p>
 &lt;ol>
 &lt;li>本地生成Docker镜像后, 使用 &lt;code>docker login&lt;/code> 登录, 然后再 &lt;code>docker push&lt;/code> 发布到仓库(Docker Hub等)&lt;/li>
@@ -261,7 +262,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;span style="color:#f92672">TZ&lt;/span>: &lt;span style="color:#ae81ff">Asia/Shanghai&lt;/span>
 &lt;span style="color:#f92672">REGISTRY&lt;/span>: &lt;span style="color:#ae81ff">ghcr.io&lt;/span>
 &lt;span style="color:#f92672">steps&lt;/span>:
-- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v2&lt;/span>
+- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v3&lt;/span>
 - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Login&lt;/span>
 &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">docker/login-action@v1&lt;/span>
 &lt;span style="color:#f92672">with&lt;/span>:
@@ -330,7 +331,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;span style="color:#f92672">TZ&lt;/span>: &lt;span style="color:#ae81ff">Asia/Shanghai&lt;/span>
 &lt;span style="color:#f92672">REGISTRY&lt;/span>: &lt;span style="color:#ae81ff">ghcr.io&lt;/span>
 &lt;span style="color:#f92672">steps&lt;/span>:
-- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v2&lt;/span>
+- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v3&lt;/span>
 - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Login&lt;/span>
 &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">docker/login-action@v1&lt;/span>
 &lt;span style="color:#f92672">with&lt;/span>:
@@ -352,7 +353,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;span style="color:#f92672">env&lt;/span>:
 &lt;span style="color:#f92672">TZ&lt;/span>: &lt;span style="color:#ae81ff">Asia/Shanghai&lt;/span>
 &lt;span style="color:#f92672">steps&lt;/span>:
-- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v2&lt;/span>
+- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v3&lt;/span>
 - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Login&lt;/span>
 &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">docker/login-action@v1&lt;/span>
 &lt;span style="color:#f92672">with&lt;/span>:
@@ -374,7 +375,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;span style="color:#f92672">REGISTRY&lt;/span>: &lt;span style="color:#ae81ff">docker.pkg.github.com&lt;/span>
 &lt;span style="color:#f92672">TZ&lt;/span>: &lt;span style="color:#ae81ff">Asia/Shanghai&lt;/span>
 &lt;span style="color:#f92672">steps&lt;/span>:
-- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v2&lt;/span>
+- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v3&lt;/span>
 - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Login&lt;/span>
 &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">docker/login-action@v1&lt;/span>
 &lt;span style="color:#f92672">with&lt;/span>:
@@ -461,10 +462,6 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;td>上一次目录&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>ctrl+C&lt;/td>
-&lt;td>强制中断&lt;/td>
-&lt;/tr>
-&lt;tr>
 &lt;td>ctrl+U&lt;/td>
 &lt;td>清除输入命令&lt;/td>
 &lt;/tr>
@@ -473,16 +470,16 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;td>执行上一条以&amp;rsquo;v&amp;rsquo;开头的命令&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>ll&lt;/td>
-&lt;td>ls -l 缩写&lt;/td>
-&lt;/tr>
-&lt;tr>
 &lt;td>2&amp;gt;&amp;amp;1&lt;/td>
-&lt;td>输出错误&lt;/td>
+&lt;td>输出错误到标准输出&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>|grep&lt;/td>
 &lt;td>过滤结果&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>| xargs&lt;/td>
+&lt;td>结果作为下个命令的参数,通常用作批量操作&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>ctrl+a/e&lt;/td>
@@ -495,10 +492,6 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;tr>
 &lt;td>pwd&lt;/td>
 &lt;td>当前目录&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>cat&lt;/td>
-&lt;td>查看文件内容&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>mkdir/mv/cp/rm&lt;/td>
@@ -605,10 +598,6 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;td>软连接&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>composer dump-autoload&lt;/td>
-&lt;td>可解决加载失败&lt;/td>
-&lt;/tr>
-&lt;tr>
 &lt;td>nohup &amp;lt;shell&amp;gt; &amp;amp;&lt;/td>
 &lt;td>在后台运行shell命令&lt;/td>
 &lt;/tr>
@@ -645,12 +634,63 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;td>计算文件md5校验值&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>docker container list -aq |xargs docker container rm&lt;/td>
-&lt;td>docker清理容器(同样效果 &lt;code>docker container prune&lt;/code>)&lt;/td>
+&lt;td>iptables -L -t nat&lt;/td>
+&lt;td>查看流量去向和端口占用&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>docker volume ls -q |xargs docker volume rm&lt;/td>
-&lt;td>docker清理卷(同样效果 &lt;code>docker volume prune&lt;/code>)&lt;/td>
+&lt;td>netstat -lntp&lt;/td>
+&lt;td>查看流量去向和端口占用&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>watch -n 1 xxx&lt;/td>
+&lt;td>实时查看命令结果&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="k8s">k8s&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>命令&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>kubectl get -n kube-system -o wide all/po/node/deploy/svc/ep/np/plan/job/cj&lt;/td>
+&lt;td>获取资源&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>kubectl logs pod-name&lt;/td>
+&lt;td>查看pod日志&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>kubectl api-resources&lt;/td>
+&lt;td>查看所有api&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>kubectl top po/no&lt;/td>
+&lt;td>资源占用&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>kubectl rollout history deploy/pod-deploy &amp;ndash;revision=1&lt;/td>
+&lt;td>镜像历史&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>kubectl rollout undo deploy/pod-deploy &amp;ndash;to-revision=1&lt;/td>
+&lt;td>回滚镜像历史&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>kubectl port-forward mysql-sts-0 33060:3306 &amp;ndash;address=192.168.111.111&lt;/td>
+&lt;td>端口映射&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>helm show values traefik/traefik &amp;gt; traefik_values.yml&lt;/td>
+&lt;td>导出配置&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>helm upgrade -f traefik_values.yml traefik traefik/traefik&lt;/td>
+&lt;td>更新配置&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -1168,11 +1208,15 @@ tree安装
 screen安装
 docker安装
 docker-compose安装
+k3s安装
+k3d安装
 golang安装
+fresh安装
 hugo安装
 node安装
 php安装
 mysql安装
+proxychains安装
 ~/.vimrc配置
 syntax on
 set autoindent
@@ -1190,15 +1234,17 @@ alias la&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74"
 alias rm&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;rm -i&amp;#39;&lt;/span>
 alias cp&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;cp -i&amp;#39;&lt;/span>
 alias mv&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;mv -i&amp;#39;&lt;/span>
+alias k&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;kubectl&amp;#39;&lt;/span>
 alias gs&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;git status&amp;#39;&lt;/span>
 alias lg&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;git log --color --graph --all --oneline --decorate --pretty=format:&amp;#34;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&amp;lt;%an&amp;gt;%Creset&amp;#34; --abbrev-commit&amp;#39;&lt;/span>
-alias hugo1314&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;hugo server --i18n-warnings --disableFastRender -D --bind 192.168.2.222 -p 1314 --baseURL=http://192.168.2.222:1314&amp;#39;&lt;/span>
 alias d&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;docker&amp;#39;&lt;/span>
 alias dps&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;docker ps --format &amp;#34;table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}&amp;#34;&amp;#39;&lt;/span>
 alias ds&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;docker stats --format &amp;#34;table {{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}} / {{.MemUsage}}&amp;#34;&amp;#39;&lt;/span>
 alias de&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;docker exec -it&amp;#39;&lt;/span>
 alias tree&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;tree -NFC&amp;#39;&lt;/span>
 alias lt&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;tree -aNFCL&amp;#39;&lt;/span>
+alias init&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;id&amp;#39;&lt;/span>
+alias reboot&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;id&amp;#39;&lt;/span>
 开启BBR
 echo &lt;span style="color:#e6db74">&amp;#34;net.core.default_qdisc=fq&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
 echo &lt;span style="color:#e6db74">&amp;#34;net.ipv4.tcp_congestion_control=bbr&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
@@ -1218,17 +1264,17 @@ export CF_Email&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#
 source ~/.bashrc
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>获取证书
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --issue --dns dns_cf -d twbhub.com -d *.twbhub.com -d twbhub.top -d *.twbhub.top &lt;span style="color:#ae81ff">\
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --issue --dns dns_cf -d twbhub.top -d *.twbhub.top &lt;span style="color:#ae81ff">\
 &lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--yes-I-know-dns-manual-mode-enough-go-ahead-please
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>验证证书
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --renew -d twbhub.com -d *.twbhub.com -d twbhub.top -d *.twbhub.top &lt;span style="color:#ae81ff">\
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --renew -d twbhub.top -d *.twbhub.top &lt;span style="color:#ae81ff">\
 &lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--yes-I-know-dns-manual-mode-enough-go-ahead-please --force
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>安装证书到别的位置
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --install-cert -d twbhub.com -d *.twbhub.com -d twbhub.top -d *.twbhub.top &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--key-file /var/www/html/docker/data/cert/twbhub.com_top/key.pem &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--fullchain-file /var/www/html/docker/data/cert/twbhub.com_top/cert.pem &lt;span style="color:#ae81ff">\
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --install-cert -d twbhub.top -d *.twbhub.top &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--key-file /var/www/cert/key.pem &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--fullchain-file /var/www/cert/cert.pem &lt;span style="color:#ae81ff">\
 &lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--reloadcmd &lt;span style="color:#e6db74">&amp;#34;docker exec nginx nginx -t &amp;amp;&amp;amp; docker exec trojan /bin/bash -c &amp;#39;systemctl restart trojan &amp;amp;&amp;amp; exit&amp;#39; &amp;amp;&amp;amp; docker exec nginx /bin/bash -c &amp;#39;service nginx force-reload &amp;amp;&amp;amp; exit&amp;#39;&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>自动更新acme.sh版本
@@ -1385,171 +1431,7 @@ ssh -o ProxyCommand&lt;span style="color:#f92672">=&lt;/span>&lt;span style="col
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ssh -J root@121.199.63.39:22 -p6666 localhost
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol>
-&lt;h2 id="nftables">Nftables&lt;/h2>
-&lt;p>防火墙配置例子 :&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#75715e"># my.nft&lt;/span>
-table inet filter &lt;span style="color:#f92672">{&lt;/span>
-chain input &lt;span style="color:#f92672">{&lt;/span>
-type filter hook input priority 0; policy drop;
-ct state established,related accept
-iif &lt;span style="color:#e6db74">&amp;#34;lo&amp;#34;&lt;/span> accept comment &lt;span style="color:#e6db74">&amp;#34;一律接受本地环回&amp;#34;&lt;/span>
-ct state invalid drop
-ip protocol icmp icmp type echo-request ct state new accept
-ip protocol udp ct state new jump UDP
-ip protocol tcp tcp flags &amp;amp; &lt;span style="color:#f92672">(&lt;/span>fin | syn | rst | ack&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">==&lt;/span> syn ct state new jump TCP
-ip protocol udp reject
-ip protocol tcp reject with tcp reset
-meta nfproto ipv4 counter packets &lt;span style="color:#ae81ff">0&lt;/span> bytes &lt;span style="color:#ae81ff">0&lt;/span> reject with icmp type prot-unreachable
-&lt;span style="color:#f92672">}&lt;/span>
-chain forward &lt;span style="color:#f92672">{&lt;/span>
-type filter hook forward priority 0; policy drop;
-&lt;span style="color:#f92672">}&lt;/span>
-chain output &lt;span style="color:#f92672">{&lt;/span>
-type filter hook output priority 0; policy accept;
-&lt;span style="color:#f92672">}&lt;/span>
-chain TCP &lt;span style="color:#f92672">{&lt;/span>
-tcp dport ssh ct state new limit rate 15/minute accept comment &lt;span style="color:#e6db74">&amp;#34;避免对SSH施加暴力&amp;#34;&lt;/span>
-tcp dport &lt;span style="color:#f92672">{&lt;/span> http, https, mysql &lt;span style="color:#f92672">}&lt;/span> accept comment &lt;span style="color:#e6db74">&amp;#34;80,443,3306&amp;#34;&lt;/span>
-tcp dport domain accept comment &lt;span style="color:#e6db74">&amp;#34;DNS:53&amp;#34;&lt;/span>
-tcp dport &lt;span style="color:#f92672">{&lt;/span> netbios-ns, netbios-dgm, netbios-ssn, microsoft-ds &lt;span style="color:#f92672">}&lt;/span> accept comment &lt;span style="color:#e6db74">&amp;#34;Samba:137,138,139,445&amp;#34;&lt;/span>
-tcp dport &lt;span style="color:#f92672">{&lt;/span> xtel, xtelw &lt;span style="color:#f92672">}&lt;/span> accept comment &lt;span style="color:#e6db74">&amp;#34;:Hugo:1313,1314&amp;#34;&lt;/span>
-ip saddr &lt;span style="color:#f92672">{&lt;/span> 192.168.2.100 &lt;span style="color:#f92672">}&lt;/span> drop
-&lt;span style="color:#f92672">}&lt;/span>
-chain UDP &lt;span style="color:#f92672">{&lt;/span>
-udp dport domain accept
-&lt;span style="color:#f92672">}&lt;/span>
-&lt;span style="color:#f92672">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ftp">Ftp&lt;/h2>
-&lt;ol>
-&lt;li>关闭防火墙&lt;/li>
-&lt;li>安装 &lt;code>ftp&lt;/code>&lt;/li>
-&lt;li>修改三份文件 &lt;code>ftpusers&lt;/code> &lt;code>user_list&lt;/code> &lt;code>vsftpd.conf&lt;/code>&lt;/li>
-&lt;li>重启 &lt;code>ftp&lt;/code>&lt;/li>
-&lt;li>防火墙配置文件允许 &lt;code>21&lt;/code> 端口&lt;/li>
-&lt;li>开启防火墙&lt;/li>
-&lt;li>&lt;code>ftp&lt;/code> 限制用户访问目录思路:修改 &lt;code>/etc/vsftpd/vsftpd.conf&lt;/code> 文件中 &lt;code>chroot_local_user&lt;/code> , &lt;code>chroot_list_enable&lt;/code> , &lt;code>chroot_list_file&lt;/code> 三项; 修改用户默认进入的家目录,则修改 &lt;code>/etc/passwd&lt;/code>&lt;/li>
-&lt;/ol>
-&lt;p>&lt;code>vsftpd.conf&lt;/code> 文件参考配置 :&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">listen_ipv6&lt;span style="color:#f92672">=&lt;/span>YES
-pam_service_name&lt;span style="color:#f92672">=&lt;/span>vsftpd
-tcp_wrappers&lt;span style="color:#f92672">=&lt;/span>YES
-write_enable&lt;span style="color:#f92672">=&lt;/span>YES
-local_umask&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">022&lt;/span> &lt;span style="color:#75715e">#用户ftp创建目录的权限掩码,022即为755&lt;/span>
-listen&lt;span style="color:#f92672">=&lt;/span>NO &lt;span style="color:#75715e">#监听,yes可能导致无法启动ftp&lt;/span>
-anonymous_enable&lt;span style="color:#f92672">=&lt;/span>NO &lt;span style="color:#75715e">#拒绝匿名用户&lt;/span>
-local_root&lt;span style="color:#f92672">=&lt;/span>/var/www/html &lt;span style="color:#75715e">#本地用户初始目录&lt;/span>
-&lt;span style="color:#75715e">#登录限制&lt;/span>
-local_enable&lt;span style="color:#f92672">=&lt;/span>YES
-userlist_enable&lt;span style="color:#f92672">=&lt;/span>YES
-userlist_deny&lt;span style="color:#f92672">=&lt;/span>NO
-userlist_file&lt;span style="color:#f92672">=&lt;/span>/etc/vsftpd/user_list
-&lt;span style="color:#75715e">#目录限制&lt;/span>
-chroot_local_user&lt;span style="color:#f92672">=&lt;/span>YES
-chroot_list_enable&lt;span style="color:#f92672">=&lt;/span>YES
-chroot_list_file&lt;span style="color:#f92672">=&lt;/span>/etc/vsftpd/chroot_list
-allow_writeable_chroot&lt;span style="color:#f92672">=&lt;/span>YES
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="nginx">Nginx&lt;/h2>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;code>linux&lt;/code> 支持 缓存/gzip/端口复用(套接字端口共享)功能( &lt;code>nginx&lt;/code> 开启 &lt;code>reuseport&lt;/code> );从内核层面做 &lt;code>负载均衡&lt;/code> ,避免 &lt;code>锁竞争&lt;/code> ( &lt;code>惊群效应&lt;/code> ): &lt;a href="https://www.zhihu.com/question/51618274">https://www.zhihu.com/question/51618274&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Nginx实现负载均衡需要源码的同步, 使用 &lt;code>rsync&lt;/code> (或+ &lt;code>sersync&lt;/code> )实现集群服务器源码同步,源服务器执行的命令:
-&lt;code>rsync -avH --progress --delete --exclude-from=/etc/exclude.txt --password-file=/etc/pw.txt /var/www/html/ username@192.168.43.175::module1&lt;/code>&lt;/p>
-&lt;blockquote>
-&lt;p>其中按顺序是:含有忽略同步列表的 &lt;code>exclude.txt&lt;/code> 文件,含有密码的 &lt;code>pw.txt&lt;/code> 文件,源服务器的同步目录, &lt;code>username&lt;/code> 用户名,ip地址,对应的模块
-&lt;a href="https://blog.51cto.com/chenfei123/1707746">https://blog.51cto.com/chenfei123/1707746&lt;/a>&lt;/p>
-&lt;/blockquote>
-&lt;/li>
-&lt;/ul>
-&lt;p>&lt;code>负载均衡&lt;/code> 和 &lt;code>前后端分离&lt;/code> 配置 :&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#75715e">#后端应反向给Apache代理&lt;/span>
-upstream proxys &lt;span style="color:#f92672">{&lt;/span>
-server 127.0.0.1:8080 weight&lt;span style="color:#f92672">=&lt;/span>2;
-server 192.168.43.175:9090 weight&lt;span style="color:#f92672">=&lt;/span>3;
-ip_hash;
-&lt;span style="color:#f92672">}&lt;/span>
-&lt;span style="color:#75715e">#前端应反向给Nginx代理&lt;/span>
-upstream proxys2 &lt;span style="color:#f92672">{&lt;/span>
-server 127.0.0.1:8081 weight&lt;span style="color:#f92672">=&lt;/span>3;
-server 192.168.43.175:9090 weight&lt;span style="color:#f92672">=&lt;/span>2;
-&lt;span style="color:#f92672">}&lt;/span>
-server &lt;span style="color:#f92672">{&lt;/span>
-listen 80;
-server_name www.domain.top domain.top;
-index index.html index.htm index.php;
-location / &lt;span style="color:#f92672">{&lt;/span>
-proxy_pass http://proxys;
-proxy_http_version 1.1;
-proxy_set_header Host $http_host;
-proxy_set_header X-Real-IP $remote_addr;
-proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-add_header X-Slave $upstream_addr;
-&lt;span style="color:#f92672">}&lt;/span>
-location ~* &lt;span style="color:#ae81ff">\.&lt;/span>&lt;span style="color:#f92672">(&lt;/span>css|js|png|jpg|jpeg|gif|txt|ico&lt;span style="color:#f92672">)&lt;/span>$|^~/static &lt;span style="color:#f92672">{&lt;/span>
-proxy_pass http://proxys2;
-proxy_set_header Host $http_host;
-proxy_set_header X-Real-IP $remote_addr;
-proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-add_header X-Slave $upstream_addr;
-&lt;span style="color:#f92672">}&lt;/span>
-&lt;span style="color:#f92672">}&lt;/span>
-&lt;span style="color:#75715e">#前端请求代理的配置&lt;/span>
-server &lt;span style="color:#f92672">{&lt;/span>
-listen 8081;
-server_name www.domain.top domain.top;
-location / &lt;span style="color:#f92672">{&lt;/span>
-root /var/www/html/tp/public;
-&lt;span style="color:#f92672">}&lt;/span>
-&lt;span style="color:#f92672">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>缓存&lt;/code> 和 &lt;code>gzip&lt;/code> 配置 :&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">http &lt;span style="color:#f92672">{&lt;/span>
-&lt;span style="color:#75715e"># 开启缓存&lt;/span>
-proxy_connect_timeout 10;
-proxy_read_timeout 180;
-proxy_send_timeout 5;
-proxy_buffer_size 16k;
-proxy_buffers &lt;span style="color:#ae81ff">4&lt;/span> 32k;
-proxy_busy_buffers_size 96k;
-proxy_temp_file_write_size 96k;
-proxy_temp_path /tmp/temp_dir;
-proxy_cache_path /tmp/cache levels&lt;span style="color:#f92672">=&lt;/span>1:2 keys_zone&lt;span style="color:#f92672">=&lt;/span>cache_one:100m inactive&lt;span style="color:#f92672">=&lt;/span>1d max_size&lt;span style="color:#f92672">=&lt;/span>10g;
-server
-&lt;span style="color:#f92672">{&lt;/span>
-listen &lt;span style="color:#ae81ff">8081&lt;/span> reuseport;
-server_name localhost;
-root /usr/share/nginx/tp/public/;
-location /
-&lt;span style="color:#f92672">{&lt;/span>
-&lt;span style="color:#f92672">}&lt;/span>
-&lt;span style="color:#f92672">}&lt;/span>
-server
-&lt;span style="color:#f92672">{&lt;/span>
-&lt;span style="color:#75715e">#开启gzip压缩资源&lt;/span>
-gzip on;
-gzip_vary on;
-gzip_proxied any;
-gzip_comp_level 6;
-gzip_buffers &lt;span style="color:#ae81ff">16&lt;/span> 8k;
-gzip_http_version 1.0;
-gzip_min_length 100;
-gzip_types text/plain text/css application/javascript application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/vnd.ms-fontobject application/x-font-ttf font/opentype image/svg+xml image/x-icon;
-&lt;span style="color:#75715e">#资源文件缓存&lt;/span>
-location ~* &lt;span style="color:#ae81ff">\.&lt;/span>&lt;span style="color:#f92672">(&lt;/span>css|js|json|png|jpg|jpeg|gif|txt|ico|bmp|swf&lt;span style="color:#f92672">)&lt;/span>$|^~/static/
-&lt;span style="color:#f92672">{&lt;/span>
-proxy_pass http://127.0.0.1:8081;
-proxy_redirect off;
-proxy_set_header Host $host;
-proxy_cache cache_one; &lt;span style="color:#75715e">#cache_one在http设置层proxy_cache_path定义&lt;/span>
-proxy_cache_valid &lt;span style="color:#ae81ff">200&lt;/span> &lt;span style="color:#ae81ff">302&lt;/span> 24h;
-proxy_cache_valid &lt;span style="color:#ae81ff">301&lt;/span> 30d;
-proxy_cache_valid any 5m;
-expires 90d;
-add_header wall &lt;span style="color:#e6db74">&amp;#34;hey!这文件进行了缓存和压缩哟!&amp;#34;&lt;/span>;
-&lt;span style="color:#f92672">}&lt;/span>
-&lt;span style="color:#f92672">}&lt;/span>
-&lt;span style="color:#f92672">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="数据库读写分离">数据库读写分离&lt;/h2>
+&lt;h2 id="数据库读写分离">数据库读写分离&lt;/h2>
 &lt;p>实现 &lt;code>读写分离&lt;/code> 分为两大步 :&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.jianshu.com/p/bfca0cdfb169" target="_blank" rel="noopener">主从同步&lt;/a>&lt;/li>
@@ -1569,33 +1451,7 @@ add_header wall &lt;span style="color:#e6db74">&amp;#34;hey!这文件进行了�
 &lt;p>&lt;code>mysql&lt;/code> 之间可相互主从同步,避免 &lt;code>单点&lt;/code> ;当有主从数据库发生宕机,可使用 &lt;code>percona-tooldit&lt;/code> 工具解决恢复宕机后主从数据不同步的问题
 &lt;a href="https://blog.51cto.com/moerjinrong/2352317">https://blog.51cto.com/moerjinrong/2352317&lt;/a>&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;code>Mysql-Proxy&lt;/code> 配置文件 &lt;code>mysql-proxy.cnf&lt;/code> 参考 :&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#f92672">[&lt;/span>mysql-proxy&lt;span style="color:#f92672">]&lt;/span>
-&lt;span style="color:#75715e">#运行mysql-proxy用户&lt;/span>
-user&lt;span style="color:#f92672">=&lt;/span>root
-&lt;span style="color:#75715e">#主从mysql共有的用户&lt;/span>
-admin-username&lt;span style="color:#f92672">=&lt;/span>proxy
-&lt;span style="color:#75715e">#用户的密码&lt;/span>
-admin-password&lt;span style="color:#f92672">=&lt;/span>root
-&lt;span style="color:#75715e">#mysql-proxy运行ip(不能是127.0.0.1)和端口,不加端口,默认4040&lt;/span>
-proxy-address&lt;span style="color:#f92672">=&lt;/span>192.168.1.1:4040
-&lt;span style="color:#75715e">#slave从数据库Ip地址,默认端口3306&lt;/span>
-proxy-read-only-backend-addresses&lt;span style="color:#f92672">=&lt;/span>192.168.1.2:3306
-&lt;span style="color:#75715e">#master主数据库Ip地址,默认端口3306&lt;/span>
-proxy-backend-addresses&lt;span style="color:#f92672">=&lt;/span>192.168.1.3:3306
-&lt;span style="color:#75715e">#读写分离配置文件&lt;/span>
-proxy-lua-script&lt;span style="color:#f92672">=&lt;/span>/usr/lib64/mysql-proxy/lua/rw-splitting.lua
-&lt;span style="color:#75715e">#管理脚本&lt;/span>
-admin-lua-script&lt;span style="color:#f92672">=&lt;/span>/usr/lib64/mysql-proxy/lua/admin.lua
-&lt;span style="color:#75715e">#日志&lt;/span>
-log-file&lt;span style="color:#f92672">=&lt;/span>/var/log/mysql-proxy.log
-&lt;span style="color:#75715e">#日志级别,高到低有error|warning|info|message|debug&lt;/span>
-log-level&lt;span style="color:#f92672">=&lt;/span>info
-&lt;span style="color:#75715e">#以守护进程方式运行&lt;/span>
-daemon&lt;span style="color:#f92672">=&lt;/span>true
-&lt;span style="color:#75715e">#崩溃时,尝试重启&lt;/span>
-keepalive&lt;span style="color:#f92672">=&lt;/span>true
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="数据库">数据库&lt;/h2>
+&lt;h2 id="数据库">数据库&lt;/h2>
 &lt;blockquote>
 &lt;p>&lt;code>mysql8&lt;/code> 特性 :&lt;/p>
 &lt;ul>
@@ -1610,29 +1466,16 @@ keepalive&lt;span style="color:#f92672">=&lt;/span>true
 &lt;/blockquote>
 &lt;ul>
 &lt;li>
-&lt;p>&lt;code>redis&lt;/code> 只做缓存使用,避免进行 &lt;code>持久性&lt;/code> &amp;amp;&amp;amp; &lt;code>队列&lt;/code> &amp;amp;&amp;amp; &lt;code>事务&lt;/code> (总之一句话:专人专事)&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;code>redis&lt;/code> 和 &lt;code>DB&lt;/code> 一致性方案:只读 &lt;code>redis&lt;/code> ,当更新 &lt;code>DB&lt;/code> 之后把受影响的缓存全部干掉(注意:是干掉,不是更新),并且设定过期时间: &lt;a href="https://www.zhihu.com/question/319817091">https://www.zhihu.com/question/319817091&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
 &lt;p>出现不能连接数据库的情况,除了防火墙,也可能是数据库没有设置对外添加权限&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>出现用户不能登录的情况,可能是默认登录了 &lt;code>匿名用户&lt;/code> , 要把用户名为 &lt;code>''&lt;/code> 的用户清除&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;code>MyISAM&lt;/code> 存储引擎偏向于大量查询和插入事件,表锁&lt;/p>
-&lt;/li>
-&lt;li>
 &lt;p>&lt;code>InnoDB&lt;/code> 存储引擎偏向于增删改事件,支持事务,支持索引行锁&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>索引才用 &lt;code>for update&lt;/code> 锁库&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>数据库类型
-&lt;a href="http://www.jb51.net/article/55853.htm">http://www.jb51.net/article/55853.htm&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>免密码登录
@@ -1792,420 +1635,6 @@ $originsAllowed &lt;span style="color:#f92672">=&lt;/span> [
 }
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ul>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>函数&lt;/th>
-&lt;th>描述&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>rand(x,y)&lt;/td>
-&lt;td>在xy之间取随机数&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>implode(&amp;lsquo;xx&amp;rsquo;,'$my_name')&lt;/td>
-&lt;td>用xx隔开my_name中每个元素&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>explode()&lt;/td>
-&lt;td>把字符串打散为数组.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>arry_merge()&lt;/td>
-&lt;td>打散混乱数组重新排列&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>in_array($xy,$my_name)&lt;/td>
-&lt;td>数组$my_name是否含$xy&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>mb_substr($my_name,x,y,&amp;lsquo;utf-8&amp;rsquo;)&lt;/td>
-&lt;td>截取字符串,从第x个字符开始截取y个字符&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>strtotime()&lt;/td>
-&lt;td>将任何英文文本的日期或时间描述解析为 Unix 时间戳.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>字符串类型&lt;/td>
-&lt;td>&amp;ndash;&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>addcslashes()&lt;/td>
-&lt;td>返回在指定的字符前添加反斜杠的字符串.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>addslashes()&lt;/td>
-&lt;td>返回在预定义的字符前添加反斜杠的字符串.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>chop()&lt;/td>
-&lt;td>删除字符串右侧的空白字符或其他字符..&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>chunk_split()&lt;/td>
-&lt;td>把字符串分割为一系列更小的部分.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>html_entity_decode()&lt;/td>
-&lt;td>把 HTML 实体转换为字符.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>htmlentities()&lt;/td>
-&lt;td>把字符转换为 HTML 实体.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>htmlspecialchars_decode()&lt;/td>
-&lt;td>把一些预定义的 HTML 实体转换为字符.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>htmlspecialchars()&lt;/td>
-&lt;td>把一些预定义的字符转换为 HTML 实体.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>join()&lt;/td>
-&lt;td>implode() 的别名.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ltrim()&lt;/td>
-&lt;td>移除字符串左侧的空白字符或其他字符.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>md5()&lt;/td>
-&lt;td>计算字符串的 MD5 散列.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>number_format()&lt;/td>
-&lt;td>以千位分组来格式化数字.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>parse_str()&lt;/td>
-&lt;td>把查询字符串解析到变量中.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>rtrim()&lt;/td>
-&lt;td>移除字符串右侧的空白字符或其他字符.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>sha1()&lt;/td>
-&lt;td>计算字符串的 SHA-1 散列.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>similar_text()&lt;/td>
-&lt;td>计算两个字符串的相似度.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>sprintf()&lt;/td>
-&lt;td>把格式化的字符串写入变量中.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>str_pad()&lt;/td>
-&lt;td>把字符串填充为新的长度.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>str_repeat()&lt;/td>
-&lt;td>把字符串重复指定的次数.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>str_replace()&lt;/td>
-&lt;td>替换字符串中的一些字符(对大小写敏感)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>str_shuffle()&lt;/td>
-&lt;td>随机地打乱字符串中的所有字符.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>str_split()&lt;/td>
-&lt;td>把字符串分割到数组中.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>strip_tags()&lt;/td>
-&lt;td>剥去字符串中的 HTML 和 PHP 标签.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>stripcslashes()&lt;/td>
-&lt;td>删除由 addcslashes() 函数添加的反斜杠.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>stripslashes()&lt;/td>
-&lt;td>删除由 addslashes() 函数添加的反斜杠.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>stripos()&lt;/td>
-&lt;td>返回字符串第一次出现的位置(大小写不敏感)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>strpos()&lt;/td>
-&lt;td>返回字符串第一次出现的位置(大小写敏感)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>stristr()&lt;/td>
-&lt;td>查找字符串第一次出现的位置(大小写不敏感)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>strrchr()&lt;/td>
-&lt;td>查找字符串最后一次出现.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>strripos()&lt;/td>
-&lt;td>查找字符串最后一次出现的位置(大小写不敏感)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>strrpos()&lt;/td>
-&lt;td>查找字符串最后一次出现的位置(大小写敏感)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>strstr()&lt;/td>
-&lt;td>查找字符串第一次出现(大小写敏感)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>strchr()&lt;/td>
-&lt;td>查找字符串第一次出现,strstr() 的别名&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>strrev()&lt;/td>
-&lt;td>反转字符串.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>strlen()&lt;/td>
-&lt;td>返回字符串的长度.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>strtolower()&lt;/td>
-&lt;td>把字符串转换为小写字母.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>strtoupper()&lt;/td>
-&lt;td>把字符串转换为大写字母.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>strtr()&lt;/td>
-&lt;td>转换字符串中特定的字符.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>substr()&lt;/td>
-&lt;td>返回字符串的一部分.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>substr_count()&lt;/td>
-&lt;td>计算子串在字符串中出现的次数.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>substr_replace()&lt;/td>
-&lt;td>把字符串的一部分替换为另一个字符串.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ucfirst()&lt;/td>
-&lt;td>把字符串中的首字符转换为大写.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ucwords()&lt;/td>
-&lt;td>把字符串中每个单词的首字符转换为大写.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>数组函数&lt;/td>
-&lt;td>&amp;ndash;&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_change_key_case()&lt;/td>
-&lt;td>把数组中所有键更改为小写或大写.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_chunk()&lt;/td>
-&lt;td>把一个数组分割为新的数组块.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_column()&lt;/td>
-&lt;td>返回输入数组中某个单一列的值.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_combine()&lt;/td>
-&lt;td>通过合并两个数组来创建一个新数组.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_count_values()&lt;/td>
-&lt;td>用于统计数组中所有值出现的次数.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_diff()&lt;/td>
-&lt;td>比较数组,返回差集(只比较键值)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_fill()&lt;/td>
-&lt;td>用给定的键值填充数组.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_fill_keys()&lt;/td>
-&lt;td>用指定键名的给定键值填充数组.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_filter()&lt;/td>
-&lt;td>用回调函数过滤数组中的元素.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_flip()&lt;/td>
-&lt;td>交换数组中的键和值.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_intersect()&lt;/td>
-&lt;td>比较数组,返回交集(只比较键值)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_key_exists()&lt;/td>
-&lt;td>检查指定的键名是否存在于数组中.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_keys()&lt;/td>
-&lt;td>返回数组中所有的键名.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_map()&lt;/td>
-&lt;td>把数组中的每个值发送到用户自定义函数,返回新的值.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_merge()&lt;/td>
-&lt;td>把一个或多个数组合并为一个数组.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_multisort()&lt;/td>
-&lt;td>对多个数组或多维数组进行排序.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_pad()&lt;/td>
-&lt;td>用值将数组填补到指定长度.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_pop()&lt;/td>
-&lt;td>删除数组的最后一个元素(出栈)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_push()&lt;/td>
-&lt;td>将一个或多个元素插入数组的末尾(入栈)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_replace()&lt;/td>
-&lt;td>使用后面数组的值替换第一个数组的值.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_reverse()&lt;/td>
-&lt;td>以相反的顺序返回数组.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_search()&lt;/td>
-&lt;td>搜索数组中给定的值并返回键名.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_shift()&lt;/td>
-&lt;td>删除数组中首个元素,并返回被删除元素的值.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_slice()&lt;/td>
-&lt;td>返回数组中被选定的部分.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_splice()&lt;/td>
-&lt;td>删除并替换数组中指定的元素.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_sum()&lt;/td>
-&lt;td>返回数组中值的和.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_udiff()&lt;/td>
-&lt;td>比较数组,返回差集&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_unique()&lt;/td>
-&lt;td>删除数组中的重复值.(集合的概念)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_unshift()&lt;/td>
-&lt;td>在数组开头插入一个或多个元素.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>array_values()&lt;/td>
-&lt;td>返回数组中所有的值.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>arsort()&lt;/td>
-&lt;td>对关联数组按照键值进行降序排序.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>asort()&lt;/td>
-&lt;td>对关联数组按照键值进行升序排序.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>compact()&lt;/td>
-&lt;td>创建包含变量名和它们的值的数组.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>count()&lt;/td>
-&lt;td>返回数组中元素的数目.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>current()&lt;/td>
-&lt;td>返回数组中的当前元素.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>extract()&lt;/td>
-&lt;td>从数组中将变量导入到当前的符号表.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>in_array()&lt;/td>
-&lt;td>检查数组中是否存在指定的值.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>key()&lt;/td>
-&lt;td>从关联数组中取得键名.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>krsort()&lt;/td>
-&lt;td>对数组按照键名逆向排序.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ksort()&lt;/td>
-&lt;td>对数组按照键名排序.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>list()&lt;/td>
-&lt;td>把数组中的值赋给一些变量.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>range()&lt;/td>
-&lt;td>创建包含指定范围单元的数组.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>rsort()&lt;/td>
-&lt;td>对数组逆向排序.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>shuffle()&lt;/td>
-&lt;td>将数组打乱.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>sizeof()&lt;/td>
-&lt;td>count() 的别名.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>sort()&lt;/td>
-&lt;td>对数组排序.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>uasort()&lt;/td>
-&lt;td>使用用户自定义的比较函数对数组中的键值进行排序.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>uksort()&lt;/td>
-&lt;td>使用用户自定义的比较函数对数组中的键名进行排序.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>usort()&lt;/td>
-&lt;td>使用用户自定义的比较函数对数组进行排序.&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
 &lt;h2 id="前端">前端&lt;/h2>
 &lt;ul>
 &lt;li>可以设置类似&lt;code>cookie&lt;/code> , 它可永久保存

@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Github | 忐忑の博客</title><link>https://twbhub.com/tags/github/</link><atom:link href="https://twbhub.com/tags/github/index.xml" rel="self" type="application/rss+xml"/><description>Github</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202023_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sat, 13 Mar 2021 14:00:00 +0800</lastBuildDate><image><url>https://twbhub.com/media/avatar.jpg</url><title>Github</title><link>https://twbhub.com/tags/github/</link></image><item><title>使用Github Actions发布docker镜像到仓库</title><link>https://twbhub.com/post/github-actions_publish_images/</link><pubDate>Sat, 13 Mar 2021 14:00:00 +0800</pubDate><guid>https://twbhub.com/post/github-actions_publish_images/</guid><description>&lt;h2 id="前文">前文&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Github | 忐忑の博客</title><link>https://twbhub.com/tags/github/</link><atom:link href="https://twbhub.com/tags/github/index.xml" rel="self" type="application/rss+xml"/><description>Github</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202023_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sat, 13 Mar 2021 14:00:00 +0800</lastBuildDate><image><url>https://twbhub.com/media/avatar.jpg</url><title>Github</title><link>https://twbhub.com/tags/github/</link></image><item><title>使用Github Actions发布docker镜像到仓库</title><link>https://twbhub.com/post/github-actions_publish_images/</link><pubDate>Sat, 13 Mar 2021 14:00:00 +0800</pubDate><guid>https://twbhub.com/post/github-actions_publish_images/</guid><description>&lt;p>&lt;strong>!!!现在官方已出教程了, 请到&lt;a href="https://docs.github.com/zh/actions/publishing-packages/publishing-docker-images" target="_blank" rel="noopener">github-action官网&lt;/a>学习; 此过期文章只作为参考!!!&lt;/strong>&lt;/p>
+&lt;h2 id="前文">前文&lt;/h2>
 &lt;p>关于发布Docker镜像到仓库, 思路有不少, 比如:&lt;/p>
 &lt;ol>
 &lt;li>本地生成Docker镜像后, 使用 &lt;code>docker login&lt;/code> 登录, 然后再 &lt;code>docker push&lt;/code> 发布到仓库(Docker Hub等)&lt;/li>
@@ -54,7 +55,7 @@
 &lt;span style="color:#f92672">TZ&lt;/span>: &lt;span style="color:#ae81ff">Asia/Shanghai&lt;/span>
 &lt;span style="color:#f92672">REGISTRY&lt;/span>: &lt;span style="color:#ae81ff">ghcr.io&lt;/span>
 &lt;span style="color:#f92672">steps&lt;/span>:
-- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v2&lt;/span>
+- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v3&lt;/span>
 - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Login&lt;/span>
 &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">docker/login-action@v1&lt;/span>
 &lt;span style="color:#f92672">with&lt;/span>:
@@ -123,7 +124,7 @@
 &lt;span style="color:#f92672">TZ&lt;/span>: &lt;span style="color:#ae81ff">Asia/Shanghai&lt;/span>
 &lt;span style="color:#f92672">REGISTRY&lt;/span>: &lt;span style="color:#ae81ff">ghcr.io&lt;/span>
 &lt;span style="color:#f92672">steps&lt;/span>:
-- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v2&lt;/span>
+- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v3&lt;/span>
 - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Login&lt;/span>
 &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">docker/login-action@v1&lt;/span>
 &lt;span style="color:#f92672">with&lt;/span>:
@@ -145,7 +146,7 @@
 &lt;span style="color:#f92672">env&lt;/span>:
 &lt;span style="color:#f92672">TZ&lt;/span>: &lt;span style="color:#ae81ff">Asia/Shanghai&lt;/span>
 &lt;span style="color:#f92672">steps&lt;/span>:
-- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v2&lt;/span>
+- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v3&lt;/span>
 - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Login&lt;/span>
 &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">docker/login-action@v1&lt;/span>
 &lt;span style="color:#f92672">with&lt;/span>:
@@ -167,7 +168,7 @@
 &lt;span style="color:#f92672">REGISTRY&lt;/span>: &lt;span style="color:#ae81ff">docker.pkg.github.com&lt;/span>
 &lt;span style="color:#f92672">TZ&lt;/span>: &lt;span style="color:#ae81ff">Asia/Shanghai&lt;/span>
 &lt;span style="color:#f92672">steps&lt;/span>:
-- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v2&lt;/span>
+- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v3&lt;/span>
 - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Login&lt;/span>
 &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">docker/login-action@v1&lt;/span>
 &lt;span style="color:#f92672">with&lt;/span>:
