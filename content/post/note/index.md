@@ -417,6 +417,7 @@ openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
     tig安装
     tree安装
     screen安装
+    axel安装(对线程下载)
     docker安装
     docker-compose安装
     k3s安装
