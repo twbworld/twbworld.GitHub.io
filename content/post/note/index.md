@@ -364,32 +364,6 @@ openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
 
 * Linux配置流程 :
     ``` sh
-    ufw防火墙关闭
-    静态ip
-    ali源
-    ssh安装及配置
-    samba安装及配置;用户:root;密码:root;
-    传项目文件
-    python升级
-    net-tools安装
-    iftop安装
-    htop安装
-    git安装及配置
-    tig安装
-    tree安装
-    screen安装
-    docker安装
-    docker-compose安装
-    k3s安装
-    k3d安装
-    golang安装
-    fresh安装
-    hugo安装
-    node安装
-    php安装
-    mysql安装
-    proxychains安装
-
     ~/.vimrc配置
     syntax on
     set autoindent
@@ -420,11 +394,43 @@ openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
     alias init='id'
     alias reboot='id'
 
+    export GO111MODULE=on
+    export GOROOT=/usr/local/go/
+    export GOPATH=/usr/local/gopath/
+    export PATH=$PATH:/usr/local/bin:/usr/local/sbin:$GOPATH/bin/
+
     开启BBR
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
     sysctl -p
     lsmod | grep bbr
+
+    ufw防火墙关闭
+    静态ip
+    apt源及更新
+    ssh安装及配置
+    net-tools安装
+    iftop安装
+    htop安装
+    mtr安装
+    git安装及配置
+    tig安装
+    tree安装
+    screen安装
+    docker安装
+    docker-compose安装
+    k3s安装
+    k3d安装
+    python升级
+    golang安装
+    php安装
+    node安装
+    fresh安装
+    hugo安装
+    mysql安装
+    proxychains安装
+    samba安装
+    传项目文件
     ```
 
 * SSL证书申请 :
