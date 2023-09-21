@@ -821,6 +821,8 @@ export GO111MODULE&lt;span style="color:#f92672">=&lt;/span>on
 export GOROOT&lt;span style="color:#f92672">=&lt;/span>/usr/local/go/
 export GOPATH&lt;span style="color:#f92672">=&lt;/span>/usr/local/gopath/
 export PATH&lt;span style="color:#f92672">=&lt;/span>$PATH:/usr/local/bin:/usr/local/sbin:$GOPATH/bin/
+关闭终端响铃
+echo &lt;span style="color:#e6db74">&amp;#34;set bell-style none&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/inputrc
 开启BBR
 echo &lt;span style="color:#e6db74">&amp;#34;net.core.default_qdisc=fq&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
 echo &lt;span style="color:#e6db74">&amp;#34;net.ipv4.tcp_congestion_control=bbr&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
@@ -838,7 +840,7 @@ git安装及配置
 tig安装
 tree安装
 screen安装
-axel安装&lt;span style="color:#f92672">(&lt;/span>对线程下载&lt;span style="color:#f92672">)&lt;/span>
+axel安装&lt;span style="color:#f92672">(&lt;/span>多线程下载&lt;span style="color:#f92672">)&lt;/span>
 docker安装
 docker-compose安装
 k3s安装
