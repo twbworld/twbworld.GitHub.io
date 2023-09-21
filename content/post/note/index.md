@@ -399,6 +399,9 @@ openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
     export GOPATH=/usr/local/gopath/
     export PATH=$PATH:/usr/local/bin:/usr/local/sbin:$GOPATH/bin/
 
+    关闭终端响铃
+    echo "set bell-style none" >> /etc/inputrc
+
     开启BBR
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
@@ -417,7 +420,7 @@ openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
     tig安装
     tree安装
     screen安装
-    axel安装(对线程下载)
+    axel安装(多线程下载)
     docker安装
     docker-compose安装
     k3s安装
