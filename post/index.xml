@@ -1238,7 +1238,7 @@ ssh安装及配置
 net-tools安装
 iftop安装
 htop安装
-mtr安装
+mtr安装&lt;span style="color:#f92672">(&lt;/span>网络链&lt;span style="color:#f92672">)&lt;/span>
 git安装及配置
 tig安装
 tree安装
