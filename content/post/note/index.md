@@ -415,7 +415,7 @@ openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
     net-tools安装
     iftop安装
     htop安装
-    mtr安装
+    mtr安装(网络链)
     git安装及配置
     tig安装
     tree安装
