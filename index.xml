@@ -673,6 +673,10 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;td>资源占用&lt;/td>
 &lt;/tr>
 &lt;tr>
+&lt;td>kubectl get pods -A -o custom-columns=node:.spec.nodeName,pod:.metadata.name,uid:.metadata.uid&lt;/td>
+&lt;td>uid和pod的对应关系&lt;/td>
+&lt;/tr>
+&lt;tr>
 &lt;td>kubectl rollout history deploy/pod-deploy &amp;ndash;revision=1&lt;/td>
 &lt;td>镜像历史&lt;/td>
 &lt;/tr>
@@ -683,6 +687,10 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;tr>
 &lt;td>kubectl port-forward mysql-sts-0 33060:3306 &amp;ndash;address=192.168.111.111&lt;/td>
 &lt;td>端口映射&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>kubectl run &amp;ndash;rm -it &amp;ndash;image=busybox:latest &amp;ndash;restart=Never test &amp;ndash; /bin/sh -c &amp;ldquo;while sleep 0.01; do wget -q -O- http://proxy-svc:80/test.html; done&amp;rdquo;&lt;/td>
+&lt;td>压力测试&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>helm show values traefik/traefik &amp;gt; traefik_values.yml&lt;/td>
