@@ -183,9 +183,11 @@ image:
 | kubectl logs pod-name    |  查看pod日志 |
 | kubectl api-resources    |  查看所有api |
 | kubectl top po/no         |  资源占用 |
+| kubectl get pods -A -o custom-columns=node:.spec.nodeName,pod:.metadata.name,uid:.metadata.uid         | uid和pod的对应关系 |
 | kubectl rollout history deploy/pod-deploy --revision=1 |  镜像历史 |
 | kubectl rollout undo deploy/pod-deploy --to-revision=1  |  回滚镜像历史 |
 | kubectl port-forward mysql-sts-0 33060:3306 --address=192.168.111.111  |  端口映射 |
+| kubectl run --rm -it --image=busybox:latest --restart=Never test -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://proxy-svc:80/test.html; done"  |  压力测试 |
 | helm show values traefik/traefik > traefik_values.yml  |  导出配置 |
 | helm upgrade -f traefik_values.yml traefik traefik/traefik  |  更新配置 |
 
