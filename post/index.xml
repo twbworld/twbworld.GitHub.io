@@ -1,4 +1,91 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>忐忑の博客</title><link>https://twbhub.com/post/</link><atom:link href="https://twbhub.com/post/index.xml" rel="self" type="application/rss+xml"/><description>忐忑の博客</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202023_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><image><url>https://twbhub.com/media/avatar.jpg</url><title>忐忑の博客</title><link>https://twbhub.com/post/</link></image><item><title>olaindex配置安装</title><link>https://twbhub.com/post/olaindex_config/</link><pubDate>Mon, 05 Sep 2022 19:00:00 +0800</pubDate><guid>https://twbhub.com/post/olaindex_config/</guid><description>&lt;h2 id="关于环境的安装不做详细教程">关于环境的安装,不做详细教程&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>忐忑の博客</title><link>https://twbhub.com/post/</link><atom:link href="https://twbhub.com/post/index.xml" rel="self" type="application/rss+xml"/><description>忐忑の博客</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202024_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><image><url>https://twbhub.com/media/avatar.jpg</url><title>忐忑の博客</title><link>https://twbhub.com/post/</link></image><item><title>golang编译并创建镜像</title><link>https://twbhub.com/post/go_docker/</link><pubDate>Fri, 12 Jan 2024 15:18:13 +0800</pubDate><guid>https://twbhub.com/post/go_docker/</guid><description>&lt;details>
+&lt;summary>Dockerfile&lt;/summary>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span style="color:#66d9ef">FROM&lt;/span>&lt;span style="color:#e6db74"> golang:alpine AS builder&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">WORKDIR&lt;/span>&lt;span style="color:#e6db74"> /app&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">ENV&lt;/span> GO111MODULE&lt;span style="color:#f92672">=&lt;/span>on
+&lt;span style="color:#66d9ef">COPY&lt;/span> go.mod go.sum ./&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">RUN&lt;/span> go mod download&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">COPY&lt;/span> . .&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">RUN&lt;/span> go build -ldflags &lt;span style="color:#e6db74">&amp;#34;-s -w&amp;#34;&lt;/span> -o server .&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">FROM&lt;/span>&lt;span style="color:#e6db74"> alpine&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">WORKDIR&lt;/span>&lt;span style="color:#e6db74"> /app&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">COPY&lt;/span> --from&lt;span style="color:#f92672">=&lt;/span>builder /app/server /app/server&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">RUN&lt;/span> set -xe &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> chmod +x server &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> apk add -U --no-cache tzdata ca-certificates &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> apk cache clean &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> rm -rf /var/cache/apk/*&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">ENTRYPOINT&lt;/span> [&lt;span style="color:#e6db74">&amp;#34;./server&amp;#34;&lt;/span>]&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/details>
+&lt;h2 id="一次报错">一次报错&lt;/h2>
+&lt;h4 id="最近项目用到了go-sqlite3-导致在golangalpine编译成功且生成镜像-但镜像启动过程中-容器内运行go编译文件会报错-导致镜像无法启动">最近项目用到了&lt;code>go-sqlite3&lt;/code>, 导致在&lt;code>golang:alpine&lt;/code>编译成功且生成镜像, 但镜像启动过程中, 容器内运行go编译文件会报错, 导致镜像无法启动&lt;/h4>
+&lt;h4 id="报错如下-">报错如下 :&lt;/h4>
+&lt;blockquote>
+&lt;p>Binary was compiled with &amp;lsquo;CGO_ENABLED=0&amp;rsquo;, go-sqlite3 requires cgo to work. This is a stub&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="原因">原因&lt;/h3>
+&lt;p>&lt;code>go-sqlite3&lt;/code>在golang代码内, 用到&lt;code>cgo&lt;/code>命令, 所以必须开启&lt;code>cgo编译开关&lt;/code>,编译时设置&lt;code>CGO_ENABLED=1&lt;/code>&lt;/p>
+&lt;h4 id="解决">解决&lt;/h4>
+&lt;p>于是, 把编译命令改成 :&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">CGO_ENABLED&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> go build -ldflags &lt;span style="color:#e6db74">&amp;#34;-s -w&amp;#34;&lt;/span> -o server .
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="二次报错">二次报错&lt;/h2>
+&lt;h4 id="然而这次在编译阶段就报错了-镜像生成失败-报错如下">然而这次在编译阶段就报错了, 镜像生成失败, 报错如下:&lt;/h4>
+&lt;blockquote>
+&lt;p>cgo: C compiler &amp;ldquo;gcc&amp;rdquo; not found&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="原因-1">原因&lt;/h3>
+&lt;p>golang使用cgo, 需要 &lt;code>gcc&lt;/code> 环境; 然而&lt;code>golang:alpine&lt;/code>镜像为了最小化默认的C库却是 &lt;code>musl&lt;/code>&lt;/p>
+&lt;h4 id="解决-1">解决&lt;/h4>
+&lt;blockquote>
+&lt;p>在&lt;code>golang:alpine&lt;/code>内安装&lt;code>gcc&lt;/code>觉得是多此一举了, 干脆改用&lt;code>golang:latest&lt;/code>镜像, 虽然其镜像大导致生成镜像慢, 但不影响最终生成镜像的大小;&lt;/p>
+&lt;/blockquote>
+&lt;p>Dockerfile修改为 :&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span style="color:#66d9ef">FROM&lt;/span>&lt;span style="color:#e6db74"> golang:latest AS builder&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="三次报错">三次报错&lt;/h2>
+&lt;h4 id="这次跟一次报错一次报错一样-生成镜像成功了-然而镜像启动失败-报错如下">这次跟&lt;a href="#%e4%b8%80%e6%ac%a1%e6%8a%a5%e9%94%99">一次报错&lt;/a>一样, 生成镜像成功了; 然而镜像启动失败, 报错如下:&lt;/h4>
+&lt;blockquote>
+&lt;p>./server: not found&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="排查">排查&lt;/h4>
+&lt;p>./server 正是编译后的文件, 明明存在的, 却执行失败
+于是使用&lt;code>docker run --tty=true&lt;/code>的形式进入容器, 执行:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ldd ./server
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>报错:&lt;/p>
+&lt;blockquote>
+&lt;p>Error relocating server: fcntl64: symbol not found&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="原因-2">原因&lt;/h3>
+&lt;p>编译后的二进制文件需要依赖&lt;code>glibc&lt;/code>, 也就是&lt;code>gcc&lt;/code>环境; 而运行文件的环境是&lt;code>alpine&lt;/code>而不是基于&lt;code>golang:latest&lt;/code>, 并没有&lt;code>gcc&lt;/code>;&lt;/p>
+&lt;p>很疑惑, 这不是编译成功了嘛? 怎么还需要依赖外部系统环境?&lt;/p>
+&lt;p>原来golang编译有 &lt;code>静态编译&lt;/code> 和 &lt;code>动态编译&lt;/code> 的区别, 默认后者;&lt;/p>
+&lt;p>前者是把外部依赖的相关程序(如&lt;code>glibc&lt;/code>)打包进编译文件; 后者需要动态链接到外部环境, 换句话讲, 就是需要特定环境&lt;/p>
+&lt;h4 id="解决-2">解决&lt;/h4>
+&lt;p>真相大白, 如果默认golang&lt;code>动态编译&lt;/code>, 需要&lt;code>alpine&lt;/code>镜像内安装&lt;code>gcc&lt;/code>,这也是多此一举了; 因此改用 &lt;code>静态编译&lt;/code>&lt;/p>
+&lt;p>于是, 把编译命令改成 :&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">CGO_ENABLED&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> go build -ldflags &lt;span style="color:#e6db74">&amp;#34;-s -w --extldflags &amp;#39;-static -fpic&amp;#39;&amp;#34;&lt;/span> -o server .
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="最终">最终&lt;/h2>
+&lt;details>
+&lt;summary>Dockerfile&lt;/summary>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span style="color:#66d9ef">FROM&lt;/span>&lt;span style="color:#e6db74"> golang:latest AS builder&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">WORKDIR&lt;/span>&lt;span style="color:#e6db74"> /app&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">ENV&lt;/span> GO111MODULE&lt;span style="color:#f92672">=&lt;/span>on
+&lt;span style="color:#66d9ef">COPY&lt;/span> go.mod go.sum ./&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">RUN&lt;/span> go mod download&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">COPY&lt;/span> . .&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">RUN&lt;/span> CGO_ENABLED&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> GOOS&lt;span style="color:#f92672">=&lt;/span>linux GOARCH&lt;span style="color:#f92672">=&lt;/span>amd64 go build -ldflags &lt;span style="color:#e6db74">&amp;#34;-s -w --extldflags &amp;#39;-static -fpic&amp;#39;&amp;#34;&lt;/span> -o server .&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">FROM&lt;/span>&lt;span style="color:#e6db74"> alpine&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">LABEL&lt;/span> org.opencontainers.image.vendor&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;忐忑&amp;#34;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">WORKDIR&lt;/span>&lt;span style="color:#e6db74"> /app&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">COPY&lt;/span> --from&lt;span style="color:#f92672">=&lt;/span>builder /app/server /app/server&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">RUN&lt;/span> set -xe &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> chmod +x server &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> apk add -U --no-cache tzdata ca-certificates &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> apk cache clean &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> rm -rf /var/cache/apk/*&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">ENTRYPOINT&lt;/span> [&lt;span style="color:#e6db74">&amp;#34;./server&amp;#34;&lt;/span>]&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/details></description></item><item><title>olaindex配置安装</title><link>https://twbhub.com/post/olaindex_config/</link><pubDate>Mon, 05 Sep 2022 19:00:00 +0800</pubDate><guid>https://twbhub.com/post/olaindex_config/</guid><description>&lt;h2 id="关于环境的安装不做详细教程">关于环境的安装,不做详细教程&lt;/h2>
 &lt;h3 id="olainde隐藏后台地址">&lt;code>olainde&lt;/code>隐藏后台地址&lt;/h3>
 &lt;p>因为olaindex默认是以&lt;code>/admin&lt;/code>为默认地址的,我们需要做适当修改&lt;/p>
 &lt;h4 id="修改routeswebphp">修改routes/web.php&lt;/h4>
@@ -1231,6 +1318,8 @@ alias reboot&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6d
 export GO111MODULE&lt;span style="color:#f92672">=&lt;/span>on
 export GOROOT&lt;span style="color:#f92672">=&lt;/span>/usr/local/go/
 export GOPATH&lt;span style="color:#f92672">=&lt;/span>/usr/local/gopath/
+export CF_Email&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;xxx@qq.com&amp;#34;&lt;/span>
+export CF_Key&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;xxxx&amp;#39;&lt;/span>
 export PATH&lt;span style="color:#f92672">=&lt;/span>$PATH:/usr/local/bin:/usr/local/sbin:$GOPATH/bin/
 关闭终端响铃
 echo &lt;span style="color:#e6db74">&amp;#34;set bell-style none&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/inputrc
@@ -1273,22 +1362,22 @@ samba安装
 &lt;ol>
 &lt;li>到&lt;a href="https://dash.cloudflare.com/profile" target="_blank" rel="noopener">cloudflare&lt;/a>获取&amp;quot;更新dns&amp;quot;得权限码,&lt;a href="https://github.com/acmesh-official/acme.sh/wiki/dnsapi" target="_blank" rel="noopener">教程&lt;/a>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">export CF_Key&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;xxxxxxxxxxxxxx&amp;#34;&lt;/span>
-export CF_Email&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;1174865138@qq.com&amp;#34;&lt;/span>
+export CF_Email&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;xxx@qq.com&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>安装acme.sh
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl https://get.acme.sh | sh -s email&lt;span style="color:#f92672">=&lt;/span>1174865138@qq.com
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl https://get.acme.sh | sh -s email&lt;span style="color:#f92672">=&lt;/span>xxx@qq.com
 source ~/.bashrc
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>获取证书
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --issue --dns dns_cf -d twbhub.top -d *.twbhub.top &lt;span style="color:#ae81ff">\
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --issue --dns dns_cf -d &lt;span style="color:#e6db74">&amp;#34;xxx.com&amp;#34;&lt;/span> -d &lt;span style="color:#e6db74">&amp;#34;*.xxx.com&amp;#34;&lt;/span> &lt;span style="color:#ae81ff">\
 &lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--yes-I-know-dns-manual-mode-enough-go-ahead-please
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>验证证书
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --renew -d twbhub.top -d *.twbhub.top &lt;span style="color:#ae81ff">\
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --renew -d &lt;span style="color:#e6db74">&amp;#34;xxx.com&amp;#34;&lt;/span> -d &lt;span style="color:#e6db74">&amp;#34;*.xxx.com&amp;#34;&lt;/span> &lt;span style="color:#ae81ff">\
 &lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--yes-I-know-dns-manual-mode-enough-go-ahead-please --force
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>安装证书到别的位置
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --install-cert -d twbhub.top -d *.twbhub.top &lt;span style="color:#ae81ff">\
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --install-cert -d &lt;span style="color:#e6db74">&amp;#34;xxx.com&amp;#34;&lt;/span> -d &lt;span style="color:#e6db74">&amp;#34;*.xxx.com&amp;#34;&lt;/span> &lt;span style="color:#ae81ff">\
 &lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--key-file /var/www/cert/key.pem &lt;span style="color:#ae81ff">\
 &lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--fullchain-file /var/www/cert/cert.pem &lt;span style="color:#ae81ff">\
 &lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--reloadcmd &lt;span style="color:#e6db74">&amp;#34;docker exec nginx nginx -t &amp;amp;&amp;amp; docker exec trojan /bin/bash -c &amp;#39;systemctl restart trojan &amp;amp;&amp;amp; exit&amp;#39; &amp;amp;&amp;amp; docker exec nginx /bin/bash -c &amp;#39;service nginx force-reload &amp;amp;&amp;amp; exit&amp;#39;&amp;#34;&lt;/span>
