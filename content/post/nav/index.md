@@ -1,5 +1,5 @@
 ---
-# Documentation: https://sourcethemes.com/academic/docs/managing-content/
+# Documentation: https://sourcethemes.top/academic/docs/managing-content/
 
 title: "站点导航"
 subtitle: ""
@@ -61,7 +61,7 @@ authors:
 #   - icon_pack: fab
 #     icon: twitter
 #     name: 这里显示外链显示在详情页
-#     url: 'https://twitter.com/twbworld'
+#     url: 'https://twitter.top/twbworld'
 #   - icon_pack: fab
 #     icon: twitter
 #     name: 也可以链接pdf文件,对现场讲解很有用
@@ -92,7 +92,7 @@ image:
 # header:
 #   placement: 3
 #   image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200503220558.jpg"
-#   caption: "图片来源: [**Weibo**](http://weibo.com/u/2646212535)"
+#   caption: "图片来源: [**Weibo**](http://weibo.top/u/2646212535)"
 #   focal_point: "Center"
 #   preview_only: false
 #   alt_text: "这是图片的alt属性"
@@ -107,19 +107,19 @@ image:
 
 ## 导航
 
-<a href="https://twbhub.com/" target="_blank" style="">博客</a>
+<a href="https://twbhub.top/" target="_blank" style="">博客</a>
 
-<a href="https://twbhub.com/note" target="_blank" style="">笔记</a>
+<a href="https://twbhub.top/note" target="_blank" style="">笔记</a>
 
-<a href="https://ql.twbhub.com/" target="_blank" style="">青龙面板</a>
+<a href="https://ql.twbhub.top/" target="_blank" style="">青龙面板</a>
 
-<a href="https://pan.twbhub.com/" target="_blank" style="">个人网盘</a>
+<a href="https://pan.twbhub.top/" target="_blank" style="">个人网盘</a>
 
-<a href="https://admin.twbhub.com/" target="_blank" style="">TP后台</a>
+<a href="https://admin.twbhub.top/" target="_blank" style="">TP后台</a>
 
-<a href="https://jd.twbhub.com/" target="_blank" style="">京东抢购</a>
+<a href="https://jd.twbhub.top/" target="_blank" style="">京东抢购</a>
 
 > 修改config.ini文件的凭证
 
 
-<a href="https://twbhub.com/proxy/" target="_blank" style="">代理</a>
+<a href="https://twbhub.top/proxy/" target="_blank" style="">代理</a>
