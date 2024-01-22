@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>忐忑の博客</title><link>https://twbhub.com/</link><atom:link href="https://twbhub.com/index.xml" rel="self" type="application/rss+xml"/><description>忐忑の博客</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202024_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Fri, 12 Jan 2024 15:18:13 +0800</lastBuildDate><image><url>https://twbhub.com/media/avatar.jpg</url><title>忐忑の博客</title><link>https://twbhub.com/</link></image><item><title>golang编译并创建镜像</title><link>https://twbhub.com/post/go_docker/</link><pubDate>Fri, 12 Jan 2024 15:18:13 +0800</pubDate><guid>https://twbhub.com/post/go_docker/</guid><description>&lt;details>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>忐忑の博客</title><link>https://twbhub.top/</link><atom:link href="https://twbhub.top/index.xml" rel="self" type="application/rss+xml"/><description>忐忑の博客</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202024_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Fri, 12 Jan 2024 15:18:13 +0800</lastBuildDate><image><url>https://twbhub.top/media/avatar.jpg</url><title>忐忑の博客</title><link>https://twbhub.top/</link></image><item><title>golang编译并创建镜像</title><link>https://twbhub.top/post/go_docker/</link><pubDate>Fri, 12 Jan 2024 15:18:13 +0800</pubDate><guid>https://twbhub.top/post/go_docker/</guid><description>&lt;details>
 &lt;summary>Dockerfile&lt;/summary>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span style="color:#66d9ef">FROM&lt;/span>&lt;span style="color:#e6db74"> golang:alpine AS builder&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
 &lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">WORKDIR&lt;/span>&lt;span style="color:#e6db74"> /app&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
@@ -85,7 +85,7 @@
 &lt;/span>&lt;span style="color:#ae81ff">&lt;/span> apk cache clean &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\
 &lt;/span>&lt;span style="color:#ae81ff">&lt;/span> rm -rf /var/cache/apk/*&lt;span style="color:#960050;background-color:#1e0010">
 &lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">ENTRYPOINT&lt;/span> [&lt;span style="color:#e6db74">&amp;#34;./server&amp;#34;&lt;/span>]&lt;span style="color:#960050;background-color:#1e0010">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/details></description></item><item><title>olaindex配置安装</title><link>https://twbhub.com/post/olaindex_config/</link><pubDate>Mon, 05 Sep 2022 19:00:00 +0800</pubDate><guid>https://twbhub.com/post/olaindex_config/</guid><description>&lt;h2 id="关于环境的安装不做详细教程">关于环境的安装,不做详细教程&lt;/h2>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/details></description></item><item><title>olaindex配置安装</title><link>https://twbhub.top/post/olaindex_config/</link><pubDate>Mon, 05 Sep 2022 19:00:00 +0800</pubDate><guid>https://twbhub.top/post/olaindex_config/</guid><description>&lt;h2 id="关于环境的安装不做详细教程">关于环境的安装,不做详细教程&lt;/h2>
 &lt;h3 id="olainde隐藏后台地址">&lt;code>olainde&lt;/code>隐藏后台地址&lt;/h3>
 &lt;p>因为olaindex默认是以&lt;code>/admin&lt;/code>为默认地址的,我们需要做适当修改&lt;/p>
 &lt;h4 id="修改routeswebphp">修改routes/web.php&lt;/h4>
@@ -116,7 +116,7 @@ rewrite ^/admin/&lt;span style="color:#f92672">(&lt;/span>.*&lt;span style="colo
 &lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/2020051721274930989089.png" alt="">&lt;/li>
 &lt;li>把前面所记录下的&lt;code>client_id&lt;/code>和&lt;code>client_secret&lt;/code>填入, 保存
 &lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200517212749307398210.png" alt="">&lt;/li>
-&lt;/ol></description></item><item><title>nginx开启stream模块获取真实ip</title><link>https://twbhub.com/post/get_real_ip/</link><pubDate>Mon, 14 Mar 2022 21:00:00 +0800</pubDate><guid>https://twbhub.com/post/get_real_ip/</guid><description>&lt;blockquote>
+&lt;/ol></description></item><item><title>nginx开启stream模块获取真实ip</title><link>https://twbhub.top/post/get_real_ip/</link><pubDate>Mon, 14 Mar 2022 21:00:00 +0800</pubDate><guid>https://twbhub.top/post/get_real_ip/</guid><description>&lt;blockquote>
 &lt;p>nginx开了stream模块,无法获取想要的客户端ip,最近学习了相关知识, 顺带做笔记&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="几个重要知识点">几个重要知识点&lt;/h2>
@@ -251,13 +251,13 @@ rewrite ^/admin/&lt;span style="color:#f92672">(&lt;/span>.*&lt;span style="colo
 &lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>毫无疑问, C成功获取到A的真实ip; 其中$remote_addr为上级ip; 而$http_x_real_ip和$http_x_forwarded_for是代理B发起的http请求头传过来的; 一切预料之中&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;em>&lt;strong>举一反三, 就算后边有再多的代理节点, 也可以正常获取真实ip的&lt;/strong>&lt;/em>&lt;/p></description></item><item><title>Postman无法抓包Chrome</title><link>https://twbhub.com/post/postman_cannot_connection_chrome/</link><pubDate>Thu, 20 May 2021 23:00:00 +0800</pubDate><guid>https://twbhub.com/post/postman_cannot_connection_chrome/</guid><description>&lt;h2 id="原因">原因&lt;/h2>
+&lt;p>&lt;em>&lt;strong>举一反三, 就算后边有再多的代理节点, 也可以正常获取真实ip的&lt;/strong>&lt;/em>&lt;/p></description></item><item><title>Postman无法抓包Chrome</title><link>https://twbhub.top/post/postman_cannot_connection_chrome/</link><pubDate>Thu, 20 May 2021 23:00:00 +0800</pubDate><guid>https://twbhub.top/post/postman_cannot_connection_chrome/</guid><description>&lt;h2 id="原因">原因&lt;/h2>
 &lt;p>Mac安装了两个版本(我的是正式版和&lt;code>Dev&lt;/code>版)的 &lt;code>Chrome&lt;/code> ,一个正常, 另一个版本无法与 &lt;code>Postman&lt;/code> 连接, 无法被抓包(Windows不会出现这样的情况)
 原因是不正常的版本缺少了一个 &lt;code>Interceptor&lt;/code> 插件的配置文件, 据官方&lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/interceptor/#how-it-works" target="_blank" rel="noopener">文档&lt;/a>所述,文件位于
 &lt;code>/Users/&amp;lt;username&amp;gt;/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.postman.postmanapp.json&lt;/code>&lt;/p>
 &lt;h2 id="解决">解决&lt;/h2>
 &lt;p>也简单,配置文件位于 正式版的 &lt;code>Chrome&lt;/code> 下, 解决方法就是复制一份到对应的版本的 &lt;code>Chrome&lt;/code> 的对应目录下
-如复制文件到Dev版的 &lt;code>Chrome&lt;/code>对应目录: &lt;code>/Users/&amp;lt;username&amp;gt;/Library/Application Support/Google/Chrome Dev/NativeMessagingHosts/com.postman.postmanapp.json&lt;/code>&lt;/p></description></item><item><title>Postman抓包https</title><link>https://twbhub.com/post/postman_capture_https/</link><pubDate>Thu, 20 May 2021 22:00:00 +0800</pubDate><guid>https://twbhub.com/post/postman_capture_https/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+如复制文件到Dev版的 &lt;code>Chrome&lt;/code>对应目录: &lt;code>/Users/&amp;lt;username&amp;gt;/Library/Application Support/Google/Chrome Dev/NativeMessagingHosts/com.postman.postmanapp.json&lt;/code>&lt;/p></description></item><item><title>Postman抓包https</title><link>https://twbhub.top/post/postman_capture_https/</link><pubDate>Thu, 20 May 2021 22:00:00 +0800</pubDate><guid>https://twbhub.top/post/postman_capture_https/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
 &lt;blockquote>
 &lt;p>虽然会使用 &lt;code>Charles&lt;/code>(花瓶) , 但如果 &lt;code>Postman&lt;/code> 也可以实相同的功能, 少用一个工具, 那谁能不爱呢, 借 &lt;code>Postman&lt;/code> 强大的发包功能, 就更方便了&lt;/p>
 &lt;/blockquote>
@@ -292,7 +292,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;li>打开iOS的WiFI页, &lt;code>配置手动代理&lt;/code>, 填写Mac或Windows的IP地址和前一步设置的端口&lt;/li>
 &lt;li>不出意外, Postman就可以抓取到https的数据包了,位于左侧的 &lt;code>History&lt;/code> 栏下&lt;/li>
 &lt;/ol>
-&lt;p>官方操作传送门 &lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#using-postmans-proxy-example">https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#using-postmans-proxy-example&lt;/a>&lt;/p></description></item><item><title>使用Github Actions发布docker镜像到仓库</title><link>https://twbhub.com/post/github-actions_publish_images/</link><pubDate>Sat, 13 Mar 2021 14:00:00 +0800</pubDate><guid>https://twbhub.com/post/github-actions_publish_images/</guid><description>&lt;p>&lt;strong>!!!现在官方已出教程了, 请到&lt;a href="https://docs.github.com/zh/actions/publishing-packages/publishing-docker-images" target="_blank" rel="noopener">github-action官网&lt;/a>学习; 此过期文章只作为参考!!!&lt;/strong>&lt;/p>
+&lt;p>官方操作传送门 &lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#using-postmans-proxy-example">https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#using-postmans-proxy-example&lt;/a>&lt;/p></description></item><item><title>使用Github Actions发布docker镜像到仓库</title><link>https://twbhub.top/post/github-actions_publish_images/</link><pubDate>Sat, 13 Mar 2021 14:00:00 +0800</pubDate><guid>https://twbhub.top/post/github-actions_publish_images/</guid><description>&lt;p>&lt;strong>!!!现在官方已出教程了, 请到&lt;a href="https://docs.github.com/zh/actions/publishing-packages/publishing-docker-images" target="_blank" rel="noopener">github-action官网&lt;/a>学习; 此过期文章只作为参考!!!&lt;/strong>&lt;/p>
 &lt;h2 id="前文">前文&lt;/h2>
 &lt;p>关于发布Docker镜像到仓库, 思路有不少, 比如:&lt;/p>
 &lt;ol>
@@ -485,7 +485,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;span style="color:#f92672">num-old-versions-to-delete&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#75715e">#删除最旧的一个包&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>GitHub-Actions 真香 !&lt;/p>
-&lt;/blockquote></description></item><item><title>GitHub Actions无法触发</title><link>https://twbhub.com/post/github_actions_invalid/</link><pubDate>Sat, 23 Jan 2021 19:00:00 +0800</pubDate><guid>https://twbhub.com/post/github_actions_invalid/</guid><description>&lt;h2 id="问题">问题&lt;/h2>
+&lt;/blockquote></description></item><item><title>GitHub Actions无法触发</title><link>https://twbhub.top/post/github_actions_invalid/</link><pubDate>Sat, 23 Jan 2021 19:00:00 +0800</pubDate><guid>https://twbhub.top/post/github_actions_invalid/</guid><description>&lt;h2 id="问题">问题&lt;/h2>
 &lt;blockquote>
 &lt;p>刚刚接触github actions实现CI/CD, 遇到了一个yml文件触发失败的问题&lt;/p>
 &lt;/blockquote>
@@ -519,7 +519,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 如果 &lt;code>workflows&lt;/code> 目录下有多个yml, GitHub-Actions默认是并行触发的, 如果想实现按顺序触发, 请使用 &lt;a href="https://docs.github.com/cn/actions/reference/events-that-trigger-workflows#workflow_run" target="_blank" rel="noopener">&lt;code>workflow_run&lt;/code>&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>GitHub-Actions 真香 !&lt;/p>
-&lt;/blockquote></description></item><item><title>学习笔记</title><link>https://twbhub.com/note/</link><pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate><guid>https://twbhub.com/note/</guid><description>&lt;h2 id="扩展知识">扩展知识&lt;/h2>
+&lt;/blockquote></description></item><item><title>学习笔记</title><link>https://twbhub.top/note/</link><pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate><guid>https://twbhub.top/note/</guid><description>&lt;h2 id="扩展知识">扩展知识&lt;/h2>
 &lt;h3 id="双系统制作">双系统制作&lt;/h3>
 &lt;blockquote>
 &lt;p>&lt;a href="https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103">https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103&lt;/a>&lt;/p>
@@ -1789,7 +1789,7 @@ $originsAllowed &lt;span style="color:#f92672">=&lt;/span> [
 });
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ul>
-&lt;p>&lt;strong>&amp;hellip; 以上&lt;/strong>&lt;/p></description></item><item><title>制作多分区启动盘</title><link>https://twbhub.com/post/multi_partition_startup_disk/</link><pubDate>Mon, 28 Sep 2020 22:20:13 +0800</pubDate><guid>https://twbhub.com/post/multi_partition_startup_disk/</guid><description>&lt;blockquote>
+&lt;p>&lt;strong>&amp;hellip; 以上&lt;/strong>&lt;/p></description></item><item><title>制作多分区启动盘</title><link>https://twbhub.top/post/multi_partition_startup_disk/</link><pubDate>Mon, 28 Sep 2020 22:20:13 +0800</pubDate><guid>https://twbhub.top/post/multi_partition_startup_disk/</guid><description>&lt;blockquote>
 &lt;p>有些小伙伴手里有上百G甚至上T移动硬盘
 平时制作启动硬盘,除了启动分区,都是只剩一个分区提供自己使用的
 那么问题来了:怎么保留启动盘的功能,又能把硬盘分成多个分区呢?
@@ -1878,7 +1878,7 @@ $originsAllowed &lt;span style="color:#f92672">=&lt;/span> [
 &lt;p>但是,这样制作的多分区启动硬盘, &lt;code>BIOS&lt;/code> 只能使用 &lt;code>Legacy&lt;/code> 启动模式来启动硬盘(新型的 &lt;code>UEFI&lt;/code> 无法启动PE), 如下图例子(华硕的BIOS)&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200929015346.png" alt="">&lt;/p>
-&lt;p>&lt;strong>&amp;hellip; 以上&lt;/strong>&lt;/p></description></item><item><title>SSH隧道连接局域网下的虚拟机</title><link>https://twbhub.com/post/tunnel_connect/</link><pubDate>Sun, 12 Jul 2020 18:18:13 +0800</pubDate><guid>https://twbhub.com/post/tunnel_connect/</guid><description>&lt;blockquote>
+&lt;p>&lt;strong>&amp;hellip; 以上&lt;/strong>&lt;/p></description></item><item><title>SSH隧道连接局域网下的虚拟机</title><link>https://twbhub.top/post/tunnel_connect/</link><pubDate>Sun, 12 Jul 2020 18:18:13 +0800</pubDate><guid>https://twbhub.top/post/tunnel_connect/</guid><description>&lt;blockquote>
 &lt;p>连接局域网下的虚拟机,在网上找到的做法通常是:在VMware配置端口转发
 最近了解隧道技术,突发奇想:能不能使用SSH隧道连接局域网下的虚拟机呢?
 在网上找到的相关资料不多,经过自己摸索,终于实现了
@@ -1998,7 +1998,7 @@ $originsAllowed &lt;span style="color:#f92672">=&lt;/span> [
 &lt;li>终于到最后一步了, 很简单, 在 A 电脑直接用&lt;code>PuTTY&lt;/code>请求 B 的 6666端口, 就可以登录 C 啦&lt;/li>
 &lt;/ul>
 &lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712222247.png" alt="">&lt;/p>
-&lt;p>&lt;strong>&amp;hellip; 以上&lt;/strong>&lt;/p></description></item><item><title>VMware自定义虚拟网卡(添加网络)</title><link>https://twbhub.com/post/vmware_customize_network/</link><pubDate>Sun, 31 May 2020 14:07:40 +0800</pubDate><guid>https://twbhub.com/post/vmware_customize_network/</guid><description>&lt;blockquote>
+&lt;p>&lt;strong>&amp;hellip; 以上&lt;/strong>&lt;/p></description></item><item><title>VMware自定义虚拟网卡(添加网络)</title><link>https://twbhub.top/post/vmware_customize_network/</link><pubDate>Sun, 31 May 2020 14:07:40 +0800</pubDate><guid>https://twbhub.top/post/vmware_customize_network/</guid><description>&lt;blockquote>
 &lt;p>我的VMware版本: 15.5.2&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="一-创建虚拟网络">一 创建虚拟网络&lt;/h2>
@@ -2060,7 +2060,7 @@ $originsAllowed &lt;span style="color:#f92672">=&lt;/span> [
 &lt;ol start="5">
 &lt;li>同时还可以在虚拟机里设置固定的IP,IP地址要根据&amp;quot;起始IP&amp;quot;和结束&amp;quot;IP&amp;quot;设置; 例如,我在Centos8系统上, 设置了IP:&amp;ldquo;192.168.2.2&amp;rdquo;&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531171957.png" alt="">&lt;/p></description></item><item><title>Centos源码安装Mysql8笔记</title><link>https://twbhub.com/post/install_mysql8_note/</link><pubDate>Sat, 30 May 2020 20:47:16 +0800</pubDate><guid>https://twbhub.com/post/install_mysql8_note/</guid><description>&lt;h2 id="笔记一-安装时发生警告">笔记一: 安装时,发生警告&lt;/h2>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531171957.png" alt="">&lt;/p></description></item><item><title>Centos源码安装Mysql8笔记</title><link>https://twbhub.top/post/install_mysql8_note/</link><pubDate>Sat, 30 May 2020 20:47:16 +0800</pubDate><guid>https://twbhub.top/post/install_mysql8_note/</guid><description>&lt;h2 id="笔记一-安装时发生警告">笔记一: 安装时,发生警告&lt;/h2>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">
 --character-set-server: &lt;span style="color:#e6db74">&amp;#39;utf8&amp;#39;&lt;/span> is currently an alias &lt;span style="color:#66d9ef">for&lt;/span> the character set UTF8MB3, but will be an alias &lt;span style="color:#66d9ef">for&lt;/span> UTF8MB4 in a future release. Please consider using UTF8MB4 in order to be unambiguous
 --collation-server: &lt;span style="color:#e6db74">&amp;#39;utf8_general_ci&amp;#39;&lt;/span> is a collation of the deprecated character set UTF8MB3. Please consider using UTF8MB4 with an appropriate collation instead
@@ -2424,7 +2424,7 @@ mysql&amp;gt; alter user &lt;span style="color:#e6db74">&amp;#39;root&amp;#39;&l
 ln -s /usr/local/mysql8/bin/* /usr/local/bin/
 &lt;span style="color:#75715e"># 启动设置&lt;/span>
 cp support-files/mysql.server /etc/init.d/mysql.server
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>搭建博客的准备</title><link>https://twbhub.com/post/blog_ready/</link><pubDate>Sun, 17 May 2020 19:06:47 +0800</pubDate><guid>https://twbhub.com/post/blog_ready/</guid><description>&lt;blockquote>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>搭建博客的准备</title><link>https://twbhub.top/post/blog_ready/</link><pubDate>Sun, 17 May 2020 19:06:47 +0800</pubDate><guid>https://twbhub.top/post/blog_ready/</guid><description>&lt;blockquote>
 &lt;p>最近想建立自己的博客网站,便于在开发过程中写一些笔记;
 但进入了未知领域,面临了怎么抉择的问题; 毕竟谁也不情愿一开始就因选择了自己不适合的,最后半途而悔&lt;/p>
 &lt;/blockquote>
@@ -2526,7 +2526,7 @@ cp support-files/mysql.server /etc/init.d/mysql.server
 &lt;p>缺点:&lt;/p>
 &lt;ul>
 &lt;li>虽然全球用户量庞大,但缺乏中文文档, 国内用户群体少, Hugo的相关中文文章也就少; Hugo会不会是在国内的一支&amp;quot;潜力股&amp;quot; ?&lt;/li>
-&lt;/ul></description></item><item><title>keepalived高可用配置</title><link>https://twbhub.com/post/keepalived_ha/</link><pubDate>Sun, 02 Oct 2022 17:00:00 +0800</pubDate><guid>https://twbhub.com/post/keepalived_ha/</guid><description>&lt;blockquote>
+&lt;/ul></description></item><item><title>keepalived高可用配置</title><link>https://twbhub.top/post/keepalived_ha/</link><pubDate>Sun, 02 Oct 2022 17:00:00 +0800</pubDate><guid>https://twbhub.top/post/keepalived_ha/</guid><description>&lt;blockquote>
 &lt;p>&lt;code>keepalived&lt;/code>需要一个&lt;code>vip&lt;/code>;如果用的是云服务,那么得在后台申请一个高可用ip,才能实现&lt;code>vip飘移&lt;/code>;如果是自建服务器,那么一台服务器得使用两个网卡;只是为了测试,那么使用&lt;code>docker容器&lt;/code>模拟集群是最合适的了&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="nginxkeepalived">Nginx+keepalived&lt;/h2>
@@ -2683,17 +2683,17 @@ exit &lt;span style="color:#ae81ff">1&lt;/span>
 &lt;span style="color:#66d9ef">fi&lt;/span>
 &lt;span style="color:#66d9ef">fi&lt;/span>
 exit &lt;span style="color:#ae81ff">0&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>站点导航</title><link>https://twbhub.com/nav/</link><pubDate>Fri, 04 Mar 2022 00:00:00 +0800</pubDate><guid>https://twbhub.com/nav/</guid><description>&lt;h2 id="导航">导航&lt;/h2>
-&lt;p>&lt;a href="https://twbhub.com/" target="_blank" style="">博客&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://twbhub.com/note" target="_blank" style="">笔记&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://ql.twbhub.com/" target="_blank" style="">青龙面板&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://pan.twbhub.com/" target="_blank" style="">个人网盘&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://admin.twbhub.com/" target="_blank" style="">TP后台&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://jd.twbhub.com/" target="_blank" style="">京东抢购&lt;/a>&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>站点导航</title><link>https://twbhub.top/nav/</link><pubDate>Fri, 04 Mar 2022 00:00:00 +0800</pubDate><guid>https://twbhub.top/nav/</guid><description>&lt;h2 id="导航">导航&lt;/h2>
+&lt;p>&lt;a href="https://twbhub.top/" target="_blank" style="">博客&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://twbhub.top/note" target="_blank" style="">笔记&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://ql.twbhub.top/" target="_blank" style="">青龙面板&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://pan.twbhub.top/" target="_blank" style="">个人网盘&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://admin.twbhub.top/" target="_blank" style="">TP后台&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://jd.twbhub.top/" target="_blank" style="">京东抢购&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>修改config.ini文件的凭证&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;a href="https://twbhub.com/proxy/" target="_blank" style="">代理&lt;/a>&lt;/p></description></item><item><title>订阅</title><link>https://twbhub.com/proxy/</link><pubDate>Tue, 23 Feb 2021 00:00:00 +0800</pubDate><guid>https://twbhub.com/proxy/</guid><description>&lt;h2 id="1费用">1#费用&lt;/h2>
+&lt;p>&lt;a href="https://twbhub.top/proxy/" target="_blank" style="">代理&lt;/a>&lt;/p></description></item><item><title>订阅</title><link>https://twbhub.top/proxy/</link><pubDate>Tue, 23 Feb 2021 00:00:00 +0800</pubDate><guid>https://twbhub.top/proxy/</guid><description>&lt;h2 id="1费用">1#费用&lt;/h2>
 &lt;h3 id="月付">月付&lt;/h3>
 &lt;blockquote>
 &lt;p>如想要更低的价 , 或者 担心每月忘记续费 , 可选择 &lt;em>&lt;strong>年付&lt;/strong>&lt;/em>&lt;/p>

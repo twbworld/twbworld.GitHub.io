@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Network | 忐忑の博客</title><link>https://twbhub.com/tags/network/</link><atom:link href="https://twbhub.com/tags/network/index.xml" rel="self" type="application/rss+xml"/><description>Network</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202024_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sun, 02 Oct 2022 17:00:00 +0800</lastBuildDate><image><url>https://twbhub.com/media/avatar.jpg</url><title>Network</title><link>https://twbhub.com/tags/network/</link></image><item><title>nginx开启stream模块获取真实ip</title><link>https://twbhub.com/post/get_real_ip/</link><pubDate>Mon, 14 Mar 2022 21:00:00 +0800</pubDate><guid>https://twbhub.com/post/get_real_ip/</guid><description>&lt;blockquote>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Network | 忐忑の博客</title><link>https://twbhub.top/tags/network/</link><atom:link href="https://twbhub.top/tags/network/index.xml" rel="self" type="application/rss+xml"/><description>Network</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202024_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Sun, 02 Oct 2022 17:00:00 +0800</lastBuildDate><image><url>https://twbhub.top/media/avatar.jpg</url><title>Network</title><link>https://twbhub.top/tags/network/</link></image><item><title>nginx开启stream模块获取真实ip</title><link>https://twbhub.top/post/get_real_ip/</link><pubDate>Mon, 14 Mar 2022 21:00:00 +0800</pubDate><guid>https://twbhub.top/post/get_real_ip/</guid><description>&lt;blockquote>
 &lt;p>nginx开了stream模块,无法获取想要的客户端ip,最近学习了相关知识, 顺带做笔记&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="几个重要知识点">几个重要知识点&lt;/h2>
@@ -133,13 +133,13 @@
 &lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>毫无疑问, C成功获取到A的真实ip; 其中$remote_addr为上级ip; 而$http_x_real_ip和$http_x_forwarded_for是代理B发起的http请求头传过来的; 一切预料之中&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;em>&lt;strong>举一反三, 就算后边有再多的代理节点, 也可以正常获取真实ip的&lt;/strong>&lt;/em>&lt;/p></description></item><item><title>Postman无法抓包Chrome</title><link>https://twbhub.com/post/postman_cannot_connection_chrome/</link><pubDate>Thu, 20 May 2021 23:00:00 +0800</pubDate><guid>https://twbhub.com/post/postman_cannot_connection_chrome/</guid><description>&lt;h2 id="原因">原因&lt;/h2>
+&lt;p>&lt;em>&lt;strong>举一反三, 就算后边有再多的代理节点, 也可以正常获取真实ip的&lt;/strong>&lt;/em>&lt;/p></description></item><item><title>Postman无法抓包Chrome</title><link>https://twbhub.top/post/postman_cannot_connection_chrome/</link><pubDate>Thu, 20 May 2021 23:00:00 +0800</pubDate><guid>https://twbhub.top/post/postman_cannot_connection_chrome/</guid><description>&lt;h2 id="原因">原因&lt;/h2>
 &lt;p>Mac安装了两个版本(我的是正式版和&lt;code>Dev&lt;/code>版)的 &lt;code>Chrome&lt;/code> ,一个正常, 另一个版本无法与 &lt;code>Postman&lt;/code> 连接, 无法被抓包(Windows不会出现这样的情况)
 原因是不正常的版本缺少了一个 &lt;code>Interceptor&lt;/code> 插件的配置文件, 据官方&lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/interceptor/#how-it-works" target="_blank" rel="noopener">文档&lt;/a>所述,文件位于
 &lt;code>/Users/&amp;lt;username&amp;gt;/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.postman.postmanapp.json&lt;/code>&lt;/p>
 &lt;h2 id="解决">解决&lt;/h2>
 &lt;p>也简单,配置文件位于 正式版的 &lt;code>Chrome&lt;/code> 下, 解决方法就是复制一份到对应的版本的 &lt;code>Chrome&lt;/code> 的对应目录下
-如复制文件到Dev版的 &lt;code>Chrome&lt;/code>对应目录: &lt;code>/Users/&amp;lt;username&amp;gt;/Library/Application Support/Google/Chrome Dev/NativeMessagingHosts/com.postman.postmanapp.json&lt;/code>&lt;/p></description></item><item><title>Postman抓包https</title><link>https://twbhub.com/post/postman_capture_https/</link><pubDate>Thu, 20 May 2021 22:00:00 +0800</pubDate><guid>https://twbhub.com/post/postman_capture_https/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+如复制文件到Dev版的 &lt;code>Chrome&lt;/code>对应目录: &lt;code>/Users/&amp;lt;username&amp;gt;/Library/Application Support/Google/Chrome Dev/NativeMessagingHosts/com.postman.postmanapp.json&lt;/code>&lt;/p></description></item><item><title>Postman抓包https</title><link>https://twbhub.top/post/postman_capture_https/</link><pubDate>Thu, 20 May 2021 22:00:00 +0800</pubDate><guid>https://twbhub.top/post/postman_capture_https/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
 &lt;blockquote>
 &lt;p>虽然会使用 &lt;code>Charles&lt;/code>(花瓶) , 但如果 &lt;code>Postman&lt;/code> 也可以实相同的功能, 少用一个工具, 那谁能不爱呢, 借 &lt;code>Postman&lt;/code> 强大的发包功能, 就更方便了&lt;/p>
 &lt;/blockquote>
@@ -174,7 +174,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;li>打开iOS的WiFI页, &lt;code>配置手动代理&lt;/code>, 填写Mac或Windows的IP地址和前一步设置的端口&lt;/li>
 &lt;li>不出意外, Postman就可以抓取到https的数据包了,位于左侧的 &lt;code>History&lt;/code> 栏下&lt;/li>
 &lt;/ol>
-&lt;p>官方操作传送门 &lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#using-postmans-proxy-example">https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#using-postmans-proxy-example&lt;/a>&lt;/p></description></item><item><title>SSH隧道连接局域网下的虚拟机</title><link>https://twbhub.com/post/tunnel_connect/</link><pubDate>Sun, 12 Jul 2020 18:18:13 +0800</pubDate><guid>https://twbhub.com/post/tunnel_connect/</guid><description>&lt;blockquote>
+&lt;p>官方操作传送门 &lt;a href="https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#using-postmans-proxy-example">https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/#using-postmans-proxy-example&lt;/a>&lt;/p></description></item><item><title>SSH隧道连接局域网下的虚拟机</title><link>https://twbhub.top/post/tunnel_connect/</link><pubDate>Sun, 12 Jul 2020 18:18:13 +0800</pubDate><guid>https://twbhub.top/post/tunnel_connect/</guid><description>&lt;blockquote>
 &lt;p>连接局域网下的虚拟机,在网上找到的做法通常是:在VMware配置端口转发
 最近了解隧道技术,突发奇想:能不能使用SSH隧道连接局域网下的虚拟机呢?
 在网上找到的相关资料不多,经过自己摸索,终于实现了
@@ -294,7 +294,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;li>终于到最后一步了, 很简单, 在 A 电脑直接用&lt;code>PuTTY&lt;/code>请求 B 的 6666端口, 就可以登录 C 啦&lt;/li>
 &lt;/ul>
 &lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200712222247.png" alt="">&lt;/p>
-&lt;p>&lt;strong>&amp;hellip; 以上&lt;/strong>&lt;/p></description></item><item><title>VMware自定义虚拟网卡(添加网络)</title><link>https://twbhub.com/post/vmware_customize_network/</link><pubDate>Sun, 31 May 2020 14:07:40 +0800</pubDate><guid>https://twbhub.com/post/vmware_customize_network/</guid><description>&lt;blockquote>
+&lt;p>&lt;strong>&amp;hellip; 以上&lt;/strong>&lt;/p></description></item><item><title>VMware自定义虚拟网卡(添加网络)</title><link>https://twbhub.top/post/vmware_customize_network/</link><pubDate>Sun, 31 May 2020 14:07:40 +0800</pubDate><guid>https://twbhub.top/post/vmware_customize_network/</guid><description>&lt;blockquote>
 &lt;p>我的VMware版本: 15.5.2&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="一-创建虚拟网络">一 创建虚拟网络&lt;/h2>
@@ -356,7 +356,7 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;ol start="5">
 &lt;li>同时还可以在虚拟机里设置固定的IP,IP地址要根据&amp;quot;起始IP&amp;quot;和结束&amp;quot;IP&amp;quot;设置; 例如,我在Centos8系统上, 设置了IP:&amp;ldquo;192.168.2.2&amp;rdquo;&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531171957.png" alt="">&lt;/p></description></item><item><title>keepalived高可用配置</title><link>https://twbhub.com/post/keepalived_ha/</link><pubDate>Sun, 02 Oct 2022 17:00:00 +0800</pubDate><guid>https://twbhub.com/post/keepalived_ha/</guid><description>&lt;blockquote>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/20200531171957.png" alt="">&lt;/p></description></item><item><title>keepalived高可用配置</title><link>https://twbhub.top/post/keepalived_ha/</link><pubDate>Sun, 02 Oct 2022 17:00:00 +0800</pubDate><guid>https://twbhub.top/post/keepalived_ha/</guid><description>&lt;blockquote>
 &lt;p>&lt;code>keepalived&lt;/code>需要一个&lt;code>vip&lt;/code>;如果用的是云服务,那么得在后台申请一个高可用ip,才能实现&lt;code>vip飘移&lt;/code>;如果是自建服务器,那么一台服务器得使用两个网卡;只是为了测试,那么使用&lt;code>docker容器&lt;/code>模拟集群是最合适的了&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="nginxkeepalived">Nginx+keepalived&lt;/h2>
