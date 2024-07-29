@@ -925,33 +925,22 @@ echo &lt;span style="color:#e6db74">&amp;#34;net.core.default_qdisc=fq&amp;#34;&
 echo &lt;span style="color:#e6db74">&amp;#34;net.ipv4.tcp_congestion_control=bbr&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
 sysctl -p
 lsmod | grep bbr
-ufw防火墙关闭
+systemctl disable ufw &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> systemctl stop ufw
 静态ip
-apt源及更新
-ssh安装及配置
-net-tools安装
-iftop安装
-htop安装
-mtr安装&lt;span style="color:#f92672">(&lt;/span>网络链&lt;span style="color:#f92672">)&lt;/span>
-git安装及配置
-tig安装
-tree安装
-screen安装
-axel安装&lt;span style="color:#f92672">(&lt;/span>多线程下载&lt;span style="color:#f92672">)&lt;/span>
-docker安装
-docker-compose安装
+apt源
+apt update &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> apt upgrade -y
+apt install -y ssh ca-certificates curl net-tools iftop htop mtr zip git tig tree screen axel proxychains4 acl samba
+mtr&lt;span style="color:#f92672">(&lt;/span>网络链&lt;span style="color:#f92672">)&lt;/span>
+axel&lt;span style="color:#f92672">(&lt;/span>多线程下载&lt;span style="color:#f92672">)&lt;/span>
+ssh证书配置
+git配置
+samba配置
+docker安装&lt;span style="color:#f92672">(&lt;/span>nginx/mysql/php/node&lt;span style="color:#f92672">)&lt;/span>
 k3s安装
 k3d安装
-python升级
 golang安装
-php安装
-node安装
 fresh安装
-hugo安装
-mysql安装
-proxychains安装
-samba安装
-传项目文件
+apt autoclean -y &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> apt autoremove -y
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>SSL证书申请 :&lt;/p>
