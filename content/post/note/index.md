@@ -412,33 +412,22 @@ openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
     sysctl -p
     lsmod | grep bbr
 
-    ufw防火墙关闭
+    systemctl disable ufw && systemctl stop ufw
     静态ip
-    apt源及更新
-    ssh安装及配置
-    net-tools安装
-    iftop安装
-    htop安装
-    mtr安装(网络链)
-    git安装及配置
-    tig安装
-    tree安装
-    screen安装
-    axel安装(多线程下载)
-    docker安装
-    docker-compose安装
+    apt源
+    apt update && apt upgrade -y
+    apt install -y ssh ca-certificates curl net-tools iftop htop mtr zip git tig tree screen axel proxychains4 acl samba
+    mtr(网络链)
+    axel(多线程下载)
+    ssh证书配置
+    git配置
+    samba配置
+    docker安装(nginx/mysql/php/node)
     k3s安装
     k3d安装
-    python升级
     golang安装
-    php安装
-    node安装
     fresh安装
-    hugo安装
-    mysql安装
-    proxychains安装
-    samba安装
-    传项目文件
+    apt autoclean -y && apt autoremove -y
     ```
 
 * SSL证书申请 :
