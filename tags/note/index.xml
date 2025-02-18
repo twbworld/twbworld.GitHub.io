@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Note | 忐忑の博客</title><link>https://twbhub.top/tags/note/</link><atom:link href="https://twbhub.top/tags/note/index.xml" rel="self" type="application/rss+xml"/><description>Note</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202024_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Fri, 12 Jan 2024 15:18:13 +0800</lastBuildDate><image><url>https://twbhub.top/media/avatar.jpg</url><title>Note</title><link>https://twbhub.top/tags/note/</link></image><item><title>golang编译并创建镜像</title><link>https://twbhub.top/post/go_docker/</link><pubDate>Fri, 12 Jan 2024 15:18:13 +0800</pubDate><guid>https://twbhub.top/post/go_docker/</guid><description>&lt;details>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Note | 忐忑の博客</title><link>https://twbhub.top/tags/note/</link><atom:link href="https://twbhub.top/tags/note/index.xml" rel="self" type="application/rss+xml"/><description>Note</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202025_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Fri, 12 Jan 2024 15:18:13 +0800</lastBuildDate><image><url>https://twbhub.top/media/avatar.jpg</url><title>Note</title><link>https://twbhub.top/tags/note/</link></image><item><title>golang编译并创建镜像</title><link>https://twbhub.top/post/go_docker/</link><pubDate>Fri, 12 Jan 2024 15:18:13 +0800</pubDate><guid>https://twbhub.top/post/go_docker/</guid><description>&lt;details>
 &lt;summary>Dockerfile&lt;/summary>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span style="color:#66d9ef">FROM&lt;/span>&lt;span style="color:#e6db74"> golang:alpine AS builder&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
 &lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">WORKDIR&lt;/span>&lt;span style="color:#e6db74"> /app&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
@@ -234,8 +234,8 @@ rewrite ^/admin/&lt;span style="color:#f92672">(&lt;/span>.*&lt;span style="colo
 &lt;td>磁盘占用&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>du -sh *&lt;/td>
-&lt;td>目录下各个文件大小(或 du -h &amp;ndash;max-depth=0 *)&lt;/td>
+&lt;td>du -sh * |sort -rh&lt;/td>
+&lt;td>各个文件大小&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>pkill -kill -t pts/1&lt;/td>
@@ -306,8 +306,12 @@ rewrite ^/admin/&lt;span style="color:#f92672">(&lt;/span>.*&lt;span style="colo
 &lt;td>目录传输&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>find / -type f -name &amp;ldquo;*.txt&amp;rdquo; | xargs grep &amp;ldquo;hello&amp;rdquo;&lt;/td>
+&lt;td>find . -type f -name &amp;ldquo;*.txt&amp;rdquo; | xargs grep &amp;ldquo;hello&amp;rdquo;&lt;/td>
 &lt;td>查找文件内容&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>find . -type f -exec dos2unix {} ;&lt;/td>
+&lt;td>转LF换行符&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>cat &amp;lt;filename&amp;gt; | openssl dgst -sha256 -binary | openssl enc -base64 -A&lt;/td>
@@ -550,6 +554,18 @@ rewrite ^/admin/&lt;span style="color:#f92672">(&lt;/span>.*&lt;span style="colo
 &lt;tr>
 &lt;td>&lt;code>git config --global core.safecrlf true&lt;/code>&lt;/td>
 &lt;td>发现多种换行符拒绝add&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git config --global init.defaultBranch main&lt;/code>&lt;/td>
+&lt;td>默认分支&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>git config --global init.defaultBranch main&lt;/code>&lt;/td>
+&lt;td>默认分支&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>find . -type f -exec dos2unix {} \\;&lt;/code>&lt;/td>
+&lt;td>转LF&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -901,6 +917,7 @@ alias la&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74"
 alias rm&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;rm -i&amp;#39;&lt;/span>
 alias cp&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;cp -i&amp;#39;&lt;/span>
 alias mv&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;mv -i&amp;#39;&lt;/span>
+alias untar&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;tar -xzvf&amp;#39;&lt;/span>
 alias k&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;kubectl&amp;#39;&lt;/span>
 alias gs&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;git status&amp;#39;&lt;/span>
 alias lg&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;git log --color --graph --all --oneline --decorate --pretty=format:&amp;#34;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&amp;lt;%an&amp;gt;%Creset&amp;#34; --abbrev-commit&amp;#39;&lt;/span>
@@ -927,9 +944,9 @@ sysctl -p
 lsmod | grep bbr
 systemctl disable ufw &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> systemctl stop ufw
 静态ip
-apt源
+apt/docker/go源
 apt update &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> apt upgrade -y
-apt install -y ssh ca-certificates curl net-tools iftop htop mtr zip git tig tree screen axel proxychains4 acl samba
+apt install -y ssh ca-certificates curl net-tools iftop htop mtr zip git tig tree screen axel proxychains4 acl samba dos2unix
 mtr&lt;span style="color:#f92672">(&lt;/span>网络链&lt;span style="color:#f92672">)&lt;/span>
 axel&lt;span style="color:#f92672">(&lt;/span>多线程下载&lt;span style="color:#f92672">)&lt;/span>
 ssh证书配置
