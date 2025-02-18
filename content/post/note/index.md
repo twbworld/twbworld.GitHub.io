@@ -149,7 +149,7 @@ image:
 | uptime                            | 计算机负载 |
 | top                               | 实时负载(可安装htop加强版) |
 | df -h                             | 磁盘占用 |
-| du -sh \*                          | 目录下各个文件大小(或 du -h --max-depth=0 \*) |
+| du -sh * \|sort -rh               | 各个文件大小 |
 | pkill -kill -t pts/1              | 强退指定用户 |
 | who                               | 在线用户(或缩写w) |
 | last                              | 用户登录历史记录 |
@@ -167,7 +167,8 @@ image:
 | unzip -O cp936                  | zip文件解压避免乱码 |
 | tail -f <filename\>                  | 查看文件变化 |
 | scp -r /var root@192.168.1.1:/var/ | 目录传输 |
-| find / -type f -name "*.txt" \| xargs grep "hello" | 查找文件内容 |
+| find . -type f -name "*.txt" \| xargs grep "hello" | 查找文件内容 |
+| find . -type f -exec dos2unix {} \; | 转LF换行符 |
 | cat <filename\> \| openssl dgst -sha256 -binary \| openssl enc -base64 -A | 计算文件sha256校验值(css校验方法:`<link href="filename.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=">`) |
 | sha256sum <filename\> | 计算文件md5校验值 |
 | iptables -L -t nat | 查看流量去向和端口占用 |
@@ -235,6 +236,9 @@ image:
 | `git config --global core.quotepath false`        | 正常显示中文文件名 |
 | `git config --global core.autocrlf input`               | add时转换为LF |
 | `git config --global core.safecrlf true`               | 发现多种换行符拒绝add |
+| `git config --global init.defaultBranch main`     | 默认分支 |
+| `git config --global init.defaultBranch main`     | 默认分支 |
+| `find . -type f -exec dos2unix {} \\;`            | 转LF |
 
 
 ### Vim
@@ -384,6 +388,7 @@ openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
     alias rm='rm -i'
     alias cp='cp -i'
     alias mv='mv -i'
+    alias untar='tar -xzvf'
     alias k='kubectl'
     alias gs='git status'
     alias lg='git log --color --graph --all --oneline  --decorate --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
@@ -414,9 +419,9 @@ openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
 
     systemctl disable ufw && systemctl stop ufw
     静态ip
-    apt源
+    apt/docker/go源
     apt update && apt upgrade -y
-    apt install -y ssh ca-certificates curl net-tools iftop htop mtr zip git tig tree screen axel proxychains4 acl samba
+    apt install -y ssh ca-certificates curl net-tools iftop htop mtr zip git tig tree screen axel proxychains4 acl samba dos2unix
     mtr(网络链)
     axel(多线程下载)
     ssh证书配置

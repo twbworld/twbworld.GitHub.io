@@ -1,7 +1,7 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "订阅"
+title: "科学上网订阅"
 subtitle: ""
 summary: "proxy"
 
@@ -104,53 +104,42 @@ image:
 
 
 
-## 1#费用
+## 费用
 
-### 月付
+| 月￥ | 年￥ |
+| --- | --- |
+| 15  | 150 |
 
-> 如想要更低的价 , 或者 担心每月忘记续费 , 可选择 ***年付***
-
-|  流量(G/月)   | 价格(￥)  |
-|  ----  | ----  |
-| 50  | 9 |
-| 100  | 15 |
-| 250  | 29 |
-| 500  | 49 |
-
-### 年付
-
-
-#### 年付8折计算
-以 `100G/月` 为例计算 :
-`15(元/月) X 12(月) X 0.8(折扣) = 144(元/年)`
 
 ### PS
 
-* 现在 , 可免费试用1个月, 50-100g不等
-* 如果月底前就把流量用光了, 联系可免费续10%流量
-* 如果觉得可以, 把我推荐给身边的朋友哟, 可适当奖励哟
-* 每月1号流量重新开始算, 所以请在1号前续费
-* [`Fq` 后,可做啥?](https://fanqianghou.com/)
+* 当前不限流量/设备, 满100G限速
+* 可免费试用一周
+* 欢迎推荐朋友, 返佣
+* [`科学上网` 后,可做啥?](https://clashx.pro/over-the-wall/)
+<!-- * [`Fq` 后,可做啥?](https://fanqianghou.com/) -->
+<!-- * 如果月底前就把流量用光了, 联系可免费续10%流量 -->
+<!-- * 每月1号流量重新开始算, 所以请在1号前续费 -->
 
-## 2#联系
+## 联系
 
 +wx: ***`twbhub`***
 
 
-## 3#教程
+## 教程
 
 #### Android
 
-点击<a href="https://pan.twbhub.com/Android.docx?download=1" target="_blank" style="">下载</a>
+<a href="https://pan.twbhub.top/a.docx" target="_blank" style="">下载</a>
 
 #### iOS
 
-点击<a href="https://pan.twbhub.com/iOS.docx?download=1" target="_blank" style="">下载</a>
+<a href="https://pan.twbhub.top/i.docx" target="_blank" style="">下载</a>
 
 #### Windows
 
-点击<a href="https://pan.twbhub.com/Windows.docx?download=1" target="_blank" style="">下载</a>
+<a href="https://pan.twbhub.top/w.docx" target="_blank" style="">下载</a>
 
 #### macOS
 
-点击<a href="https://pan.twbhub.com/macOS.docx?download=1" target="_blank" style="">下载</a>
+<a href="https://pan.twbhub.top/m.docx" target="_blank" style="">下载</a>
