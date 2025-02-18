@@ -200,7 +200,7 @@ image:
 
 > 如无法访问页面 或 无法下载, <a href="https://pan.twbhub.top/w.exe" target="_blank" style="">点此</a>获取旧版本
 
-### <a id="win">使用</a>
+### 使用
 
 - 打开软件, 粘贴订阅链接, 点击 **`导入`**  
 <img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502181914063.png" width="50%" />
@@ -230,7 +230,7 @@ image:
 
 如安装时, 出现授权提示, 请允许最大权限
 
-详细使用流程, 请参考 [Windows流程](#win)
+详细使用流程, 请参考 [Windows流程](#使用-2)
 
 
 - 注 : 不需科学上网时, **务必**取消选择 `系统代理`, 否则网络会偶尔异常
