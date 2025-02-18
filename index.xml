@@ -2727,11 +2727,117 @@ exit &lt;span style="color:#ae81ff">0&lt;/span>
 &lt;h2 id="联系">联系&lt;/h2>
 &lt;p>+wx: &lt;em>&lt;strong>&lt;code>twbhub&lt;/code>&lt;/strong>&lt;/em>&lt;/p>
 &lt;h2 id="教程">教程&lt;/h2>
-&lt;h4 id="android">Android&lt;/h4>
-&lt;p>&lt;a href="https://pan.twbhub.top/a.docx" target="_blank" style="">下载&lt;/a>&lt;/p>
-&lt;h4 id="ios">iOS&lt;/h4>
-&lt;p>&lt;a href="https://pan.twbhub.top/i.docx" target="_blank" style="">下载&lt;/a>&lt;/p>
-&lt;h4 id="windows">Windows&lt;/h4>
-&lt;p>&lt;a href="https://pan.twbhub.top/w.docx" target="_blank" style="">下载&lt;/a>&lt;/p>
-&lt;h4 id="macos">macOS&lt;/h4>
-&lt;p>&lt;a href="https://pan.twbhub.top/m.docx" target="_blank" style="">下载&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;details>
+&lt;summary>&lt;b>Android&lt;/b>&lt;/summary>
+&lt;h3 id="下载安装">下载安装&lt;/h3>
+&lt;p>&lt;a href="https://pan.twbhub.top/a.docx" target="_blank" style="">下载页&lt;/a>(最新)&lt;/p>
+&lt;p>点击下载&lt;code>arm64-v8a-release.apk&lt;/code>包
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502181828364.jpg" width="50%" />&lt;/p>
+&lt;blockquote>
+&lt;p>如无法访问页面 或 无法下载, &lt;a href="https://pan.twbhub.top/a.apk" target="_blank" style="">点此&lt;/a>获取旧版本&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="使用">使用&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>打开软件, 点击 &lt;strong>&lt;code>配置&lt;/code>&lt;/strong> 按钮&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>点击右上角 &lt;strong>&lt;code>+&lt;/code>&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>选择 &lt;strong>&lt;code>URL&lt;/code>(从URL导入)&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>从 &lt;strong>&lt;code>URL&lt;/code>&lt;/strong> 粘贴订阅链接, 配置 &lt;strong>&lt;code>自动更新&lt;/code>&lt;/strong> 为&lt;code>1440&lt;/code>&lt;br>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502182129183.jpg" width="30%" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>点击右上角&lt;code>保存&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>返回 , 选择新创建的配置&lt;br>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502182133242.png" width="30%" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>启动按钮&lt;br>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502182133975.jpg" width="30%" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>注 : 不需科学上网时, &lt;strong>务必&lt;/strong>关闭按钮, 否则网络会偶尔异常&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>成功科学上网, 请试试吧 !&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;details>
+&lt;summary>&lt;b>iOS&lt;/b>&lt;/summary>
+&lt;h3 id="下载安装-1">下载安装&lt;/h3>
+&lt;p>联系本人,指导在AppStore下载 &lt;code>Shadowsocks&lt;/code>&lt;/p>
+&lt;h3 id="使用-1">使用&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>打开软件, 点击右上角 &lt;strong>&lt;code>+&lt;/code>&lt;/strong>, 进入&lt;code>添加节点&lt;/code>设置&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>添加订阅 :&lt;br>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502181903298.png" width="30%" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>启动按钮&lt;br>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502181901692.png" width="30%" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>注 : 不需科学上网时, &lt;strong>务必&lt;/strong>关闭按钮, 否则网络会偶尔异常&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>成功科学上网, 请试试吧 !&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;details>
+&lt;summary>&lt;b>Windows&lt;/b>&lt;/summary>
+&lt;h3 id="下载安装-2">下载安装&lt;/h3>
+&lt;p>&lt;a href="https://github.com/clash-verge-rev/clash-verge-rev/releases" target="_blank" style="">下载页&lt;/a>(最新)&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502181839418.jpg" width="50%" />&lt;/p>
+&lt;blockquote>
+&lt;p>如无法访问页面 或 无法下载, &lt;a href="https://pan.twbhub.top/w.exe" target="_blank" style="">点此&lt;/a>获取旧版本&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="a-idwin使用a">&lt;a id="win">使用&lt;/a>&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>打开软件, 粘贴订阅链接, 点击 &lt;strong>&lt;code>导入&lt;/code>&lt;/strong>&lt;br>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502181914063.png" width="50%" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>屏幕右下角, 右键图标, 选择 &lt;strong>&lt;code>规则模式&lt;/code>&lt;/strong> 和 &lt;strong>&lt;code>系统代理&lt;/code>&lt;/strong>&lt;br>
+&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502181923930.png" width="30%" />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>注 : 不需科学上网时, &lt;strong>务必&lt;/strong>取消选择 &lt;strong>&lt;code>系统代理&lt;/code>&lt;/strong>, 否则网络会偶尔异常&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>成功科学上网, 请试试吧 !&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;details>
+&lt;summary>&lt;b>macOS&lt;/b>&lt;/summary>
+&lt;h3 id="下载安装-3">下载安装&lt;/h3>
+&lt;p>&lt;a href="https://github.com/clash-verge-rev/clash-verge-rev/releases" target="_blank" style="">下载页&lt;/a>(最新)&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502181839418.jpg" width="50%" />&lt;/p>
+&lt;blockquote>
+&lt;p>如无法访问页面 或 无法下载, &lt;a href="https://pan.twbhub.top/m.dmg" target="_blank" style="">点此&lt;/a> (Arm版&lt;a href="https://pan.twbhub.top/m_arm.dmg" target="_blank" style="">点此 &lt;/a>) 获取旧版本;&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="使用-2">使用&lt;/h3>
+&lt;p>如安装时, 出现授权提示, 请允许最大权限&lt;/p>
+&lt;p>详细使用流程, 请参考 &lt;a href="#win">Windows流程&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>注 : 不需科学上网时, &lt;strong>务必&lt;/strong>取消选择 &lt;code>系统代理&lt;/code>, 否则网络会偶尔异常&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>成功科学上网, 请试试吧 !&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/details></description></item></channel></rss>
