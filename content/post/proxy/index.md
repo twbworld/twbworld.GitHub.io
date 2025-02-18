@@ -134,7 +134,7 @@ image:
 
 ### 下载安装
 
-<a href="https://pan.twbhub.top/a.docx" target="_blank" style="">下载页</a>(最新)
+<a href="https://github.com/MetaCubeX/ClashMetaForAndroid/releases" target="_blank" style="">下载页</a>(最新)
 
 点击下载`arm64-v8a-release.apk`包
 <img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502181828364.jpg" width="50%" />
