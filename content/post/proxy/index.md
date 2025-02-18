@@ -128,18 +128,113 @@ image:
 
 ## 教程
 
-#### Android
 
-<a href="https://pan.twbhub.top/a.docx" target="_blank" style="">下载</a>
+<details>
+<summary><b>Android</b></summary>
 
-#### iOS
+### 下载安装
 
-<a href="https://pan.twbhub.top/i.docx" target="_blank" style="">下载</a>
+<a href="https://pan.twbhub.top/a.docx" target="_blank" style="">下载页</a>(最新)
 
-#### Windows
+点击下载`arm64-v8a-release.apk`包
+<img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502181828364.jpg" width="50%" />
 
-<a href="https://pan.twbhub.top/w.docx" target="_blank" style="">下载</a>
+> 如无法访问页面 或 无法下载, <a href="https://pan.twbhub.top/a.apk" target="_blank" style="">点此</a>获取旧版本
 
-#### macOS
+### 使用
 
-<a href="https://pan.twbhub.top/m.docx" target="_blank" style="">下载</a>
+- 打开软件, 点击 **`配置`** 按钮
+- 点击右上角 **`+`**
+- 选择 **`URL`(从URL导入)**
+- 从 **`URL`** 粘贴订阅链接, 配置 **`自动更新`** 为`1440`  
+<img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502182129183.jpg" width="30%" />
+- 点击右上角`保存`
+- 返回 , 选择新创建的配置  
+<img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502182133242.png" width="30%" />
+- 启动按钮  
+<img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502182133975.jpg" width="30%" />
+
+- 注 : 不需科学上网时, **务必**关闭按钮, 否则网络会偶尔异常
+
+- 成功科学上网, 请试试吧 !
+
+</details>
+
+
+
+
+
+
+<details>
+<summary><b>iOS</b></summary>
+
+### 下载安装
+
+联系本人,指导在AppStore下载 `Shadowsocks`
+
+### 使用
+
+- 打开软件, 点击右上角 **`+`**, 进入`添加节点`设置
+- 添加订阅 :  
+<img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502181903298.png" width="30%" />
+- 启动按钮  
+<img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502181901692.png" width="30%" />
+- 注 : 不需科学上网时, **务必**关闭按钮, 否则网络会偶尔异常
+
+- 成功科学上网, 请试试吧 !
+
+</details>
+
+
+
+
+
+<details>
+<summary><b>Windows</b></summary>
+
+### 下载安装
+
+<a href="https://github.com/clash-verge-rev/clash-verge-rev/releases" target="_blank" style="">下载页</a>(最新)
+
+<img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502181839418.jpg" width="50%" />
+
+> 如无法访问页面 或 无法下载, <a href="https://pan.twbhub.top/w.exe" target="_blank" style="">点此</a>获取旧版本
+
+### <a id="win">使用</a>
+
+- 打开软件, 粘贴订阅链接, 点击 **`导入`**  
+<img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502181914063.png" width="50%" />
+- 屏幕右下角, 右键图标, 选择 **`规则模式`** 和 **`系统代理`**  
+<img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502181923930.png" width="30%" />
+
+- 注 : 不需科学上网时, **务必**取消选择 **`系统代理`**, 否则网络会偶尔异常
+
+- 成功科学上网, 请试试吧 !
+</details>
+
+
+
+
+<details>
+<summary><b>macOS</b></summary>
+
+### 下载安装
+
+<a href="https://github.com/clash-verge-rev/clash-verge-rev/releases" target="_blank" style="">下载页</a>(最新)
+
+<img src="https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/202502181839418.jpg" width="50%" />
+
+> 如无法访问页面 或 无法下载, <a href="https://pan.twbhub.top/m.dmg" target="_blank" style="">点此</a> (Arm版<a href="https://pan.twbhub.top/m_arm.dmg" target="_blank" style="">点此 </a>) 获取旧版本; 
+
+### 使用
+
+如安装时, 出现授权提示, 请允许最大权限
+
+详细使用流程, 请参考 [Windows流程](#win)
+
+
+- 注 : 不需科学上网时, **务必**取消选择 `系统代理`, 否则网络会偶尔异常
+
+- 成功科学上网, 请试试吧 !
+
+</details>
