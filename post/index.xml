@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>忐忑の博客</title><link>https://twbhub.top/post/</link><atom:link href="https://twbhub.top/post/index.xml" rel="self" type="application/rss+xml"/><description>忐忑の博客</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202025_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><image><url>https://twbhub.top/media/avatar.jpg</url><title>忐忑の博客</title><link>https://twbhub.top/post/</link></image><item><title>golang编译并创建镜像</title><link>https://twbhub.top/post/go_docker/</link><pubDate>Fri, 12 Jan 2024 15:18:13 +0800</pubDate><guid>https://twbhub.top/post/go_docker/</guid><description>&lt;details>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>忐忑の博客</title><link>https://twbhub.top/post/</link><atom:link href="https://twbhub.top/post/index.xml" rel="self" type="application/rss+xml"/><description>忐忑の博客</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202026_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><image><url>https://twbhub.top/media/avatar.jpg</url><title>忐忑の博客</title><link>https://twbhub.top/post/</link></image><item><title>golang编译并创建镜像</title><link>https://twbhub.top/post/go_docker/</link><pubDate>Fri, 12 Jan 2024 15:18:13 +0800</pubDate><guid>https://twbhub.top/post/go_docker/</guid><description>&lt;details>
 &lt;summary>Dockerfile&lt;/summary>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span style="color:#66d9ef">FROM&lt;/span>&lt;span style="color:#e6db74"> golang:alpine AS builder&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
 &lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">WORKDIR&lt;/span>&lt;span style="color:#e6db74"> /app&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
@@ -1294,8 +1294,8 @@ Windows: &lt;code>C:\Users&amp;lt;user&amp;gt;\AppData\Roaming\Postman\proxy/pos
 &lt;li>opessl自签名&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openssl genrsa -out key.pem &lt;span style="color:#ae81ff">2048&lt;/span>
-openssl req -new -key key.pem -out csr.pem &lt;span style="color:#75715e">#Common Name填写(泛)域名&lt;/span>
-openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days &lt;span style="color:#ae81ff">3650&lt;/span>
+openssl req -new -key key.pem -out cert.pem &lt;span style="color:#75715e">#Common Name填写(泛)域名&lt;/span>
+openssl x509 -req -in cert.pem -out cert.pem -signkey key.pem -days &lt;span style="color:#ae81ff">3650&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>目录描述 :&lt;/li>
 &lt;/ul>
@@ -1335,24 +1335,29 @@ alias reboot&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6d
 export GO111MODULE&lt;span style="color:#f92672">=&lt;/span>on
 export GOROOT&lt;span style="color:#f92672">=&lt;/span>/usr/local/go/
 export GOPATH&lt;span style="color:#f92672">=&lt;/span>/usr/local/gopath/
-export CF_Email&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;xxx@qq.com&amp;#34;&lt;/span>
-export CF_Key&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;xxxx&amp;#39;&lt;/span>
+export CF_Token&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;xxxxxx&amp;#34;&lt;/span>
+export CF_Account_ID&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;xxx&amp;#39;&lt;/span>
 export PATH&lt;span style="color:#f92672">=&lt;/span>$PATH:/usr/local/bin:/usr/local/sbin:$GOPATH/bin/
 关闭终端响铃
 echo &lt;span style="color:#e6db74">&amp;#34;set bell-style none&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/inputrc
+关闭ICMP响应
+echo &lt;span style="color:#e6db74">&amp;#34;net.ipv4.icmp_echo_ignore_all = 1&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
+echo &lt;span style="color:#e6db74">&amp;#34;net.ipv6.icmp.echo_ignore_all = 1&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
 开启BBR
 echo &lt;span style="color:#e6db74">&amp;#34;net.core.default_qdisc=fq&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
 echo &lt;span style="color:#e6db74">&amp;#34;net.ipv4.tcp_congestion_control=bbr&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
 sysctl -p
 lsmod | grep bbr
 systemctl disable ufw &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> systemctl stop ufw
+修改主机名
 静态ip
+ssh证书登录+禁止密码登录
+修改SSH端口
 apt/docker/go源
 apt update &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> apt upgrade -y
 apt install -y ssh ca-certificates curl net-tools iftop htop mtr zip git tig tree screen axel proxychains4 acl samba dos2unix
 mtr&lt;span style="color:#f92672">(&lt;/span>网络链&lt;span style="color:#f92672">)&lt;/span>
 axel&lt;span style="color:#f92672">(&lt;/span>多线程下载&lt;span style="color:#f92672">)&lt;/span>
-ssh证书配置
 git配置
 samba配置
 docker安装&lt;span style="color:#f92672">(&lt;/span>nginx/mysql/php/node&lt;span style="color:#f92672">)&lt;/span>
@@ -1366,13 +1371,13 @@ apt autoclean -y &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> apt
 &lt;p>SSL证书申请 :&lt;/p>
 &lt;p>详细说明:&lt;a href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E">https://github.com/acmesh-official/acme.sh/wiki/说明&lt;/a>&lt;/p>
 &lt;ol>
-&lt;li>到&lt;a href="https://dash.cloudflare.com/profile" target="_blank" rel="noopener">cloudflare&lt;/a>获取&amp;quot;更新dns&amp;quot;得权限码,&lt;a href="https://github.com/acmesh-official/acme.sh/wiki/dnsapi" target="_blank" rel="noopener">教程&lt;/a>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">export CF_Key&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;xxxxxxxxxxxxxx&amp;#34;&lt;/span>
-export CF_Email&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;xxx@qq.com&amp;#34;&lt;/span>
+&lt;li>到&lt;a href="https://dash.cloudflare.com/profile" target="_blank" rel="noopener">cloudflare&lt;/a>获取&amp;quot;编辑区域DNS&amp;quot;的权限码Token,&lt;a href="https://github.com/acmesh-official/acme.sh/wiki/dnsapi" target="_blank" rel="noopener">教程&lt;/a>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">export CF_Token&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;xxxxxxxxxxxxxx&amp;#34;&lt;/span>
+export CF_Account_ID&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;xxx&amp;#34;&lt;/span>
+source ~/.bashrc
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>安装acme.sh
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl https://get.acme.sh | sh -s email&lt;span style="color:#f92672">=&lt;/span>xxx@qq.com
-source ~/.bashrc
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>获取证书
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --issue --dns dns_cf -d &lt;span style="color:#e6db74">&amp;#34;xxx.com&amp;#34;&lt;/span> -d &lt;span style="color:#e6db74">&amp;#34;*.xxx.com&amp;#34;&lt;/span> &lt;span style="color:#ae81ff">\
@@ -1384,9 +1389,9 @@ source ~/.bashrc
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>安装证书到别的位置
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --install-cert -d &lt;span style="color:#e6db74">&amp;#34;xxx.com&amp;#34;&lt;/span> -d &lt;span style="color:#e6db74">&amp;#34;*.xxx.com&amp;#34;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--key-file /var/www/cert/key.pem &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--fullchain-file /var/www/cert/cert.pem &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--reloadcmd &lt;span style="color:#e6db74">&amp;#34;docker exec nginx nginx -t &amp;amp;&amp;amp; docker exec trojan /bin/bash -c &amp;#39;systemctl restart trojan &amp;amp;&amp;amp; exit&amp;#39; &amp;amp;&amp;amp; docker exec nginx /bin/bash -c &amp;#39;service nginx force-reload &amp;amp;&amp;amp; exit&amp;#39;&amp;#34;&lt;/span>
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--key-file /var/www/cert/tls.key &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--fullchain-file /var/www/cert/tls.crt &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--reloadcmd &lt;span style="color:#e6db74">&amp;#34;docker exec nginx nginx -t &amp;amp;&amp;amp; docker exec nginx /bin/bash -c &amp;#39;service nginx force-reload &amp;amp;&amp;amp; exit&amp;#39;&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>自动更新acme.sh版本
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --upgrade --auto-upgrade
@@ -2532,7 +2537,118 @@ cp support-files/mysql.server /etc/init.d/mysql.server
 &lt;p>缺点:&lt;/p>
 &lt;ul>
 &lt;li>虽然全球用户量庞大,但缺乏中文文档, 国内用户群体少, Hugo的相关中文文章也就少; Hugo会不会是在国内的一支&amp;quot;潜力股&amp;quot; ?&lt;/li>
-&lt;/ul></description></item><item><title>keepalived高可用配置</title><link>https://twbhub.top/post/keepalived_ha/</link><pubDate>Sun, 02 Oct 2022 17:00:00 +0800</pubDate><guid>https://twbhub.top/post/keepalived_ha/</guid><description>&lt;blockquote>
+&lt;/ul></description></item><item><title>解决Google AI Studio地区封禁</title><link>https://twbhub.top/post/xray_warp/</link><pubDate>Fri, 31 Jul 2026 03:20:00 -0700</pubDate><guid>https://twbhub.top/post/xray_warp/</guid><description>&lt;blockquote>
+&lt;p>&lt;code>Google AI Studio&lt;/code> 和 &lt;code>Gemini&lt;/code> 对IP的审查非常严格。如果你用作国内代理的VPS（特别是各大云服务商的数据中心IP）被识别为机房IP（问题并不是出在Google账号被封了），就会遇到 &lt;code>403 Forbidden&lt;/code> 或“所在地区不受支持”的报错。解决思路很简单：在VPS与Google间走Cloudflare代理就好了,要封就封cf的ip好了。但安装&lt;code>Cloudflare WARP&lt;/code>吧会被全局代理影响正常非google流量的速度, 恰好在 &lt;code>Xray-core&lt;/code> 支持配置出站流量分流。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="1-使用-wgcf-生成-warp-配置文件">1. 使用 wgcf 生成 WARP 配置文件&lt;/h2>
+&lt;p>首先，我们需要借助开源工具 &lt;code>wgcf&lt;/code> 向 Cloudflare 注册一个免费的 WARP 账户，并提取出 WireGuard 节点信息。&lt;/p>
+&lt;p>在你的 VPS 上执行以下命令：&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#75715e"># 下载 wgcf (注意替换为当时的最新版本)&lt;/span>
+wget -O wgcf https://github.com/ViRb3/wgcf/releases/download/v2.2.32/wgcf_2.2.32_linux_amd64
+chmod +x wgcf
+&lt;span style="color:#75715e"># 注册 WARP 账户，接受协议&lt;/span>
+./wgcf register
+&lt;span style="color:#75715e"># 生成 WireGuard 配置文件&lt;/span>
+./wgcf generate
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>执行完毕后，当前目录下会生成一个 &lt;code>wgcf-profile.conf&lt;/code> 文件。
+查看生成的配置：&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">cat wgcf-profile.conf
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>输出类似:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ini" data-lang="ini">&lt;span style="color:#66d9ef">[Interface]&lt;/span>
+&lt;span style="color:#a6e22e">PrivateKey&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">yL0kApRiZW4VFfNkKAQ/nYxnMFT3AH0dfVkj1GAlr1k=&lt;/span>
+&lt;span style="color:#a6e22e">Address&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">172.16.0.2/32&lt;/span>
+&lt;span style="color:#a6e22e">Address&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">2606:4700:110:81f3:2a5b:3cad:9d4:9ea6/128&lt;/span>
+&lt;span style="color:#a6e22e">DNS&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">1.1.1.1&lt;/span>
+&lt;span style="color:#a6e22e">MTU&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">1280&lt;/span>
+&lt;span style="color:#66d9ef">[Peer]&lt;/span>
+&lt;span style="color:#a6e22e">PublicKey&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=&lt;/span>
+&lt;span style="color:#a6e22e">AllowedIPs&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">0.0.0.0/0&lt;/span>
+&lt;span style="color:#a6e22e">AllowedIPs&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">::/0&lt;/span>
+&lt;span style="color:#a6e22e">Endpoint&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">162.159.192.1:2408&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>下一步配置 Xray 时会用到。&lt;/p>
+&lt;p>对应关系:
+&lt;code>PrivateKey&lt;/code> → xray 的 &lt;code>secretKey&lt;/code>
+&lt;code>Address&lt;/code> → xray 的 &lt;code>address&lt;/code>
+&lt;code>PublicKey&lt;/code> → xray peers 的 &lt;code>publicKey&lt;/code>
+&lt;code>Endpoint&lt;/code> → xray peers 的 &lt;code>endpoint&lt;/code>&lt;/p>
+&lt;h2 id="2-xray-配置文件修改">2. Xray 配置文件修改&lt;/h2>
+&lt;p>打开你的 Xray 配置文件（如 &lt;code>/usr/local/etc/xray/config.json&lt;/code>）。&lt;/p>
+&lt;h3 id="21-添加-wireguard-出站-outbounds">2.1 添加 WireGuard 出站 (Outbounds)&lt;/h3>
+&lt;p>在 &lt;code>&amp;quot;outbounds&amp;quot;&lt;/code> 数组中，利用 Xray 原生的 &lt;code>wireguard&lt;/code> 协议添加一个 WARP 出站。将你在上一步提取的信息填入对应位置：&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#e6db74">&amp;#34;outbounds&amp;#34;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">:&lt;/span> [
+{
+&lt;span style="color:#f92672">&amp;#34;protocol&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;freedom&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;tag&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;direct&amp;#34;&lt;/span>
+},
+{
+&lt;span style="color:#f92672">&amp;#34;protocol&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;blackhole&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;tag&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;block&amp;#34;&lt;/span>
+},
+{
+&lt;span style="color:#f92672">&amp;#34;protocol&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;wireguard&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;tag&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;warp&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;settings&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;secretKey&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;yL0kApRiZW4VFfNkKAQ/nYxnMFT3AH0dfVkj1GAlr1k=&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;address&amp;#34;&lt;/span>: [
+&lt;span style="color:#e6db74">&amp;#34;172.16.0.2/32&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;2606:4700:110:81f3:2a5b:3cad:9d4:9ea6/128&amp;#34;&lt;/span>
+],
+&lt;span style="color:#f92672">&amp;#34;peers&amp;#34;&lt;/span>: [
+{
+&lt;span style="color:#f92672">&amp;#34;publicKey&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;endpoint&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;162.159.192.1:2408&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;allowedIPs&amp;#34;&lt;/span>: [&lt;span style="color:#e6db74">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;::/0&amp;#34;&lt;/span>],
+&lt;span style="color:#f92672">&amp;#34;keepAlive&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">25&lt;/span>
+}
+],
+&lt;span style="color:#f92672">&amp;#34;reserved&amp;#34;&lt;/span>: [&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>],
+&lt;span style="color:#f92672">&amp;#34;mtu&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">1280&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;noKernelTun&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;domainStrategy&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;ForceIP&amp;#34;&lt;/span>
+}
+}
+]
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="22-配置路由分流-routing">2.2 配置路由分流 (Routing)&lt;/h3>
+&lt;p>在 &lt;code>&amp;quot;routing&amp;quot;&lt;/code> -&amp;gt; &lt;code>&amp;quot;rules&amp;quot;&lt;/code> 数组中，将 Google 相关的域名指向刚刚创建的 &lt;code>warp-out&lt;/code> 标签。&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>⚠️核心避坑指南&lt;/strong>：Xray 的路由规则是&lt;strong>从上到下按顺序匹配&lt;/strong>的！为了防止之前的默认直连规则（如 &lt;code>geosite:google&lt;/code> -&amp;gt; &lt;code>direct&lt;/code>）抢占，&lt;strong>务必将这条 WARP 分流规则置于 &lt;code>rules&lt;/code> 数组的最顶部&lt;/strong>。&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#e6db74">&amp;#34;routing&amp;#34;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">:&lt;/span> {
+&lt;span style="color:#f92672">&amp;#34;domainStrategy&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;AsIs&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;rules&amp;#34;&lt;/span>: [
+&lt;span style="color:#960050;background-color:#1e0010">//&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">必须放在数组最前&lt;/span>
+{
+&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;field&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;outboundTag&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;warp-out&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;domain&amp;#34;&lt;/span>: [
+&lt;span style="color:#e6db74">&amp;#34;geosite:google&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;domain:aistudio.google.com&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;domain:ai.google.dev&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;domain:generativelanguage.googleapis.com&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;domain:alkalimakersuite-pa.clients6.google.com&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;domain:alkalicore-pa.clients6.google.com&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;domain:webchannel-alkalimakersuite-pa.clients6.google.com&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;domain:geller-pa.googleapis.com&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;domain:proactivebackend-pa.googleapis.com&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;domain:robinfrontend-pa.googleapis.com&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;domain:gemini.google.com&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;domain:gemini.gstatic.com&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;domain:bard.google.com&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;domain:makersuite.google.com&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;domain:notebooklm.google.com&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;domain:notebooklm-pa.googleapis.com&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;domain:labs.google&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;domain:jules.google.com&amp;#34;&lt;/span>
+]
+},
+&lt;span style="color:#960050;background-color:#1e0010">//&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">...&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">其他原有规则（直连或阻断等）&lt;/span>
+]
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3-重启验证">3. 重启验证&lt;/h2>
+&lt;p>完成修改并保存后，重启 Xray 服务：&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">systemctl restart xray
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>现在，通过你的本地客户端请求 Google AI Studio 的 API 或者是 Gemini 网页时，Xray 会在内部直接封包成 WireGuard 流量并发送给 Cloudflare WARP 节点。通过这种方式，既获得了 WARP 干净的解锁 IP，又保证了其他站点的直连速度，且避免了 &lt;code>wg-quick&lt;/code> 乱改宿主机路由表的烦恼，可谓最极客的解法。&lt;/p>
+&lt;pre>&lt;code>&lt;/code>&lt;/pre></description></item><item><title>keepalived高可用配置</title><link>https://twbhub.top/post/keepalived_ha/</link><pubDate>Sun, 02 Oct 2022 17:00:00 +0800</pubDate><guid>https://twbhub.top/post/keepalived_ha/</guid><description>&lt;blockquote>
 &lt;p>&lt;code>keepalived&lt;/code>需要一个&lt;code>vip&lt;/code>;如果用的是云服务,那么得在后台申请一个高可用ip,才能实现&lt;code>vip飘移&lt;/code>;如果是自建服务器,那么一台服务器得使用两个网卡;只是为了测试,那么使用&lt;code>docker容器&lt;/code>模拟集群是最合适的了&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="nginxkeepalived">Nginx+keepalived&lt;/h2>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Note | 忐忑の博客</title><link>https://twbhub.top/tags/note/</link><atom:link href="https://twbhub.top/tags/note/index.xml" rel="self" type="application/rss+xml"/><description>Note</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202025_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Fri, 12 Jan 2024 15:18:13 +0800</lastBuildDate><image><url>https://twbhub.top/media/avatar.jpg</url><title>Note</title><link>https://twbhub.top/tags/note/</link></image><item><title>golang编译并创建镜像</title><link>https://twbhub.top/post/go_docker/</link><pubDate>Fri, 12 Jan 2024 15:18:13 +0800</pubDate><guid>https://twbhub.top/post/go_docker/</guid><description>&lt;details>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Note | 忐忑の博客</title><link>https://twbhub.top/tags/note/</link><atom:link href="https://twbhub.top/tags/note/index.xml" rel="self" type="application/rss+xml"/><description>Note</description><generator>Wowchemy (https://wowchemy.com)</generator><language>zh-Hans</language><copyright>[![忐忑的博客](https://img.shields.io/badge/©-2020%20%2D-%202026_忐忑-yellow)](/authors/admin/) [![忐忑的博客](https://img.shields.io/github/tag/twbworld/twbworld.GitHub.io?logo=github)](https://github.com/twbworld/twbworld.GitHub.io) [![Hugo](https://img.shields.io/badge/powered-hugo-ff4088?logo=hugo)](https://gohugo.io/) [![wowchemy](https://img.shields.io/badge/theme-wowchemy-00d1b2)](https://wowchemy.com/)</copyright><lastBuildDate>Fri, 12 Jan 2024 15:18:13 +0800</lastBuildDate><image><url>https://twbhub.top/media/avatar.jpg</url><title>Note</title><link>https://twbhub.top/tags/note/</link></image><item><title>golang编译并创建镜像</title><link>https://twbhub.top/post/go_docker/</link><pubDate>Fri, 12 Jan 2024 15:18:13 +0800</pubDate><guid>https://twbhub.top/post/go_docker/</guid><description>&lt;details>
 &lt;summary>Dockerfile&lt;/summary>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span style="color:#66d9ef">FROM&lt;/span>&lt;span style="color:#e6db74"> golang:alpine AS builder&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
 &lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">WORKDIR&lt;/span>&lt;span style="color:#e6db74"> /app&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
@@ -891,8 +891,8 @@ rewrite ^/admin/&lt;span style="color:#f92672">(&lt;/span>.*&lt;span style="colo
 &lt;li>opessl自签名&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openssl genrsa -out key.pem &lt;span style="color:#ae81ff">2048&lt;/span>
-openssl req -new -key key.pem -out csr.pem &lt;span style="color:#75715e">#Common Name填写(泛)域名&lt;/span>
-openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days &lt;span style="color:#ae81ff">3650&lt;/span>
+openssl req -new -key key.pem -out cert.pem &lt;span style="color:#75715e">#Common Name填写(泛)域名&lt;/span>
+openssl x509 -req -in cert.pem -out cert.pem -signkey key.pem -days &lt;span style="color:#ae81ff">3650&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>目录描述 :&lt;/li>
 &lt;/ul>
@@ -932,24 +932,29 @@ alias reboot&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6d
 export GO111MODULE&lt;span style="color:#f92672">=&lt;/span>on
 export GOROOT&lt;span style="color:#f92672">=&lt;/span>/usr/local/go/
 export GOPATH&lt;span style="color:#f92672">=&lt;/span>/usr/local/gopath/
-export CF_Email&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;xxx@qq.com&amp;#34;&lt;/span>
-export CF_Key&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;xxxx&amp;#39;&lt;/span>
+export CF_Token&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;xxxxxx&amp;#34;&lt;/span>
+export CF_Account_ID&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;xxx&amp;#39;&lt;/span>
 export PATH&lt;span style="color:#f92672">=&lt;/span>$PATH:/usr/local/bin:/usr/local/sbin:$GOPATH/bin/
 关闭终端响铃
 echo &lt;span style="color:#e6db74">&amp;#34;set bell-style none&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/inputrc
+关闭ICMP响应
+echo &lt;span style="color:#e6db74">&amp;#34;net.ipv4.icmp_echo_ignore_all = 1&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
+echo &lt;span style="color:#e6db74">&amp;#34;net.ipv6.icmp.echo_ignore_all = 1&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
 开启BBR
 echo &lt;span style="color:#e6db74">&amp;#34;net.core.default_qdisc=fq&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
 echo &lt;span style="color:#e6db74">&amp;#34;net.ipv4.tcp_congestion_control=bbr&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
 sysctl -p
 lsmod | grep bbr
 systemctl disable ufw &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> systemctl stop ufw
+修改主机名
 静态ip
+ssh证书登录+禁止密码登录
+修改SSH端口
 apt/docker/go源
 apt update &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> apt upgrade -y
 apt install -y ssh ca-certificates curl net-tools iftop htop mtr zip git tig tree screen axel proxychains4 acl samba dos2unix
 mtr&lt;span style="color:#f92672">(&lt;/span>网络链&lt;span style="color:#f92672">)&lt;/span>
 axel&lt;span style="color:#f92672">(&lt;/span>多线程下载&lt;span style="color:#f92672">)&lt;/span>
-ssh证书配置
 git配置
 samba配置
 docker安装&lt;span style="color:#f92672">(&lt;/span>nginx/mysql/php/node&lt;span style="color:#f92672">)&lt;/span>
@@ -963,13 +968,13 @@ apt autoclean -y &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> apt
 &lt;p>SSL证书申请 :&lt;/p>
 &lt;p>详细说明:&lt;a href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E">https://github.com/acmesh-official/acme.sh/wiki/说明&lt;/a>&lt;/p>
 &lt;ol>
-&lt;li>到&lt;a href="https://dash.cloudflare.com/profile" target="_blank" rel="noopener">cloudflare&lt;/a>获取&amp;quot;更新dns&amp;quot;得权限码,&lt;a href="https://github.com/acmesh-official/acme.sh/wiki/dnsapi" target="_blank" rel="noopener">教程&lt;/a>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">export CF_Key&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;xxxxxxxxxxxxxx&amp;#34;&lt;/span>
-export CF_Email&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;xxx@qq.com&amp;#34;&lt;/span>
+&lt;li>到&lt;a href="https://dash.cloudflare.com/profile" target="_blank" rel="noopener">cloudflare&lt;/a>获取&amp;quot;编辑区域DNS&amp;quot;的权限码Token,&lt;a href="https://github.com/acmesh-official/acme.sh/wiki/dnsapi" target="_blank" rel="noopener">教程&lt;/a>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">export CF_Token&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;xxxxxxxxxxxxxx&amp;#34;&lt;/span>
+export CF_Account_ID&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;xxx&amp;#34;&lt;/span>
+source ~/.bashrc
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>安装acme.sh
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl https://get.acme.sh | sh -s email&lt;span style="color:#f92672">=&lt;/span>xxx@qq.com
-source ~/.bashrc
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>获取证书
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --issue --dns dns_cf -d &lt;span style="color:#e6db74">&amp;#34;xxx.com&amp;#34;&lt;/span> -d &lt;span style="color:#e6db74">&amp;#34;*.xxx.com&amp;#34;&lt;/span> &lt;span style="color:#ae81ff">\
@@ -981,9 +986,9 @@ source ~/.bashrc
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>安装证书到别的位置
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --install-cert -d &lt;span style="color:#e6db74">&amp;#34;xxx.com&amp;#34;&lt;/span> -d &lt;span style="color:#e6db74">&amp;#34;*.xxx.com&amp;#34;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--key-file /var/www/cert/key.pem &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--fullchain-file /var/www/cert/cert.pem &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--reloadcmd &lt;span style="color:#e6db74">&amp;#34;docker exec nginx nginx -t &amp;amp;&amp;amp; docker exec trojan /bin/bash -c &amp;#39;systemctl restart trojan &amp;amp;&amp;amp; exit&amp;#39; &amp;amp;&amp;amp; docker exec nginx /bin/bash -c &amp;#39;service nginx force-reload &amp;amp;&amp;amp; exit&amp;#39;&amp;#34;&lt;/span>
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--key-file /var/www/cert/tls.key &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--fullchain-file /var/www/cert/tls.crt &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span>--reloadcmd &lt;span style="color:#e6db74">&amp;#34;docker exec nginx nginx -t &amp;amp;&amp;amp; docker exec nginx /bin/bash -c &amp;#39;service nginx force-reload &amp;amp;&amp;amp; exit&amp;#39;&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>自动更新acme.sh版本
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">acme.sh --upgrade --auto-upgrade
