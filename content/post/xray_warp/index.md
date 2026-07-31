@@ -8,8 +8,6 @@ summary: "利用wgcf生成WARP配置，结合Xray-core的原生WireGuard出站�
 # 标签
 tags:
 - Proxy
-- Network
-- Xray
 
 #关键字
 keywords:
@@ -56,7 +54,7 @@ authors:
 # Featured image
 image:
   placement: 3
-  image: ""
+  image: "https://cdn.jsdelivr.net/gh/twbworld/hosting@main/img/2026073185495346.png"
   caption: ""
   focal_point: "Center"
   preview_only: true
@@ -110,9 +108,13 @@ Endpoint = 162.159.192.1:2408
 下一步配置 Xray 时会用到。
 
 对应关系:
+
 `PrivateKey` → xray 的 `secretKey`
+
 `Address` → xray 的 `address`
+
 `PublicKey` → xray peers 的 `publicKey`
+
 `Endpoint` → xray peers 的 `endpoint`
 
 ## 2. Xray 配置文件修改
