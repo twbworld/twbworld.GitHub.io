@@ -27,11 +27,11 @@ chmod +x wgcf
 &lt;span style="color:#a6e22e">AllowedIPs&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">::/0&lt;/span>
 &lt;span style="color:#a6e22e">Endpoint&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">162.159.192.1:2408&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>下一步配置 Xray 时会用到。&lt;/p>
-&lt;p>对应关系:
-&lt;code>PrivateKey&lt;/code> → xray 的 &lt;code>secretKey&lt;/code>
-&lt;code>Address&lt;/code> → xray 的 &lt;code>address&lt;/code>
-&lt;code>PublicKey&lt;/code> → xray peers 的 &lt;code>publicKey&lt;/code>
-&lt;code>Endpoint&lt;/code> → xray peers 的 &lt;code>endpoint&lt;/code>&lt;/p>
+&lt;p>对应关系:&lt;/p>
+&lt;p>&lt;code>PrivateKey&lt;/code> → xray 的 &lt;code>secretKey&lt;/code>&lt;/p>
+&lt;p>&lt;code>Address&lt;/code> → xray 的 &lt;code>address&lt;/code>&lt;/p>
+&lt;p>&lt;code>PublicKey&lt;/code> → xray peers 的 &lt;code>publicKey&lt;/code>&lt;/p>
+&lt;p>&lt;code>Endpoint&lt;/code> → xray peers 的 &lt;code>endpoint&lt;/code>&lt;/p>
 &lt;h2 id="2-xray-配置文件修改">2. Xray 配置文件修改&lt;/h2>
 &lt;p>打开你的 Xray 配置文件（如 &lt;code>/usr/local/etc/xray/config.json&lt;/code>）。&lt;/p>
 &lt;h3 id="21-添加-wireguard-出站-outbounds">2.1 添加 WireGuard 出站 (Outbounds)&lt;/h3>
