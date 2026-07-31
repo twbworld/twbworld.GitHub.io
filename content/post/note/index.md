@@ -356,9 +356,9 @@ image:
 ```sh
 openssl genrsa -out key.pem 2048
 
-openssl req -new -key key.pem -out csr.pem #Common Name填写(泛)域名
+openssl req -new -key key.pem -out cert.pem #Common Name填写(泛)域名
 
-openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
+openssl x509 -req -in cert.pem -out cert.pem -signkey key.pem -days 3650
 
 ```
 
@@ -369,7 +369,7 @@ openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
 
 
 * Linux配置流程 :
-    ``` sh
+    ``` sh    
     ~/.vimrc配置
     syntax on
     set autoindent
@@ -404,13 +404,16 @@ openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
     export GO111MODULE=on
     export GOROOT=/usr/local/go/
     export GOPATH=/usr/local/gopath/
-    export CF_Email="xxx@qq.com"
-    export CF_Key='xxxx'
+    export CF_Token="xxxxxx"
+    export CF_Account_ID='xxx'
     export PATH=$PATH:/usr/local/bin:/usr/local/sbin:$GOPATH/bin/
 
     关闭终端响铃
     echo "set bell-style none" >> /etc/inputrc
 
+    关闭ICMP响应
+    echo "net.ipv4.icmp_echo_ignore_all = 1" >> /etc/sysctl.conf
+    echo "net.ipv6.icmp.echo_ignore_all = 1" >> /etc/sysctl.conf
     开启BBR
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
@@ -418,13 +421,15 @@ openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
     lsmod | grep bbr
 
     systemctl disable ufw && systemctl stop ufw
+    修改主机名
     静态ip
+    ssh证书登录+禁止密码登录
+    修改SSH端口
     apt/docker/go源
     apt update && apt upgrade -y
     apt install -y ssh ca-certificates curl net-tools iftop htop mtr zip git tig tree screen axel proxychains4 acl samba dos2unix
     mtr(网络链)
     axel(多线程下载)
-    ssh证书配置
     git配置
     samba配置
     docker安装(nginx/mysql/php/node)
@@ -439,15 +444,15 @@ openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
 
     详细说明:<https://github.com/acmesh-official/acme.sh/wiki/说明>
 
-    1. 到[cloudflare](https://dash.cloudflare.com/profile)获取"更新dns"得权限码,[教程](https://github.com/acmesh-official/acme.sh/wiki/dnsapi)
+    1. 到[cloudflare](https://dash.cloudflare.com/profile)获取"编辑区域DNS"的权限码Token,[教程](https://github.com/acmesh-official/acme.sh/wiki/dnsapi)
         ``` sh
-        export CF_Key="xxxxxxxxxxxxxx"
-        export CF_Email="xxx@qq.com"
+        export CF_Token="xxxxxxxxxxxxxx"
+        export CF_Account_ID="xxx"
+        source ~/.bashrc
         ```
     2. 安装acme.sh
         ``` sh
         curl https://get.acme.sh | sh -s email=xxx@qq.com
-        source ~/.bashrc
         ```
     3. 获取证书
         ``` sh
@@ -462,9 +467,9 @@ openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 3650
     5. 安装证书到别的位置
         ``` sh
         acme.sh --install-cert -d "xxx.com" -d "*.xxx.com" \
-        --key-file /var/www/cert/key.pem \
-        --fullchain-file /var/www/cert/cert.pem \
-        --reloadcmd "docker exec nginx nginx -t && docker exec trojan /bin/bash -c 'systemctl restart trojan && exit' && docker exec nginx /bin/bash -c 'service nginx force-reload && exit'"
+        --key-file /var/www/cert/tls.key \
+        --fullchain-file /var/www/cert/tls.crt \
+        --reloadcmd "docker exec nginx nginx -t && docker exec nginx /bin/bash -c 'service nginx force-reload && exit'"
         ```
     6. 自动更新acme.sh版本
         ``` sh
