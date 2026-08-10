@@ -1,6 +1,7 @@
 name: main
+
 on:
-  push: #push即触发
+  push:
     branches:
       - main
     paths-ignore:
@@ -12,20 +13,30 @@ on:
       - '.editorconfig'
       - '.gitattributes'
       - '.gitmodules'
-jobs:
-  hugo-Deploy:
-    runs-on: ubuntu-latest #虚拟环境(github提供)
-    steps:
 
-      - uses: actions/checkout@v4 #官方Action, pull当前git项目
+# 开启官方部署 API 所需的权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 避免并发部署冲突
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
         with:
-          persist-credentials: false #不保存证书(当前Action的参数)
-          submodules: recursive #true OR recursive
+          submodules: recursive
           fetch-depth: 0
 
       - name: Read .env
         id: hugo-version
-        run: | #读取Hugo版本
+        run: |
           . ./.env
           echo "HUGO_VERSION=${HUGO_VERSION}" >>$GITHUB_OUTPUT
 
@@ -38,9 +49,20 @@ jobs:
       - name: Build
         run: hugo --minify
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      # 使用官方 action 上传生成的产物 (./public 目录)
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} #github会自动生成含有秘钥的环境变量
-          publish_dir: ./public
-          publish_branch: gh-pages
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      # 使用官方 action 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
