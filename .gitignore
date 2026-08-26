@@ -95,5 +95,6 @@ static/css/vendor2/
 dev/
 go.sum
 test/go.sum
+hugo
 
 /static/js/vendor/live2d-widget/.git/
