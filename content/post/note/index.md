@@ -329,10 +329,128 @@ image:
 
 
 
+## Ai
+
+### 性能
+LLM批处理,即厂商的Batch API(离线异步)
+
+1. Higress: 角色类似traefik, 比其重型; 可利用向量检索实现LLM层面的“语义缓存”,即直接返回语义相似的问题下的缓存答案,
+2. GPTCache: 其角色是作为SDK/库引入Agent代码中; 可利用向量检索实现LLM层面的“语义缓存”
+3. Prefix Caching(Prompt Caching): 用户多轮问题场景中的 KV 复用, 缓存用户问题所产生的KV值,如果下一个用户问题前缀对齐(命中), 则利用上一个KV值进行计算.
+4. KV Cache: 单次问题生成答案过程中的KV存储,实现自回归加速,利用上一个字的KV缓存, 预测下一个字.答案全部生成后, 缓存即可丢弃
+
+### 质量(解决幻觉)
+
+#### 提示词
+- 明确角色, 明确参考来源, 提供思考步骤(skills), 约束禁止和必须做, 提供输出事例, 自我反思, 禁止猜测务必追问
+- RE2: 提示词反复强调重点,提高LLM的专注度
+- 提示词压缩+数据清洗(如清除无用信息,特殊字符,脱敏等)
+
+#### 架构
+- 使用MCP:向量检索筛选出Tools(如MCP), 同时使用`Tool Calling`并配置`strict: true`;最后,应用层判断结果中的工具不存在则重试;
+- 使用有联网能力的Tool
+- RAG(检索+增强+生成)
+- 调节LLM温度
+- 结构化输出(Structured Outputs)
+- 使用小LLM分诊路由, 判断意图/情绪/对应知识库
+- 使用大型LLM激发`涌现能力`
+  > 上下文学习能力、思维链推理解决难题的能力、听懂人类意图的能力 等
+- 使用垂类LLM或微调
+- Agent具备ReAct逻辑,并避免死循环
+    > 限制ReAct次数, 限制token, 设置超时
+
+#### LLM效果评估
+- 人工介入打分,灰度打分
+- A/B 测试,分析用户行为
+- 使用新数据或私有数据进行测试(确保LLM未曾“见过”这些数据)
+- 使用专门ai测试工具
+
+
+##### MCP
+- MCP2.0本地通信沿用`stdio`, 远程通信采用`Streamable HTTP`(按需标准响应或SSE流式响应)
+- MCP可配置三大顶层:除了`Tool`(动态能力)还有`Resource`(静态资源, 使用`@`引用)和`Prompt`(使用`/`调用);`Prompt`是`Resource`与`Tool`的使用说明书, 类似于`skill`。
+    > 如:用户输入指令`/select 小明`, MCP鉴权通过则响应Prompt:`用户要查询"小明"的信息。首要读取[脱敏规范.md]资源(Resource), 然后调用query_user工具(Tool)获取包含敏感信息的用户数据,最后依据规范脱敏后输出最终答案`,实际上`脱敏规范.md`文件可直接内嵌到响应里
+
+##### RAG
+1. 查询转换: 利用LLM对用户问题进行改写/扩充/分解,再进行自查询
+2. 自查询: 利用LLM提取语义不明显的数据(如数字), 并生成 检索文本和过滤条件, 用于下一步的语义和关键词检索(投入产出比不高,且速度变慢)
+3. 关键词检索(BM25算法): Elasticsearch
+4. 向量检索: Milvus/Qdrant
+5. 混合检索: 通过RRF算法融合 关键词检索+向量检索的结果,再通过重排模型(Reranker)深度精排, 最后结果交给LLM
+
+>- 单独的ES/Milvus/Qdrant, 也能实现关键词+向量检索,即混合检索; PostgreSQL甚至能实现:关系型数据库+向量检索+关键词检索.
+>- GraphRAG:新一代RAG, 利用LLM提取实体关系构建“知识图谱”, 再向量化入库; 提高总揽全局做总结和顺藤摸瓜把分散的零碎知识串起来的能力
+>- Dify/FastGPT是支持混合检索的RAG工具
+
+##### LLM微调
+
+1. 从零预训练(一次预训练):投喂海量数据,得到`Base模型(预训练基座模型)`, 没有Chat对话能力(未对齐),如`Qwen3-8B-Base`
+2. 增量预训练(二次预训练): 用`Base模型`,投喂相关领域知识,得到`垂类Base模型`
+3. 指令微调: 为了理解人类指令、注入思维链(CoT)并具备对话能力,用`Base模型`做对齐工作,得到`Chat/Instruct模型`,如`Qwen3-8B-Instruct`和`DeepSeek-R1-0528-Qwen3-8B`(其用`蒸馏数据`训练`Qwen3-8B-Base`得到的)
+4. 二次微调: `Chat模型`作为基座, 通过脚本(PEFT技术), 用LoRA的方式训练个性化数据, 把训练生成的外挂包(权重)与基座LLM打包(权重合并)后, 再转换为平台格式(如GGUF格式).
+    > 云平台租24G显存显卡,用8B模型训练2000条数据,只需半小时,几块钱
+> 两个微调阶段, 都可选择LoRA微调(使用`外挂包`)或全参数微调(需要极大显存, 训练数据不过万就没必要)
 
 
 
+### 生态
 
+#### 协议
+- ACT(国内):用于电商全链路支付流程(相当于ACP或UCP+AP2); 配合支付宝 MCP 实现"前置授权, 自动免密代付",无需每次输入密码
+- ACP(国外-OpenAI):用于电商全链路支付流程, 支持法币和加密币
+- AP2(国外-Google):用于电商支付, 支持法币和加密币
+- UCP: 使得电商平台能被Agent"看懂"(即Agent可检索该平台,包括整套交易流程)
+- A2A: Agent委托其他专业Agent解决其能力外的事情
+- ADK:开发Agent的框架(类似LangGraph/Qwen-Agent)
+
+#### 工具
+
+| Coze(扣子) | Dify | LangGraph |
+| :--- | :--- | :--- |
+| 平台(低代码) | 应用开发(私有化部署) | 底层开发框架 |
+| 运营、产品 | 全栈工程师 | 后端研发 |
+| 客服、Bot、轻应用 | 支持RAG | Agent |
+
+
+
+## Go
+
+- 推荐[...]int{}
+- 推荐a, b = b, a
+- 推荐for range 3 {}
+- 推荐 func(a, b string)(err error){}
+- 推荐使用[]byte
+- 推荐make预设长度和容量
+- 推荐`strings.Builder`拼接字符串
+- 推荐边界检查消除 a = a[:3]
+- 推荐大slice切割并copy到新slice,大slice会被垃圾回收省资源,如:
+    ```go
+    mydata := data[m:n] //这里的mydata仍然共享原切片的底层数组
+    r := make([]int, len(mydata))
+    copy(r, mydata)
+
+    //>Go 1.21可使用slices.Clone替代
+    mydata := slices.Clone(data[:5])
+    ```
+- 推荐json序列化可使用`-`或`omitempty`或`omitzero`
+- 推荐锁: sync.RWMutex或sync.map
+- 推荐: slice/map/interface/fun/chan传参时,天然就是浅拷贝不需要手动传指针, 除非对其增加操作(如append) 亦或者 是数组[]或大struct类型时, 务必使用指针传参
+- 推荐工厂模式
+- 推荐泛形
+- 善用defer,如defer a()()
+- 注意chan要close
+- 能用main()就不用init()
+- 注意协程panic导致主进程挂掉, 且只能自己捕获
+- 推荐多协程使用errgroup替代go func(){}
+- 避免for i++{go func()}
+- 避免fmt
+- 避免全局变量被修改
+- 注意判断sql.ErrNoRows
+- 注意map需判断存在性
+- 注意map的内容是无序的
+- 注意属性配置空间, 避免json.Marshal结果出现null
+- 考虑到用户请求后,中途取消操作的情况
+- 使用Casbin依赖包设置权限
 
 
 ## Linux
@@ -369,7 +487,7 @@ openssl x509 -req -in cert.pem -out cert.pem -signkey key.pem -days 3650
 
 
 * Linux配置流程 :
-    ``` sh    
+    ``` sh
     ~/.vimrc配置
     syntax on
     set autoindent
