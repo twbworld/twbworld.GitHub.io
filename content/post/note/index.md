@@ -265,24 +265,6 @@ image:
 |/<name\>               | 搜索(按 n/N 向 下/上 查找) |
 
 
-### Sublime
-
-| 快捷键 | 描述 |
-| ---- | ---- |
-| Ctrl+Shift+L      | 所有选中的行,在行后后出现光标 |
-| Ctrl+Shift+M      | 选中括号里的内容 |
-| Ctrl+M            | 光标在括号前后跳 |
-| Ctrl+Shift+[ / ]  | 隐藏/显示 内容 |
-| Ctrl+J            | 多行成一行 |
-| Ctrl+KK           | 删除行后的内容 |
-| Ctrl+K+U / L      | 选中的内容 大写/小写 |
-| Ctrl+F2           | 标记行 |
-| F6                | 检错 |
-| Alt+.             | 补充标签 |
-| Alt+数字          | 跳转tag |
-| shift+pgup        | 向下选择 |
-
-
 ### Vimium
 
 | 快捷键 | 描述 |
@@ -332,22 +314,23 @@ image:
 ## Ai
 
 ### 性能
-LLM批处理,即厂商的Batch API(离线异步)
-
-1. Higress: 角色类似traefik, 比其重型; 可利用向量检索实现LLM层面的“语义缓存”,即直接返回语义相似的问题下的缓存答案,
-2. GPTCache: 其角色是作为SDK/库引入Agent代码中; 可利用向量检索实现LLM层面的“语义缓存”
-3. Prefix Caching(Prompt Caching): 用户多轮问题场景中的 KV 复用, 缓存用户问题所产生的KV值,如果下一个用户问题前缀对齐(命中), 则利用上一个KV值进行计算.
-4. KV Cache: 单次问题生成答案过程中的KV存储,实现自回归加速,利用上一个字的KV缓存, 预测下一个字.答案全部生成后, 缓存即可丢弃
+- 缓存
+    1. Higress(网络层): 角色类似traefik, 比其重型; 可利用向量检索实现LLM层面的“语义缓存”,即直接返回语义相似的问题下的缓存答案; 其不知道当前用户是谁的等信息, 只能做粗粒度缓存,如"怎么退款"等问题
+    2. GPTCache(业务层): 其角色是作为SDK/库引入Agent代码中; 可利用向量检索实现LLM层面的“语义缓存”, 相比网络层的Higress是不知道当前用户是谁的等信息
+    3. Prefix Caching(Prompt Caching, 算力层): 用户多轮问题场景中的 KV 复用, 缓存用户问题所产生的KV值,如果下一个用户问题前缀对齐(命中), 则利用上一个KV值进行计算.
+    4. KV Cache(显存层): 单次问题生成答案过程中的KV存储,实现自回归加速,利用上一个字的KV缓存, 预测下一个字.答案全部生成后, 缓存即可丢弃
+- LLM批处理,即厂商的Batch API(离线异步)
+- 首字时间(TTFT)受限于**计算能力**,因要理解提示词; 出字Token速度(TPOT)受限于**显存带宽**因要把所有权重从显存搬到计算单元
 
 ### 质量(解决幻觉)
 
 #### 提示词
-- 明确角色, 明确参考来源, 提供思考步骤(skills), 约束禁止和必须做, 提供输出事例, 自我反思, 禁止猜测务必追问
+- 明确角色, 提供思考步骤(skills), 约束禁止和必须做, 提供输出事例, 自我反思, 禁止猜测务必追问, 明确参考来源
 - RE2: 提示词反复强调重点,提高LLM的专注度
 - 提示词压缩+数据清洗(如清除无用信息,特殊字符,脱敏等)
 
 #### 架构
-- 使用MCP:向量检索筛选出Tools(如MCP), 同时使用`Tool Calling`并配置`strict: true`;最后,应用层判断结果中的工具不存在则重试;
+- 使用MCP:向量检索筛选出Tools(如MCP), 同时使用`Tool Calling`并配置`strict: true`
 - 使用有联网能力的Tool
 - RAG(检索+增强+生成)
 - 调节LLM温度
@@ -359,7 +342,7 @@ LLM批处理,即厂商的Batch API(离线异步)
 - Agent具备ReAct逻辑,并避免死循环
     > 限制ReAct次数, 限制token, 设置超时
 
-#### LLM效果评估
+#### 效果评估
 - 人工介入打分,灰度打分
 - A/B 测试,分析用户行为
 - 使用新数据或私有数据进行测试(确保LLM未曾“见过”这些数据)
@@ -378,16 +361,16 @@ LLM批处理,即厂商的Batch API(离线异步)
 4. 向量检索: Milvus/Qdrant
 5. 混合检索: 通过RRF算法融合 关键词检索+向量检索的结果,再通过重排模型(Reranker)深度精排, 最后结果交给LLM
 
->- 单独的ES/Milvus/Qdrant, 也能实现关键词+向量检索,即混合检索; PostgreSQL甚至能实现:关系型数据库+向量检索+关键词检索.
+>- 单独的ES/Milvus/Qdrant, 也能实现关键词+向量检索,即混合检索; PostgreSQL甚至能实现:关系型数据库+向量检索+关键词检索, 只是并发性能下不够专业, 也不能分布式.
 >- GraphRAG:新一代RAG, 利用LLM提取实体关系构建“知识图谱”, 再向量化入库; 提高总揽全局做总结和顺藤摸瓜把分散的零碎知识串起来的能力
 >- Dify/FastGPT是支持混合检索的RAG工具
 
 ##### LLM微调
 
 1. 从零预训练(一次预训练):投喂海量数据,得到`Base模型(预训练基座模型)`, 没有Chat对话能力(未对齐),如`Qwen3-8B-Base`
-2. 增量预训练(二次预训练): 用`Base模型`,投喂相关领域知识,得到`垂类Base模型`
+2. 增量预训练(二次预训练): 用`Base模型`,投喂相关领域知识,得到`垂类Base模型`(训练过程部分掺杂原有Base的数据,避免模型"遗忘")
 3. 指令微调: 为了理解人类指令、注入思维链(CoT)并具备对话能力,用`Base模型`做对齐工作,得到`Chat/Instruct模型`,如`Qwen3-8B-Instruct`和`DeepSeek-R1-0528-Qwen3-8B`(其用`蒸馏数据`训练`Qwen3-8B-Base`得到的)
-4. 二次微调: `Chat模型`作为基座, 通过脚本(PEFT技术), 用LoRA的方式训练个性化数据, 把训练生成的外挂包(权重)与基座LLM打包(权重合并)后, 再转换为平台格式(如GGUF格式).
+4. 二次微调: `Chat模型`作为基座, 通过脚本(PEFT技术), 用LoRA的方式训练个性化数据, 把训练生成的外挂包(权重)与基座LLM打包(权重合并)后, 再转换为平台格式(如GGUF用于边缘设备).
     > 云平台租24G显存显卡,用8B模型训练2000条数据,只需半小时,几块钱
 > 两个微调阶段, 都可选择LoRA微调(使用`外挂包`)或全参数微调(需要极大显存, 训练数据不过万就没必要)
 
@@ -411,6 +394,10 @@ LLM批处理,即厂商的Batch API(离线异步)
 | 运营、产品 | 全栈工程师 | 后端研发 |
 | 客服、Bot、轻应用 | 支持RAG | Agent |
 
+### 杂项
+- **图片识别**: 用视觉模型识别图片生成向量, 再用`投影层`把向量翻译成文本token,最后将该token投喂给文本模型
+- **防越狱**: 1.敏感词匹配 2.提示词 3.微调
+
 
 
 ## Go
@@ -420,7 +407,7 @@ LLM批处理,即厂商的Batch API(离线异步)
 - 推荐for range 3 {}
 - 推荐 func(a, b string)(err error){}
 - 推荐使用[]byte
-- 推荐make预设长度和容量
+- 推荐make预设长度和容量,避免json.Marshal结果出现null
 - 推荐`strings.Builder`拼接字符串
 - 推荐边界检查消除 a = a[:3]
 - 推荐大slice切割并copy到新slice,大slice会被垃圾回收省资源,如:
@@ -435,8 +422,6 @@ LLM批处理,即厂商的Batch API(离线异步)
 - 推荐json序列化可使用`-`或`omitempty`或`omitzero`
 - 推荐锁: sync.RWMutex或sync.map
 - 推荐: slice/map/interface/fun/chan传参时,天然就是浅拷贝不需要手动传指针, 除非对其增加操作(如append) 亦或者 是数组[]或大struct类型时, 务必使用指针传参
-- 推荐工厂模式
-- 推荐泛形
 - 善用defer,如defer a()()
 - 注意chan要close
 - 能用main()就不用init()
@@ -448,25 +433,19 @@ LLM批处理,即厂商的Batch API(离线异步)
 - 注意判断sql.ErrNoRows
 - 注意map需判断存在性
 - 注意map的内容是无序的
-- 注意属性配置空间, 避免json.Marshal结果出现null
-- 考虑到用户请求后,中途取消操作的情况
+- 推荐泛形
+- 推荐工厂模式
 - 使用Casbin依赖包设置权限
+- 考虑到用户请求后,中途取消操作的情况
 
 
 ## Linux
 
-* 端口号<1024为系统预留端口
 * uid < 500 为系统用户
-* 非`root`用户不能监听<1024的端口(所以一般`root`启动`nginx`)
-* nobody为Linux非登录用户,其作为nginx运行用户可保证安全
+* 端口号<1024为系统预留端口, 非`root`用户不能启用监听(所以用`root`来启动`nginx`监听80)
+* nobody为Linux非登录用户,其作为nginx运行用户可保证安全(用`root`用户启动后会降权为nobody用户运行)
 * `Linux`的共享:`NFS`协议
 * `windows`与`linux`共享:`SMB`协议(`Samba`软件)
-
-| 权限 | 符号 | 描述 |
-| ---- | ---- | ---- |
-| 可执行       | x | 可以进入该目录,无法读取该目录中的内容 |
-| 可执行可读   | xr | 可以进入该目录并读取该目录中的内容,不能创建文件 |
-| 可执行可写   | xw | 可以创建文件但是不能读取 |
 
 
 * opessl自签名
@@ -541,20 +520,18 @@ openssl x509 -req -in cert.pem -out cert.pem -signkey key.pem -days 3650
     systemctl disable ufw && systemctl stop ufw
     修改主机名
     静态ip
-    ssh证书登录+禁止密码登录
-    修改SSH端口
+    SSH修改端口+证书登录+禁止密码登录
     apt/docker/go源
     apt update && apt upgrade -y
-    apt install -y ssh ca-certificates curl net-tools iftop htop mtr zip git tig tree screen axel proxychains4 acl samba dos2unix
+    apt install -y ssh ca-certificates curl net-tools axel iftop htop zip git tig tree mtr proxychains4 screen acl dos2unix
     mtr(网络链)
     axel(多线程下载)
-    git配置
-    samba配置
-    docker安装(nginx/mysql/php/node)
+    docker安装
     k3s安装
-    k3d安装
-    golang安装
+    git配置
+    Go安装
     fresh安装
+    k3d安装
     apt autoclean -y && apt autoremove -y
     ```
 
@@ -617,30 +594,25 @@ openssl x509 -req -in cert.pem -out cert.pem -signkey key.pem -days 3650
     > 8. 可查看本地关联的所有仓库主机
     `git remote -v 或者 git remote show origin`
     > 9. 把项目添加到缓存区
-    `git add . 和 git commit –m <备注>`
+    `git add -A 和 git commit –m 'feat: 新功能'`
     > 10. 提交项目到origin仓库的master分支
-    `git push origin master (添加"--tags"可同时上传tag)`
+    `git push origin master --tags`
 
 * git hook :
     > * 第三方仓库git hook
     > * 服务器部署git裸仓库
-        <http://kongfangyu.com/2016/02/12/git-deploy>
 
 * 备注规范 :
-  > * feat: 新功能
-  > * fix: 修复 bug
-  > * chore: 其他修改,构建过程或辅助工具和库（如文档生成）的更改
-  > * refactor: bug 修复和添加新功能之外的代码改动,重构大改动
-  > * perf: 提升性能的改动
-  > * docs: 文档变动
-  > * style: 格式调整，对代码实际运行没有改动，例如添加空行、格式化等
-  > * test: 添加或修正测试代码
-  > * ci: 持续集成相关文件修改
-  > * release: 发布新版本
-  > * revert: 恢复上一次提交
-
-
-
+  - feat: 新功能
+  - fix: 修复 bug
+  - refactor: 不改变功能逻辑的前提下的改动, 重构
+  - chore: 其他杂项修改
+  - docs: 文档变动,如README.md、接口文档
+  - test: 添加或修正测试代码
+  - style: 代码格式化
+  - perf: 提升性能的改动
+  - ci: 持续集成相关配置修改
+  - revert: 撤销之前的提交
 
 
 
@@ -674,35 +646,37 @@ systemctl status nginx.service
 
 ## 网络
 
+* `ARP` : 保存 `IP` 与 `mac` 地址的映射列表,没有则会广播
 * `TCP` :需要三次握手,建立了 `TCP` 虚拟通道,之后, `TCP` 运输 `HTTP流`
-* `SSL` : 位于 `TCP` 与 `HTTP` 之间,作为 `HTTP` 的安全供应商，全权负责 `HTTP` 的安全加密工作。
-* `TLS` : 在 `SSL3.0` 版本的基础上，重新设计并命名了这个协议，其全新的名字为 `TLS` ,形成: `TCP连接时间` + `TLS 连接时间` + `HTTP交易时间`
-* `HTTPS` : 通常将 `TLS` 安全保护的 `HTTP` 通信，称之为 `HTTPS` ，以区别于没有 `TLS` 安全防护的 `HTTP` 明文通信。
-* `HTTP/2` : 第一次页面与第二次页面都是同一个网站服务器,重用第一个页面 `TCP` 连接(多路复用)
-* `QUIC` : `http/2` 去掉 `TCP` ,改用不需要连接的 `UDP` ,形成: `UDP / QUIC` ,第一次 `2.5RTT` ,完成 `QUIC` 交易的连接的 `Session ID` 会缓存在浏览器内存里,第二次,使用 `Session ID` ,重连 `TLS` 连接是一个 `0 RTT` 事件
+* `SSL` : 负责 `HTTP` 的安全加密工作, 已被淘汰
+* `TLS` : `TLS`由 `SSL3.0` 的基础上重新设计而来,形成: `TCP连接时间` + `TLS 连接时间` + `HTTP交易时间`
+* `HTTPS` : 由 `TLS` 安全保护的 `HTTP`，称之为 `HTTPS` 。
+* `HTTP/2` : 多路复用, 在单一的 TCP 连接上，同时并发传输多个请求和响应
+* `QUIC` : `http/2` 去掉 `TCP` ,改用不需要连接的 `UDP`,并内置 `TLS1.3`
 * `HTTP/3` : 把 `QUIC` 与 `HTTP` 分离,形成: `UDP / QUIC / HTTP`
 * 使用 `IPv4` 进行路由，使用 `TCP` 进行连接层面的流量控制，使用 `SSL/TLS` 协议实现传输安全，使用 `DNS` 进行域名解析，使用 `HTTP` 进行应用数据的传输。
+* `TCP/IP` 连接 + `http` 传输 --> 网卡 --> 内核(通过资源包的四元组信息,信息的其中之二是访问的 `IP+端口` ) --> `socket`(它是linux资源,是网络与进程的中介,储存着端对端的四元组信息,被进程使用) --> 进程
 
-* `IP` 是网络层 ; `TCP` 是传输层
-* 网络层 `ARP` : 保存 `IP` 与 `mac` 地址的映射列表,没有则会广播
-
-* `TCP/IP` 连接 + `http` 传输 --> 网卡 --> 内核(通过资源包的四元组信息,信息的其中之二是访问的 `IP+端口` ) --> `socket`(它是文件系统,是资源,是网络与进程的中介,储存着端对端的四元组信息,被进程使用) --> 进程
-
+| OSI | 协议 | 描述 |
+| :--- | :--- | :--- |
+| L1物理层 |  |  |
+| L2数据链路层 | 以太网/wifi/ARP |  |
+| L3网络层 | IPv4/ICMP |  |
+| L4传输层 | TCP/UDP/QUIC |  |
+| L5会话层 | RPC |  |
+| L6表示层 | TLS/SSL/ASCII/Base64 |  |
+| L7应用层 | HTTP/SSH/DNS/FTP |  |
 
 
 
 ## 隧道
 
-> <https://www.zhihu.com/question/39382183>
-* 隧道是一种技术,有 `SSH隧道` 和 `http隧道` 和 `UDP隧道(p2p)`
+* 隧道是一种技术,有 `SSH隧道` 和 `http隧道`
 * 隧道的中间服务器是不参与流量分析的,只用来传输流量,只是用于简单的过度
 * 代理是可以参与流量的处理的,比如 `http代理`
-* 但 `http代理` 不能传输 `https流量` ,因为 `https` 是端对端的加密,没有中间人
-* 为了解决不能代理 `https流量` , `http隧道` 配合 `http` 的 `CONNECT报文` 解决了这个问题;
-* `SOCKS5` 方式可以代替 `CONNECT报文` 的方法, `CONNECT报文` 只能用于 `http流量` ,而 `SOCKS5` 可以传输任意协议,如 `https` 或 `ftp`
-* 大致原理: `本地---(1)--->代理---(2)--->服务器`; 本地与代理建立动态端口隧道,过程`(1)` 使用 `SOCKS5` 或 `http` 的 `CONNECT报文(包裹着https流量)` , 过程 `(2)` 使用 `https`;
-
-> <https://www.zsythink.net/archives/2450>
+* `http隧道` 配合 `http` 的 `CONNECT报文`,解决了`http代理` 不能传输 `https流量`(因为 `https` 是端对端的加密,没有中间人)的问题
+*  `CONNECT报文`的方法只能用于 `tcp流量` ,而 `SOCKS5` 可以代替 `CONNECT报文` 的方法,且可以传输`UDP`
+* 大致原理: `本地---(1)--->代理---(2)--->服务器`; 首先过程`(1)` 本地使用 `SOCKS5` 或 `http` 的 `CONNECT报文`请求与代理就建立了隧道,后续就能直接传输`https`, 过程 `(2)` 使用 也是正常的`https`, ;
 
 1. 动态转发(科学上网)
     ``` sh
@@ -733,25 +707,20 @@ systemctl status nginx.service
 
 ## 数据库读写分离
 
-实现 `读写分离` 分为两大步 :
-* [主从同步](https://www.jianshu.com/p/bfca0cdfb169)
+实现 `读写分离` 的两步 :
+* 主从同步
 * 读写分离;有两种方式 :
-    * 通过程序实现,如TP框架,性能最好;
-    * 使用代理工具,如 :
-        * [Mycat](https://www.jianshu.com/p/cb7ec06dae05)
-        * [Mysql-Proxy](https://www.jianshu.com/p/cadf337274c1)
-
+    * 通过框架代码实现,性能最好;
+    * 使用中间件/代理工具,如: `Mycat`/`ProxySQL`
 
 
 > `mysql` 之间可相互主从同步,避免 `单点` ;当有主从数据库发生宕机,可使用 `percona-tooldit` 工具解决恢复宕机后主从数据不同步的问题
-    <https://blog.51cto.com/moerjinrong/2352317>
 
 
 ## 数据库
 
 > `mysql8` 特性 :
 > * `utf8mb4` 储存表情符号
-> * 默认 `InnoDB`
 > * 降序索引
 > * JSON支持,直接操作json里的数据
 > * 跳过锁等待
@@ -761,7 +730,7 @@ systemctl status nginx.service
 * 出现不能连接数据库的情况,除了防火墙,也可能是数据库没有设置对外添加权限
 * 出现用户不能登录的情况,可能是默认登录了 `匿名用户` , 要把用户名为 `''` 的用户清除
 * `InnoDB` 存储引擎偏向于增删改事件,支持事务,支持索引行锁
-* 索引才用 `for update` 锁库
+* 索引可用 `for update` 行锁
 
 * 免密码登录
     `skip-grant-tables`
@@ -790,20 +759,19 @@ systemctl status nginx.service
 * 计算总和
     `select sum(*) from my_name`
 * 计算平均
-    `select sum(*)/count(*) from my_name`
-* 计算平均
     `select avg(name) from my_name`
+    > `select sum(*)/count(*) from my_name`
 * 最小值
     `select min(name) from my_name`
 
 * 双重查询,查询指定最小值对应的的所有字段
-    `SELECT * FROM my_name WHERE name=(SELECT max(name)FROM my_name)`
+    `SELECT * FROM my_name WHERE name=(SELECT max(name) FROM my_name)`
 * 根据指定字段分类
     `select * from my_name group by name;`
 * 表的联合查询
     `SELECT * FROM my_name as a INNER JOIN my_name2 as b on a.name=b.id`
 * 左查询,就是当my_name跟my_name2的的值不相对应则以my_name为主要,my_name2多出的值则省略
-    `SELECT * FROM my_name as a left outer JOIN my_name2 as b on a.name=b.id`
+    `SELECT * FROM my_name as a left JOIN my_name2 as b on a.name=b.id`
 
 
 
@@ -811,31 +779,9 @@ systemctl status nginx.service
 
 ## PHP
 
-> php7特性
-> * 用绝对路径
-> * 重定向后使用exit
-> * array_walk
-> * &引用节省内存
-> * += array()
-> * isset($a{1})
-> * $_SERVER['REQUEST_TIME']
-> * strtr
-> * 高亮PHP代码highlight_file
-> * 2 <=> 1
-> * echo "\u{41}",PHP_EOL;
-> * use some\namespace\{ClassA, ClassB, ClassC as C};
-> * function arraysSum(int ...$ints): string
-> * ``` php
->    class A{static private $b = 'hello world';}
->    $bb = function (){return A::$b;};
->    echo $bb->call(new A);
->    ```
-
 * bug
   ``` php
-  [] == []; //为false
-
-  'a' == 0;
+  'a' == 0; //php7
 
   $a = '0.3' - '0.1';
   json_encode($a);
@@ -843,21 +789,13 @@ systemctl status nginx.service
   ```
 * json_encode((array)$array, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT)
 * 有时候exec命令执行失败,却没有报错,请这样使用:`exec('ls 2>&1', $a, $b)`
-* `fastcgi`就是执行 `cgi协议` 的,用于定义 `Nginx` 调用 `php` 时的数据格式,并减少对 `php.ini` 的读取
-* `php-fpm`就是 `Nginx` 服务调用的程序,管理 `fastcgi` 进程
-* `php-cli`就是 `shell` 命令行调用的程序
-* `|||nochange|||`表示 `input` 输入框为空
+* `FastCGI`是`CGI协议`的改进版协议,用于定义 `Nginx` 调用 `php` 时的数据格式,并减少对 `php.ini` 的读取
+* `php-fpm`是 PHP 的 FastCGI 进程管理器, Nginx通过 FastCGI 协议转发给它
 * `htmlentities` / `htmlspecialchars` 可以过滤成 `html格式` , 防止 `XSS`
-* `addslashes` 防止 `sql注入`
-* `explain` 用于测试 `sql语句` 性能
 * 引用字符串方式: `Nowdoc` / `Heredoc`
 * 中文简体格式
     `header('Content-type:text/html;charset=utf-8')`
-* 解决textarea标签回车编码问题
-    `str_replace(" "," ",str_replace("\n","<br/>",$data))`
 * 单入口写上: `session_start()` 才可以使用 `$_SESSION`
-* 跳转到#页面
-    `header('Location:#')`
 * php格式插入html遍历
     ``` php
     <?php foreach ($my_name as $x => $y){ ?>
@@ -870,75 +808,7 @@ systemctl status nginx.service
     echo "Hello"; //输出
     ob_end_flush(); //输出全部内容到浏览器,包括echo
     ```
-* php数组排序
-    ``` php
-    array_multisort(array_column($array,'create_time'),SORT_DESC,$array)
-    ```
-* 跨域
-    ``` php
-    $origin         = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
-    $originsAllowed = [
-        'http://cc.cc:8080',
-    ];
-    if (in_array($origin, $originsAllowed)) {
-        defined('CORS_ORIGIN') || define('CORS_ORIGIN', $origin);
 
-        header('Access-Control-Allow-Origin: ' . $origin); //可以用*允许所有
-        header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT");
-        header('Access-Control-Allow-Headers: X-Requested-With, X_Requested_With, content-type');
-        header("Access-Control-Allow-Credentials: true");
-    }
-    ```
-
-## 前端
-
-* 可以设置类似`cookie` , 它可永久保存
-    `localStorage.setItem(name, val)`
-* 死链
-    `<a href="javascript:void(0);">`
-* CSS加载JS样式
-    `behavior:url()`
-* 选择div内第二个li,类似js
-    `div li:first-child+li{}`
-* 选择form下类型为text的input标签
-    `form input[type="text"]{}`
-* 居中CSS背景图片
-    `background-position:center`
-* 居中HTML图片
-    `<div align="center"><img src="">`
-* 居中div
-    `{top:0;left:0;bottom:0;right:0;margin:auto}/margin:0 auto;`
-* 单行文字水平/垂直居中
-    `text-decoration:center;/line-height:10px;`
-* 多行文字垂直居中:div1>div2>p
-    `div1{display:table;/*转换成表格*/} div2{display:table-cell;vertical-align:middle;}`
-* li中间向两边分布
-    `ul{text-align:center}li{display: inline-block;}`
-* li水平分布,ul宽度平均分割给li
-    `ul{display:flex}li{flex:1;text-align:center}`
-* li水平分布,类似最左和最右浮动两边的效果
-    `div{overflow:hidden;width:11px} div ul{width:12px}   li{width:5px;margin_right:1px}`
-* 轮播图不能有滚动条
-    `在ul父级加overflow:hidden;width:100%;position: relative;//position用于ul居中`
-* 清除浮动,class是my_name就可以清除浮动
-    `.my_name:after{content:""; display:block; height:0; visibility:hidden; clear:both;}`
-* 鼠标悬浮图片放大
-    `.div:hover img{transform: scale(1.03);transition: all 1s ease 0s;-webkit-transform: scale(1.03);-webkit-transform: all 1s ease 0s;}`
-* iframe高度
-    ``` js
-    var e = window,
-        a = 'inner',
-        $header = $(".header");//如果页面有头部,则要减去
-    if (!('innerWidth' in window)) {
-        a = 'client';
-        e = document.documentElement || document.body;
-    }
-    var height = e[a + 'Height'] - $header.outerHeight();
-    $(".iframe").css({
-        height: height,
-        width: "100%"
-    });
-    ````
 
 
 **... 以上**
