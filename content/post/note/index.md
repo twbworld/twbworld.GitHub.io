@@ -365,7 +365,7 @@ image:
 >- GraphRAG:新一代RAG, 利用LLM提取实体关系构建“知识图谱”, 再向量化入库; 提高总揽全局做总结和顺藤摸瓜把分散的零碎知识串起来的能力
 >- Dify/FastGPT是支持混合检索的RAG工具
 
-##### LLM微调
+##### 微调
 
 1. 从零预训练(一次预训练):投喂海量数据,得到`Base模型(预训练基座模型)`, 没有Chat对话能力(未对齐),如`Qwen3-8B-Base`
 2. 增量预训练(二次预训练): 用`Base模型`,投喂相关领域知识,得到`垂类Base模型`(训练过程部分掺杂原有Base的数据,避免模型"遗忘")
@@ -395,7 +395,9 @@ image:
 | 客服、Bot、轻应用 | 支持RAG | Agent |
 
 ### 杂项
-- **图片识别**: 用视觉模型识别图片生成向量, 再用`投影层`把向量翻译成文本token,最后将该token投喂给文本模型
+- **SAM**: 用于抠图,先用ViT把图片转成向量, 最后将该向量与提示词(抠图要用的图片坐标或文字等信息)向量一起给`解码器`,秒出结果
+- **VLM**: 用于图片识别,含ViT+投影层+LLM,如`Qwen-VL`,先用ViT把图片转成向量, 再用`投影层`把向量翻译成图片token,最后将图片token与提示词token一起投喂给文本模型(LLM); 可实现RPA(模拟人类操作GUI系统)
+- **Omni**: 一体化全模态, `识图`、`生图`、`听`、`说` 等多能力合一的模型
 - **防越狱**: 1.敏感词匹配 2.提示词 3.微调
 
 
@@ -718,6 +720,65 @@ systemctl status nginx.service
 
 
 ## 数据库
+
+### 安全修改数据思路(Mysql使用默认RR模式的前提下)
+#### 原子更新
+```go
+mysql.exec("BEGIN");
+
+//...其他操作,如记录流水
+
+//不需要前置查询id的存在性, 直接update
+num := mysql.exec("UPDATE user SET balance = balance-? WHERE id = ? AND balance >= ?", pay, id, pay);
+
+//判断受影响行数
+if num == 0 {
+    mysql.exec("ROLLBACK");
+    return "余额不足或用户不存在"
+}
+
+mysql.exec("COMMIT");
+```
+
+#### 乐观锁
+```go
+//当需要直接修改字段为某个字而不是增加或减少数量时,则改为新增并利用version字段, 改为如下:
+//乐观锁需重试
+for range 3 {
+    id,version := mysql.exec("SELECT id,version FROM user WHERE name = 'admin'");
+
+    mysql.exec("BEGIN");
+
+    num := mysql.exec("UPDATE user SET balance = 100, version=version+1 WHERE id = ? AND version = ?",id,version);
+    // 版本失效或被并发抢占
+    if num == 0 {
+        mysql.exec("ROLLBACK");
+
+        // 短暂随机休眠，防止并发线程同步重试再次冲突
+        sleepRandom(10ms, 50ms);
+        continue;
+    }
+
+    //...其他操作,如记录流水
+
+    mysql.exec("COMMIT");
+    return "成功";
+}
+return "并发冲突频繁，更新失败";
+```
+
+#### 悲观锁
+```go
+//业务逻辑极度复杂，单条 UPDATE 写不出来, 改为如下:
+mysql.exec("BEGIN");
+balance := mysql.exec("SELECT balance FROM user WHERE id = ? FOR UPDATE", id);
+
+//...进行复杂的本地业务逻辑运算
+balance = handle(balance)
+
+mysql.exec("UPDATE user SET balance = ? WHERE id = ?", balance, id);
+mysql.exec("COMMIT");
+```
 
 > `mysql8` 特性 :
 > * `utf8mb4` 储存表情符号
