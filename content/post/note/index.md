@@ -503,9 +503,12 @@ openssl x509 -req -in cert.pem -out cert.pem -signkey key.pem -days 3650
     export GO111MODULE=on
     export GOROOT=/usr/local/go/
     export GOPATH=/usr/local/gopath/
-    export CF_Token="xxxxxx"
-    export CF_Account_ID='xxx'
+    export NODE_OPTIONS=--openssl-legacy-provider
     export PATH=$PATH:/usr/local/bin:/usr/local/sbin:$GOPATH/bin/
+    export LANG=en_US.UTF-8
+    export LC_ALL=en_US.UTF-8
+    export CF_Token='xxxxxx'
+    export CF_Account_ID='xxx'
 
     关闭终端响铃
     echo "set bell-style none" >> /etc/inputrc
@@ -541,38 +544,37 @@ openssl x509 -req -in cert.pem -out cert.pem -signkey key.pem -days 3650
 
     详细说明:<https://github.com/acmesh-official/acme.sh/wiki/说明>
 
-    1. 到[cloudflare](https://dash.cloudflare.com/profile)获取"编辑区域DNS"的权限码Token,[教程](https://github.com/acmesh-official/acme.sh/wiki/dnsapi)
+    1. 到[cloudflare](https://dash.cloudflare.com/profile)获取"编辑区域DNS"的权限码Token,[教程](https://github.com/acmesh-official/acme.sh/wiki/dnsapi); 配置续期失败tg通知
         ``` sh
         export CF_Token="xxxxxxxxxxxxxx"
         export CF_Account_ID="xxx"
+        export TELEGRAM_BOT_APITOKEN='xx:xxxx'
+        export TELEGRAM_BOT_CHATID='xxx'
+
         source ~/.bashrc
         ```
-    2. 安装acme.sh
+    2. 安装 acme.sh 并开启自动更新和tg通知
         ``` sh
         curl https://get.acme.sh | sh -s email=xxx@qq.com
+        acme.sh --upgrade --auto-upgrade
+        acme.sh --set-notify --notify-hook telegram --notify-level 2
         ```
-    3. 获取证书
+    3. 申请证书
         ``` sh
-        acme.sh --issue --dns dns_cf -d "xxx.com" -d "*.xxx.com" \
-        --yes-I-know-dns-manual-mode-enough-go-ahead-please
+        acme.sh --issue --dns dns_cf -d "xxx.com" -d "*.xxx.com"
         ```
-    4. 验证证书
+    4. 安装证书到指定目录
         ``` sh
-        acme.sh --renew -d "xxx.com" -d "*.xxx.com" \
-        --yes-I-know-dns-manual-mode-enough-go-ahead-please --force
-        ```
-    5. 安装证书到别的位置
-        ``` sh
-        acme.sh --install-cert -d "xxx.com" -d "*.xxx.com" \
+        mkdir -p /var/www/cert
+        acme.sh --install-cert -d "xxx.com" \
         --key-file /var/www/cert/tls.key \
         --fullchain-file /var/www/cert/tls.crt \
         --reloadcmd "docker exec nginx nginx -t && docker exec nginx /bin/bash -c 'service nginx force-reload && exit'"
         ```
-    6. 自动更新acme.sh版本
+    5. 测试强制续期
         ``` sh
-        acme.sh --upgrade --auto-upgrade
+        acme.sh --renew -d "xxx.com" --force
         ```
-
 
 
 
